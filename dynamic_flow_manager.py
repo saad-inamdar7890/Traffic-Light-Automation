@@ -11,18 +11,18 @@ class DynamicFlowManager:
         """Initialize the dynamic flow manager with base flow configurations"""
         # Based on demo.rou.xml flows, create dynamic variations
         self.flow_configs = {
-            'f_0': {'from': 'E0', 'to': 'E0.319', 'base_rate': 1000, 'current_rate': 1000},
-            'f_1': {'from': 'E0', 'to': '-E1.238', 'base_rate': 500, 'current_rate': 500},
-            'f_2': {'from': 'E0', 'to': 'E1.200', 'base_rate': 500, 'current_rate': 500},
-            'f_3': {'from': '-E1', 'to': '-E1.238', 'base_rate': 1000, 'current_rate': 1000},
-            'f_4': {'from': '-E1', 'to': '-E0.254', 'base_rate': 500, 'current_rate': 500},
-            'f_5': {'from': '-E1', 'to': 'E0.319', 'base_rate': 500, 'current_rate': 500},
-            'f_6': {'from': '-E0', 'to': '-E1.238', 'base_rate': 500, 'current_rate': 500},
-            'f_7': {'from': '-E0', 'to': 'E1.200', 'base_rate': 500, 'current_rate': 500},
-            'f_8': {'from': 'E1', 'to': '-E0.254', 'base_rate': 500, 'current_rate': 500},
-            'f_9': {'from': 'E1', 'to': 'E0.319', 'base_rate': 500, 'current_rate': 500},
-            'f_10': {'from': 'E1', 'to': 'E1.200', 'base_rate': 1000, 'current_rate': 1000},
-            'f_11': {'from': '-E0', 'to': '-E0.254', 'base_rate': 1000, 'current_rate': 1000}
+            'f_0': {'from': 'E0', 'to': 'E0.319', 'base_rate': 300, 'current_rate': 300},
+            'f_1': {'from': 'E0', 'to': '-E1.238', 'base_rate': 150, 'current_rate': 150},
+            'f_2': {'from': 'E0', 'to': 'E1.200', 'base_rate': 150, 'current_rate': 150},
+            'f_3': {'from': '-E1', 'to': '-E1.238', 'base_rate': 300, 'current_rate': 300},
+            'f_4': {'from': '-E1', 'to': '-E0.254', 'base_rate': 150, 'current_rate': 150},
+            'f_5': {'from': '-E1', 'to': 'E0.319', 'base_rate': 150, 'current_rate': 150},
+            'f_6': {'from': '-E0', 'to': '-E1.238', 'base_rate': 150, 'current_rate': 150},
+            'f_7': {'from': '-E0', 'to': 'E1.200', 'base_rate': 150, 'current_rate': 150},
+            'f_8': {'from': 'E1', 'to': '-E0.254', 'base_rate': 150, 'current_rate': 150},
+            'f_9': {'from': 'E1', 'to': 'E0.319', 'base_rate': 150, 'current_rate': 150},
+            'f_10': {'from': 'E1', 'to': 'E1.200', 'base_rate': 300, 'current_rate': 300},
+            'f_11': {'from': '-E0', 'to': '-E0.254', 'base_rate': 300, 'current_rate': 300}
         }
         
         self.flow_update_interval = 120  # Update flows every 2 minutes

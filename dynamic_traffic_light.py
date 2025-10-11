@@ -1,6 +1,6 @@
 """
 Dynamic Traffic Light Management Module
-Handles adaptive traffic light control based on real-time traffic conditions
+Enhanced version with optimized adaptive control algorithms
 
 Network Layout (Junction J4):
 - From East: E0 → Junction J4 → E0.319 (To East)
@@ -8,128 +8,232 @@ Network Layout (Junction J4):
 - From North: E1 → Junction J4 → -E1.238 (To North)
 - From South: -E1 → Junction J4 → E1.200 (To South)
 
-Traffic Light Phases (9 phases, 120s cycle):
-0: All Red (3s)
-1: Mixed NS movements (30s) - Priority: North-South traffic
-2: Yellow transition (3s)
-3: EW Through movements (30s) - Priority: East-West through traffic
-4: Yellow transition (3s) 
-5: EW Mixed movements (30s) - Priority: East traffic
-6: Yellow transition (3s)
-7: NS Through movements (30s) - Priority: West traffic  
-8: Yellow transition (3s)
+Enhanced Features:
+- Faster adaptation intervals (15s instead of 30s)
+- Predictive traffic modeling
+- Queue-aware pressure calculations
+- Early phase transition capability
+- Optimized timing algorithms
 """
 
 import traci
+import statistics
+import math
 from collections import defaultdict, deque
 
 class AdaptiveTrafficController:
     def __init__(self, junction_id="J4"):
-        """Initialize the adaptive traffic light controller"""
+        """Initialize the enhanced adaptive traffic light controller"""
         self.junction_id = junction_id
-        self.min_green_time = 10  # Minimum green phase duration
-        self.max_green_time = 60  # Maximum green phase duration
+        
+        # Optimized timing parameters
+        self.min_green_time = 8   # Reduced minimum for faster response
+        self.max_green_time = 80  # Increased maximum for heavy traffic
+        self.default_green_time = 25  # Optimized default duration
+        
+        # Enhanced monitoring
         self.current_phase = 0
         self.phase_start_time = 0
-        self.traffic_history = defaultdict(lambda: deque(maxlen=5))
+        self.last_adaptation_time = 0
+        self.adaptation_interval = 15  # Less aggressive - adapt every 15 seconds
         
-        # Traffic light phases based on actual network's tlLogic from demo.net.xml
-        # State pattern: "rrrrrrrrrrrrrrrrr" represents 17 connections
-        # Connections: ["-E1→E0.319", "-E1→-E1.238(0)", "-E1→-E1.238(1)", "-E1→-E0.254", 
-        #              "E0→E1.200", "E0→E0.319(0)", "E0→E0.319(1)", "E0→-E1.238", 
-        #              "E1→-E0.254", "E1→E1.200(0)", "E1→E1.200(1)", "E1→E0.319", 
-        #              "-E0→-E1.238", "-E0→-E0.254(0)", "-E0→-E0.254(1)", "-E0→E1.200"]
+        # Traffic history and prediction
+        self.traffic_history = defaultdict(lambda: deque(maxlen=10))  # Increased history
+        self.pressure_trend = defaultdict(lambda: deque(maxlen=5))
+        self.queue_history = defaultdict(lambda: deque(maxlen=8))
+        
+        # Performance tracking
+        self.adaptations_made = 0
+        self.total_pressure_reduced = 0
+        self.phase_extensions = defaultdict(int)
+        self.phase_reductions = defaultdict(int)
+        
+        # Enhanced phase definitions with optimized base durations
         self.phases = {
-            0: {"name": "All_Red_Start", "base_duration": 3, "directions": [], "state": "rrrrrrrrrrrrrrrrr"},
-            1: {"name": "Mixed_Phase_1", "base_duration": 30, "directions": ["-E1", "E1"], "state": "GrrrgrrrrrrrGGGGr"},
+            0: {"name": "All_Red_Start", "base_duration": 2, "directions": [], "state": "rrrrrrrrrrrrrrrrr"},
+            1: {"name": "Mixed_Phase_1", "base_duration": 25, "directions": ["-E1", "E1"], "state": "GrrrgrrrrrrrGGGGr"},
             2: {"name": "Yellow_Transition_1", "base_duration": 3, "directions": [], "state": "yrrryrrrrrrryyyyr"},
-            3: {"name": "EW_Through_Phase", "base_duration": 30, "directions": ["E0", "-E0"], "state": "grrrgrrrGGGGGrrrr"},
+            3: {"name": "EW_Through_Phase", "base_duration": 25, "directions": ["E0", "-E0"], "state": "grrrgrrrGGGGGrrrr"},
             4: {"name": "Yellow_Transition_2", "base_duration": 3, "directions": [], "state": "yrrryrrryyyyyrrrr"},
-            5: {"name": "EW_Mixed_Phase", "base_duration": 30, "directions": ["E0"], "state": "grrrGGGGGrrrgrrrr"},
+            5: {"name": "EW_Mixed_Phase", "base_duration": 25, "directions": ["E0"], "state": "grrrGGGGGrrrgrrrr"},
             6: {"name": "Yellow_Transition_3", "base_duration": 3, "directions": [], "state": "yrrryyyyyrrryrrrr"},
-            7: {"name": "NS_Through_Phase", "base_duration": 30, "directions": ["-E0"], "state": "GGGGGrrrgrrrgrrrr"},
+            7: {"name": "NS_Through_Phase", "base_duration": 25, "directions": ["-E0"], "state": "GGGGGrrrgrrrgrrrr"},
             8: {"name": "Yellow_Transition_4", "base_duration": 3, "directions": [], "state": "yyyyyrrryrrryrrrr"}
         }
         
+        # Direction mappings for better pressure calculation
+        self.direction_groups = {
+            'north_south': ['E1', '-E1'],
+            'east_west': ['E0', '-E0'],
+            'north': ['E1'],
+            'south': ['-E1'], 
+            'east': ['E0'],
+            'west': ['-E0']
+        }
+        
     def calculate_traffic_pressure(self, step_data, directions):
-        """Calculate traffic pressure for given directions"""
+        """Enhanced pressure calculation with controlled growth to prevent numerical explosion"""
         if not step_data or 'edge_data' not in step_data:
             return 0
         
-        total_vehicles = 0
-        total_waiting = 0
-        total_speed_factor = 0
+        total_pressure = 0
         
         for direction in directions:
             edge_data = step_data['edge_data'].get(direction, {})
             vehicles = edge_data.get('vehicle_count', 0)
-            waiting = edge_data.get('waiting_time', 0)
+            waiting_time = edge_data.get('waiting_time', 0)
             avg_speed = edge_data.get('avg_speed', 0)
             
-            total_vehicles += vehicles
-            total_waiting += waiting
+            if vehicles == 0:
+                continue
             
-            # Speed factor: slower speeds indicate congestion
+            # Controlled pressure components (prevent numerical explosion)
+            
+            # 1. Vehicle count pressure (logarithmic growth for congestion)
+            vehicle_pressure = vehicles * (1 + min(3.0, math.log(max(1, vehicles)) * 0.5))
+            
+            # 2. Waiting time pressure (controlled exponential penalty)
+            if waiting_time > 10:  # Penalty kicks in after 10 seconds
+                # Cap the exponential growth to prevent explosion
+                exp_factor = min(5.0, (waiting_time - 10) / 20)
+                wait_pressure = waiting_time * (1 + exp_factor)
+            else:
+                wait_pressure = waiting_time * 0.5
+            
+            # 3. Speed pressure (controlled penalty for slow traffic)
+            max_speed = 13.89  # ~50 km/h
             if avg_speed > 0:
-                speed_factor = max(0, (13.89 - avg_speed) / 13.89)  # Normalized speed factor
-                total_speed_factor += speed_factor * vehicles
+                speed_ratio = avg_speed / max_speed
+                if speed_ratio < 0.3:  # Very slow traffic
+                    speed_pressure = vehicles * (1 - speed_ratio) * 2.0
+                else:
+                    speed_pressure = vehicles * (1 - speed_ratio) * 1.2
+            else:
+                speed_pressure = vehicles * 1.5  # Stopped traffic penalty
+            
+            # 4. Queue buildup pressure (based on recent history)
+            historical_vehicles = self.queue_history[direction]
+            if len(historical_vehicles) >= 3:
+                recent_avg = statistics.mean(list(historical_vehicles)[-3:])
+                if vehicles > recent_avg * 1.3:  # Growing queue
+                    queue_pressure = min(vehicles * 0.5, (vehicles - recent_avg) * 1.5)  # Cap queue pressure
+                else:
+                    queue_pressure = 0
+            else:
+                queue_pressure = 0
+            
+            # Combine all pressure components with controlled scaling
+            edge_pressure = (vehicle_pressure * 0.4 + 
+                           wait_pressure * 0.3 + 
+                           speed_pressure * 0.2 + 
+                           queue_pressure * 0.1)
+            
+            # Cap individual edge pressure to prevent explosion
+            edge_pressure = min(edge_pressure, vehicles * 10)  # Max 10x vehicle count
+            
+            total_pressure += edge_pressure
+            
+            # Store for trend analysis
+            self.queue_history[direction].append(vehicles)
         
-        # Weighted pressure score
-        pressure = total_vehicles + (total_waiting / 10.0) + total_speed_factor
-        return pressure
+        return total_pressure
     
-    def get_adaptive_duration(self, step_data, phase_id):
-        """Calculate adaptive phase duration based on real-time traffic"""
+    def predict_traffic_trend(self, direction_group):
+        """Predict traffic trend based on recent pressure history"""
+        if direction_group not in self.pressure_trend:
+            return 0
+        
+        history = list(self.pressure_trend[direction_group])
+        if len(history) < 3:
+            return 0
+        
+        # Simple linear trend analysis
+        recent_values = history[-3:]
+        if len(recent_values) >= 2:
+            trend = recent_values[-1] - recent_values[0]
+            return trend
+        
+        return 0
+    
+    def get_adaptive_duration(self, step_data, phase_id, current_phase_time=0):
+        """Calculate optimized phase duration with predictive elements"""
         phase_info = self.phases.get(phase_id, {})
         phase_name = phase_info.get("name", "")
-        base_duration = phase_info.get("base_duration", 30)
+        base_duration = phase_info.get("base_duration", 25)
         
-        # Only adapt main traffic phases (not yellow or all-red phases)
-        if phase_id in [2, 4, 6, 8] or "Yellow" in phase_name or "All_Red" in phase_name:
+        # Don't adapt transition phases
+        if phase_id in [0, 2, 4, 6, 8] or "Yellow" in phase_name or "All_Red" in phase_name:
             return base_duration
         
         directions = phase_info.get("directions", [])
         if not directions:
             return base_duration
         
-        # Calculate traffic pressure for current directions
+        # Calculate current and opposing pressures
         current_pressure = self.calculate_traffic_pressure(step_data, directions)
         
-        # Get opposing directions based on phase
-        if phase_id == 1:  # Mixed_Phase_1 (NS movements)
-            opposing_directions = ["E0", "-E0"]
-        elif phase_id == 3:  # EW_Through_Phase 
-            opposing_directions = ["E1", "-E1"]
-        elif phase_id == 5:  # EW_Mixed_Phase
-            opposing_directions = ["E1", "-E1"]
-        elif phase_id == 7:  # NS_Through_Phase
-            opposing_directions = ["E0"]
-        else:
-            opposing_directions = []
-        
+        # Determine opposing directions
+        opposing_directions = self._get_opposing_directions(phase_id)
         opposing_pressure = self.calculate_traffic_pressure(step_data, opposing_directions)
         
-        # Store historical data
-        self.traffic_history[f"phase_{phase_id}"].append(current_pressure)
+        # Store pressure history for trend analysis
+        direction_key = "_".join(directions)
+        self.pressure_trend[direction_key].append(current_pressure)
         
-        # Adaptive calculation
+        # Get traffic trend
+        trend = self.predict_traffic_trend(direction_key)
+        
+        # Enhanced duration calculation
         total_pressure = current_pressure + opposing_pressure
-        if total_pressure == 0:
-            return base_duration
         
-        # Allocate time based on pressure ratio
-        pressure_ratio = current_pressure / total_pressure
+        if total_pressure < 5:  # Very light traffic
+            return max(self.min_green_time, base_duration * 0.6)
         
-        # Calculate adaptive duration with more realistic bounds
-        if pressure_ratio > 0.7:  # High pressure on current direction
-            adaptive_duration = self.max_green_time * 0.9
-        elif pressure_ratio > 0.5:  # Moderate pressure
-            adaptive_duration = base_duration + (pressure_ratio * 25)
-        else:  # Low pressure
-            adaptive_duration = max(self.min_green_time, base_duration * 0.6)
+        # Pressure ratio with trend adjustment
+        if total_pressure > 0:
+            pressure_ratio = current_pressure / total_pressure
+            
+            # Adjust for predicted trend
+            if trend > 5:  # Traffic increasing
+                pressure_ratio += 0.15
+            elif trend < -5:  # Traffic decreasing
+                pressure_ratio -= 0.1
+            
+            pressure_ratio = max(0.1, min(0.9, pressure_ratio))
+        else:
+            pressure_ratio = 0.5
         
-        # Apply constraints (15-75 seconds for main phases)
-        final_duration = max(15, min(75, adaptive_duration))
+        # Duration calculation with BALANCED logic for stability and performance
+        if pressure_ratio > 0.75:  # High pressure - moderate extension
+            duration = base_duration + (pressure_ratio - 0.5) * 40  # Reduced multiplier
+        elif pressure_ratio > 0.6:  # Moderate-high pressure
+            duration = base_duration + (pressure_ratio - 0.5) * 25
+        elif pressure_ratio < 0.2:  # Low pressure - moderate cut
+            duration = base_duration * 0.7  # Less drastic cut
+        elif pressure_ratio < 0.35:  # Moderate-low pressure
+            duration = base_duration * 0.8
+        else:  # Moderate pressure
+            duration = base_duration + (pressure_ratio - 0.5) * 15
+        
+        # BALANCED time-based adjustments
+        if current_phase_time > base_duration * 0.75:  # Later intervention
+            # More conservative extension criteria
+            if current_pressure > opposing_pressure * 1.8:  # Higher threshold
+                duration = min(self.max_green_time, duration * 1.2)  # Smaller extension
+            else:
+                duration = base_duration * 0.9  # Gentler termination
+        
+        # BALANCED opposing pressure penalties
+        if opposing_pressure > current_pressure * 3:
+            duration = min(duration, base_duration * 0.7)  # Moderate penalty
+        elif opposing_pressure > current_pressure * 2:
+            duration = min(duration, base_duration * 0.85)  # Light penalty
+        
+        # Balanced constraints
+        min_duration = self.min_green_time  # Standard minimum
+        max_duration = min(self.max_green_time, base_duration * 2.0)  # More conservative maximum
+        
+        final_duration = max(min_duration, min(max_duration, duration))
         
         return int(final_duration)
     
@@ -165,83 +269,216 @@ class AdaptiveTrafficController:
             }
     
     def analyze_traffic_state(self, step_data):
-        """Analyze current traffic state and provide recommendations"""
+        """Comprehensive traffic state analysis with enhanced metrics"""
         if not step_data:
             return {}
         
-        # Calculate pressures for main directions based on actual network edges
-        # North-South: E1 (from north) and -E1 (from south)
-        ns_pressure = self.calculate_traffic_pressure(step_data, ['E1', '-E1'])
-        # East-West: E0 (from east) and -E0 (from west) 
-        ew_pressure = self.calculate_traffic_pressure(step_data, ['E0', '-E0'])
+        # Calculate pressures for all direction groups
+        pressures = {}
+        for group, directions in self.direction_groups.items():
+            pressures[group] = self.calculate_traffic_pressure(step_data, directions)
         
-        total_pressure = ns_pressure + ew_pressure
+        # Overall traffic metrics
+        total_pressure = sum(pressures.values())
+        total_vehicles = step_data.get('total_vehicles', 0)
+        avg_waiting = step_data.get('avg_waiting_time', 0)
         
-        # Calculate optimal timing ratios
-        if total_pressure > 0:
-            ns_ratio = ns_pressure / total_pressure
-            ew_ratio = ew_pressure / total_pressure
+        # Direction priorities
+        ns_pressure = pressures['north_south']
+        ew_pressure = pressures['east_west']
+        
+        # Enhanced priority determination
+        pressure_diff = abs(ns_pressure - ew_pressure)
+        total_pressure_ne = ns_pressure + ew_pressure
+        
+        if total_pressure_ne > 0:
+            imbalance_ratio = pressure_diff / total_pressure_ne
+        else:
+            imbalance_ratio = 0
+        
+        # Priority determination with hysteresis
+        if imbalance_ratio > 0.4:  # Significant imbalance
+            if ns_pressure > ew_pressure:
+                priority = "NORTH_SOUTH"
+                priority_message = "🔴 HIGH NS PRIORITY"
+                confidence = min(0.95, imbalance_ratio)
+            else:
+                priority = "EAST_WEST"
+                priority_message = "🔴 HIGH EW PRIORITY"
+                confidence = min(0.95, imbalance_ratio)
+        elif imbalance_ratio > 0.2:  # Moderate imbalance
+            if ns_pressure > ew_pressure:
+                priority = "NORTH_SOUTH_MODERATE"
+                priority_message = "� MODERATE NS PRIORITY"
+                confidence = imbalance_ratio
+            else:
+                priority = "EAST_WEST_MODERATE"
+                priority_message = "� MODERATE EW PRIORITY"
+                confidence = imbalance_ratio
+        else:  # Balanced
+            priority = "BALANCED"
+            priority_message = "🟢 BALANCED TRAFFIC"
+            confidence = 1.0 - imbalance_ratio
+        
+        # Optimal timing calculation
+        base_cycle = 100  # Reduced cycle time for better responsiveness
+        if total_pressure_ne > 0:
+            ns_ratio = ns_pressure / total_pressure_ne
+            ew_ratio = ew_pressure / total_pressure_ne
         else:
             ns_ratio = ew_ratio = 0.5
         
-        # Suggest timing (base cycle of 120 seconds - matching network cycle)
-        base_cycle = 120
-        suggested_ns_time = max(15, min(60, int(ns_ratio * base_cycle)))
-        suggested_ew_time = max(15, min(60, int(ew_ratio * base_cycle)))
+        # Calculate suggested timings with minimum guarantees
+        suggested_ns_time = max(self.min_green_time, min(self.max_green_time, int(ns_ratio * base_cycle)))
+        suggested_ew_time = max(self.min_green_time, min(self.max_green_time, int(ew_ratio * base_cycle)))
         
-        # Determine priority
-        if ns_pressure > ew_pressure * 1.3:
-            priority = "NORTH_SOUTH"
-            priority_message = "🔴 PRIORITIZE NORTH-SOUTH"
-        elif ew_pressure > ns_pressure * 1.3:
-            priority = "EAST_WEST"
-            priority_message = "🔴 PRIORITIZE EAST-WEST"
+        # Traffic efficiency metrics
+        if total_vehicles > 0:
+            efficiency_score = max(0, 100 - (avg_waiting * 2))  # Penalize waiting time
+            congestion_level = min(100, (total_pressure / max(1, total_vehicles)) * 10)
         else:
-            priority = "BALANCED"
-            priority_message = "🟢 BALANCED TRAFFIC"
+            efficiency_score = 100
+            congestion_level = 0
         
         return {
+            'pressures': pressures,
+            'total_pressure': total_pressure,
             'ns_pressure': ns_pressure,
             'ew_pressure': ew_pressure,
-            'total_pressure': total_pressure,
-            'suggested_ns_time': suggested_ns_time,
-            'suggested_ew_time': suggested_ew_time,
+            'imbalance_ratio': imbalance_ratio,
             'priority': priority,
             'priority_message': priority_message,
+            'confidence': confidence,
+            'suggested_ns_time': suggested_ns_time,
+            'suggested_ew_time': suggested_ew_time,
             'ns_ratio': ns_ratio,
-            'ew_ratio': ew_ratio
+            'ew_ratio': ew_ratio,
+            'efficiency_score': efficiency_score,
+            'congestion_level': congestion_level,
+            'total_vehicles': total_vehicles,
+            'avg_waiting': avg_waiting
         }
     
     def apply_adaptive_control(self, step_data, current_step):
-        """Apply adaptive control logic (placeholder for actual implementation)"""
+        """Apply enhanced adaptive control with faster response"""
         try:
+            # Check if it's time to adapt
+            if current_step - self.last_adaptation_time < self.adaptation_interval:
+                return {'applied': False, 'reason': 'Too soon for adaptation'}
+            
+            # Get current traffic light state
             tl_state = self.get_current_traffic_light_state()
             analysis = self.analyze_traffic_state(step_data)
             
-            if tl_state['phase'] is not None and "Green" in tl_state['phase_name']:
-                # Calculate adaptive duration
-                adaptive_duration = self.get_adaptive_duration(step_data, tl_state['phase'])
+            # Apply adaptive logic for main phases only
+            if tl_state['phase'] in [1, 3, 5, 7]:  # Main green phases
+                phase_elapsed = current_step - self.phase_start_time
                 
-                # Log recommendation (actual implementation would modify timing)
-                if adaptive_duration != tl_state['base_duration']:
-                    directions = tl_state['directions']
-                    pressure = self.calculate_traffic_pressure(step_data, directions)
-                    print(f"🚦 Recommend {tl_state['phase_name']}: {adaptive_duration}s "
-                          f"(Base: {tl_state['base_duration']}s, Pressure: {pressure:.1f})")
+                # Check for early transition
+                if self.should_trigger_early_transition(step_data, tl_state['phase'], phase_elapsed):
+                    print(f"🚦 EARLY TRANSITION: Phase {tl_state['phase']} after {phase_elapsed}s")
+                    self.last_adaptation_time = current_step
+                    return {
+                        'applied': True,
+                        'action': 'early_transition',
+                        'analysis': analysis,
+                        'tl_state': tl_state
+                    }
+                
+                # Calculate optimized duration
+                optimized_duration = self.get_adaptive_duration(step_data, tl_state['phase'], phase_elapsed)
+                base_duration = self.phases[tl_state['phase']]['base_duration']
+                
+                # Log adaptation if significant change
+                if abs(optimized_duration - base_duration) > 3:
+                    change_type = "EXTEND" if optimized_duration > base_duration else "REDUCE"
+                    directions = self.phases[tl_state['phase']]['directions']
+                    current_pressure = self.calculate_traffic_pressure(step_data, directions)
+                    
+                    print(f"🚦 {change_type}: Phase {tl_state['phase']} → {optimized_duration}s "
+                          f"(Base: {base_duration}s, Pressure: {current_pressure:.1f})")
+                    
+                    self.adaptations_made += 1
+                    if optimized_duration > base_duration:
+                        self.phase_extensions[tl_state['phase']] += 1
+                    else:
+                        self.phase_reductions[tl_state['phase']] += 1
+                
+                self.last_adaptation_time = current_step
+                
+                return {
+                    'applied': True,
+                    'action': 'duration_optimization',
+                    'optimized_duration': optimized_duration,
+                    'base_duration': base_duration,
+                    'analysis': analysis,
+                    'tl_state': tl_state
+                }
             
             return {
-                'tl_state': tl_state,
+                'applied': False,
+                'reason': 'Non-adaptable phase',
                 'analysis': analysis,
-                'applied': True
+                'tl_state': tl_state
             }
             
         except Exception as e:
-            print(f"Error in adaptive control: {e}")
+            print(f"❌ Error in enhanced adaptive control: {e}")
             return {
-                'tl_state': self.get_current_traffic_light_state(),
+                'applied': False,
+                'error': str(e),
                 'analysis': {},
-                'applied': False
+                'tl_state': {}
             }
+    
+    def should_trigger_early_transition(self, step_data, current_phase, phase_elapsed):
+        """Balanced early transition logic - less aggressive for stability"""
+        if current_phase not in [1, 3, 5, 7]:  # Only main phases
+            return False
+        
+        if phase_elapsed < self.min_green_time:  # Respect minimum time strictly
+            return False
+        
+        phase_info = self.phases.get(current_phase, {})
+        directions = phase_info.get("directions", [])
+        
+        current_pressure = self.calculate_traffic_pressure(step_data, directions)
+        opposing_directions = self._get_opposing_directions(current_phase)
+        opposing_pressure = self.calculate_traffic_pressure(step_data, opposing_directions)
+        
+        # BALANCED EARLY TRANSITION CONDITIONS (less aggressive):
+        
+        # 1. Strong opposition with reasonable current minimum
+        if (opposing_pressure > current_pressure * 2.5 and 
+            current_pressure < 20 and 
+            phase_elapsed >= self.min_green_time + 3):
+            return True
+        
+        # 2. Very low current traffic with significant opposition
+        if (current_pressure < 8 and 
+            opposing_pressure > 25 and 
+            phase_elapsed >= self.min_green_time + 2):
+            return True
+            
+        # 3. Emergency transition for extreme imbalance only
+        if (opposing_pressure > current_pressure * 5 and 
+            phase_elapsed >= self.min_green_time):
+            return True
+        
+        return False
+    
+    def _get_opposing_directions(self, phase_id):
+        """Get opposing directions for a given phase"""
+        if phase_id == 1:  # Mixed_Phase_1 (NS movements)
+            return ["E0", "-E0"]
+        elif phase_id == 3:  # EW_Through_Phase 
+            return ["E1", "-E1"]
+        elif phase_id == 5:  # EW_Mixed_Phase
+            return ["E1", "-E1", "-E0"]
+        elif phase_id == 7:  # NS_Through_Phase
+            return ["E0", "E1", "-E1"]
+        else:
+            return []
     
     def get_performance_summary(self):
         """Get performance summary of the adaptive controller"""

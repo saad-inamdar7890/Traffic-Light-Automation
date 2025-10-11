@@ -9,23 +9,39 @@ import traci
 class DynamicFlowManager:
     def __init__(self):
         """Initialize the dynamic flow manager with base flow configurations"""
-        # Based on demo.rou.xml flows, create dynamic variations
+        # Based on demo.rou.xml flows, create dynamic variations with mixed vehicle types
+        # Further reduced flows for better analysis and less congestion
         self.flow_configs = {
-            'f_0': {'from': 'E0', 'to': 'E0.319', 'base_rate': 300, 'current_rate': 300},
-            'f_1': {'from': 'E0', 'to': '-E1.238', 'base_rate': 150, 'current_rate': 150},
-            'f_2': {'from': 'E0', 'to': 'E1.200', 'base_rate': 150, 'current_rate': 150},
-            'f_3': {'from': '-E1', 'to': '-E1.238', 'base_rate': 300, 'current_rate': 300},
-            'f_4': {'from': '-E1', 'to': '-E0.254', 'base_rate': 150, 'current_rate': 150},
-            'f_5': {'from': '-E1', 'to': 'E0.319', 'base_rate': 150, 'current_rate': 150},
-            'f_6': {'from': '-E0', 'to': '-E1.238', 'base_rate': 150, 'current_rate': 150},
-            'f_7': {'from': '-E0', 'to': 'E1.200', 'base_rate': 150, 'current_rate': 150},
-            'f_8': {'from': 'E1', 'to': '-E0.254', 'base_rate': 150, 'current_rate': 150},
-            'f_9': {'from': 'E1', 'to': 'E0.319', 'base_rate': 150, 'current_rate': 150},
-            'f_10': {'from': 'E1', 'to': 'E1.200', 'base_rate': 300, 'current_rate': 300},
-            'f_11': {'from': '-E0', 'to': '-E0.254', 'base_rate': 300, 'current_rate': 300}
+            # Car flows (further reduced for cleaner analysis)
+            'f_0_cars': {'from': 'E0', 'to': 'E0.319', 'base_rate': 120, 'current_rate': 120, 'vtype': 'car'},
+            'f_1_cars': {'from': 'E0', 'to': '-E1.238', 'base_rate': 60, 'current_rate': 60, 'vtype': 'car'},
+            'f_2_cars': {'from': 'E0', 'to': 'E1.200', 'base_rate': 60, 'current_rate': 60, 'vtype': 'car'},
+            'f_3_cars': {'from': '-E1', 'to': '-E1.238', 'base_rate': 120, 'current_rate': 120, 'vtype': 'car'},
+            'f_4_cars': {'from': '-E1', 'to': '-E0.254', 'base_rate': 60, 'current_rate': 60, 'vtype': 'car'},
+            'f_5_cars': {'from': '-E1', 'to': 'E0.319', 'base_rate': 60, 'current_rate': 60, 'vtype': 'car'},
+            'f_6_cars': {'from': '-E0', 'to': '-E1.238', 'base_rate': 60, 'current_rate': 60, 'vtype': 'car'},
+            'f_7_cars': {'from': '-E0', 'to': 'E1.200', 'base_rate': 60, 'current_rate': 60, 'vtype': 'car'},
+            'f_8_cars': {'from': 'E1', 'to': '-E0.254', 'base_rate': 60, 'current_rate': 60, 'vtype': 'car'},
+            'f_9_cars': {'from': 'E1', 'to': 'E0.319', 'base_rate': 60, 'current_rate': 60, 'vtype': 'car'},
+            'f_10_cars': {'from': 'E1', 'to': 'E1.200', 'base_rate': 120, 'current_rate': 120, 'vtype': 'car'},
+            'f_11_cars': {'from': '-E0', 'to': '-E0.254', 'base_rate': 120, 'current_rate': 120, 'vtype': 'car'},
+            
+            # Motorcycle/Bike flows (also reduced)
+            'f_0_bikes': {'from': 'E0', 'to': 'E0.319', 'base_rate': 80, 'current_rate': 80, 'vtype': 'motorcycle'},
+            'f_1_bikes': {'from': 'E0', 'to': '-E1.238', 'base_rate': 40, 'current_rate': 40, 'vtype': 'motorcycle'},
+            'f_2_bikes': {'from': 'E0', 'to': 'E1.200', 'base_rate': 40, 'current_rate': 40, 'vtype': 'motorcycle'},
+            'f_3_bikes': {'from': '-E1', 'to': '-E1.238', 'base_rate': 80, 'current_rate': 80, 'vtype': 'motorcycle'},
+            'f_4_bikes': {'from': '-E1', 'to': '-E0.254', 'base_rate': 40, 'current_rate': 40, 'vtype': 'motorcycle'},
+            'f_5_bikes': {'from': '-E1', 'to': 'E0.319', 'base_rate': 40, 'current_rate': 40, 'vtype': 'motorcycle'},
+            'f_6_bikes': {'from': '-E0', 'to': '-E1.238', 'base_rate': 40, 'current_rate': 40, 'vtype': 'motorcycle'},
+            'f_7_bikes': {'from': '-E0', 'to': 'E1.200', 'base_rate': 40, 'current_rate': 40, 'vtype': 'motorcycle'},
+            'f_8_bikes': {'from': 'E1', 'to': '-E0.254', 'base_rate': 40, 'current_rate': 40, 'vtype': 'motorcycle'},
+            'f_9_bikes': {'from': 'E1', 'to': 'E0.319', 'base_rate': 40, 'current_rate': 40, 'vtype': 'motorcycle'},
+            'f_10_bikes': {'from': 'E1', 'to': 'E1.200', 'base_rate': 80, 'current_rate': 80, 'vtype': 'motorcycle'},
+            'f_11_bikes': {'from': '-E0', 'to': '-E0.254', 'base_rate': 80, 'current_rate': 80, 'vtype': 'motorcycle'}
         }
-        
-        self.flow_update_interval = 120  # Update flows every 2 minutes
+
+        self.flow_update_interval = 300  # Update flows every 5 minutes
         self.last_update = 0
         self.flow_variations = {}
         
@@ -66,6 +82,10 @@ class DynamicFlowManager:
         time_factor = self.get_time_factor(step)
         
         print(f"\n🔄 UPDATING DYNAMIC FLOWS (Hour: {hour:.1f}, Factor: {time_factor:.1f})")
+        print(f"🚗🏍️  Mixed Traffic: Cars + Motorcycles/Bikes")
+        
+        car_flows = 0
+        bike_flows = 0
         
         for flow_id, config in self.flow_configs.items():
             random_factor = self.generate_random_variation()
@@ -78,7 +98,16 @@ class DynamicFlowManager:
             config['current_rate'] = new_rate
             self.flow_variations[flow_id] = new_rate
             
-            print(f"   {flow_id}: {config['from']} → {config['to']} = {new_rate} veh/h")
+            vehicle_type = config.get('vtype', 'car')
+            if vehicle_type == 'car':
+                car_flows += new_rate
+            else:
+                bike_flows += new_rate
+            
+            type_icon = "🚗" if vehicle_type == 'car' else "🏍️"
+            print(f"   {type_icon} {flow_id}: {config['from']} → {config['to']} = {new_rate} veh/h")
+        
+        print(f"📊 Total Flow Summary: Cars: {car_flows} veh/h | Bikes: {bike_flows} veh/h")
         
         self.last_update = step
         return True
@@ -90,14 +119,32 @@ class DynamicFlowManager:
     def get_flow_summary(self):
         """Get summary of current flow rates"""
         summary = {}
+        total_cars = 0
+        total_bikes = 0
+        
         for flow_id, config in self.flow_configs.items():
+            vehicle_type = config.get('vtype', 'car')
             summary[flow_id] = {
                 'from': config['from'],
                 'to': config['to'],
                 'base_rate': config['base_rate'],
                 'current_rate': config['current_rate'],
-                'efficiency': (config['current_rate'] / config['base_rate']) * 100
+                'efficiency': (config['current_rate'] / config['base_rate']) * 100,
+                'vehicle_type': vehicle_type
             }
+            
+            if vehicle_type == 'car':
+                total_cars += config['current_rate']
+            else:
+                total_bikes += config['current_rate']
+        
+        summary['totals'] = {
+            'total_cars': total_cars,
+            'total_bikes': total_bikes,
+            'total_all': total_cars + total_bikes,
+            'car_percentage': (total_cars / (total_cars + total_bikes)) * 100 if (total_cars + total_bikes) > 0 else 0
+        }
+        
         return summary
     
     def apply_flow_changes(self):

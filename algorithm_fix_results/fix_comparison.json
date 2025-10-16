@@ -1,0 +1,354 @@
+{
+  "timestamp": "2025-10-06T18:48:39.349036",
+  "normal_mode": {
+    "mode": "normal",
+    "results": [
+      {
+        "time": 1.0,
+        "step": 0,
+        "vehicles": 4,
+        "total_waiting_time": 0.0,
+        "avg_waiting_time": 0.0,
+        "adaptations": 0
+      },
+      {
+        "time": 11.0,
+        "step": 10,
+        "vehicles": 16,
+        "total_waiting_time": 0.0,
+        "avg_waiting_time": 0.0,
+        "adaptations": 0
+      },
+      {
+        "time": 21.0,
+        "step": 20,
+        "vehicles": 28,
+        "total_waiting_time": 0.0,
+        "avg_waiting_time": 0.0,
+        "adaptations": 0
+      },
+      {
+        "time": 31.0,
+        "step": 30,
+        "vehicles": 44,
+        "total_waiting_time": 49.0,
+        "avg_waiting_time": 1.1136363636363635,
+        "adaptations": 0
+      },
+      {
+        "time": 41.0,
+        "step": 40,
+        "vehicles": 56,
+        "total_waiting_time": 175.0,
+        "avg_waiting_time": 3.125,
+        "adaptations": 0
+      },
+      {
+        "time": 51.0,
+        "step": 50,
+        "vehicles": 66,
+        "total_waiting_time": 363.0,
+        "avg_waiting_time": 5.5,
+        "adaptations": 0
+      },
+      {
+        "time": 61.0,
+        "step": 60,
+        "vehicles": 78,
+        "total_waiting_time": 638.0,
+        "avg_waiting_time": 8.179487179487179,
+        "adaptations": 0
+      },
+      {
+        "time": 71.0,
+        "step": 70,
+        "vehicles": 80,
+        "total_waiting_time": 1001.0,
+        "avg_waiting_time": 12.5125,
+        "adaptations": 0
+      },
+      {
+        "time": 81.0,
+        "step": 80,
+        "vehicles": 89,
+        "total_waiting_time": 1400.0,
+        "avg_waiting_time": 15.730337078651685,
+        "adaptations": 0
+      },
+      {
+        "time": 91.0,
+        "step": 90,
+        "vehicles": 101,
+        "total_waiting_time": 1791.0,
+        "avg_waiting_time": 17.73267326732673,
+        "adaptations": 0
+      },
+      {
+        "time": 101.0,
+        "step": 100,
+        "vehicles": 107,
+        "total_waiting_time": 2183.0,
+        "avg_waiting_time": 20.401869158878505,
+        "adaptations": 0
+      },
+      {
+        "time": 111.0,
+        "step": 110,
+        "vehicles": 109,
+        "total_waiting_time": 2660.0,
+        "avg_waiting_time": 24.40366972477064,
+        "adaptations": 0
+      },
+      {
+        "time": 121.0,
+        "step": 120,
+        "vehicles": 118,
+        "total_waiting_time": 3239.0,
+        "avg_waiting_time": 27.449152542372882,
+        "adaptations": 0
+      },
+      {
+        "time": 131.0,
+        "step": 130,
+        "vehicles": 122,
+        "total_waiting_time": 3371.0,
+        "avg_waiting_time": 27.631147540983605,
+        "adaptations": 0
+      },
+      {
+        "time": 141.0,
+        "step": 140,
+        "vehicles": 127,
+        "total_waiting_time": 3565.0,
+        "avg_waiting_time": 28.070866141732285,
+        "adaptations": 0
+      },
+      {
+        "time": 151.0,
+        "step": 150,
+        "vehicles": 134,
+        "total_waiting_time": 3981.0,
+        "avg_waiting_time": 29.708955223880597,
+        "adaptations": 0
+      },
+      {
+        "time": 161.0,
+        "step": 160,
+        "vehicles": 140,
+        "total_waiting_time": 4318.0,
+        "avg_waiting_time": 30.84285714285714,
+        "adaptations": 0
+      },
+      {
+        "time": 171.0,
+        "step": 170,
+        "vehicles": 145,
+        "total_waiting_time": 4503.0,
+        "avg_waiting_time": 31.055172413793102,
+        "adaptations": 0
+      },
+      {
+        "time": 181.0,
+        "step": 180,
+        "vehicles": 149,
+        "total_waiting_time": 4810.0,
+        "avg_waiting_time": 32.281879194630875,
+        "adaptations": 0
+      },
+      {
+        "time": 191.0,
+        "step": 190,
+        "vehicles": 156,
+        "total_waiting_time": 5369.0,
+        "avg_waiting_time": 34.416666666666664,
+        "adaptations": 0
+      }
+    ],
+    "summary": {
+      "total_vehicles": 1869,
+      "avg_waiting_time": 23.229534510433385,
+      "total_adaptations": 0,
+      "simulation_duration": 200,
+      "real_time": 0.9319453239440918
+    }
+  },
+  "fixed_adaptive_mode": {
+    "mode": "adaptive",
+    "results": [
+      {
+        "time": 1.0,
+        "step": 0,
+        "vehicles": 4,
+        "total_waiting_time": 0.0,
+        "avg_waiting_time": 0.0,
+        "adaptations": 0
+      },
+      {
+        "time": 11.0,
+        "step": 10,
+        "vehicles": 16,
+        "total_waiting_time": 0.0,
+        "avg_waiting_time": 0.0,
+        "adaptations": 0
+      },
+      {
+        "time": 21.0,
+        "step": 20,
+        "vehicles": 28,
+        "total_waiting_time": 0.0,
+        "avg_waiting_time": 0.0,
+        "adaptations": 0
+      },
+      {
+        "time": 31.0,
+        "step": 30,
+        "vehicles": 44,
+        "total_waiting_time": 49.0,
+        "avg_waiting_time": 1.1136363636363635,
+        "adaptations": 0
+      },
+      {
+        "time": 41.0,
+        "step": 40,
+        "vehicles": 56,
+        "total_waiting_time": 175.0,
+        "avg_waiting_time": 3.125,
+        "adaptations": 0
+      },
+      {
+        "time": 51.0,
+        "step": 50,
+        "vehicles": 66,
+        "total_waiting_time": 363.0,
+        "avg_waiting_time": 5.5,
+        "adaptations": 0
+      },
+      {
+        "time": 61.0,
+        "step": 60,
+        "vehicles": 78,
+        "total_waiting_time": 638.0,
+        "avg_waiting_time": 8.179487179487179,
+        "adaptations": 0
+      },
+      {
+        "time": 71.0,
+        "step": 70,
+        "vehicles": 80,
+        "total_waiting_time": 1001.0,
+        "avg_waiting_time": 12.5125,
+        "adaptations": 0
+      },
+      {
+        "time": 81.0,
+        "step": 80,
+        "vehicles": 89,
+        "total_waiting_time": 1400.0,
+        "avg_waiting_time": 15.730337078651685,
+        "adaptations": 0
+      },
+      {
+        "time": 91.0,
+        "step": 90,
+        "vehicles": 101,
+        "total_waiting_time": 1791.0,
+        "avg_waiting_time": 17.73267326732673,
+        "adaptations": 0
+      },
+      {
+        "time": 101.0,
+        "step": 100,
+        "vehicles": 107,
+        "total_waiting_time": 2183.0,
+        "avg_waiting_time": 20.401869158878505,
+        "adaptations": 0
+      },
+      {
+        "time": 111.0,
+        "step": 110,
+        "vehicles": 109,
+        "total_waiting_time": 2660.0,
+        "avg_waiting_time": 24.40366972477064,
+        "adaptations": 0
+      },
+      {
+        "time": 121.0,
+        "step": 120,
+        "vehicles": 118,
+        "total_waiting_time": 3239.0,
+        "avg_waiting_time": 27.449152542372882,
+        "adaptations": 0
+      },
+      {
+        "time": 131.0,
+        "step": 130,
+        "vehicles": 122,
+        "total_waiting_time": 3371.0,
+        "avg_waiting_time": 27.631147540983605,
+        "adaptations": 0
+      },
+      {
+        "time": 141.0,
+        "step": 140,
+        "vehicles": 127,
+        "total_waiting_time": 3565.0,
+        "avg_waiting_time": 28.070866141732285,
+        "adaptations": 0
+      },
+      {
+        "time": 151.0,
+        "step": 150,
+        "vehicles": 134,
+        "total_waiting_time": 3981.0,
+        "avg_waiting_time": 29.708955223880597,
+        "adaptations": 0
+      },
+      {
+        "time": 161.0,
+        "step": 160,
+        "vehicles": 140,
+        "total_waiting_time": 4318.0,
+        "avg_waiting_time": 30.84285714285714,
+        "adaptations": 0
+      },
+      {
+        "time": 171.0,
+        "step": 170,
+        "vehicles": 145,
+        "total_waiting_time": 4503.0,
+        "avg_waiting_time": 31.055172413793102,
+        "adaptations": 0
+      },
+      {
+        "time": 181.0,
+        "step": 180,
+        "vehicles": 149,
+        "total_waiting_time": 4810.0,
+        "avg_waiting_time": 32.281879194630875,
+        "adaptations": 0
+      },
+      {
+        "time": 191.0,
+        "step": 190,
+        "vehicles": 156,
+        "total_waiting_time": 5369.0,
+        "avg_waiting_time": 34.416666666666664,
+        "adaptations": 0
+      }
+    ],
+    "summary": {
+      "total_vehicles": 1869,
+      "avg_waiting_time": 23.229534510433385,
+      "total_adaptations": 0,
+      "simulation_duration": 200,
+      "real_time": 0.8352735042572021
+    }
+  },
+  "performance_ratio": 1.0,
+  "verdict": "ACCEPTABLE",
+  "analysis": {
+    "adaptations_per_minute": 0.0,
+    "improvement_percentage": 0.0,
+    "recommendation": "\u2705 Algorithm acceptable. Continue testing and monitoring."
+  }
+}

@@ -1,0 +1,42 @@
+ALGORITHM PERFORMANCE DEBUG REPORT
+==================================================
+
+Report Date: 2025-10-06 18:43:10
+
+PERFORMANCE SUMMARY:
+------------------------------
+Normal Mode Average Wait Time: 21.8 seconds
+Adaptive Mode Average Wait Time: 165.6 seconds
+Performance Ratio: 7.6x (WORSE)
+Total Algorithm Adaptations: 717
+
+PROBLEM SEVERITY:
+------------------------------
+🚨 CRITICAL FAILURE - Algorithm making traffic 5x+ worse
+
+DIAGNOSES:
+------------------------------
+🚨 CRITICAL: Waiting times over 100s indicate severe congestion
+   → Algorithm may be creating traffic jams instead of resolving them
+🚨 CRITICAL: 5x+ worse performance indicates fundamental algorithm failure
+   → Algorithm timing logic is severely flawed
+⚠️  WARNING: Very high adaptation frequency may indicate instability
+   → Algorithm may be over-adapting and causing oscillations
+🚨 MAJOR: Adaptive algorithm making traffic significantly worse
+   → Current algorithm should be disabled immediately
+
+
+IMMEDIATE ACTIONS:
+------------------------------
+🚨 CRITICAL ACTIONS:
+1. DISABLE adaptive algorithm immediately
+2. Revert all intersections to normal mode
+3. Debug algorithm timing calculations
+4. Fix before any deployment
+
+
+CONCLUSION:
+------------------------------
+🚨 The adaptive algorithm is BROKEN and making traffic significantly worse.
+🚧 DO NOT DEPLOY this algorithm until major fixes are implemented.
+🔧 Focus on debugging timing calculation and adaptation logic.

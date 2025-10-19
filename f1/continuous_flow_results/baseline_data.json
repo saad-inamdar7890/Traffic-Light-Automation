@@ -1,0 +1,1202 @@
+[
+  {
+    "time": 0,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 1,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 1,
+    "motorcycles": 0
+  },
+  {
+    "time": 30,
+    "avg_waiting_time": 3.3333333333333335,
+    "avg_speed": 11.455599425051151,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 1,
+    "motorcycles": 0
+  },
+  {
+    "time": 60,
+    "avg_waiting_time": 4.0,
+    "avg_speed": 11.608784778964612,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 1,
+    "motorcycles": 0
+  },
+  {
+    "time": 90,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.773621045315716,
+    "total_vehicles": 2,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 1,
+    "motorcycles": 0
+  },
+  {
+    "time": 120,
+    "avg_waiting_time": 7.333333333333333,
+    "avg_speed": 11.361612170801301,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 1,
+    "motorcycles": 0
+  },
+  {
+    "time": 150,
+    "avg_waiting_time": 3.3333333333333335,
+    "avg_speed": 11.330775917013913,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 1,
+    "motorcycles": 0
+  },
+  {
+    "time": 180,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.080319718751122,
+    "total_vehicles": 2,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 1,
+    "motorcycles": 0
+  },
+  {
+    "time": 210,
+    "avg_waiting_time": 8.0,
+    "avg_speed": 11.49485375997181,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 1,
+    "motorcycles": 0
+  },
+  {
+    "time": 240,
+    "avg_waiting_time": 2.6666666666666665,
+    "avg_speed": 11.47359272438192,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 1,
+    "motorcycles": 0
+  },
+  {
+    "time": 270,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.93682710199738,
+    "total_vehicles": 2,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 1,
+    "motorcycles": 0
+  },
+  {
+    "time": 300,
+    "avg_waiting_time": 8.333333333333334,
+    "avg_speed": 11.731790717180814,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 2,
+    "motorcycles": 2
+  },
+  {
+    "time": 330,
+    "avg_waiting_time": 3.3333333333333335,
+    "avg_speed": 11.540502874771729,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 2,
+    "motorcycles": 2
+  },
+  {
+    "time": 360,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.887802004247352,
+    "total_vehicles": 2,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 2,
+    "motorcycles": 2
+  },
+  {
+    "time": 390,
+    "avg_waiting_time": 8.333333333333334,
+    "avg_speed": 11.379187228874859,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 2,
+    "motorcycles": 2
+  },
+  {
+    "time": 420,
+    "avg_waiting_time": 3.0,
+    "avg_speed": 11.420893118798041,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 2,
+    "motorcycles": 2
+  },
+  {
+    "time": 450,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.964437105129562,
+    "total_vehicles": 2,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 2,
+    "motorcycles": 2
+  },
+  {
+    "time": 480,
+    "avg_waiting_time": 8.0,
+    "avg_speed": 11.581496146472311,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 2,
+    "motorcycles": 2
+  },
+  {
+    "time": 510,
+    "avg_waiting_time": 5.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 2,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 2,
+    "motorcycles": 2
+  },
+  {
+    "time": 540,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.11088127172658,
+    "total_vehicles": 2,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 2,
+    "motorcycles": 2
+  },
+  {
+    "time": 570,
+    "avg_waiting_time": 8.0,
+    "avg_speed": 11.381198386848688,
+    "total_vehicles": 3,
+    "phase": 1,
+    "mode": "baseline",
+    "cars": 2,
+    "motorcycles": 2
+  },
+  {
+    "time": 600,
+    "avg_waiting_time": 2.5,
+    "avg_speed": 10.998740654533435,
+    "total_vehicles": 4,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 4,
+    "motorcycles": 0
+  },
+  {
+    "time": 630,
+    "avg_waiting_time": 8.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 2,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 4,
+    "motorcycles": 0
+  },
+  {
+    "time": 660,
+    "avg_waiting_time": 19.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 3,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 4,
+    "motorcycles": 0
+  },
+  {
+    "time": 690,
+    "avg_waiting_time": 28.333333333333332,
+    "avg_speed": 13.89,
+    "total_vehicles": 3,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 4,
+    "motorcycles": 0
+  },
+  {
+    "time": 720,
+    "avg_waiting_time": 35.333333333333336,
+    "avg_speed": 11.49266964453359,
+    "total_vehicles": 3,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 4,
+    "motorcycles": 0
+  },
+  {
+    "time": 750,
+    "avg_waiting_time": 40.25,
+    "avg_speed": 10.567203538367126,
+    "total_vehicles": 4,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 4,
+    "motorcycles": 0
+  },
+  {
+    "time": 780,
+    "avg_waiting_time": 43.5,
+    "avg_speed": 10.78686342412415,
+    "total_vehicles": 4,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 4,
+    "motorcycles": 0
+  },
+  {
+    "time": 810,
+    "avg_waiting_time": 49.0,
+    "avg_speed": 12.044126028656668,
+    "total_vehicles": 4,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 4,
+    "motorcycles": 0
+  },
+  {
+    "time": 840,
+    "avg_waiting_time": 43.333333333333336,
+    "avg_speed": 10.82504320910241,
+    "total_vehicles": 6,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 4,
+    "motorcycles": 0
+  },
+  {
+    "time": 870,
+    "avg_waiting_time": 44.333333333333336,
+    "avg_speed": 11.36958018956886,
+    "total_vehicles": 6,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 4,
+    "motorcycles": 0
+  },
+  {
+    "time": 900,
+    "avg_waiting_time": 57.2,
+    "avg_speed": 11.483727585372767,
+    "total_vehicles": 5,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 1
+  },
+  {
+    "time": 930,
+    "avg_waiting_time": 7.857142857142857,
+    "avg_speed": 11.625498443349528,
+    "total_vehicles": 7,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 1
+  },
+  {
+    "time": 960,
+    "avg_waiting_time": 3.1666666666666665,
+    "avg_speed": 11.908797577322616,
+    "total_vehicles": 6,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 1
+  },
+  {
+    "time": 990,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.685443159583658,
+    "total_vehicles": 5,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 1
+  },
+  {
+    "time": 1020,
+    "avg_waiting_time": 7.0,
+    "avg_speed": 11.700727029118617,
+    "total_vehicles": 8,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 1
+  },
+  {
+    "time": 1050,
+    "avg_waiting_time": 3.4444444444444446,
+    "avg_speed": 11.64624700699176,
+    "total_vehicles": 9,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 1
+  },
+  {
+    "time": 1080,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.558943940772346,
+    "total_vehicles": 7,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 1
+  },
+  {
+    "time": 1110,
+    "avg_waiting_time": 9.181818181818182,
+    "avg_speed": 11.436646538006563,
+    "total_vehicles": 11,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 1
+  },
+  {
+    "time": 1140,
+    "avg_waiting_time": 5.1,
+    "avg_speed": 11.106018149238766,
+    "total_vehicles": 10,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 1
+  },
+  {
+    "time": 1170,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.992847798318195,
+    "total_vehicles": 10,
+    "phase": 2,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 1
+  },
+  {
+    "time": 1200,
+    "avg_waiting_time": 11.933333333333334,
+    "avg_speed": 11.198589635216901,
+    "total_vehicles": 15,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 17,
+    "motorcycles": 10
+  },
+  {
+    "time": 1230,
+    "avg_waiting_time": 5.8,
+    "avg_speed": 10.610954469876958,
+    "total_vehicles": 10,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 17,
+    "motorcycles": 10
+  },
+  {
+    "time": 1260,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.81335502960149,
+    "total_vehicles": 6,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 17,
+    "motorcycles": 10
+  },
+  {
+    "time": 1290,
+    "avg_waiting_time": 20.5,
+    "avg_speed": 10.5074804574874,
+    "total_vehicles": 6,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 17,
+    "motorcycles": 10
+  },
+  {
+    "time": 1320,
+    "avg_waiting_time": 4.0,
+    "avg_speed": 10.90060287842954,
+    "total_vehicles": 3,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 17,
+    "motorcycles": 10
+  },
+  {
+    "time": 1350,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 0,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 17,
+    "motorcycles": 10
+  },
+  {
+    "time": 1380,
+    "avg_waiting_time": 4.5,
+    "avg_speed": 13.89,
+    "total_vehicles": 2,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 17,
+    "motorcycles": 10
+  },
+  {
+    "time": 1410,
+    "avg_waiting_time": 9.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 1,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 17,
+    "motorcycles": 10
+  },
+  {
+    "time": 1440,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 1,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 17,
+    "motorcycles": 10
+  },
+  {
+    "time": 1470,
+    "avg_waiting_time": 10.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 1,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 17,
+    "motorcycles": 10
+  },
+  {
+    "time": 1500,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 10.631739917144412,
+    "total_vehicles": 2,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 0,
+    "motorcycles": 2
+  },
+  {
+    "time": 1530,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 0,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 0,
+    "motorcycles": 2
+  },
+  {
+    "time": 1560,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.880663755898794,
+    "total_vehicles": 2,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 0,
+    "motorcycles": 2
+  },
+  {
+    "time": 1590,
+    "avg_waiting_time": 11.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 1,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 0,
+    "motorcycles": 2
+  },
+  {
+    "time": 1620,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 1,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 0,
+    "motorcycles": 2
+  },
+  {
+    "time": 1650,
+    "avg_waiting_time": 9.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 1,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 0,
+    "motorcycles": 2
+  },
+  {
+    "time": 1680,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 1,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 0,
+    "motorcycles": 2
+  },
+  {
+    "time": 1710,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 0,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 0,
+    "motorcycles": 2
+  },
+  {
+    "time": 1740,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 2,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 0,
+    "motorcycles": 2
+  },
+  {
+    "time": 1770,
+    "avg_waiting_time": 6.666666666666667,
+    "avg_speed": 13.89,
+    "total_vehicles": 3,
+    "phase": 3,
+    "mode": "baseline",
+    "cars": 0,
+    "motorcycles": 2
+  },
+  {
+    "time": 1800,
+    "avg_waiting_time": 3.8181818181818183,
+    "avg_speed": 11.561116669530184,
+    "total_vehicles": 11,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 4
+  },
+  {
+    "time": 1830,
+    "avg_waiting_time": 27.857142857142858,
+    "avg_speed": 13.89,
+    "total_vehicles": 7,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 4
+  },
+  {
+    "time": 1860,
+    "avg_waiting_time": 52.0,
+    "avg_speed": 12.90331665420418,
+    "total_vehicles": 7,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 4
+  },
+  {
+    "time": 1890,
+    "avg_waiting_time": 77.71428571428571,
+    "avg_speed": 13.89,
+    "total_vehicles": 7,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 4
+  },
+  {
+    "time": 1920,
+    "avg_waiting_time": 104.71428571428571,
+    "avg_speed": 13.89,
+    "total_vehicles": 7,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 4
+  },
+  {
+    "time": 1950,
+    "avg_waiting_time": 129.14285714285714,
+    "avg_speed": 14.33864280656606,
+    "total_vehicles": 7,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 4
+  },
+  {
+    "time": 1980,
+    "avg_waiting_time": 154.85714285714286,
+    "avg_speed": 13.89,
+    "total_vehicles": 7,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 4
+  },
+  {
+    "time": 2010,
+    "avg_waiting_time": 181.85714285714286,
+    "avg_speed": 13.89,
+    "total_vehicles": 7,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 4
+  },
+  {
+    "time": 2040,
+    "avg_waiting_time": 206.28571428571428,
+    "avg_speed": 13.440336267580157,
+    "total_vehicles": 7,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 4
+  },
+  {
+    "time": 2070,
+    "avg_waiting_time": 227.28571428571428,
+    "avg_speed": 13.89,
+    "total_vehicles": 7,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 11,
+    "motorcycles": 4
+  },
+  {
+    "time": 2100,
+    "avg_waiting_time": 234.4,
+    "avg_speed": 13.89,
+    "total_vehicles": 5,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 10,
+    "motorcycles": 3
+  },
+  {
+    "time": 2130,
+    "avg_waiting_time": 18.8,
+    "avg_speed": 13.175521342785265,
+    "total_vehicles": 5,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 10,
+    "motorcycles": 3
+  },
+  {
+    "time": 2160,
+    "avg_waiting_time": 42.8,
+    "avg_speed": 13.89,
+    "total_vehicles": 5,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 10,
+    "motorcycles": 3
+  },
+  {
+    "time": 2190,
+    "avg_waiting_time": 68.6,
+    "avg_speed": 13.89,
+    "total_vehicles": 5,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 10,
+    "motorcycles": 3
+  },
+  {
+    "time": 2220,
+    "avg_waiting_time": 90.8,
+    "avg_speed": 14.268838955654127,
+    "total_vehicles": 5,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 10,
+    "motorcycles": 3
+  },
+  {
+    "time": 2250,
+    "avg_waiting_time": 114.8,
+    "avg_speed": 13.89,
+    "total_vehicles": 5,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 10,
+    "motorcycles": 3
+  },
+  {
+    "time": 2280,
+    "avg_waiting_time": 141.0,
+    "avg_speed": 13.89,
+    "total_vehicles": 5,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 10,
+    "motorcycles": 3
+  },
+  {
+    "time": 2310,
+    "avg_waiting_time": 162.8,
+    "avg_speed": 13.475539655017544,
+    "total_vehicles": 5,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 10,
+    "motorcycles": 3
+  },
+  {
+    "time": 2340,
+    "avg_waiting_time": 186.8,
+    "avg_speed": 13.89,
+    "total_vehicles": 5,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 10,
+    "motorcycles": 3
+  },
+  {
+    "time": 2370,
+    "avg_waiting_time": 212.4,
+    "avg_speed": 13.89,
+    "total_vehicles": 5,
+    "phase": 4,
+    "mode": "baseline",
+    "cars": 10,
+    "motorcycles": 3
+  },
+  {
+    "time": 2400,
+    "avg_waiting_time": 195.66666666666666,
+    "avg_speed": 11.498491075211717,
+    "total_vehicles": 6,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 7,
+    "motorcycles": 4
+  },
+  {
+    "time": 2430,
+    "avg_waiting_time": 5.8,
+    "avg_speed": 12.623816875877559,
+    "total_vehicles": 10,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 7,
+    "motorcycles": 4
+  },
+  {
+    "time": 2460,
+    "avg_waiting_time": 16.333333333333332,
+    "avg_speed": 10.518665443267532,
+    "total_vehicles": 15,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 7,
+    "motorcycles": 4
+  },
+  {
+    "time": 2490,
+    "avg_waiting_time": 20.333333333333332,
+    "avg_speed": 10.113117165009808,
+    "total_vehicles": 15,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 7,
+    "motorcycles": 4
+  },
+  {
+    "time": 2520,
+    "avg_waiting_time": 22.333333333333332,
+    "avg_speed": 10.75943190938375,
+    "total_vehicles": 15,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 7,
+    "motorcycles": 4
+  },
+  {
+    "time": 2550,
+    "avg_waiting_time": 30.333333333333332,
+    "avg_speed": 9.89499448904172,
+    "total_vehicles": 21,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 7,
+    "motorcycles": 4
+  },
+  {
+    "time": 2580,
+    "avg_waiting_time": 25.772727272727273,
+    "avg_speed": 9.925563938555628,
+    "total_vehicles": 22,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 7,
+    "motorcycles": 4
+  },
+  {
+    "time": 2610,
+    "avg_waiting_time": 35.38095238095238,
+    "avg_speed": 10.109596050486353,
+    "total_vehicles": 21,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 7,
+    "motorcycles": 4
+  },
+  {
+    "time": 2640,
+    "avg_waiting_time": 34.7037037037037,
+    "avg_speed": 9.637021095878696,
+    "total_vehicles": 27,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 7,
+    "motorcycles": 4
+  },
+  {
+    "time": 2670,
+    "avg_waiting_time": 31.678571428571427,
+    "avg_speed": 9.620895651701433,
+    "total_vehicles": 28,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 7,
+    "motorcycles": 4
+  },
+  {
+    "time": 2700,
+    "avg_waiting_time": 40.22222222222222,
+    "avg_speed": 9.643909398430598,
+    "total_vehicles": 27,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 48,
+    "motorcycles": 20
+  },
+  {
+    "time": 2730,
+    "avg_waiting_time": 9.517241379310345,
+    "avg_speed": 9.451852577682814,
+    "total_vehicles": 29,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 48,
+    "motorcycles": 20
+  },
+  {
+    "time": 2760,
+    "avg_waiting_time": 10.0,
+    "avg_speed": 9.543918019703858,
+    "total_vehicles": 29,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 48,
+    "motorcycles": 20
+  },
+  {
+    "time": 2790,
+    "avg_waiting_time": 13.178571428571429,
+    "avg_speed": 9.605543120840917,
+    "total_vehicles": 28,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 48,
+    "motorcycles": 20
+  },
+  {
+    "time": 2820,
+    "avg_waiting_time": 17.133333333333333,
+    "avg_speed": 9.445957639604694,
+    "total_vehicles": 30,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 48,
+    "motorcycles": 20
+  },
+  {
+    "time": 2850,
+    "avg_waiting_time": 16.896551724137932,
+    "avg_speed": 9.539336175730783,
+    "total_vehicles": 29,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 48,
+    "motorcycles": 20
+  },
+  {
+    "time": 2880,
+    "avg_waiting_time": 19.962962962962962,
+    "avg_speed": 9.646659999107582,
+    "total_vehicles": 27,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 48,
+    "motorcycles": 20
+  },
+  {
+    "time": 2910,
+    "avg_waiting_time": 21.666666666666668,
+    "avg_speed": 9.519275923577462,
+    "total_vehicles": 30,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 48,
+    "motorcycles": 20
+  },
+  {
+    "time": 2940,
+    "avg_waiting_time": 21.967741935483872,
+    "avg_speed": 9.48162799626959,
+    "total_vehicles": 31,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 48,
+    "motorcycles": 20
+  },
+  {
+    "time": 2970,
+    "avg_waiting_time": 25.0,
+    "avg_speed": 9.64860286432204,
+    "total_vehicles": 29,
+    "phase": 5,
+    "mode": "baseline",
+    "cars": 48,
+    "motorcycles": 20
+  },
+  {
+    "time": 3000,
+    "avg_waiting_time": 26.78125,
+    "avg_speed": 7.207047696680994,
+    "total_vehicles": 32,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 40,
+    "motorcycles": 21
+  },
+  {
+    "time": 3030,
+    "avg_waiting_time": 8.580645161290322,
+    "avg_speed": 7.306346086286937,
+    "total_vehicles": 31,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 40,
+    "motorcycles": 21
+  },
+  {
+    "time": 3060,
+    "avg_waiting_time": 11.758620689655173,
+    "avg_speed": 7.38507088237341,
+    "total_vehicles": 29,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 40,
+    "motorcycles": 21
+  },
+  {
+    "time": 3090,
+    "avg_waiting_time": 13.903225806451612,
+    "avg_speed": 7.3423334712250625,
+    "total_vehicles": 31,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 40,
+    "motorcycles": 21
+  },
+  {
+    "time": 3120,
+    "avg_waiting_time": 14.483870967741936,
+    "avg_speed": 7.3151767692976595,
+    "total_vehicles": 31,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 40,
+    "motorcycles": 21
+  },
+  {
+    "time": 3150,
+    "avg_waiting_time": 16.96551724137931,
+    "avg_speed": 7.524912169079944,
+    "total_vehicles": 29,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 40,
+    "motorcycles": 21
+  },
+  {
+    "time": 3180,
+    "avg_waiting_time": 19.06451612903226,
+    "avg_speed": 7.386868776000911,
+    "total_vehicles": 31,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 40,
+    "motorcycles": 21
+  },
+  {
+    "time": 3210,
+    "avg_waiting_time": 19.548387096774192,
+    "avg_speed": 7.343748814115398,
+    "total_vehicles": 31,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 40,
+    "motorcycles": 21
+  },
+  {
+    "time": 3240,
+    "avg_waiting_time": 21.1,
+    "avg_speed": 7.423724409544754,
+    "total_vehicles": 30,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 40,
+    "motorcycles": 21
+  },
+  {
+    "time": 3270,
+    "avg_waiting_time": 24.548387096774192,
+    "avg_speed": 7.400671716721825,
+    "total_vehicles": 31,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 40,
+    "motorcycles": 21
+  },
+  {
+    "time": 3300,
+    "avg_waiting_time": 25.75,
+    "avg_speed": 7.288702346195023,
+    "total_vehicles": 32,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 42,
+    "motorcycles": 23
+  },
+  {
+    "time": 3330,
+    "avg_waiting_time": 9.892857142857142,
+    "avg_speed": 9.676139867735133,
+    "total_vehicles": 28,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 42,
+    "motorcycles": 23
+  },
+  {
+    "time": 3360,
+    "avg_waiting_time": 10.89655172413793,
+    "avg_speed": 9.460696780722708,
+    "total_vehicles": 29,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 42,
+    "motorcycles": 23
+  },
+  {
+    "time": 3390,
+    "avg_waiting_time": 9.633333333333333,
+    "avg_speed": 9.460325426142164,
+    "total_vehicles": 30,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 42,
+    "motorcycles": 23
+  },
+  {
+    "time": 3420,
+    "avg_waiting_time": 12.925925925925926,
+    "avg_speed": 9.574876557949556,
+    "total_vehicles": 27,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 42,
+    "motorcycles": 23
+  },
+  {
+    "time": 3450,
+    "avg_waiting_time": 15.222222222222221,
+    "avg_speed": 9.347981301397349,
+    "total_vehicles": 27,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 42,
+    "motorcycles": 23
+  },
+  {
+    "time": 3480,
+    "avg_waiting_time": 11.375,
+    "avg_speed": 9.55697346463368,
+    "total_vehicles": 24,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 42,
+    "motorcycles": 23
+  },
+  {
+    "time": 3510,
+    "avg_waiting_time": 20.705882352941178,
+    "avg_speed": 9.852589803240889,
+    "total_vehicles": 17,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 42,
+    "motorcycles": 23
+  },
+  {
+    "time": 3540,
+    "avg_waiting_time": 23.857142857142858,
+    "avg_speed": 0.0001465181149379323,
+    "total_vehicles": 21,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 42,
+    "motorcycles": 23
+  },
+  {
+    "time": 3570,
+    "avg_waiting_time": 21.466666666666665,
+    "avg_speed": 7.1237391156353285,
+    "total_vehicles": 15,
+    "phase": 6,
+    "mode": "baseline",
+    "cars": 42,
+    "motorcycles": 23
+  }
+]

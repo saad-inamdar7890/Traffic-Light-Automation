@@ -1,0 +1,79 @@
+DYNAMIC TRAFFIC SCENARIO ANALYSIS REPORT
+============================================================
+
+Test Date: 2025-10-06 16:50:17
+Total Simulation Time: 3.0 hours
+Phase Duration: 30 minutes each
+
+PHASE-BY-PHASE ANALYSIS:
+----------------------------------------
+
+Phase 1: Low Traffic All Lanes
+  Normal Mode:
+    Avg Waiting Time: 10.26s
+    Avg Speed: 2.50 m/s
+    Avg Vehicles: 3.1
+  Adaptive Mode:
+    Avg Waiting Time: 132.07s
+    Avg Speed: 0.08 m/s
+    Avg Vehicles: 25.9
+  Improvement: -1187.9%
+
+Phase 2: Low Traffic All Lanes
+  Normal Mode:
+    Avg Waiting Time: 13.83s
+    Avg Speed: 4.61 m/s
+    Avg Vehicles: 10.6
+  Adaptive Mode:
+    Avg Waiting Time: 140.44s
+    Avg Speed: 0.05 m/s
+    Avg Vehicles: 52.8
+  Improvement: -915.6%
+
+Phase 3: Heavy North, Light Others
+  Normal Mode:
+    Avg Waiting Time: 10.66s
+    Avg Speed: 3.45 m/s
+    Avg Vehicles: 2.8
+  Adaptive Mode:
+    Avg Waiting Time: 195.54s
+    Avg Speed: 0.06 m/s
+    Avg Vehicles: 53.0
+  Improvement: -1734.0%
+
+Phase 4: Heavy East, Light Others
+  Normal Mode:
+    Avg Waiting Time: 11.80s
+    Avg Speed: 5.27 m/s
+    Avg Vehicles: 2.6
+  Adaptive Mode:
+    Avg Waiting Time: 179.58s
+    Avg Speed: 0.09 m/s
+    Avg Vehicles: 58.2
+  Improvement: -1421.7%
+
+Phase 5: Reduced Traffic All Lanes
+  Normal Mode:
+    Avg Waiting Time: 25.36s
+    Avg Speed: 2.39 m/s
+    Avg Vehicles: 40.8
+  Adaptive Mode:
+    Avg Waiting Time: 177.13s
+    Avg Speed: 0.06 m/s
+    Avg Vehicles: 52.9
+  Improvement: -598.5%
+
+Phase 6: Rush Hour - Heavy All Lanes
+  Normal Mode:
+    Avg Waiting Time: 21.20s
+    Avg Speed: 2.63 m/s
+    Avg Vehicles: 25.2
+  Adaptive Mode:
+    Avg Waiting Time: 166.33s
+    Avg Speed: 0.06 m/s
+    Avg Vehicles: 53.0
+  Improvement: -684.7%
+
+OVERALL PERFORMANCE SUMMARY:
+----------------------------------------
+Average Improvement: -1090.4%

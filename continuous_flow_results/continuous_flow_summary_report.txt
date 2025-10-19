@@ -1,0 +1,52 @@
+DYNAMIC CONTINUOUS FLOW TRAFFIC SCENARIO ANALYSIS REPORT
+======================================================================
+
+Test Date: 2025-10-07 22:18:49
+Total Simulation Time: 6.0 hours
+Phase Duration: 60 minutes each
+Vehicle Mix: 70% Cars + 30% Motorcycles
+
+OVERALL PERFORMANCE SUMMARY:
+----------------------------------------
+Baseline Average Waiting Time: 14.36s
+Adaptive Average Waiting Time: 7.11s
+Overall Improvement: +50.5%
+
+PHASE-BY-PHASE ANALYSIS:
+----------------------------------------
+
+Phase 1: Low Mixed Traffic
+  Baseline: 4.05s
+  Adaptive: 2.94s
+  Improvement: +27.4%
+
+Phase 2: Heavy North Traffic
+  Baseline: 4.85s
+  Adaptive: 3.37s
+  Improvement: +30.5%
+
+Phase 3: Heavy East Traffic
+  Baseline: 4.79s
+  Adaptive: 3.76s
+  Improvement: +21.4%
+
+Phase 4: Minimal Mixed Traffic
+  Baseline: 54.90s
+  Adaptive: 25.07s
+  Improvement: +54.3%
+
+Phase 5: Rush Hour
+  Baseline: 8.71s
+  Adaptive: 4.07s
+  Improvement: +53.3%
+
+Phase 6: Gradual Reduction
+  Baseline: 8.85s
+  Adaptive: 3.46s
+  Improvement: +60.9%
+
+ALGORITHM PERFORMANCE:
+Total Adaptations: 289
+Adaptation Rate: 0.8 adaptations/minute
+
+SUCCESS: Improved algorithm shows 50.5% improvement

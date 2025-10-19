@@ -1,0 +1,3242 @@
+[
+  {
+    "time": 0,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 30,
+    "avg_waiting_time": 5.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 60,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 6.41213127250005,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 90,
+    "avg_waiting_time": 5.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 120,
+    "avg_waiting_time": 16.666666666666668,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 150,
+    "avg_waiting_time": 29.75,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 180,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 10.313875357172382,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 210,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 7.221307126164664,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 240,
+    "avg_waiting_time": 3.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 270,
+    "avg_waiting_time": 15.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 300,
+    "avg_waiting_time": 2.25,
+    "avg_speed": 1.2043991475948133,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 330,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 7.2004258161048185,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 360,
+    "avg_waiting_time": 5.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 390,
+    "avg_waiting_time": 17.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 420,
+    "avg_waiting_time": 30.25,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 450,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.204058573865373,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 480,
+    "avg_waiting_time": 4.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 510,
+    "avg_waiting_time": 15.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 540,
+    "avg_waiting_time": 28.75,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 570,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 8.953984311067405,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 600,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 7.607818637582917,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 630,
+    "avg_waiting_time": 5.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 660,
+    "avg_waiting_time": 16.333333333333332,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 690,
+    "avg_waiting_time": 29.75,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 720,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 6.142585442038838,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 750,
+    "avg_waiting_time": 3.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 780,
+    "avg_waiting_time": 15.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 810,
+    "avg_waiting_time": 28.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 840,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 8.945563950208859,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 870,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 7.221720238386396,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 900,
+    "avg_waiting_time": 4.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 930,
+    "avg_waiting_time": 16.333333333333332,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 960,
+    "avg_waiting_time": 3.0,
+    "avg_speed": 1.2101201627519913,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 990,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 6.582614198338182,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1020,
+    "avg_waiting_time": 5.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1050,
+    "avg_waiting_time": 16.666666666666668,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1080,
+    "avg_waiting_time": 30.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1110,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 9.778610756777944,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1140,
+    "avg_waiting_time": 5.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1170,
+    "avg_waiting_time": 17.333333333333332,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1200,
+    "avg_waiting_time": 30.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1230,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 9.533523395326199,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1260,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 6.120698113556977,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1290,
+    "avg_waiting_time": 5.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1320,
+    "avg_waiting_time": 16.666666666666668,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1350,
+    "avg_waiting_time": 30.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1380,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 7.386073055663929,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1410,
+    "avg_waiting_time": 4.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1440,
+    "avg_waiting_time": 16.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1470,
+    "avg_waiting_time": 29.25,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1500,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 9.441051326103894,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1530,
+    "avg_waiting_time": 3.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1560,
+    "avg_waiting_time": 15.666666666666666,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1590,
+    "avg_waiting_time": 28.75,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1620,
+    "avg_waiting_time": 9.8,
+    "avg_speed": 0.8533883549459279,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1650,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 6.5354298934704405,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1680,
+    "avg_waiting_time": 4.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1710,
+    "avg_waiting_time": 16.333333333333332,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1740,
+    "avg_waiting_time": 30.25,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1770,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 10.31013128848364,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 1,
+    "mode": "normal"
+  },
+  {
+    "time": 1800,
+    "avg_waiting_time": 5.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 1830,
+    "avg_waiting_time": 26.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 1860,
+    "avg_waiting_time": 28.25,
+    "avg_speed": 3.596648401013659,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 1890,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.584507916626933,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 1920,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 6.4331826484297965,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 1950,
+    "avg_waiting_time": 3.5,
+    "avg_speed": 2.074212675378658,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 1980,
+    "avg_waiting_time": 11.75,
+    "avg_speed": 2.0205005665309725,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2010,
+    "avg_waiting_time": 25.6,
+    "avg_speed": 2.565706843165681,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2040,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 8.994790650587795,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2070,
+    "avg_waiting_time": 5.5,
+    "avg_speed": 6.635328162187592,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2100,
+    "avg_waiting_time": 14.75,
+    "avg_speed": 0.4433077302852817,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2130,
+    "avg_waiting_time": 31.6,
+    "avg_speed": 2.6268421073606865,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2160,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.52399272457466,
+    "total_vehicles": 8,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2190,
+    "avg_waiting_time": 4.5,
+    "avg_speed": 6.771475691109956,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2220,
+    "avg_waiting_time": 14.6,
+    "avg_speed": 2.63503883198461,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2250,
+    "avg_waiting_time": 28.0,
+    "avg_speed": 2.007990689279935,
+    "total_vehicles": 7,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2280,
+    "avg_waiting_time": 20.1,
+    "avg_speed": 1.2096663189811334,
+    "total_vehicles": 10,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2310,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.762529162736541,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2340,
+    "avg_waiting_time": 8.6,
+    "avg_speed": 2.6489541120105278,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2370,
+    "avg_waiting_time": 22.857142857142858,
+    "avg_speed": 2.98246752579877,
+    "total_vehicles": 7,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2400,
+    "avg_waiting_time": 35.7,
+    "avg_speed": 1.4289118875647726,
+    "total_vehicles": 10,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2430,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.411528008265226,
+    "total_vehicles": 13,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2460,
+    "avg_waiting_time": 1.75,
+    "avg_speed": 5.437825160644462,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2490,
+    "avg_waiting_time": 14.333333333333334,
+    "avg_speed": 3.1127573201890293,
+    "total_vehicles": 6,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2520,
+    "avg_waiting_time": 26.7,
+    "avg_speed": 1.4413611823786414,
+    "total_vehicles": 10,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2550,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 7.693472961964134,
+    "total_vehicles": 13,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2580,
+    "avg_waiting_time": 0.2,
+    "avg_speed": 8.15906383469546,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2610,
+    "avg_waiting_time": 11.142857142857142,
+    "avg_speed": 2.8273189950644175,
+    "total_vehicles": 7,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2640,
+    "avg_waiting_time": 24.272727272727273,
+    "avg_speed": 1.907834708111954,
+    "total_vehicles": 11,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2670,
+    "avg_waiting_time": 40.57142857142857,
+    "avg_speed": 1.2623933087859893,
+    "total_vehicles": 14,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2700,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.903574304628908,
+    "total_vehicles": 13,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2730,
+    "avg_waiting_time": 6.833333333333333,
+    "avg_speed": 4.177336995163871,
+    "total_vehicles": 6,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2760,
+    "avg_waiting_time": 19.363636363636363,
+    "avg_speed": 1.990880373400277,
+    "total_vehicles": 11,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2790,
+    "avg_waiting_time": 36.285714285714285,
+    "avg_speed": 1.3524266484151144,
+    "total_vehicles": 14,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2820,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.100120184204098,
+    "total_vehicles": 19,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2850,
+    "avg_waiting_time": 0.3333333333333333,
+    "avg_speed": 8.638392993044667,
+    "total_vehicles": 6,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2880,
+    "avg_waiting_time": 11.5,
+    "avg_speed": 3.240161396050277,
+    "total_vehicles": 8,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2910,
+    "avg_waiting_time": 24.692307692307693,
+    "avg_speed": 1.9969396507274004,
+    "total_vehicles": 13,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2940,
+    "avg_waiting_time": 28.666666666666668,
+    "avg_speed": 1.3238796009612208,
+    "total_vehicles": 18,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 2970,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.238839163956282,
+    "total_vehicles": 11,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3000,
+    "avg_waiting_time": 8.625,
+    "avg_speed": 3.1750617878473912,
+    "total_vehicles": 8,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3030,
+    "avg_waiting_time": 22.076923076923077,
+    "avg_speed": 1.8270175657381047,
+    "total_vehicles": 13,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3060,
+    "avg_waiting_time": 35.63157894736842,
+    "avg_speed": 1.149044479309431,
+    "total_vehicles": 19,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3090,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.674004043682487,
+    "total_vehicles": 24,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3120,
+    "avg_waiting_time": 3.7142857142857144,
+    "avg_speed": 3.7562289424912985,
+    "total_vehicles": 7,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3150,
+    "avg_waiting_time": 15.76923076923077,
+    "avg_speed": 1.9868074261695283,
+    "total_vehicles": 13,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3180,
+    "avg_waiting_time": 31.61111111111111,
+    "avg_speed": 1.3380608763191704,
+    "total_vehicles": 18,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3210,
+    "avg_waiting_time": 5.041666666666667,
+    "avg_speed": 4.264766560466204,
+    "total_vehicles": 24,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3240,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 10.607754949748573,
+    "total_vehicles": 14,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3270,
+    "avg_waiting_time": 10.4,
+    "avg_speed": 2.608934684659173,
+    "total_vehicles": 10,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3300,
+    "avg_waiting_time": 24.1875,
+    "avg_speed": 1.6193735990638047,
+    "total_vehicles": 16,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3330,
+    "avg_waiting_time": 39.18181818181818,
+    "avg_speed": 0.9813055579344947,
+    "total_vehicles": 22,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3360,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.22071345285341,
+    "total_vehicles": 25,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3390,
+    "avg_waiting_time": 5.0,
+    "avg_speed": 3.5896463933651455,
+    "total_vehicles": 9,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3420,
+    "avg_waiting_time": 18.666666666666668,
+    "avg_speed": 2.2458211695702706,
+    "total_vehicles": 15,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3450,
+    "avg_waiting_time": 32.22727272727273,
+    "avg_speed": 1.0450636082472977,
+    "total_vehicles": 22,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3480,
+    "avg_waiting_time": 0.03571428571428571,
+    "avg_speed": 8.147643027530178,
+    "total_vehicles": 28,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3510,
+    "avg_waiting_time": 0.9375,
+    "avg_speed": 8.139985441876304,
+    "total_vehicles": 16,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3540,
+    "avg_waiting_time": 13.714285714285714,
+    "avg_speed": 2.518919263682093,
+    "total_vehicles": 14,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3570,
+    "avg_waiting_time": 28.9,
+    "avg_speed": 1.7069461404043147,
+    "total_vehicles": 20,
+    "throughput": 0,
+    "phase": 2,
+    "mode": "normal"
+  },
+  {
+    "time": 3600,
+    "avg_waiting_time": 36.333333333333336,
+    "avg_speed": 1.0927747149975748,
+    "total_vehicles": 27,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3630,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.024771141065374,
+    "total_vehicles": 19,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3660,
+    "avg_waiting_time": 2.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3690,
+    "avg_waiting_time": 22.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3720,
+    "avg_waiting_time": 26.5,
+    "avg_speed": 0.0024193295078694605,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3750,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.037780049906715,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3780,
+    "avg_waiting_time": 1.5,
+    "avg_speed": 0.0018567248261182146,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3810,
+    "avg_waiting_time": 21.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3840,
+    "avg_waiting_time": 25.5,
+    "avg_speed": 0.12430088650258564,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3870,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.884614654779824,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3900,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 5.180096272086249,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3930,
+    "avg_waiting_time": 19.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3960,
+    "avg_waiting_time": 24.5,
+    "avg_speed": 1.2118224696351332,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 3990,
+    "avg_waiting_time": 49.25,
+    "avg_speed": 0.0,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4020,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 6.28204691964079,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4050,
+    "avg_waiting_time": 11.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4080,
+    "avg_waiting_time": 13.666666666666666,
+    "avg_speed": 3.9751475838994907,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4110,
+    "avg_waiting_time": 34.666666666666664,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4140,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 10.921368100156931,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4170,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 14.2685914811304,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4200,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 8.363794217888863,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4230,
+    "avg_waiting_time": 15.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4260,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 3.7747900345129897,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4290,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.201553479570961,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4320,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 5.038739807030652,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4350,
+    "avg_waiting_time": 13.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4380,
+    "avg_waiting_time": 29.0,
+    "avg_speed": 1.2324360724926615,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4410,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.43291706734522,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4440,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4470,
+    "avg_waiting_time": 8.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4500,
+    "avg_waiting_time": 19.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4530,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.565811195852874,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4560,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4590,
+    "avg_waiting_time": 9.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4620,
+    "avg_waiting_time": 19.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4650,
+    "avg_waiting_time": 39.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4680,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4710,
+    "avg_waiting_time": 8.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4740,
+    "avg_waiting_time": 19.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4770,
+    "avg_waiting_time": 38.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4800,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 8.242754268035538,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4830,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.184991855343847,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4860,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4890,
+    "avg_waiting_time": 9.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4920,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.9789769442752003,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4950,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.79577581153343,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 4980,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5010,
+    "avg_waiting_time": 9.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5040,
+    "avg_waiting_time": 19.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5070,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.169982034893982,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5100,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5130,
+    "avg_waiting_time": 9.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5160,
+    "avg_waiting_time": 19.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5190,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.826487170066464,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5220,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5250,
+    "avg_waiting_time": 8.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5280,
+    "avg_waiting_time": 19.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5310,
+    "avg_waiting_time": 39.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5340,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5370,
+    "avg_waiting_time": 1.8,
+    "avg_speed": 8.890907691241937,
+    "total_vehicles": 5,
+    "throughput": 0,
+    "phase": 3,
+    "mode": "normal"
+  },
+  {
+    "time": 5400,
+    "avg_waiting_time": 5.615384615384615,
+    "avg_speed": 5.763604492058044,
+    "total_vehicles": 13,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5430,
+    "avg_waiting_time": 29.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 12,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5460,
+    "avg_waiting_time": 43.76923076923077,
+    "avg_speed": 2.9644350067985132,
+    "total_vehicles": 13,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5490,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.171117364351142,
+    "total_vehicles": 11,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5520,
+    "avg_waiting_time": 7.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5550,
+    "avg_waiting_time": 18.5,
+    "avg_speed": 6.570588515528739,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5580,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 1.2523121000966058,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5610,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.704993862554522,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5640,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.506833812098787,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5670,
+    "avg_waiting_time": 13.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5700,
+    "avg_waiting_time": 32.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5730,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.329779166475568,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5760,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5790,
+    "avg_waiting_time": 8.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5820,
+    "avg_waiting_time": 19.0,
+    "avg_speed": 7.15504290770546,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5850,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 8.01744217150918,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5880,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.002378131108918,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5910,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 14.290683087946299,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5940,
+    "avg_waiting_time": 13.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 5970,
+    "avg_waiting_time": 32.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6000,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 16.538089986573144,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6030,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6060,
+    "avg_waiting_time": 8.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6090,
+    "avg_waiting_time": 19.0,
+    "avg_speed": 6.766640625631727,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6120,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 8.058846366151755,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6150,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 14.495360099815848,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6180,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 14.304168007995807,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6210,
+    "avg_waiting_time": 13.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6240,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 2.2007881674799137,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6270,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 14.752353178829827,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6300,
+    "avg_waiting_time": 13.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6330,
+    "avg_waiting_time": 33.0,
+    "avg_speed": 5.959304784314051e-05,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6360,
+    "avg_waiting_time": 42.0,
+    "avg_speed": 3.9962365211329263,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6390,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 9.181809328493912,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6420,
+    "avg_waiting_time": 10.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6450,
+    "avg_waiting_time": 20.0,
+    "avg_speed": 6.990570464384162,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6480,
+    "avg_waiting_time": 31.333333333333332,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6510,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.883829638938906,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6540,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.752014699103691,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6570,
+    "avg_waiting_time": 12.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6600,
+    "avg_waiting_time": 31.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6630,
+    "avg_waiting_time": 41.0,
+    "avg_speed": 4.317431123455156,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6660,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6690,
+    "avg_waiting_time": 11.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6720,
+    "avg_waiting_time": 20.5,
+    "avg_speed": 5.911232007297603,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6750,
+    "avg_waiting_time": 31.333333333333332,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6780,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.74613251277762,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6810,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 10.540538378987566,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6840,
+    "avg_waiting_time": 11.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6870,
+    "avg_waiting_time": 30.0,
+    "avg_speed": 6.492493533271069e-05,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6900,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 4.724438335267206,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6930,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6960,
+    "avg_waiting_time": 11.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 6990,
+    "avg_waiting_time": 20.5,
+    "avg_speed": 7.221032619547693,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 7020,
+    "avg_waiting_time": 32.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 7050,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 14.402985744780441,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 7080,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 12.814187324033835,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 7110,
+    "avg_waiting_time": 12.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 7140,
+    "avg_waiting_time": 32.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 7170,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.815891863660683,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 4,
+    "mode": "normal"
+  },
+  {
+    "time": 7200,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7230,
+    "avg_waiting_time": 2.090909090909091,
+    "avg_speed": 5.0404569303197,
+    "total_vehicles": 11,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7260,
+    "avg_waiting_time": 14.80952380952381,
+    "avg_speed": 2.093477991527333,
+    "total_vehicles": 21,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7290,
+    "avg_waiting_time": 29.838709677419356,
+    "avg_speed": 0.881296526834334,
+    "total_vehicles": 31,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7320,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 10.840092477460189,
+    "total_vehicles": 35,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7350,
+    "avg_waiting_time": 9.68421052631579,
+    "avg_speed": 2.600748800565076,
+    "total_vehicles": 19,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7380,
+    "avg_waiting_time": 26.0,
+    "avg_speed": 1.13055344344701,
+    "total_vehicles": 29,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7410,
+    "avg_waiting_time": 42.333333333333336,
+    "avg_speed": 0.4991148474737943,
+    "total_vehicles": 39,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7440,
+    "avg_waiting_time": 13.88,
+    "avg_speed": 4.211823516770621,
+    "total_vehicles": 50,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7470,
+    "avg_waiting_time": 1.5405405405405406,
+    "avg_speed": 5.350590618601619,
+    "total_vehicles": 37,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7500,
+    "avg_waiting_time": 22.11111111111111,
+    "avg_speed": 0.7511824693102768,
+    "total_vehicles": 36,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7530,
+    "avg_waiting_time": 41.80434782608695,
+    "avg_speed": 0.2567750424028868,
+    "total_vehicles": 46,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7560,
+    "avg_waiting_time": 60.54716981132076,
+    "avg_speed": 0.09033704355649018,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7590,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 8.83331470392819,
+    "total_vehicles": 45,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7620,
+    "avg_waiting_time": 13.181818181818182,
+    "avg_speed": 0.9574106977488245,
+    "total_vehicles": 33,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7650,
+    "avg_waiting_time": 34.04651162790697,
+    "avg_speed": 0.40249878860733224,
+    "total_vehicles": 43,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7680,
+    "avg_waiting_time": 53.886792452830186,
+    "avg_speed": 0.00012175883435569367,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7710,
+    "avg_waiting_time": 18.660377358490567,
+    "avg_speed": 6.202071765606869,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7740,
+    "avg_waiting_time": 5.241379310344827,
+    "avg_speed": 1.2437846014056562,
+    "total_vehicles": 29,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7770,
+    "avg_waiting_time": 26.615384615384617,
+    "avg_speed": 0.5652549990280841,
+    "total_vehicles": 39,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7800,
+    "avg_waiting_time": 45.26,
+    "avg_speed": 0.23122620855474557,
+    "total_vehicles": 50,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7830,
+    "avg_waiting_time": 45.679245283018865,
+    "avg_speed": 1.548428647260435,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7860,
+    "avg_waiting_time": 0.15,
+    "avg_speed": 8.145888207856808,
+    "total_vehicles": 40,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7890,
+    "avg_waiting_time": 18.11764705882353,
+    "avg_speed": 0.8079749765006355,
+    "total_vehicles": 34,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7920,
+    "avg_waiting_time": 38.29545454545455,
+    "avg_speed": 0.32036941810101016,
+    "total_vehicles": 44,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7950,
+    "avg_waiting_time": 58.867924528301884,
+    "avg_speed": 0.0,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 7980,
+    "avg_waiting_time": 7.122448979591836,
+    "avg_speed": 7.409193481721474,
+    "total_vehicles": 49,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8010,
+    "avg_waiting_time": 8.8,
+    "avg_speed": 1.1204230337213485,
+    "total_vehicles": 30,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8040,
+    "avg_waiting_time": 29.925,
+    "avg_speed": 0.4438236660944296,
+    "total_vehicles": 40,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8070,
+    "avg_waiting_time": 48.19607843137255,
+    "avg_speed": 0.13414206649464838,
+    "total_vehicles": 51,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8100,
+    "avg_waiting_time": 30.30188679245283,
+    "avg_speed": 3.8634421073518603,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8130,
+    "avg_waiting_time": 1.696969696969697,
+    "avg_speed": 4.899196933312525,
+    "total_vehicles": 33,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8160,
+    "avg_waiting_time": 21.75,
+    "avg_speed": 0.6232650271410547,
+    "total_vehicles": 36,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8190,
+    "avg_waiting_time": 41.130434782608695,
+    "avg_speed": 0.26382237531635416,
+    "total_vehicles": 46,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8220,
+    "avg_waiting_time": 59.64150943396226,
+    "avg_speed": 0.07651482385337212,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8250,
+    "avg_waiting_time": 0.9534883720930233,
+    "avg_speed": 9.922317185855922,
+    "total_vehicles": 43,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8280,
+    "avg_waiting_time": 14.0,
+    "avg_speed": 1.0326640587747695,
+    "total_vehicles": 32,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8310,
+    "avg_waiting_time": 34.19047619047619,
+    "avg_speed": 0.41396077883745797,
+    "total_vehicles": 42,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8340,
+    "avg_waiting_time": 52.339622641509436,
+    "avg_speed": 0.028182139465688448,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8370,
+    "avg_waiting_time": 15.90566037735849,
+    "avg_speed": 6.251894875756058,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8400,
+    "avg_waiting_time": 4.65625,
+    "avg_speed": 2.238121110003238,
+    "total_vehicles": 32,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8430,
+    "avg_waiting_time": 25.923076923076923,
+    "avg_speed": 0.5834327756981809,
+    "total_vehicles": 39,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8460,
+    "avg_waiting_time": 45.3469387755102,
+    "avg_speed": 0.17339812420442394,
+    "total_vehicles": 49,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8490,
+    "avg_waiting_time": 44.660377358490564,
+    "avg_speed": 1.7188401059302743,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8520,
+    "avg_waiting_time": 0.24324324324324326,
+    "avg_speed": 8.535319297567055,
+    "total_vehicles": 37,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8550,
+    "avg_waiting_time": 17.58823529411765,
+    "avg_speed": 0.8539600076253524,
+    "total_vehicles": 34,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8580,
+    "avg_waiting_time": 37.70454545454545,
+    "avg_speed": 0.3134578566134614,
+    "total_vehicles": 44,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8610,
+    "avg_waiting_time": 57.735849056603776,
+    "avg_speed": 0.0002593184518473511,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8640,
+    "avg_waiting_time": 6.666666666666667,
+    "avg_speed": 7.375066963590072,
+    "total_vehicles": 48,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8670,
+    "avg_waiting_time": 9.5,
+    "avg_speed": 0.9874308533519158,
+    "total_vehicles": 30,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8700,
+    "avg_waiting_time": 30.5,
+    "avg_speed": 0.5805264633097595,
+    "total_vehicles": 40,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8730,
+    "avg_waiting_time": 48.8235294117647,
+    "avg_speed": 0.18430721982718457,
+    "total_vehicles": 51,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8760,
+    "avg_waiting_time": 30.528301886792452,
+    "avg_speed": 3.4742599246914554,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8790,
+    "avg_waiting_time": 1.3714285714285714,
+    "avg_speed": 5.341438896843426,
+    "total_vehicles": 35,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8820,
+    "avg_waiting_time": 21.783783783783782,
+    "avg_speed": 0.7937054472817208,
+    "total_vehicles": 37,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8850,
+    "avg_waiting_time": 41.787234042553195,
+    "avg_speed": 0.2542223608705311,
+    "total_vehicles": 47,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8880,
+    "avg_waiting_time": 61.679245283018865,
+    "avg_speed": 0.08087068211972573,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8910,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 9.03905281362952,
+    "total_vehicles": 43,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8940,
+    "avg_waiting_time": 13.030303030303031,
+    "avg_speed": 0.9229370523277751,
+    "total_vehicles": 33,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 8970,
+    "avg_waiting_time": 33.51162790697674,
+    "avg_speed": 0.35362058723053696,
+    "total_vehicles": 43,
+    "throughput": 0,
+    "phase": 5,
+    "mode": "normal"
+  },
+  {
+    "time": 9000,
+    "avg_waiting_time": 51.925925925925924,
+    "avg_speed": 0.003233993870028062,
+    "total_vehicles": 54,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9030,
+    "avg_waiting_time": 15.127272727272727,
+    "avg_speed": 4.924456762526267,
+    "total_vehicles": 55,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9060,
+    "avg_waiting_time": 5.4411764705882355,
+    "avg_speed": 2.367482074565701,
+    "total_vehicles": 34,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9090,
+    "avg_waiting_time": 27.073170731707318,
+    "avg_speed": 0.5055558281047422,
+    "total_vehicles": 41,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9120,
+    "avg_waiting_time": 44.07692307692308,
+    "avg_speed": 0.4539658178882187,
+    "total_vehicles": 52,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9150,
+    "avg_waiting_time": 46.528301886792455,
+    "avg_speed": 1.6098110684325253,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9180,
+    "avg_waiting_time": 0.10526315789473684,
+    "avg_speed": 8.1032804755072,
+    "total_vehicles": 38,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9210,
+    "avg_waiting_time": 17.764705882352942,
+    "avg_speed": 0.7114715399601171,
+    "total_vehicles": 34,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9240,
+    "avg_waiting_time": 37.95454545454545,
+    "avg_speed": 0.33221832090602743,
+    "total_vehicles": 44,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9270,
+    "avg_waiting_time": 58.39622641509434,
+    "avg_speed": 0.0,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9300,
+    "avg_waiting_time": 7.607843137254902,
+    "avg_speed": 6.72566230386086,
+    "total_vehicles": 51,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9330,
+    "avg_waiting_time": 8.935483870967742,
+    "avg_speed": 1.0905899811387472,
+    "total_vehicles": 31,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9360,
+    "avg_waiting_time": 30.024390243902438,
+    "avg_speed": 0.3903906405185581,
+    "total_vehicles": 41,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9390,
+    "avg_waiting_time": 48.55769230769231,
+    "avg_speed": 0.03416158502143658,
+    "total_vehicles": 52,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9420,
+    "avg_waiting_time": 31.547169811320753,
+    "avg_speed": 3.77295164745574,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9450,
+    "avg_waiting_time": 1.3714285714285714,
+    "avg_speed": 5.194527042544211,
+    "total_vehicles": 35,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9480,
+    "avg_waiting_time": 21.72222222222222,
+    "avg_speed": 0.6828103140754517,
+    "total_vehicles": 36,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9510,
+    "avg_waiting_time": 41.76086956521739,
+    "avg_speed": 0.27262617726241684,
+    "total_vehicles": 46,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9540,
+    "avg_waiting_time": 60.64150943396226,
+    "avg_speed": 0.09110338088394464,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9570,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 8.98179687466832,
+    "total_vehicles": 44,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9600,
+    "avg_waiting_time": 13.727272727272727,
+    "avg_speed": 0.7241168697428927,
+    "total_vehicles": 33,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9630,
+    "avg_waiting_time": 34.833333333333336,
+    "avg_speed": 0.43554834513459745,
+    "total_vehicles": 42,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9660,
+    "avg_waiting_time": 52.943396226415096,
+    "avg_speed": 0.028055723543247056,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9690,
+    "avg_waiting_time": 17.452830188679247,
+    "avg_speed": 5.67776495526525,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9720,
+    "avg_waiting_time": 5.0344827586206895,
+    "avg_speed": 1.7848945417822348,
+    "total_vehicles": 29,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9750,
+    "avg_waiting_time": 26.36842105263158,
+    "avg_speed": 0.5755886850730632,
+    "total_vehicles": 38,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9780,
+    "avg_waiting_time": 44.89795918367347,
+    "avg_speed": 0.15883107080379102,
+    "total_vehicles": 49,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9810,
+    "avg_waiting_time": 44.22641509433962,
+    "avg_speed": 1.7486277631896658,
+    "total_vehicles": 53,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9840,
+    "avg_waiting_time": 0.28205128205128205,
+    "avg_speed": 8.251830820713973,
+    "total_vehicles": 39,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9870,
+    "avg_waiting_time": 18.294117647058822,
+    "avg_speed": 0.8519079991100026,
+    "total_vehicles": 34,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9900,
+    "avg_waiting_time": 45.47222222222222,
+    "avg_speed": 0.0,
+    "total_vehicles": 36,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9930,
+    "avg_waiting_time": 75.16666666666667,
+    "avg_speed": 0.0,
+    "total_vehicles": 36,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9960,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 9.785311230660323,
+    "total_vehicles": 35,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 9990,
+    "avg_waiting_time": 17.125,
+    "avg_speed": 0.0,
+    "total_vehicles": 8,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10020,
+    "avg_waiting_time": 37.7,
+    "avg_speed": 1.513707555793287,
+    "total_vehicles": 10,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10050,
+    "avg_waiting_time": 65.3,
+    "avg_speed": 0.0,
+    "total_vehicles": 10,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10080,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.962634700454743,
+    "total_vehicles": 12,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10110,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 15.154183136673334,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10140,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 5.448368001554628,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10170,
+    "avg_waiting_time": 9.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10200,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 1.8337839839514345,
+    "total_vehicles": 3,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10230,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 11.586151418998558,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10260,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10290,
+    "avg_waiting_time": 11.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10320,
+    "avg_waiting_time": 20.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10350,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.40785832595277,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10380,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10410,
+    "avg_waiting_time": 9.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10440,
+    "avg_waiting_time": 19.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10470,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 13.121739407854635,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10500,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10530,
+    "avg_waiting_time": 11.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10560,
+    "avg_waiting_time": 20.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10590,
+    "avg_waiting_time": 40.5,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10620,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10650,
+    "avg_waiting_time": 10.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 1,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10680,
+    "avg_waiting_time": 20.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10710,
+    "avg_waiting_time": 41.0,
+    "avg_speed": 0.0,
+    "total_vehicles": 2,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10740,
+    "avg_waiting_time": 0.0,
+    "avg_speed": 4.943838103473904,
+    "total_vehicles": 6,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  },
+  {
+    "time": 10770,
+    "avg_waiting_time": 4.5,
+    "avg_speed": 2.614399244672302,
+    "total_vehicles": 4,
+    "throughput": 0,
+    "phase": 6,
+    "mode": "normal"
+  }
+]

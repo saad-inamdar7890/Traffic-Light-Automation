@@ -706,3 +706,200 @@ Analysis: {'🟢 Good' if metrics.get('avg_waiting_time', 100) < 15 else '🟡 F
         except Exception as e:
             print(f"⚠️  Error creating summary dashboard: {e}")
             return False
+
+    def create_mixed_vehicle_comparison_plots(self, normal_data: List[Dict], adaptive_data: List[Dict], 
+                                             phase_boundaries: List[int], output_file: str):
+        """
+        Create comprehensive comparison plots for mixed vehicle scenarios.
+        
+        Args:
+            normal_data: Data from normal mode simulation
+            adaptive_data: Data from adaptive mode simulation  
+            phase_boundaries: Time boundaries for different phases
+            output_file: Output file path for the plot
+        """
+        # Convert data for easier analysis
+        normal_times = [d['time'] / 60 for d in normal_data]  # Convert to minutes
+        adaptive_times = [d['time'] / 60 for d in adaptive_data]
+        
+        normal_wait = [d['avg_waiting_time'] for d in normal_data]
+        adaptive_wait = [d['avg_waiting_time'] for d in adaptive_data]
+        
+        normal_speed = [d['avg_speed'] for d in normal_data]
+        adaptive_speed = [d['avg_speed'] for d in adaptive_data]
+        
+        normal_vehicles = [d['total_vehicles'] for d in normal_data]
+        adaptive_vehicles = [d['total_vehicles'] for d in adaptive_data]
+        
+        # Vehicle mix data
+        adaptive_cars = [d.get('cars', 0) for d in adaptive_data]
+        adaptive_motorcycles = [d.get('motorcycles', 0) for d in adaptive_data]
+        
+        # Create comprehensive plots
+        fig, axes = plt.subplots(3, 3, figsize=(24, 18))
+        fig.suptitle('Dynamic Mixed Vehicle Traffic Scenario Analysis\nNormal vs Adaptive Edge Algorithm (Cars + Motorcycles)', 
+                     fontsize=16, fontweight='bold')
+        
+        # Plot 1: Average Waiting Time
+        axes[0, 0].plot(normal_times, normal_wait, label='Normal (Fixed)', color='red', linewidth=2)
+        axes[0, 0].plot(adaptive_times, adaptive_wait, label='Adaptive (Edge)', color='blue', linewidth=2)
+        axes[0, 0].set_title('Average Waiting Time Over Time')
+        axes[0, 0].set_xlabel('Time (minutes)')
+        axes[0, 0].set_ylabel('Waiting Time (seconds)')
+        axes[0, 0].legend()
+        axes[0, 0].grid(True, alpha=0.3)
+        
+        # Plot 2: Average Speed
+        axes[0, 1].plot(normal_times, normal_speed, label='Normal (Fixed)', color='red', linewidth=2)
+        axes[0, 1].plot(adaptive_times, adaptive_speed, label='Adaptive (Edge)', color='blue', linewidth=2)
+        axes[0, 1].set_title('Average Speed Over Time')
+        axes[0, 1].set_xlabel('Time (minutes)')
+        axes[0, 1].set_ylabel('Speed (m/s)')
+        axes[0, 1].legend()
+        axes[0, 1].grid(True, alpha=0.3)
+        
+        # Plot 3: Total Vehicles
+        axes[0, 2].plot(normal_times, normal_vehicles, label='Normal (Fixed)', color='red', linewidth=2)
+        axes[0, 2].plot(adaptive_times, adaptive_vehicles, label='Adaptive (Edge)', color='blue', linewidth=2)
+        axes[0, 2].set_title('Total Vehicles in Network')
+        axes[0, 2].set_xlabel('Time (minutes)')
+        axes[0, 2].set_ylabel('Number of Vehicles')
+        axes[0, 2].legend()
+        axes[0, 2].grid(True, alpha=0.3)
+        
+        # Plot 4: Vehicle Mix (Cars vs Motorcycles)
+        axes[1, 0].plot(adaptive_times, adaptive_cars, label='Cars', color='gold', linewidth=2)
+        axes[1, 0].plot(adaptive_times, adaptive_motorcycles, label='Motorcycles', color='darkblue', linewidth=2)
+        axes[1, 0].set_title('Vehicle Mix Distribution (Adaptive Mode)')
+        axes[1, 0].set_xlabel('Time (minutes)')
+        axes[1, 0].set_ylabel('Number of Vehicles')
+        axes[1, 0].legend()
+        axes[1, 0].grid(True, alpha=0.3)
+        
+        # Plot 5: Motorcycle Ratio
+        motorcycle_ratios = []
+        for i in range(len(adaptive_cars)):
+            total = adaptive_cars[i] + adaptive_motorcycles[i]
+            ratio = (adaptive_motorcycles[i] / total * 100) if total > 0 else 0
+            motorcycle_ratios.append(ratio)
+        
+        axes[1, 1].plot(adaptive_times, motorcycle_ratios, color='purple', linewidth=2)
+        axes[1, 1].axhline(y=30, color='red', linestyle='--', alpha=0.7, label='Target 30%')
+        axes[1, 1].set_title('Motorcycle Percentage Over Time')
+        axes[1, 1].set_xlabel('Time (minutes)')
+        axes[1, 1].set_ylabel('Motorcycle Percentage (%)')
+        axes[1, 1].legend()
+        axes[1, 1].grid(True, alpha=0.3)
+        axes[1, 1].set_ylim([0, 50])
+        
+        # Plot 6: Phase-wise comparison
+        phase_analysis = self._analyze_mixed_vehicle_phases(normal_data, adaptive_data)
+        phases = list(phase_analysis.keys())
+        normal_wait_avg = [phase_analysis[p]['normal']['avg_waiting'] for p in phases]
+        adaptive_wait_avg = [phase_analysis[p]['adaptive']['avg_waiting'] for p in phases]
+        
+        x_pos = np.arange(len(phases))
+        width = 0.35
+        
+        axes[1, 2].bar(x_pos - width/2, normal_wait_avg, width, label='Normal', color='red', alpha=0.7)
+        axes[1, 2].bar(x_pos + width/2, adaptive_wait_avg, width, label='Adaptive', color='blue', alpha=0.7)
+        axes[1, 2].set_title('Average Waiting Time by Phase')
+        axes[1, 2].set_xlabel('Traffic Phase')
+        axes[1, 2].set_ylabel('Avg Waiting Time (s)')
+        axes[1, 2].set_xticks(x_pos)
+        axes[1, 2].set_xticklabels([f'P{p}' for p in phases])
+        axes[1, 2].legend()
+        axes[1, 2].grid(True, alpha=0.3)
+        
+        # Plot 7: Vehicle Density Comparison
+        axes[2, 0].fill_between(adaptive_times, 0, adaptive_cars, alpha=0.7, color='gold', label='Cars')
+        axes[2, 0].fill_between(adaptive_times, adaptive_cars, 
+                               [adaptive_cars[i] + adaptive_motorcycles[i] for i in range(len(adaptive_cars))], 
+                               alpha=0.7, color='darkblue', label='Motorcycles')
+        axes[2, 0].set_title('Stacked Vehicle Distribution')
+        axes[2, 0].set_xlabel('Time (minutes)')
+        axes[2, 0].set_ylabel('Number of Vehicles')
+        axes[2, 0].legend()
+        axes[2, 0].grid(True, alpha=0.3)
+        
+        # Plot 8: Performance Improvement by Phase
+        improvements = []
+        for p in phases:
+            normal_wait = phase_analysis[p]['normal']['avg_waiting']
+            adaptive_wait = phase_analysis[p]['adaptive']['avg_waiting']
+            if normal_wait > 0:
+                improvement = ((normal_wait - adaptive_wait) / normal_wait) * 100
+            else:
+                improvement = 0
+            improvements.append(improvement)
+        
+        colors = ['green' if imp > 0 else 'red' for imp in improvements]
+        axes[2, 1].bar(x_pos, improvements, color=colors, alpha=0.7)
+        axes[2, 1].set_title('Waiting Time Improvement by Phase')
+        axes[2, 1].set_xlabel('Traffic Phase')
+        axes[2, 1].set_ylabel('Improvement (%)')
+        axes[2, 1].set_xticks(x_pos)
+        axes[2, 1].set_xticklabels([f'P{p}' for p in phases])
+        axes[2, 1].axhline(y=0, color='black', linestyle='-', alpha=0.3)
+        axes[2, 1].grid(True, alpha=0.3)
+        
+        # Plot 9: Algorithm Adaptations
+        if 'adaptations' in adaptive_data[0]:
+            adaptations = [d.get('adaptations', 0) for d in adaptive_data]
+            axes[2, 2].plot(adaptive_times, adaptations, color='green', linewidth=2)
+            axes[2, 2].set_title('Algorithm Adaptations Over Time')
+            axes[2, 2].set_xlabel('Time (minutes)')
+            axes[2, 2].set_ylabel('Total Adaptations')
+            axes[2, 2].grid(True, alpha=0.3)
+        else:
+            axes[2, 2].text(0.5, 0.5, 'No Adaptation Data Available', 
+                           ha='center', va='center', transform=axes[2, 2].transAxes)
+            axes[2, 2].set_title('Algorithm Adaptations')
+        
+        # Add phase boundaries to time-series plots
+        phase_boundaries_minutes = [b / 60 for b in phase_boundaries]
+        phase_labels = ['Low All', 'Heavy N', 'Heavy E', 'Reduced', 'Rush Hour', 'Gradual Down']
+        
+        for i, (ax_row, ax_col) in enumerate([(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (2, 0)]):
+            for boundary in phase_boundaries_minutes:
+                axes[ax_row, ax_col].axvline(x=boundary, color='gray', linestyle='--', alpha=0.5)
+            
+            # Add phase labels
+            for j, (boundary, label) in enumerate(zip(phase_boundaries_minutes, phase_labels)):
+                if j < len(phase_labels) - 1:
+                    mid_point = (boundary + (phase_boundaries_minutes[j+1] if j+1 < len(phase_boundaries_minutes) else 180)) / 2
+                    axes[ax_row, ax_col].text(mid_point, axes[ax_row, ax_col].get_ylim()[1] * 0.95, 
+                                            label, ha='center', va='top', fontsize=8,
+                                            bbox=dict(boxstyle='round,pad=0.3', facecolor='yellow', alpha=0.7))
+        
+        plt.tight_layout()
+        plt.savefig(output_file, dpi=300, bbox_inches='tight')
+        plt.show()
+        
+        print(f"📊 Mixed vehicle comparison plot saved: {output_file}")
+    
+    def _analyze_mixed_vehicle_phases(self, normal_data: List[Dict], adaptive_data: List[Dict]) -> Dict:
+        """Analyze performance by traffic phases for mixed vehicles"""
+        phase_analysis = {}
+        
+        for phase in range(1, 7):
+            normal_phase_data = [d for d in normal_data if d['phase'] == phase]
+            adaptive_phase_data = [d for d in adaptive_data if d['phase'] == phase]
+            
+            if normal_phase_data and adaptive_phase_data:
+                phase_analysis[phase] = {
+                    'normal': {
+                        'avg_waiting': sum(d['avg_waiting_time'] for d in normal_phase_data) / len(normal_phase_data),
+                        'avg_speed': sum(d['avg_speed'] for d in normal_phase_data) / len(normal_phase_data),
+                        'avg_vehicles': sum(d['total_vehicles'] for d in normal_phase_data) / len(normal_phase_data)
+                    },
+                    'adaptive': {
+                        'avg_waiting': sum(d['avg_waiting_time'] for d in adaptive_phase_data) / len(adaptive_phase_data),
+                        'avg_speed': sum(d['avg_speed'] for d in adaptive_phase_data) / len(adaptive_phase_data),
+                        'avg_vehicles': sum(d['total_vehicles'] for d in adaptive_phase_data) / len(adaptive_phase_data),
+                        'avg_cars': sum(d.get('cars', 0) for d in adaptive_phase_data) / len(adaptive_phase_data),
+                        'avg_motorcycles': sum(d.get('motorcycles', 0) for d in adaptive_phase_data) / len(adaptive_phase_data)
+                    }
+                }
+        
+        return phase_analysis

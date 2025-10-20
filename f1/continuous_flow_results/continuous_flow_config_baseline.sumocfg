@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <input>
+        <net-file value="../demo.net.xml"/>
+        <route-files value="continuous_flow_baseline.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+        <step-length value="1"/>
+    </time>
+    <processing>
+        <time-to-teleport value="300"/>
+    </processing>
+    <output>
+        <tripinfo-output value="tripinfo_baseline.xml"/>
+    </output>
+</configuration>

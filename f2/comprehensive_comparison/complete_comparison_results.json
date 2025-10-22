@@ -1,0 +1,4820 @@
+{
+  "rl_results": {
+    "initial_low": [
+      {
+        "time": 0,
+        "scenario": "initial_low",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 3,
+          "south": 4,
+          "west": 5
+        },
+        "avg_waiting_time": 3.7857142857142856,
+        "avg_speed": 11.776071428571429,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 0.5,
+        "scenario": "initial_low",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 3,
+          "south": 6,
+          "west": 3
+        },
+        "avg_waiting_time": 3.7857142857142856,
+        "avg_speed": 11.776071428571429,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.0,
+        "scenario": "initial_low",
+        "total_vehicles": 22,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 4,
+          "south": 6,
+          "west": 6
+        },
+        "avg_waiting_time": 3.590909090909091,
+        "avg_speed": 10.110681818181817,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.5,
+        "scenario": "initial_low",
+        "total_vehicles": 18,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 6,
+          "south": 6,
+          "west": 2
+        },
+        "avg_waiting_time": 3.6666666666666665,
+        "avg_speed": 10.945,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.0,
+        "scenario": "initial_low",
+        "total_vehicles": 18,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 6,
+          "south": 3,
+          "west": 5
+        },
+        "avg_waiting_time": 3.6666666666666665,
+        "avg_speed": 10.945,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.5,
+        "scenario": "initial_low",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 5,
+          "south": 3,
+          "west": 3
+        },
+        "avg_waiting_time": 3.53125,
+        "avg_speed": 11.37515625,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.0,
+        "scenario": "initial_low",
+        "total_vehicles": 12,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 2,
+          "south": 5,
+          "west": 2
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 12.208125000000003,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.5,
+        "scenario": "initial_low",
+        "total_vehicles": 12,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 3,
+          "south": 2,
+          "west": 3
+        },
+        "avg_waiting_time": 3.5,
+        "avg_speed": 12.217500000000001,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.0,
+        "scenario": "initial_low",
+        "total_vehicles": 12,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 2,
+          "south": 2,
+          "west": 3
+        },
+        "avg_waiting_time": 3.375,
+        "avg_speed": 12.226875000000001,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.5,
+        "scenario": "initial_low",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 3,
+          "south": 5,
+          "west": 3
+        },
+        "avg_waiting_time": 3.6785714285714284,
+        "avg_speed": 11.784107142857144,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.0,
+        "scenario": "initial_low",
+        "total_vehicles": 24,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 6,
+          "south": 6,
+          "west": 6
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 9.688125000000001,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.5,
+        "scenario": "initial_low",
+        "total_vehicles": 17,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 3,
+          "south": 2,
+          "west": 6
+        },
+        "avg_waiting_time": 3.4705882352941178,
+        "avg_speed": 11.169705882352941,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.0,
+        "scenario": "initial_low",
+        "total_vehicles": 18,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 2,
+          "south": 7,
+          "west": 7
+        },
+        "avg_waiting_time": 3.8333333333333335,
+        "avg_speed": 10.9325,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.5,
+        "scenario": "initial_low",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 5,
+          "south": 5,
+          "west": 3
+        },
+        "avg_waiting_time": 3.71875,
+        "avg_speed": 11.36109375,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.0,
+        "scenario": "initial_low",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 4,
+          "south": 5,
+          "west": 3
+        },
+        "avg_waiting_time": 3.7857142857142856,
+        "avg_speed": 11.776071428571429,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.5,
+        "scenario": "initial_low",
+        "total_vehicles": 15,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 3,
+          "south": 2,
+          "west": 7
+        },
+        "avg_waiting_time": 3.7,
+        "avg_speed": 11.572500000000002,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.0,
+        "scenario": "initial_low",
+        "total_vehicles": 24,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 7,
+          "south": 6,
+          "west": 7
+        },
+        "avg_waiting_time": 3.75,
+        "avg_speed": 9.678749999999999,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.5,
+        "scenario": "initial_low",
+        "total_vehicles": 22,
+        "lane_vehicles": {
+          "north": 7,
+          "east": 6,
+          "south": 7,
+          "west": 2
+        },
+        "avg_waiting_time": 3.522727272727273,
+        "avg_speed": 10.115795454545454,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.0,
+        "scenario": "initial_low",
+        "total_vehicles": 17,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 7,
+          "south": 3,
+          "west": 3
+        },
+        "avg_waiting_time": 3.6470588235294117,
+        "avg_speed": 11.156470588235296,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.5,
+        "scenario": "initial_low",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 2,
+          "south": 4,
+          "west": 6
+        },
+        "avg_waiting_time": 3.7857142857142856,
+        "avg_speed": 11.776071428571429,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      }
+    ],
+    "heavy_north": [
+      {
+        "time": 0,
+        "scenario": "heavy_north",
+        "total_vehicles": 31,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 4,
+          "south": 3,
+          "west": 5
+        },
+        "avg_waiting_time": 3.0806451612903225,
+        "avg_speed": 8.258951612903227,
+        "current_phase": "North",
+        "base_time": 65,
+        "adaptations": 1,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 0.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 32,
+        "lane_vehicles": {
+          "north": 17,
+          "east": 7,
+          "south": 5,
+          "west": 3
+        },
+        "avg_waiting_time": 3.203125,
+        "avg_speed": 8.039765625000001,
+        "current_phase": "North",
+        "base_time": 80,
+        "adaptations": 2,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 41,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 7,
+          "south": 6,
+          "west": 8
+        },
+        "avg_waiting_time": 3.268292682926829,
+        "avg_speed": 6.144878048780488,
+        "current_phase": "North",
+        "base_time": 100,
+        "adaptations": 3,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 36,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 7,
+          "south": 5,
+          "west": 4
+        },
+        "avg_waiting_time": 3.1666666666666665,
+        "avg_speed": 7.202500000000001,
+        "current_phase": "North",
+        "base_time": 120,
+        "adaptations": 4,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 21,
+          "east": 8,
+          "south": 6,
+          "west": 3
+        },
+        "avg_waiting_time": 3.1710526315789473,
+        "avg_speed": 6.78217105263158,
+        "current_phase": "North",
+        "base_time": 140,
+        "adaptations": 5,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 41,
+        "lane_vehicles": {
+          "north": 23,
+          "east": 5,
+          "south": 6,
+          "west": 7
+        },
+        "avg_waiting_time": 3.158536585365854,
+        "avg_speed": 6.153109756097561,
+        "current_phase": "North",
+        "base_time": 160,
+        "adaptations": 6,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 36,
+        "lane_vehicles": {
+          "north": 27,
+          "east": 3,
+          "south": 3,
+          "west": 3
+        },
+        "avg_waiting_time": 2.875,
+        "avg_speed": 7.224374999999999,
+        "current_phase": "North",
+        "base_time": 180,
+        "adaptations": 7,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 31,
+        "lane_vehicles": {
+          "north": 16,
+          "east": 3,
+          "south": 6,
+          "west": 6
+        },
+        "avg_waiting_time": 3.225806451612903,
+        "avg_speed": 8.248064516129034,
+        "current_phase": "North",
+        "base_time": 195,
+        "adaptations": 8,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 39,
+        "lane_vehicles": {
+          "north": 21,
+          "east": 8,
+          "south": 7,
+          "west": 3
+        },
+        "avg_waiting_time": 3.1923076923076925,
+        "avg_speed": 6.570576923076924,
+        "current_phase": "North",
+        "base_time": 215,
+        "adaptations": 9,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 42,
+        "lane_vehicles": {
+          "north": 26,
+          "east": 3,
+          "south": 9,
+          "west": 4
+        },
+        "avg_waiting_time": 3.0714285714285716,
+        "avg_speed": 5.949642857142858,
+        "current_phase": "North",
+        "base_time": 235,
+        "adaptations": 10,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 40,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 6,
+          "south": 8,
+          "west": 6
+        },
+        "avg_waiting_time": 3.25,
+        "avg_speed": 6.356250000000001,
+        "current_phase": "North",
+        "base_time": 255,
+        "adaptations": 11,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 41,
+        "lane_vehicles": {
+          "north": 28,
+          "east": 5,
+          "south": 4,
+          "west": 4
+        },
+        "avg_waiting_time": 2.975609756097561,
+        "avg_speed": 6.166829268292683,
+        "current_phase": "North",
+        "base_time": 275,
+        "adaptations": 12,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 44,
+        "lane_vehicles": {
+          "north": 23,
+          "east": 9,
+          "south": 3,
+          "west": 9
+        },
+        "avg_waiting_time": 3.215909090909091,
+        "avg_speed": 5.518806818181819,
+        "current_phase": "North",
+        "base_time": 295,
+        "adaptations": 13,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 35,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 9,
+          "south": 3,
+          "west": 3
+        },
+        "avg_waiting_time": 3.142857142857143,
+        "avg_speed": 7.414285714285714,
+        "current_phase": "North",
+        "base_time": 315,
+        "adaptations": 14,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 47,
+        "lane_vehicles": {
+          "north": 29,
+          "east": 4,
+          "south": 9,
+          "west": 5
+        },
+        "avg_waiting_time": 3.074468085106383,
+        "avg_speed": 4.899414893617022,
+        "current_phase": "North",
+        "base_time": 335,
+        "adaptations": 15,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 28,
+          "east": 3,
+          "south": 4,
+          "west": 3
+        },
+        "avg_waiting_time": 2.8947368421052633,
+        "avg_speed": 6.802894736842107,
+        "current_phase": "North",
+        "base_time": 355,
+        "adaptations": 16,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 8,
+          "south": 4,
+          "west": 8
+        },
+        "avg_waiting_time": 3.289473684210526,
+        "avg_speed": 6.773289473684211,
+        "current_phase": "North",
+        "base_time": 370,
+        "adaptations": 17,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 7,
+          "south": 9,
+          "west": 4
+        },
+        "avg_waiting_time": 3.289473684210526,
+        "avg_speed": 6.773289473684211,
+        "current_phase": "North",
+        "base_time": 385,
+        "adaptations": 18,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 41,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 7,
+          "south": 6,
+          "west": 8
+        },
+        "avg_waiting_time": 3.268292682926829,
+        "avg_speed": 6.144878048780488,
+        "current_phase": "North",
+        "base_time": 405,
+        "adaptations": 19,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 48,
+        "lane_vehicles": {
+          "north": 27,
+          "east": 9,
+          "south": 8,
+          "west": 4
+        },
+        "avg_waiting_time": 3.15625,
+        "avg_speed": 4.68328125,
+        "current_phase": "North",
+        "base_time": 425,
+        "adaptations": 20,
+        "algorithm": "rl_predictive"
+      }
+    ],
+    "heavy_east": [
+      {
+        "time": 0,
+        "scenario": "heavy_east",
+        "total_vehicles": 34,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 17,
+          "south": 7,
+          "west": 6
+        },
+        "avg_waiting_time": 3.823529411764706,
+        "avg_speed": 7.573235294117647,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 0.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 34,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 17,
+          "south": 4,
+          "west": 8
+        },
+        "avg_waiting_time": 3.7794117647058822,
+        "avg_speed": 7.5765441176470585,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 32,
+        "lane_vehicles": {
+          "north": 8,
+          "east": 17,
+          "south": 3,
+          "west": 4
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 8.008125000000001,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 39,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 19,
+          "south": 8,
+          "west": 7
+        },
+        "avg_waiting_time": 3.8076923076923075,
+        "avg_speed": 6.524423076923077,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 43,
+        "lane_vehicles": {
+          "north": 8,
+          "east": 23,
+          "south": 7,
+          "west": 5
+        },
+        "avg_waiting_time": 3.7209302325581395,
+        "avg_speed": 5.69093023255814,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 30,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 19,
+          "south": 3,
+          "west": 4
+        },
+        "avg_waiting_time": 3.8,
+        "avg_speed": 8.415000000000001,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 37,
+        "lane_vehicles": {
+          "north": 8,
+          "east": 17,
+          "south": 6,
+          "west": 6
+        },
+        "avg_waiting_time": 3.675675675675676,
+        "avg_speed": 6.9543243243243245,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 34,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 23,
+          "south": 4,
+          "west": 3
+        },
+        "avg_waiting_time": 3.823529411764706,
+        "avg_speed": 7.573235294117647,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 28,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 16,
+          "south": 3,
+          "west": 5
+        },
+        "avg_waiting_time": 3.7857142857142856,
+        "avg_speed": 8.83607142857143,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 43,
+        "lane_vehicles": {
+          "north": 9,
+          "east": 18,
+          "south": 7,
+          "west": 9
+        },
+        "avg_waiting_time": 3.686046511627907,
+        "avg_speed": 5.693546511627908,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 49,
+        "lane_vehicles": {
+          "north": 8,
+          "east": 28,
+          "south": 4,
+          "west": 9
+        },
+        "avg_waiting_time": 3.7551020408163267,
+        "avg_speed": 4.428367346938776,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 45,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 25,
+          "south": 9,
+          "west": 8
+        },
+        "avg_waiting_time": 3.9,
+        "avg_speed": 5.257499999999999,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 36,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 18,
+          "south": 9,
+          "west": 4
+        },
+        "avg_waiting_time": 3.7916666666666665,
+        "avg_speed": 7.155625,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 46,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 27,
+          "south": 7,
+          "west": 8
+        },
+        "avg_waiting_time": 3.869565217391304,
+        "avg_speed": 5.0497826086956525,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 35,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 21,
+          "south": 4,
+          "west": 5
+        },
+        "avg_waiting_time": 3.7857142857142856,
+        "avg_speed": 7.366071428571429,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 48,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 25,
+          "south": 9,
+          "west": 8
+        },
+        "avg_waiting_time": 3.8125,
+        "avg_speed": 4.6340625000000015,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 43,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 24,
+          "south": 7,
+          "west": 6
+        },
+        "avg_waiting_time": 3.7906976744186047,
+        "avg_speed": 5.685697674418605,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 43,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 29,
+          "south": 3,
+          "west": 8
+        },
+        "avg_waiting_time": 3.895348837209302,
+        "avg_speed": 5.677848837209303,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 49,
+        "lane_vehicles": {
+          "north": 9,
+          "east": 30,
+          "south": 6,
+          "west": 4
+        },
+        "avg_waiting_time": 3.7244897959183674,
+        "avg_speed": 4.430663265306124,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 29,
+          "south": 3,
+          "west": 3
+        },
+        "avg_waiting_time": 3.8815789473684212,
+        "avg_speed": 6.7288815789473695,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      }
+    ],
+    "heavy_north_east": [
+      {
+        "time": 0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 47,
+        "lane_vehicles": {
+          "north": 12,
+          "east": 20,
+          "south": 6,
+          "west": 9
+        },
+        "avg_waiting_time": 3.617021276595745,
+        "avg_speed": 4.85872340425532,
+        "current_phase": "North",
+        "base_time": 50,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 0.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 47,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 15,
+          "south": 9,
+          "west": 9
+        },
+        "avg_waiting_time": 3.5531914893617023,
+        "avg_speed": 4.863510638297873,
+        "current_phase": "North",
+        "base_time": 50,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 46,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 16,
+          "south": 6,
+          "west": 4
+        },
+        "avg_waiting_time": 3.347826086956522,
+        "avg_speed": 5.088913043478261,
+        "current_phase": "North",
+        "base_time": 70,
+        "adaptations": 1,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 40,
+        "lane_vehicles": {
+          "north": 13,
+          "east": 16,
+          "south": 5,
+          "west": 6
+        },
+        "avg_waiting_time": 3.5125,
+        "avg_speed": 6.336562500000001,
+        "current_phase": "North",
+        "base_time": 70,
+        "adaptations": 1,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 48,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 16,
+          "south": 6,
+          "west": 7
+        },
+        "avg_waiting_time": 3.40625,
+        "avg_speed": 4.664531250000001,
+        "current_phase": "North",
+        "base_time": 85,
+        "adaptations": 2,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 39,
+        "lane_vehicles": {
+          "north": 13,
+          "east": 15,
+          "south": 6,
+          "west": 5
+        },
+        "avg_waiting_time": 3.5,
+        "avg_speed": 6.547500000000001,
+        "current_phase": "North",
+        "base_time": 85,
+        "adaptations": 2,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 47,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 14,
+          "south": 8,
+          "west": 5
+        },
+        "avg_waiting_time": 3.3617021276595747,
+        "avg_speed": 4.877872340425533,
+        "current_phase": "North",
+        "base_time": 105,
+        "adaptations": 3,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 39,
+        "lane_vehicles": {
+          "north": 13,
+          "east": 14,
+          "south": 7,
+          "west": 5
+        },
+        "avg_waiting_time": 3.5,
+        "avg_speed": 6.547500000000001,
+        "current_phase": "North",
+        "base_time": 105,
+        "adaptations": 3,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 45,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 17,
+          "south": 5,
+          "west": 5
+        },
+        "avg_waiting_time": 3.4,
+        "avg_speed": 5.295,
+        "current_phase": "North",
+        "base_time": 120,
+        "adaptations": 4,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 49,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 18,
+          "south": 7,
+          "west": 5
+        },
+        "avg_waiting_time": 3.4183673469387754,
+        "avg_speed": 4.453622448979592,
+        "current_phase": "North",
+        "base_time": 135,
+        "adaptations": 5,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 50,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 16,
+          "south": 6,
+          "west": 10
+        },
+        "avg_waiting_time": 3.46,
+        "avg_speed": 4.240500000000001,
+        "current_phase": "North",
+        "base_time": 150,
+        "adaptations": 6,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 52,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 18,
+          "south": 10,
+          "west": 5
+        },
+        "avg_waiting_time": 3.451923076923077,
+        "avg_speed": 4.24110576923077,
+        "current_phase": "North",
+        "base_time": 165,
+        "adaptations": 7,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 55,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 21,
+          "south": 7,
+          "west": 8
+        },
+        "avg_waiting_time": 3.481818181818182,
+        "avg_speed": 4.238863636363637,
+        "current_phase": "North",
+        "base_time": 180,
+        "adaptations": 8,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 52,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 17,
+          "south": 9,
+          "west": 8
+        },
+        "avg_waiting_time": 3.480769230769231,
+        "avg_speed": 4.238942307692309,
+        "current_phase": "North",
+        "base_time": 195,
+        "adaptations": 9,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 54,
+        "lane_vehicles": {
+          "north": 17,
+          "east": 19,
+          "south": 9,
+          "west": 9
+        },
+        "avg_waiting_time": 3.5277777777777777,
+        "avg_speed": 4.2354166666666675,
+        "current_phase": "North",
+        "base_time": 210,
+        "adaptations": 10,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 52,
+        "lane_vehicles": {
+          "north": 21,
+          "east": 16,
+          "south": 9,
+          "west": 6
+        },
+        "avg_waiting_time": 3.394230769230769,
+        "avg_speed": 4.245432692307693,
+        "current_phase": "North",
+        "base_time": 230,
+        "adaptations": 11,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 62,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 24,
+          "south": 9,
+          "west": 9
+        },
+        "avg_waiting_time": 3.5161290322580645,
+        "avg_speed": 4.236290322580646,
+        "current_phase": "North",
+        "base_time": 250,
+        "adaptations": 12,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 57,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 23,
+          "south": 8,
+          "west": 7
+        },
+        "avg_waiting_time": 3.5,
+        "avg_speed": 4.237500000000001,
+        "current_phase": "North",
+        "base_time": 265,
+        "adaptations": 13,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 56,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 18,
+          "south": 11,
+          "west": 7
+        },
+        "avg_waiting_time": 3.4642857142857144,
+        "avg_speed": 4.240178571428571,
+        "current_phase": "North",
+        "base_time": 285,
+        "adaptations": 14,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 51,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 19,
+          "south": 7,
+          "west": 11
+        },
+        "avg_waiting_time": 3.588235294117647,
+        "avg_speed": 4.230882352941177,
+        "current_phase": "North",
+        "base_time": 285,
+        "adaptations": 14,
+        "algorithm": "rl_predictive"
+      }
+    ],
+    "all_heavy": [
+      {
+        "time": 0,
+        "scenario": "all_heavy",
+        "total_vehicles": 69,
+        "lane_vehicles": {
+          "north": 15,
+          "east": 18,
+          "south": 16,
+          "west": 20
+        },
+        "avg_waiting_time": 3.6739130434782608,
+        "avg_speed": 4.224456521739131,
+        "current_phase": "North",
+        "base_time": 58,
+        "adaptations": 1,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 0.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 72,
+        "lane_vehicles": {
+          "north": 15,
+          "east": 20,
+          "south": 19,
+          "west": 18
+        },
+        "avg_waiting_time": 3.6875,
+        "avg_speed": 4.223437500000001,
+        "current_phase": "North",
+        "base_time": 73,
+        "adaptations": 2,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 84,
+        "lane_vehicles": {
+          "north": 21,
+          "east": 22,
+          "south": 20,
+          "west": 21
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 4.228125,
+        "current_phase": "North",
+        "base_time": 93,
+        "adaptations": 3,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 81,
+        "lane_vehicles": {
+          "north": 22,
+          "east": 21,
+          "south": 16,
+          "west": 22
+        },
+        "avg_waiting_time": 3.5925925925925926,
+        "avg_speed": 4.230555555555556,
+        "current_phase": "North",
+        "base_time": 113,
+        "adaptations": 4,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 83,
+        "lane_vehicles": {
+          "north": 23,
+          "east": 21,
+          "south": 23,
+          "west": 16
+        },
+        "avg_waiting_time": 3.5843373493975905,
+        "avg_speed": 4.231174698795181,
+        "current_phase": "North",
+        "base_time": 133,
+        "adaptations": 5,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 78,
+        "lane_vehicles": {
+          "north": 22,
+          "east": 22,
+          "south": 16,
+          "west": 18
+        },
+        "avg_waiting_time": 3.576923076923077,
+        "avg_speed": 4.2317307692307695,
+        "current_phase": "North",
+        "base_time": 153,
+        "adaptations": 6,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 77,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 17,
+          "south": 20,
+          "west": 21
+        },
+        "avg_waiting_time": 3.6298701298701297,
+        "avg_speed": 4.227759740259741,
+        "current_phase": "North",
+        "base_time": 168,
+        "adaptations": 7,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 80,
+        "lane_vehicles": {
+          "north": 16,
+          "east": 23,
+          "south": 23,
+          "west": 18
+        },
+        "avg_waiting_time": 3.7,
+        "avg_speed": 4.2225,
+        "current_phase": "North",
+        "base_time": 183,
+        "adaptations": 8,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 79,
+        "lane_vehicles": {
+          "north": 17,
+          "east": 24,
+          "south": 22,
+          "west": 16
+        },
+        "avg_waiting_time": 3.6772151898734178,
+        "avg_speed": 4.224208860759495,
+        "current_phase": "North",
+        "base_time": 198,
+        "adaptations": 9,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 83,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 22,
+          "south": 19,
+          "west": 23
+        },
+        "avg_waiting_time": 3.6566265060240966,
+        "avg_speed": 4.225753012048194,
+        "current_phase": "North",
+        "base_time": 213,
+        "adaptations": 10,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 73,
+        "lane_vehicles": {
+          "north": 17,
+          "east": 20,
+          "south": 19,
+          "west": 17
+        },
+        "avg_waiting_time": 3.6506849315068495,
+        "avg_speed": 4.226198630136986,
+        "current_phase": "North",
+        "base_time": 228,
+        "adaptations": 11,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 90,
+        "lane_vehicles": {
+          "north": 25,
+          "east": 20,
+          "south": 24,
+          "west": 21
+        },
+        "avg_waiting_time": 3.5833333333333335,
+        "avg_speed": 4.23125,
+        "current_phase": "North",
+        "base_time": 248,
+        "adaptations": 12,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 86,
+        "lane_vehicles": {
+          "north": 24,
+          "east": 23,
+          "south": 17,
+          "west": 22
+        },
+        "avg_waiting_time": 3.5813953488372094,
+        "avg_speed": 4.23139534883721,
+        "current_phase": "North",
+        "base_time": 268,
+        "adaptations": 13,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 79,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 23,
+          "south": 18,
+          "west": 20
+        },
+        "avg_waiting_time": 3.6582278481012658,
+        "avg_speed": 4.225632911392405,
+        "current_phase": "North",
+        "base_time": 283,
+        "adaptations": 14,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 78,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 20,
+          "south": 20,
+          "west": 19
+        },
+        "avg_waiting_time": 3.6346153846153846,
+        "avg_speed": 4.227403846153847,
+        "current_phase": "North",
+        "base_time": 298,
+        "adaptations": 15,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 91,
+        "lane_vehicles": {
+          "north": 22,
+          "east": 25,
+          "south": 22,
+          "west": 22
+        },
+        "avg_waiting_time": 3.6373626373626373,
+        "avg_speed": 4.227197802197803,
+        "current_phase": "North",
+        "base_time": 318,
+        "adaptations": 16,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 84,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 23,
+          "south": 20,
+          "west": 23
+        },
+        "avg_waiting_time": 3.6785714285714284,
+        "avg_speed": 4.224107142857143,
+        "current_phase": "North",
+        "base_time": 333,
+        "adaptations": 17,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 95,
+        "lane_vehicles": {
+          "north": 22,
+          "east": 24,
+          "south": 26,
+          "west": 23
+        },
+        "avg_waiting_time": 3.6526315789473682,
+        "avg_speed": 4.226052631578948,
+        "current_phase": "North",
+        "base_time": 353,
+        "adaptations": 18,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 86,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 27,
+          "south": 22,
+          "west": 19
+        },
+        "avg_waiting_time": 3.686046511627907,
+        "avg_speed": 4.223546511627908,
+        "current_phase": "North",
+        "base_time": 368,
+        "adaptations": 19,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 89,
+        "lane_vehicles": {
+          "north": 22,
+          "east": 27,
+          "south": 18,
+          "west": 22
+        },
+        "avg_waiting_time": 3.6292134831460676,
+        "avg_speed": 4.227808988764046,
+        "current_phase": "North",
+        "base_time": 388,
+        "adaptations": 20,
+        "algorithm": "rl_predictive"
+      }
+    ],
+    "gradual_slowdown": [
+      {
+        "time": 0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 53,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 10,
+          "south": 15,
+          "west": 14
+        },
+        "avg_waiting_time": 3.6037735849056602,
+        "avg_speed": 4.229716981132077,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 0.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 40,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 8,
+          "south": 8,
+          "west": 10
+        },
+        "avg_waiting_time": 3.475,
+        "avg_speed": 6.339375000000001,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 11,
+          "east": 8,
+          "south": 10,
+          "west": 9
+        },
+        "avg_waiting_time": 3.5657894736842106,
+        "avg_speed": 6.752565789473685,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 48,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 12,
+          "south": 13,
+          "west": 9
+        },
+        "avg_waiting_time": 3.5625,
+        "avg_speed": 4.652812500000001,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 43,
+        "lane_vehicles": {
+          "north": 9,
+          "east": 12,
+          "south": 11,
+          "west": 11
+        },
+        "avg_waiting_time": 3.686046511627907,
+        "avg_speed": 5.693546511627908,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 49,
+        "lane_vehicles": {
+          "north": 12,
+          "east": 13,
+          "south": 16,
+          "west": 8
+        },
+        "avg_waiting_time": 3.63265306122449,
+        "avg_speed": 4.437551020408164,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 50,
+        "lane_vehicles": {
+          "north": 11,
+          "east": 9,
+          "south": 16,
+          "west": 14
+        },
+        "avg_waiting_time": 3.67,
+        "avg_speed": 4.224750000000001,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 44,
+        "lane_vehicles": {
+          "north": 11,
+          "east": 9,
+          "south": 11,
+          "west": 13
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 5.488125,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 42,
+        "lane_vehicles": {
+          "north": 12,
+          "east": 8,
+          "south": 8,
+          "west": 14
+        },
+        "avg_waiting_time": 3.5714285714285716,
+        "avg_speed": 5.912142857142857,
+        "current_phase": "North",
+        "base_time": 30,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 58,
+        "lane_vehicles": {
+          "north": 16,
+          "east": 12,
+          "south": 16,
+          "west": 14
+        },
+        "avg_waiting_time": 3.586206896551724,
+        "avg_speed": 4.231034482758622,
+        "current_phase": "North",
+        "base_time": 39,
+        "adaptations": 1,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 56,
+        "lane_vehicles": {
+          "north": 16,
+          "east": 11,
+          "south": 12,
+          "west": 17
+        },
+        "avg_waiting_time": 3.5714285714285716,
+        "avg_speed": 4.232142857142858,
+        "current_phase": "North",
+        "base_time": 50,
+        "adaptations": 2,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 56,
+        "lane_vehicles": {
+          "north": 15,
+          "east": 13,
+          "south": 11,
+          "west": 17
+        },
+        "avg_waiting_time": 3.5982142857142856,
+        "avg_speed": 4.230133928571429,
+        "current_phase": "North",
+        "base_time": 65,
+        "adaptations": 3,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 58,
+        "lane_vehicles": {
+          "north": 10,
+          "east": 15,
+          "south": 17,
+          "west": 16
+        },
+        "avg_waiting_time": 3.7413793103448274,
+        "avg_speed": 4.219396551724139,
+        "current_phase": "North",
+        "base_time": 65,
+        "adaptations": 3,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 44,
+        "lane_vehicles": {
+          "north": 9,
+          "east": 10,
+          "south": 16,
+          "west": 9
+        },
+        "avg_waiting_time": 3.6931818181818183,
+        "avg_speed": 5.483011363636363,
+        "current_phase": "North",
+        "base_time": 65,
+        "adaptations": 3,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 47,
+        "lane_vehicles": {
+          "north": 10,
+          "east": 13,
+          "south": 14,
+          "west": 10
+        },
+        "avg_waiting_time": 3.6808510638297873,
+        "avg_speed": 4.8539361702127675,
+        "current_phase": "North",
+        "base_time": 65,
+        "adaptations": 3,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 52,
+        "lane_vehicles": {
+          "north": 15,
+          "east": 13,
+          "south": 12,
+          "west": 12
+        },
+        "avg_waiting_time": 3.5673076923076925,
+        "avg_speed": 4.2324519230769235,
+        "current_phase": "North",
+        "base_time": 80,
+        "adaptations": 4,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 52,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 10,
+          "south": 14,
+          "west": 14
+        },
+        "avg_waiting_time": 3.5961538461538463,
+        "avg_speed": 4.230288461538462,
+        "current_phase": "North",
+        "base_time": 80,
+        "adaptations": 4,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 50,
+        "lane_vehicles": {
+          "north": 12,
+          "east": 15,
+          "south": 11,
+          "west": 12
+        },
+        "avg_waiting_time": 3.64,
+        "avg_speed": 4.227,
+        "current_phase": "North",
+        "base_time": 80,
+        "adaptations": 4,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 65,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 18,
+          "south": 17,
+          "west": 12
+        },
+        "avg_waiting_time": 3.5846153846153848,
+        "avg_speed": 4.2311538461538465,
+        "current_phase": "North",
+        "base_time": 95,
+        "adaptations": 5,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 60,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 16,
+          "south": 14,
+          "west": 16
+        },
+        "avg_waiting_time": 3.65,
+        "avg_speed": 4.226250000000001,
+        "current_phase": "North",
+        "base_time": 95,
+        "adaptations": 5,
+        "algorithm": "rl_predictive"
+      }
+    ],
+    "evening_light": [
+      {
+        "time": 0,
+        "scenario": "evening_light",
+        "total_vehicles": 15,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 4,
+          "south": 3,
+          "west": 5
+        },
+        "avg_waiting_time": 3.7,
+        "avg_speed": 11.572500000000002,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 0.5,
+        "scenario": "evening_light",
+        "total_vehicles": 13,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 4,
+          "south": 2,
+          "west": 2
+        },
+        "avg_waiting_time": 3.423076923076923,
+        "avg_speed": 12.01326923076923,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.0,
+        "scenario": "evening_light",
+        "total_vehicles": 10,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 2,
+          "south": 2,
+          "west": 2
+        },
+        "avg_waiting_time": 3.4,
+        "avg_speed": 12.645,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 1.5,
+        "scenario": "evening_light",
+        "total_vehicles": 17,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 5,
+          "south": 5,
+          "west": 3
+        },
+        "avg_waiting_time": 3.6470588235294117,
+        "avg_speed": 11.156470588235296,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.0,
+        "scenario": "evening_light",
+        "total_vehicles": 15,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 4,
+          "south": 5,
+          "west": 4
+        },
+        "avg_waiting_time": 3.8,
+        "avg_speed": 11.565,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 2.5,
+        "scenario": "evening_light",
+        "total_vehicles": 15,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 2,
+          "south": 4,
+          "west": 5
+        },
+        "avg_waiting_time": 3.6,
+        "avg_speed": 11.58,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.0,
+        "scenario": "evening_light",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 3,
+          "south": 5,
+          "west": 3
+        },
+        "avg_waiting_time": 3.53125,
+        "avg_speed": 11.37515625,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 3.5,
+        "scenario": "evening_light",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 3,
+          "south": 3,
+          "west": 3
+        },
+        "avg_waiting_time": 3.4642857142857144,
+        "avg_speed": 11.800178571428571,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.0,
+        "scenario": "evening_light",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 3,
+          "south": 4,
+          "west": 5
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 11.368125000000001,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 4.5,
+        "scenario": "evening_light",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 4,
+          "south": 5,
+          "west": 4
+        },
+        "avg_waiting_time": 3.71875,
+        "avg_speed": 11.36109375,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.0,
+        "scenario": "evening_light",
+        "total_vehicles": 12,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 5,
+          "south": 2,
+          "west": 3
+        },
+        "avg_waiting_time": 3.75,
+        "avg_speed": 12.19875,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 5.5,
+        "scenario": "evening_light",
+        "total_vehicles": 13,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 2,
+          "south": 3,
+          "west": 5
+        },
+        "avg_waiting_time": 3.6538461538461537,
+        "avg_speed": 11.995961538461538,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.0,
+        "scenario": "evening_light",
+        "total_vehicles": 12,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 3,
+          "south": 2,
+          "west": 4
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 12.208125000000003,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 6.5,
+        "scenario": "evening_light",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 2,
+          "south": 4,
+          "west": 4
+        },
+        "avg_waiting_time": 3.5714285714285716,
+        "avg_speed": 11.792142857142856,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.0,
+        "scenario": "evening_light",
+        "total_vehicles": 13,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 2,
+          "south": 3,
+          "west": 3
+        },
+        "avg_waiting_time": 3.423076923076923,
+        "avg_speed": 12.01326923076923,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 7.5,
+        "scenario": "evening_light",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 4,
+          "south": 6,
+          "west": 2
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 11.368125000000001,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.0,
+        "scenario": "evening_light",
+        "total_vehicles": 17,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 3,
+          "south": 2,
+          "west": 6
+        },
+        "avg_waiting_time": 3.4705882352941178,
+        "avg_speed": 11.169705882352941,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 8.5,
+        "scenario": "evening_light",
+        "total_vehicles": 11,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 2,
+          "south": 2,
+          "west": 3
+        },
+        "avg_waiting_time": 3.4545454545454546,
+        "avg_speed": 12.430909090909092,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.0,
+        "scenario": "evening_light",
+        "total_vehicles": 22,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 4,
+          "south": 6,
+          "west": 6
+        },
+        "avg_waiting_time": 3.590909090909091,
+        "avg_speed": 10.110681818181817,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      },
+      {
+        "time": 9.5,
+        "scenario": "evening_light",
+        "total_vehicles": 15,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 4,
+          "south": 3,
+          "west": 6
+        },
+        "avg_waiting_time": 3.8,
+        "avg_speed": 11.565,
+        "current_phase": "North",
+        "base_time": 20,
+        "adaptations": 0,
+        "algorithm": "rl_predictive"
+      }
+    ]
+  },
+  "f1_results": {
+    "initial_low": [
+      {
+        "time": 0,
+        "scenario": "initial_low",
+        "total_vehicles": 18,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 5,
+          "south": 3,
+          "west": 4
+        },
+        "avg_waiting_time": 3.5,
+        "avg_speed": 10.957500000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 0.5,
+        "scenario": "initial_low",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 2,
+          "south": 3,
+          "west": 6
+        },
+        "avg_waiting_time": 3.6785714285714284,
+        "avg_speed": 11.784107142857144,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.0,
+        "scenario": "initial_low",
+        "total_vehicles": 20,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 5,
+          "south": 3,
+          "west": 6
+        },
+        "avg_waiting_time": 3.55,
+        "avg_speed": 10.53375,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.5,
+        "scenario": "initial_low",
+        "total_vehicles": 15,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 3,
+          "south": 4,
+          "west": 3
+        },
+        "avg_waiting_time": 3.5,
+        "avg_speed": 11.5875,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.0,
+        "scenario": "initial_low",
+        "total_vehicles": 17,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 3,
+          "south": 2,
+          "west": 6
+        },
+        "avg_waiting_time": 3.4705882352941178,
+        "avg_speed": 11.169705882352941,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.5,
+        "scenario": "initial_low",
+        "total_vehicles": 12,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 2,
+          "south": 4,
+          "west": 3
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 12.208125000000003,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.0,
+        "scenario": "initial_low",
+        "total_vehicles": 19,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 2,
+          "south": 6,
+          "west": 5
+        },
+        "avg_waiting_time": 3.526315789473684,
+        "avg_speed": 10.745526315789473,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.5,
+        "scenario": "initial_low",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 6,
+          "south": 2,
+          "west": 6
+        },
+        "avg_waiting_time": 3.8125,
+        "avg_speed": 11.354062500000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.0,
+        "scenario": "initial_low",
+        "total_vehicles": 13,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 4,
+          "south": 3,
+          "west": 3
+        },
+        "avg_waiting_time": 3.6538461538461537,
+        "avg_speed": 11.995961538461538,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.5,
+        "scenario": "initial_low",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 3,
+          "south": 4,
+          "west": 5
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 11.368125000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.0,
+        "scenario": "initial_low",
+        "total_vehicles": 15,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 6,
+          "south": 2,
+          "west": 4
+        },
+        "avg_waiting_time": 3.7,
+        "avg_speed": 11.572500000000002,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.5,
+        "scenario": "initial_low",
+        "total_vehicles": 19,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 6,
+          "south": 3,
+          "west": 5
+        },
+        "avg_waiting_time": 3.6052631578947367,
+        "avg_speed": 10.739605263157895,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.0,
+        "scenario": "initial_low",
+        "total_vehicles": 17,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 7,
+          "south": 5,
+          "west": 3
+        },
+        "avg_waiting_time": 3.823529411764706,
+        "avg_speed": 11.143235294117646,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.5,
+        "scenario": "initial_low",
+        "total_vehicles": 15,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 4,
+          "south": 4,
+          "west": 3
+        },
+        "avg_waiting_time": 3.6,
+        "avg_speed": 11.58,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.0,
+        "scenario": "initial_low",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 4,
+          "south": 4,
+          "west": 4
+        },
+        "avg_waiting_time": 3.7857142857142856,
+        "avg_speed": 11.776071428571429,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.5,
+        "scenario": "initial_low",
+        "total_vehicles": 19,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 7,
+          "south": 6,
+          "west": 2
+        },
+        "avg_waiting_time": 3.6842105263157894,
+        "avg_speed": 10.733684210526317,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.0,
+        "scenario": "initial_low",
+        "total_vehicles": 22,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 6,
+          "south": 7,
+          "west": 6
+        },
+        "avg_waiting_time": 3.7954545454545454,
+        "avg_speed": 10.09534090909091,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.5,
+        "scenario": "initial_low",
+        "total_vehicles": 23,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 7,
+          "south": 6,
+          "west": 6
+        },
+        "avg_waiting_time": 3.739130434782609,
+        "avg_speed": 9.889565217391304,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.0,
+        "scenario": "initial_low",
+        "total_vehicles": 24,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 7,
+          "south": 6,
+          "west": 7
+        },
+        "avg_waiting_time": 3.75,
+        "avg_speed": 9.678749999999999,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.5,
+        "scenario": "initial_low",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 2,
+          "south": 2,
+          "west": 6
+        },
+        "avg_waiting_time": 3.5714285714285716,
+        "avg_speed": 11.792142857142856,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      }
+    ],
+    "heavy_north": [
+      {
+        "time": 0,
+        "scenario": "heavy_north",
+        "total_vehicles": 33,
+        "lane_vehicles": {
+          "north": 15,
+          "east": 7,
+          "south": 6,
+          "west": 5
+        },
+        "avg_waiting_time": 3.3181818181818183,
+        "avg_speed": 7.821136363636364,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 0.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 31,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 3,
+          "south": 6,
+          "west": 4
+        },
+        "avg_waiting_time": 3.129032258064516,
+        "avg_speed": 8.255322580645162,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 30,
+        "lane_vehicles": {
+          "north": 17,
+          "east": 3,
+          "south": 5,
+          "west": 5
+        },
+        "avg_waiting_time": 3.15,
+        "avg_speed": 8.463750000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 36,
+        "lane_vehicles": {
+          "north": 17,
+          "east": 7,
+          "south": 8,
+          "west": 4
+        },
+        "avg_waiting_time": 3.2916666666666665,
+        "avg_speed": 7.193124999999999,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 35,
+        "lane_vehicles": {
+          "north": 15,
+          "east": 6,
+          "south": 8,
+          "west": 6
+        },
+        "avg_waiting_time": 3.357142857142857,
+        "avg_speed": 7.398214285714285,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 7,
+          "south": 4,
+          "west": 7
+        },
+        "avg_waiting_time": 3.210526315789474,
+        "avg_speed": 6.779210526315791,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 44,
+        "lane_vehicles": {
+          "north": 23,
+          "east": 7,
+          "south": 8,
+          "west": 6
+        },
+        "avg_waiting_time": 3.215909090909091,
+        "avg_speed": 5.518806818181819,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 32,
+        "lane_vehicles": {
+          "north": 16,
+          "east": 4,
+          "south": 5,
+          "west": 7
+        },
+        "avg_waiting_time": 3.25,
+        "avg_speed": 8.03625,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 40,
+        "lane_vehicles": {
+          "north": 23,
+          "east": 6,
+          "south": 6,
+          "west": 5
+        },
+        "avg_waiting_time": 3.1375,
+        "avg_speed": 6.3646875000000005,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 43,
+        "lane_vehicles": {
+          "north": 28,
+          "east": 3,
+          "south": 5,
+          "west": 7
+        },
+        "avg_waiting_time": 3.0232558139534884,
+        "avg_speed": 5.743255813953489,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 39,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 6,
+          "south": 9,
+          "west": 4
+        },
+        "avg_waiting_time": 3.230769230769231,
+        "avg_speed": 6.567692307692309,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 43,
+        "lane_vehicles": {
+          "north": 28,
+          "east": 4,
+          "south": 5,
+          "west": 6
+        },
+        "avg_waiting_time": 3.0232558139534884,
+        "avg_speed": 5.743255813953489,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 50,
+        "lane_vehicles": {
+          "north": 28,
+          "east": 7,
+          "south": 7,
+          "west": 8
+        },
+        "avg_waiting_time": 3.16,
+        "avg_speed": 4.263000000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 27,
+          "east": 3,
+          "south": 4,
+          "west": 4
+        },
+        "avg_waiting_time": 2.9342105263157894,
+        "avg_speed": 6.799934210526317,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 33,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 4,
+          "south": 3,
+          "west": 7
+        },
+        "avg_waiting_time": 3.1363636363636362,
+        "avg_speed": 7.834772727272728,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 35,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 6,
+          "south": 3,
+          "west": 6
+        },
+        "avg_waiting_time": 3.142857142857143,
+        "avg_speed": 7.414285714285714,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 43,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 8,
+          "south": 7,
+          "west": 9
+        },
+        "avg_waiting_time": 3.3372093023255816,
+        "avg_speed": 5.719709302325581,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 7,
+          "south": 3,
+          "west": 9
+        },
+        "avg_waiting_time": 3.25,
+        "avg_speed": 6.776250000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.0,
+        "scenario": "heavy_north",
+        "total_vehicles": 51,
+        "lane_vehicles": {
+          "north": 30,
+          "east": 7,
+          "south": 6,
+          "west": 8
+        },
+        "avg_waiting_time": 3.1176470588235294,
+        "avg_speed": 4.266176470588237,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.5,
+        "scenario": "heavy_north",
+        "total_vehicles": 40,
+        "lane_vehicles": {
+          "north": 27,
+          "east": 6,
+          "south": 4,
+          "west": 3
+        },
+        "avg_waiting_time": 2.9875,
+        "avg_speed": 6.375937500000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      }
+    ],
+    "heavy_east": [
+      {
+        "time": 0,
+        "scenario": "heavy_east",
+        "total_vehicles": 35,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 16,
+          "south": 8,
+          "west": 8
+        },
+        "avg_waiting_time": 3.8714285714285714,
+        "avg_speed": 7.359642857142857,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 0.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 39,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 22,
+          "south": 5,
+          "west": 7
+        },
+        "avg_waiting_time": 3.8076923076923075,
+        "avg_speed": 6.524423076923077,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 37,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 20,
+          "south": 3,
+          "west": 8
+        },
+        "avg_waiting_time": 3.7567567567567566,
+        "avg_speed": 6.948243243243243,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 39,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 20,
+          "south": 5,
+          "west": 8
+        },
+        "avg_waiting_time": 3.769230769230769,
+        "avg_speed": 6.527307692307693,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 19,
+          "south": 5,
+          "west": 8
+        },
+        "avg_waiting_time": 3.763157894736842,
+        "avg_speed": 6.7377631578947375,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 39,
+        "lane_vehicles": {
+          "north": 7,
+          "east": 20,
+          "south": 4,
+          "west": 8
+        },
+        "avg_waiting_time": 3.730769230769231,
+        "avg_speed": 6.530192307692309,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 42,
+        "lane_vehicles": {
+          "north": 8,
+          "east": 22,
+          "south": 6,
+          "west": 6
+        },
+        "avg_waiting_time": 3.7142857142857144,
+        "avg_speed": 5.901428571428572,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 40,
+        "lane_vehicles": {
+          "north": 7,
+          "east": 26,
+          "south": 4,
+          "west": 3
+        },
+        "avg_waiting_time": 3.7375,
+        "avg_speed": 6.319687500000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 25,
+          "south": 4,
+          "west": 5
+        },
+        "avg_waiting_time": 3.8421052631578947,
+        "avg_speed": 6.731842105263159,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 28,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 16,
+          "south": 4,
+          "west": 3
+        },
+        "avg_waiting_time": 3.732142857142857,
+        "avg_speed": 8.840089285714287,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 38,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 27,
+          "south": 4,
+          "west": 3
+        },
+        "avg_waiting_time": 3.8421052631578947,
+        "avg_speed": 6.731842105263159,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 44,
+        "lane_vehicles": {
+          "north": 8,
+          "east": 26,
+          "south": 5,
+          "west": 5
+        },
+        "avg_waiting_time": 3.727272727272727,
+        "avg_speed": 5.4804545454545455,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 47,
+        "lane_vehicles": {
+          "north": 7,
+          "east": 29,
+          "south": 8,
+          "west": 3
+        },
+        "avg_waiting_time": 3.776595744680851,
+        "avg_speed": 4.846755319148937,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 47,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 28,
+          "south": 8,
+          "west": 7
+        },
+        "avg_waiting_time": 3.872340425531915,
+        "avg_speed": 4.839574468085107,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 34,
+        "lane_vehicles": {
+          "north": 7,
+          "east": 20,
+          "south": 4,
+          "west": 3
+        },
+        "avg_waiting_time": 3.6911764705882355,
+        "avg_speed": 7.583161764705883,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 42,
+        "lane_vehicles": {
+          "north": 6,
+          "east": 22,
+          "south": 7,
+          "west": 7
+        },
+        "avg_waiting_time": 3.7857142857142856,
+        "avg_speed": 5.896071428571429,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 47,
+        "lane_vehicles": {
+          "north": 7,
+          "east": 30,
+          "south": 3,
+          "west": 7
+        },
+        "avg_waiting_time": 3.776595744680851,
+        "avg_speed": 4.846755319148937,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 42,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 22,
+          "south": 7,
+          "west": 9
+        },
+        "avg_waiting_time": 3.857142857142857,
+        "avg_speed": 5.890714285714286,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.0,
+        "scenario": "heavy_east",
+        "total_vehicles": 40,
+        "lane_vehicles": {
+          "north": 7,
+          "east": 20,
+          "south": 7,
+          "west": 6
+        },
+        "avg_waiting_time": 3.7375,
+        "avg_speed": 6.319687500000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.5,
+        "scenario": "heavy_east",
+        "total_vehicles": 58,
+        "lane_vehicles": {
+          "north": 9,
+          "east": 31,
+          "south": 9,
+          "west": 9
+        },
+        "avg_waiting_time": 3.7672413793103448,
+        "avg_speed": 4.217456896551725,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      }
+    ],
+    "heavy_north_east": [
+      {
+        "time": 0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 50,
+        "lane_vehicles": {
+          "north": 15,
+          "east": 20,
+          "south": 8,
+          "west": 7
+        },
+        "avg_waiting_time": 3.55,
+        "avg_speed": 4.233750000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 0.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 41,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 12,
+          "south": 5,
+          "west": 5
+        },
+        "avg_waiting_time": 3.3048780487804876,
+        "avg_speed": 6.142134146341464,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 43,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 13,
+          "south": 7,
+          "west": 4
+        },
+        "avg_waiting_time": 3.3372093023255816,
+        "avg_speed": 5.719709302325581,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 40,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 16,
+          "south": 4,
+          "west": 6
+        },
+        "avg_waiting_time": 3.475,
+        "avg_speed": 6.339375000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 45,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 20,
+          "south": 4,
+          "west": 7
+        },
+        "avg_waiting_time": 3.533333333333333,
+        "avg_speed": 5.285,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 46,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 13,
+          "south": 6,
+          "west": 7
+        },
+        "avg_waiting_time": 3.347826086956522,
+        "avg_speed": 5.088913043478261,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 48,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 18,
+          "south": 8,
+          "west": 4
+        },
+        "avg_waiting_time": 3.4375,
+        "avg_speed": 4.662187500000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 49,
+        "lane_vehicles": {
+          "north": 16,
+          "east": 22,
+          "south": 5,
+          "west": 6
+        },
+        "avg_waiting_time": 3.510204081632653,
+        "avg_speed": 4.446734693877552,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 56,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 18,
+          "south": 8,
+          "west": 10
+        },
+        "avg_waiting_time": 3.4642857142857144,
+        "avg_speed": 4.240178571428571,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 49,
+        "lane_vehicles": {
+          "north": 21,
+          "east": 15,
+          "south": 6,
+          "west": 7
+        },
+        "avg_waiting_time": 3.357142857142857,
+        "avg_speed": 4.458214285714287,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 52,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 22,
+          "south": 8,
+          "west": 8
+        },
+        "avg_waiting_time": 3.5961538461538463,
+        "avg_speed": 4.230288461538462,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 47,
+        "lane_vehicles": {
+          "north": 16,
+          "east": 20,
+          "south": 5,
+          "west": 6
+        },
+        "avg_waiting_time": 3.4893617021276597,
+        "avg_speed": 4.868297872340427,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 50,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 14,
+          "south": 7,
+          "west": 10
+        },
+        "avg_waiting_time": 3.43,
+        "avg_speed": 4.242750000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 54,
+        "lane_vehicles": {
+          "north": 21,
+          "east": 14,
+          "south": 10,
+          "west": 9
+        },
+        "avg_waiting_time": 3.4166666666666665,
+        "avg_speed": 4.24375,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 56,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 23,
+          "south": 9,
+          "west": 10
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 4.228125,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 53,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 16,
+          "south": 10,
+          "west": 7
+        },
+        "avg_waiting_time": 3.4339622641509435,
+        "avg_speed": 4.24245283018868,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 50,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 19,
+          "south": 7,
+          "west": 6
+        },
+        "avg_waiting_time": 3.46,
+        "avg_speed": 4.240500000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 50,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 19,
+          "south": 4,
+          "west": 7
+        },
+        "avg_waiting_time": 3.4,
+        "avg_speed": 4.245,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.0,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 56,
+        "lane_vehicles": {
+          "north": 22,
+          "east": 17,
+          "south": 9,
+          "west": 8
+        },
+        "avg_waiting_time": 3.4107142857142856,
+        "avg_speed": 4.244196428571429,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.5,
+        "scenario": "heavy_north_east",
+        "total_vehicles": 51,
+        "lane_vehicles": {
+          "north": 22,
+          "east": 14,
+          "south": 6,
+          "west": 9
+        },
+        "avg_waiting_time": 3.3529411764705883,
+        "avg_speed": 4.248529411764706,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      }
+    ],
+    "all_heavy": [
+      {
+        "time": 0,
+        "scenario": "all_heavy",
+        "total_vehicles": 71,
+        "lane_vehicles": {
+          "north": 17,
+          "east": 18,
+          "south": 19,
+          "west": 17
+        },
+        "avg_waiting_time": 3.640845070422535,
+        "avg_speed": 4.226936619718311,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 0.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 76,
+        "lane_vehicles": {
+          "north": 16,
+          "east": 22,
+          "south": 18,
+          "west": 20
+        },
+        "avg_waiting_time": 3.6842105263157894,
+        "avg_speed": 4.223684210526317,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 77,
+        "lane_vehicles": {
+          "north": 22,
+          "east": 16,
+          "south": 22,
+          "west": 17
+        },
+        "avg_waiting_time": 3.5714285714285716,
+        "avg_speed": 4.232142857142858,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 74,
+        "lane_vehicles": {
+          "north": 17,
+          "east": 15,
+          "south": 20,
+          "west": 22
+        },
+        "avg_waiting_time": 3.6554054054054053,
+        "avg_speed": 4.225844594594595,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 80,
+        "lane_vehicles": {
+          "north": 23,
+          "east": 20,
+          "south": 19,
+          "west": 18
+        },
+        "avg_waiting_time": 3.56875,
+        "avg_speed": 4.232343750000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 79,
+        "lane_vehicles": {
+          "north": 22,
+          "east": 18,
+          "south": 18,
+          "west": 21
+        },
+        "avg_waiting_time": 3.5822784810126582,
+        "avg_speed": 4.231329113924051,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 76,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 18,
+          "south": 18,
+          "west": 21
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 4.228125,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 88,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 22,
+          "south": 24,
+          "west": 23
+        },
+        "avg_waiting_time": 3.6761363636363638,
+        "avg_speed": 4.224289772727274,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 85,
+        "lane_vehicles": {
+          "north": 22,
+          "east": 18,
+          "south": 24,
+          "west": 21
+        },
+        "avg_waiting_time": 3.611764705882353,
+        "avg_speed": 4.229117647058825,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 86,
+        "lane_vehicles": {
+          "north": 22,
+          "east": 22,
+          "south": 22,
+          "west": 20
+        },
+        "avg_waiting_time": 3.616279069767442,
+        "avg_speed": 4.228779069767442,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 90,
+        "lane_vehicles": {
+          "north": 24,
+          "east": 22,
+          "south": 22,
+          "west": 22
+        },
+        "avg_waiting_time": 3.6,
+        "avg_speed": 4.23,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 83,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 23,
+          "south": 25,
+          "west": 17
+        },
+        "avg_waiting_time": 3.674698795180723,
+        "avg_speed": 4.224397590361447,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 85,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 24,
+          "south": 25,
+          "west": 17
+        },
+        "avg_waiting_time": 3.664705882352941,
+        "avg_speed": 4.225147058823531,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 89,
+        "lane_vehicles": {
+          "north": 25,
+          "east": 23,
+          "south": 17,
+          "west": 24
+        },
+        "avg_waiting_time": 3.5786516853932584,
+        "avg_speed": 4.231601123595506,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 86,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 17,
+          "south": 26,
+          "west": 23
+        },
+        "avg_waiting_time": 3.6511627906976742,
+        "avg_speed": 4.226162790697676,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 81,
+        "lane_vehicles": {
+          "north": 19,
+          "east": 19,
+          "south": 25,
+          "west": 18
+        },
+        "avg_waiting_time": 3.6481481481481484,
+        "avg_speed": 4.22638888888889,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 89,
+        "lane_vehicles": {
+          "north": 26,
+          "east": 18,
+          "south": 26,
+          "west": 19
+        },
+        "avg_waiting_time": 3.561797752808989,
+        "avg_speed": 4.232865168539326,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 82,
+        "lane_vehicles": {
+          "north": 18,
+          "east": 24,
+          "south": 18,
+          "west": 22
+        },
+        "avg_waiting_time": 3.6707317073170733,
+        "avg_speed": 4.22469512195122,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.0,
+        "scenario": "all_heavy",
+        "total_vehicles": 84,
+        "lane_vehicles": {
+          "north": 20,
+          "east": 22,
+          "south": 24,
+          "west": 18
+        },
+        "avg_waiting_time": 3.642857142857143,
+        "avg_speed": 4.226785714285715,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.5,
+        "scenario": "all_heavy",
+        "total_vehicles": 92,
+        "lane_vehicles": {
+          "north": 24,
+          "east": 22,
+          "south": 22,
+          "west": 24
+        },
+        "avg_waiting_time": 3.608695652173913,
+        "avg_speed": 4.229347826086958,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      }
+    ],
+    "gradual_slowdown": [
+      {
+        "time": 0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 40,
+        "lane_vehicles": {
+          "north": 9,
+          "east": 9,
+          "south": 13,
+          "west": 9
+        },
+        "avg_waiting_time": 3.6625,
+        "avg_speed": 6.325312500000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 0.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 44,
+        "lane_vehicles": {
+          "north": 12,
+          "east": 11,
+          "south": 9,
+          "west": 12
+        },
+        "avg_waiting_time": 3.590909090909091,
+        "avg_speed": 5.490681818181819,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 42,
+        "lane_vehicles": {
+          "north": 10,
+          "east": 14,
+          "south": 9,
+          "west": 9
+        },
+        "avg_waiting_time": 3.642857142857143,
+        "avg_speed": 5.906785714285714,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 44,
+        "lane_vehicles": {
+          "north": 10,
+          "east": 14,
+          "south": 12,
+          "west": 8
+        },
+        "avg_waiting_time": 3.659090909090909,
+        "avg_speed": 5.485568181818182,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 43,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 12,
+          "south": 9,
+          "west": 8
+        },
+        "avg_waiting_time": 3.511627906976744,
+        "avg_speed": 5.7066279069767445,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 51,
+        "lane_vehicles": {
+          "north": 16,
+          "east": 12,
+          "south": 15,
+          "west": 8
+        },
+        "avg_waiting_time": 3.5294117647058822,
+        "avg_speed": 4.23529411764706,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 46,
+        "lane_vehicles": {
+          "north": 13,
+          "east": 14,
+          "south": 10,
+          "west": 9
+        },
+        "avg_waiting_time": 3.5760869565217392,
+        "avg_speed": 5.07179347826087,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 45,
+        "lane_vehicles": {
+          "north": 9,
+          "east": 8,
+          "south": 16,
+          "west": 12
+        },
+        "avg_waiting_time": 3.7,
+        "avg_speed": 5.2725,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 44,
+        "lane_vehicles": {
+          "north": 8,
+          "east": 10,
+          "south": 11,
+          "west": 15
+        },
+        "avg_waiting_time": 3.727272727272727,
+        "avg_speed": 5.4804545454545455,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 54,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 11,
+          "south": 16,
+          "west": 13
+        },
+        "avg_waiting_time": 3.611111111111111,
+        "avg_speed": 4.229166666666668,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 45,
+        "lane_vehicles": {
+          "north": 14,
+          "east": 11,
+          "south": 9,
+          "west": 11
+        },
+        "avg_waiting_time": 3.533333333333333,
+        "avg_speed": 5.285,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 50,
+        "lane_vehicles": {
+          "north": 12,
+          "east": 11,
+          "south": 16,
+          "west": 11
+        },
+        "avg_waiting_time": 3.64,
+        "avg_speed": 4.227,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 42,
+        "lane_vehicles": {
+          "north": 9,
+          "east": 9,
+          "south": 15,
+          "west": 9
+        },
+        "avg_waiting_time": 3.6785714285714284,
+        "avg_speed": 5.904107142857143,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 55,
+        "lane_vehicles": {
+          "north": 12,
+          "east": 12,
+          "south": 17,
+          "west": 14
+        },
+        "avg_waiting_time": 3.672727272727273,
+        "avg_speed": 4.2245454545454555,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 57,
+        "lane_vehicles": {
+          "north": 17,
+          "east": 14,
+          "south": 10,
+          "west": 16
+        },
+        "avg_waiting_time": 3.5526315789473686,
+        "avg_speed": 4.233552631578949,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 41,
+        "lane_vehicles": {
+          "north": 9,
+          "east": 12,
+          "south": 10,
+          "west": 10
+        },
+        "avg_waiting_time": 3.6707317073170733,
+        "avg_speed": 6.11469512195122,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 60,
+        "lane_vehicles": {
+          "north": 15,
+          "east": 18,
+          "south": 18,
+          "west": 9
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 4.228125,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 61,
+        "lane_vehicles": {
+          "north": 15,
+          "east": 17,
+          "south": 18,
+          "west": 11
+        },
+        "avg_waiting_time": 3.6311475409836067,
+        "avg_speed": 4.22766393442623,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.0,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 45,
+        "lane_vehicles": {
+          "north": 11,
+          "east": 11,
+          "south": 11,
+          "west": 12
+        },
+        "avg_waiting_time": 3.6333333333333333,
+        "avg_speed": 5.2775,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.5,
+        "scenario": "gradual_slowdown",
+        "total_vehicles": 61,
+        "lane_vehicles": {
+          "north": 12,
+          "east": 18,
+          "south": 17,
+          "west": 14
+        },
+        "avg_waiting_time": 3.7049180327868854,
+        "avg_speed": 4.222131147540984,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      }
+    ],
+    "evening_light": [
+      {
+        "time": 0,
+        "scenario": "evening_light",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 4,
+          "south": 3,
+          "west": 4
+        },
+        "avg_waiting_time": 3.6785714285714284,
+        "avg_speed": 11.784107142857144,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 0.5,
+        "scenario": "evening_light",
+        "total_vehicles": 15,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 4,
+          "south": 3,
+          "west": 5
+        },
+        "avg_waiting_time": 3.7,
+        "avg_speed": 11.572500000000002,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.0,
+        "scenario": "evening_light",
+        "total_vehicles": 13,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 2,
+          "south": 2,
+          "west": 4
+        },
+        "avg_waiting_time": 3.423076923076923,
+        "avg_speed": 12.01326923076923,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 1.5,
+        "scenario": "evening_light",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 4,
+          "south": 3,
+          "west": 4
+        },
+        "avg_waiting_time": 3.53125,
+        "avg_speed": 11.37515625,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.0,
+        "scenario": "evening_light",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 5,
+          "south": 5,
+          "west": 4
+        },
+        "avg_waiting_time": 3.8125,
+        "avg_speed": 11.354062500000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 2.5,
+        "scenario": "evening_light",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 3,
+          "south": 3,
+          "west": 5
+        },
+        "avg_waiting_time": 3.6785714285714284,
+        "avg_speed": 11.784107142857144,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.0,
+        "scenario": "evening_light",
+        "total_vehicles": 17,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 4,
+          "south": 5,
+          "west": 3
+        },
+        "avg_waiting_time": 3.5588235294117645,
+        "avg_speed": 11.163088235294117,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 3.5,
+        "scenario": "evening_light",
+        "total_vehicles": 12,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 2,
+          "south": 2,
+          "west": 3
+        },
+        "avg_waiting_time": 3.375,
+        "avg_speed": 12.226875000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.0,
+        "scenario": "evening_light",
+        "total_vehicles": 15,
+        "lane_vehicles": {
+          "north": 5,
+          "east": 2,
+          "south": 5,
+          "west": 3
+        },
+        "avg_waiting_time": 3.5,
+        "avg_speed": 11.5875,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 4.5,
+        "scenario": "evening_light",
+        "total_vehicles": 12,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 2,
+          "south": 2,
+          "west": 4
+        },
+        "avg_waiting_time": 3.5,
+        "avg_speed": 12.217500000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.0,
+        "scenario": "evening_light",
+        "total_vehicles": 11,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 3,
+          "south": 3,
+          "west": 3
+        },
+        "avg_waiting_time": 3.727272727272727,
+        "avg_speed": 12.410454545454545,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 5.5,
+        "scenario": "evening_light",
+        "total_vehicles": 11,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 2,
+          "south": 2,
+          "west": 5
+        },
+        "avg_waiting_time": 3.727272727272727,
+        "avg_speed": 12.410454545454545,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.0,
+        "scenario": "evening_light",
+        "total_vehicles": 14,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 4,
+          "south": 3,
+          "west": 4
+        },
+        "avg_waiting_time": 3.6785714285714284,
+        "avg_speed": 11.784107142857144,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 6.5,
+        "scenario": "evening_light",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 3,
+          "south": 5,
+          "west": 4
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 11.368125000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.0,
+        "scenario": "evening_light",
+        "total_vehicles": 13,
+        "lane_vehicles": {
+          "north": 3,
+          "east": 2,
+          "south": 5,
+          "west": 3
+        },
+        "avg_waiting_time": 3.6538461538461537,
+        "avg_speed": 11.995961538461538,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 7.5,
+        "scenario": "evening_light",
+        "total_vehicles": 13,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 6,
+          "south": 3,
+          "west": 2
+        },
+        "avg_waiting_time": 3.769230769230769,
+        "avg_speed": 11.987307692307693,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.0,
+        "scenario": "evening_light",
+        "total_vehicles": 13,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 3,
+          "south": 3,
+          "west": 3
+        },
+        "avg_waiting_time": 3.5384615384615383,
+        "avg_speed": 12.004615384615386,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 8.5,
+        "scenario": "evening_light",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 4,
+          "east": 3,
+          "south": 3,
+          "west": 6
+        },
+        "avg_waiting_time": 3.625,
+        "avg_speed": 11.368125000000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.0,
+        "scenario": "evening_light",
+        "total_vehicles": 16,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 4,
+          "south": 6,
+          "west": 4
+        },
+        "avg_waiting_time": 3.8125,
+        "avg_speed": 11.354062500000001,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      },
+      {
+        "time": 9.5,
+        "scenario": "evening_light",
+        "total_vehicles": 13,
+        "lane_vehicles": {
+          "north": 2,
+          "east": 4,
+          "south": 3,
+          "west": 4
+        },
+        "avg_waiting_time": 3.769230769230769,
+        "avg_speed": 11.987307692307693,
+        "current_phase": "North",
+        "adaptations": 0,
+        "algorithm": "f1_proven"
+      }
+    ]
+  },
+  "comparison_analysis": {
+    "initial_low": {
+      "rl_metrics": {
+        "avg_wait": 3.6522189330277564,
+        "avg_speed": 11.229583580022918,
+        "total_adaptations": 0,
+        "avg_vehicles": 16.65
+      },
+      "f1_metrics": {
+        "avg_wait": 3.6498276270270313,
+        "avg_speed": 11.135262927972972,
+        "total_adaptations": 0,
+        "avg_vehicles": 17.1
+      },
+      "wait_improvement": -0.0655183270304974,
+      "speed_improvement": 0.8470446783344706,
+      "adaptation_ratio": 0.0,
+      "winner": "F1_Proven"
+    },
+    "heavy_north": {
+      "rl_metrics": {
+        "avg_wait": 3.1484966205800555,
+        "avg_speed": 6.605362753456497,
+        "total_adaptations": 20,
+        "avg_vehicles": 38.85
+      },
+      "f1_metrics": {
+        "avg_wait": 3.1701513766058156,
+        "avg_speed": 6.666738646754564,
+        "total_adaptations": 0,
+        "avg_vehicles": 38.6
+      },
+      "wait_improvement": 0.6830827128812109,
+      "speed_improvement": -0.9206284594333974,
+      "adaptation_ratio": 20.0,
+      "winner": "RL_Predictive"
+    },
+    "heavy_east": {
+      "rl_metrics": {
+        "avg_wait": 3.7867096533503446,
+        "avg_speed": 6.462996775998724,
+        "total_adaptations": 0,
+        "avg_vehicles": 39.3
+      },
+      "f1_metrics": {
+        "avg_wait": 3.7779377131640453,
+        "avg_speed": 6.253654671512697,
+        "total_adaptations": 0,
+        "avg_vehicles": 40.7
+      },
+      "wait_improvement": -0.2321885867978694,
+      "speed_improvement": 3.347516220229499,
+      "adaptation_ratio": 0.0,
+      "winner": "F1_Proven"
+    },
+    "heavy_north_east": {
+      "rl_metrics": {
+        "avg_wait": 3.474101370234639,
+        "avg_speed": 4.795942397232403,
+        "total_adaptations": 14,
+        "avg_vehicles": 49.4
+      },
+      "f1_metrics": {
+        "avg_wait": 3.446608968287057,
+        "avg_speed": 4.682504327378472,
+        "total_adaptations": 0,
+        "avg_vehicles": 49.3
+      },
+      "wait_improvement": -0.7976652472196609,
+      "speed_improvement": 2.422594020696613,
+      "adaptation_ratio": 14.0,
+      "winner": "F1_Proven"
+    },
+    "all_heavy": {
+      "rl_metrics": {
+        "avg_wait": 3.6398030187104307,
+        "avg_speed": 4.227014773596718,
+        "total_adaptations": 20,
+        "avg_vehicles": 81.85
+      },
+      "f1_metrics": {
+        "avg_wait": 3.626677387540049,
+        "avg_speed": 4.227999195934497,
+        "total_adaptations": 0,
+        "avg_vehicles": 82.65
+      },
+      "wait_improvement": -0.36191890724762865,
+      "speed_improvement": -0.023283408821965553,
+      "adaptation_ratio": 20.0,
+      "winner": "F1_Proven"
+    },
+    "gradual_slowdown": {
+      "rl_metrics": {
+        "avg_wait": 3.615076503599939,
+        "avg_speed": 4.806369262230005,
+        "total_adaptations": 5,
+        "avg_vehicles": 50.25
+      },
+      "f1_metrics": {
+        "avg_wait": 3.6276630918722823,
+        "avg_speed": 5.057425268109579,
+        "total_adaptations": 0,
+        "avg_vehicles": 48.5
+      },
+      "wait_improvement": 0.3469613344343781,
+      "speed_improvement": -4.964107081574669,
+      "adaptation_ratio": 5.0,
+      "winner": "RL_Predictive"
+    },
+    "evening_light": {
+      "rl_metrics": {
+        "avg_wait": 3.593690794499618,
+        "avg_speed": 11.66447319041253,
+        "total_adaptations": 0,
+        "avg_vehicles": 14.6
+      },
+      "f1_metrics": {
+        "avg_wait": 3.634208971175883,
+        "avg_speed": 11.78743432716181,
+        "total_adaptations": 0,
+        "avg_vehicles": 14
+      },
+      "wait_improvement": 1.1149104797667908,
+      "speed_improvement": -1.0431543738567504,
+      "adaptation_ratio": 0.0,
+      "winner": "RL_Predictive"
+    }
+  },
+  "test_scenarios": {
+    "initial_low": {
+      "duration": 10,
+      "base_time_scenario": "initial_low",
+      "description": "Initial low traffic - YOUR: 20s base, F1: 35s adaptive"
+    },
+    "heavy_north": {
+      "duration": 10,
+      "base_time_scenario": "heavy_north",
+      "description": "Heavy North - YOUR: 50s N/30s others, F1: adaptive 40-45s"
+    },
+    "heavy_east": {
+      "duration": 10,
+      "base_time_scenario": "heavy_east",
+      "description": "Heavy East - YOUR: 50s E/30s others, F1: adaptive 40-45s"
+    },
+    "heavy_north_east": {
+      "duration": 10,
+      "base_time_scenario": "heavy_north_east",
+      "description": "Heavy N-E - YOUR: 50s both/30s others, F1: adaptive"
+    },
+    "all_heavy": {
+      "duration": 10,
+      "base_time_scenario": "all_heavy",
+      "description": "All heavy - YOUR: 45s equal, F1: adaptive 45-50s"
+    },
+    "gradual_slowdown": {
+      "duration": 10,
+      "base_time_scenario": "gradual_slowdown",
+      "description": "Slowdown - YOUR: 30s moderate, F1: adaptive"
+    },
+    "evening_light": {
+      "duration": 10,
+      "base_time_scenario": "evening_light",
+      "description": "Evening light - YOUR: 20s base, F1: 35s adaptive"
+    }
+  },
+  "timestamp": "2025-10-07T23:29:54.221983"
+}

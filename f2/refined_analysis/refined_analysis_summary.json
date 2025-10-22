@@ -1,0 +1,11 @@
+{
+  "baseline_wait": 33.02228157112925,
+  "f1_wait": 20.228765632515632,
+  "refined_wait": 32.54759112199505,
+  "f1_improvement": 38.74207150422563,
+  "refined_improvement": 1.4374853176384201,
+  "light_f1_improvement": 41.018895874524915,
+  "light_refined_improvement": 1.9457330839601736,
+  "efficiency_ratio": 0.05456468677201524,
+  "adaptation_ratio": 0.68
+}

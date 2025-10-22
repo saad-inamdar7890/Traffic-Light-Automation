@@ -1,0 +1,88 @@
+{
+  "normal_mode": {
+    "overall_avg_wait": 10.3,
+    "overall_avg_vehicles": 40,
+    "time_periods": [
+      {
+        "name": "6-7 AM Early",
+        "avg_vehicles": 15,
+        "avg_wait": 8.5
+      },
+      {
+        "name": "7-8 AM Rush Start",
+        "avg_vehicles": 45,
+        "avg_wait": 12.2
+      },
+      {
+        "name": "8-9 AM Peak Rush",
+        "avg_vehicles": 85,
+        "avg_wait": 15.8
+      },
+      {
+        "name": "9-10 AM Post-Rush",
+        "avg_vehicles": 35,
+        "avg_wait": 9.1
+      },
+      {
+        "name": "10-11 AM Mid-Morning",
+        "avg_vehicles": 25,
+        "avg_wait": 7.3
+      },
+      {
+        "name": "11-12 PM Pre-Lunch",
+        "avg_vehicles": 35,
+        "avg_wait": 8.9
+      }
+    ],
+    "total_adaptations": 0
+  },
+  "rl_predictive": {
+    "overall_avg_wait": 5.566666666666666,
+    "overall_avg_vehicles": 40,
+    "time_periods": [
+      {
+        "name": "6-7 AM Early",
+        "prediction": "20s base times",
+        "avg_vehicles": 15,
+        "avg_wait": 4.2,
+        "adaptations": 2
+      },
+      {
+        "name": "7-8 AM Rush Start",
+        "prediction": "50s North priority",
+        "avg_vehicles": 45,
+        "avg_wait": 6.8,
+        "adaptations": 8
+      },
+      {
+        "name": "8-9 AM Peak Rush",
+        "prediction": "45s equal heavy",
+        "avg_vehicles": 85,
+        "avg_wait": 8.7,
+        "adaptations": 15
+      },
+      {
+        "name": "9-10 AM Post-Rush",
+        "prediction": "30s moderate",
+        "avg_vehicles": 35,
+        "avg_wait": 5.0,
+        "adaptations": 6
+      },
+      {
+        "name": "10-11 AM Mid-Morning",
+        "prediction": "20s light traffic",
+        "avg_vehicles": 25,
+        "avg_wait": 3.8,
+        "adaptations": 3
+      },
+      {
+        "name": "11-12 PM Pre-Lunch",
+        "prediction": "30s East priority",
+        "avg_vehicles": 35,
+        "avg_wait": 4.9,
+        "adaptations": 7
+      }
+    ],
+    "total_adaptations": 41
+  }
+}

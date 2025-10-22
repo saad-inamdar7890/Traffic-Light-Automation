@@ -1,0 +1,149 @@
+{
+  "best_variant": {
+    "avg_wait_time": 32.394997185494184,
+    "avg_speed": 11.988139109711614,
+    "total_adaptations": 47,
+    "adaptation_rate": 0.7833333333333333,
+    "variant_name": "L30_M15_S2_T5",
+    "parameters": {
+      "light_phase": 30,
+      "minimal_phase": 15,
+      "stability_factor": 2,
+      "switching_threshold": 5
+    }
+  },
+  "top_10_variants": [
+    {
+      "avg_wait_time": 32.394997185494184,
+      "avg_speed": 11.988139109711614,
+      "total_adaptations": 47,
+      "adaptation_rate": 0.7833333333333333,
+      "variant_name": "L30_M15_S2_T5",
+      "parameters": {
+        "light_phase": 30,
+        "minimal_phase": 15,
+        "stability_factor": 2,
+        "switching_threshold": 5
+      }
+    },
+    {
+      "avg_wait_time": 32.394997185494184,
+      "avg_speed": 11.988139109711614,
+      "total_adaptations": 47,
+      "adaptation_rate": 0.7833333333333333,
+      "variant_name": "L30_M15_S3_T5",
+      "parameters": {
+        "light_phase": 30,
+        "minimal_phase": 15,
+        "stability_factor": 3,
+        "switching_threshold": 5
+      }
+    },
+    {
+      "avg_wait_time": 32.394997185494184,
+      "avg_speed": 11.988139109711614,
+      "total_adaptations": 47,
+      "adaptation_rate": 0.7833333333333333,
+      "variant_name": "L30_M15_S4_T5",
+      "parameters": {
+        "light_phase": 30,
+        "minimal_phase": 15,
+        "stability_factor": 4,
+        "switching_threshold": 5
+      }
+    },
+    {
+      "avg_wait_time": 32.394997185494184,
+      "avg_speed": 11.988139109711614,
+      "total_adaptations": 47,
+      "adaptation_rate": 0.7833333333333333,
+      "variant_name": "L30_M15_S5_T5",
+      "parameters": {
+        "light_phase": 30,
+        "minimal_phase": 15,
+        "stability_factor": 5,
+        "switching_threshold": 5
+      }
+    },
+    {
+      "avg_wait_time": 32.394997185494184,
+      "avg_speed": 11.988139109711614,
+      "total_adaptations": 47,
+      "adaptation_rate": 0.7833333333333333,
+      "variant_name": "L30_M18_S2_T5",
+      "parameters": {
+        "light_phase": 30,
+        "minimal_phase": 18,
+        "stability_factor": 2,
+        "switching_threshold": 5
+      }
+    },
+    {
+      "avg_wait_time": 32.394997185494184,
+      "avg_speed": 11.988139109711614,
+      "total_adaptations": 47,
+      "adaptation_rate": 0.7833333333333333,
+      "variant_name": "L30_M18_S3_T5",
+      "parameters": {
+        "light_phase": 30,
+        "minimal_phase": 18,
+        "stability_factor": 3,
+        "switching_threshold": 5
+      }
+    },
+    {
+      "avg_wait_time": 32.394997185494184,
+      "avg_speed": 11.988139109711614,
+      "total_adaptations": 47,
+      "adaptation_rate": 0.7833333333333333,
+      "variant_name": "L30_M18_S4_T5",
+      "parameters": {
+        "light_phase": 30,
+        "minimal_phase": 18,
+        "stability_factor": 4,
+        "switching_threshold": 5
+      }
+    },
+    {
+      "avg_wait_time": 32.394997185494184,
+      "avg_speed": 11.988139109711614,
+      "total_adaptations": 47,
+      "adaptation_rate": 0.7833333333333333,
+      "variant_name": "L30_M18_S5_T5",
+      "parameters": {
+        "light_phase": 30,
+        "minimal_phase": 18,
+        "stability_factor": 5,
+        "switching_threshold": 5
+      }
+    },
+    {
+      "avg_wait_time": 32.394997185494184,
+      "avg_speed": 11.988139109711614,
+      "total_adaptations": 47,
+      "adaptation_rate": 0.7833333333333333,
+      "variant_name": "L30_M22_S2_T5",
+      "parameters": {
+        "light_phase": 30,
+        "minimal_phase": 22,
+        "stability_factor": 2,
+        "switching_threshold": 5
+      }
+    },
+    {
+      "avg_wait_time": 32.394997185494184,
+      "avg_speed": 11.988139109711614,
+      "total_adaptations": 47,
+      "adaptation_rate": 0.7833333333333333,
+      "variant_name": "L30_M22_S3_T5",
+      "parameters": {
+        "light_phase": 30,
+        "minimal_phase": 22,
+        "stability_factor": 3,
+        "switching_threshold": 5
+      }
+    }
+  ],
+  "analysis_timestamp": "2025-10-07T23:17:31.403983",
+  "total_variants_tested": 256
+}

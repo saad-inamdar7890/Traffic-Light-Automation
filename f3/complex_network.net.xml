@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Complex Multi-Intersection Traffic Network -->
+<!-- Features: 4 main intersections, arterial roads, residential feeders, roundabout -->
+
+<net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="-1000.00,-1000.00,1000.00,1000.00" origBoundary="-1000.00,-1000.00,1000.00,1000.00" projParameter="!"/>
+
+    <!-- NODES/JUNCTIONS -->
+    
+    <!-- Main Central Business District Intersection -->
+    <junction id="central_main" type="traffic_light" x="0.00" y="0.00" incLanes="north_arterial_0 east_arterial_0 south_arterial_0 west_arterial_0" intLanes=":central_main_0_0 :central_main_1_0 :central_main_2_0 :central_main_3_0 :central_main_4_0 :central_main_5_0 :central_main_6_0 :central_main_7_0 :central_main_8_0 :central_main_9_0 :central_main_10_0 :central_main_11_0" shape="-7.20,7.20 7.20,7.20 7.64,6.64 7.87,6.20 8.09,5.64 8.42,4.87 8.98,3.76 8.98,-3.76 8.42,-4.87 8.09,-5.64 7.87,-6.20 7.64,-6.64 7.20,-7.20 -7.20,-7.20 -7.64,-6.64 -7.87,-6.20 -8.09,-5.64 -8.42,-4.87 -8.98,-3.76 -8.98,3.76 -8.42,4.87 -8.09,5.64 -7.87,6.20 -7.64,6.64">
+        <request index="0" response="000000000000" foes="000100010000" cont="0"/>
+        <request index="1" response="000000000000" foes="111100110000" cont="0"/>
+        <request index="2" response="000011000000" foes="110011110000" cont="0"/>
+        <request index="3" response="000010000000" foes="100010000000" cont="0"/>
+        <request index="4" response="000110000111" foes="100110000111" cont="0"/>
+        <request index="5" response="011110000110" foes="011110000110" cont="0"/>
+        <request index="6" response="010000000100" foes="010000000100" cont="0"/>
+        <request index="7" response="110000111100" foes="110000111100" cont="0"/>
+        <request index="8" response="000000110011" foes="000000110011" cont="0"/>
+        <request index="9" response="000001000010" foes="000001000010" cont="0"/>
+        <request index="10" response="000111000110" foes="000111000110" cont="0"/>
+        <request index="11" response="000110011110" foes="000110011110" cont="0"/>
+    </junction>
+
+    <!-- North Residential Intersection -->
+    <junction id="north_residential" type="traffic_light" x="0.00" y="400.00" incLanes="north_feeder_0 east_residential_0 south_connector_0 west_residential_0" intLanes=":north_residential_0_0 :north_residential_1_0 :north_residential_2_0 :north_residential_3_0 :north_residential_4_0 :north_residential_5_0 :north_residential_6_0 :north_residential_7_0 :north_residential_8_0 :north_residential_9_0 :north_residential_10_0 :north_residential_11_0" shape="-4.80,404.80 4.80,404.80 5.24,404.24 5.47,403.80 5.69,403.24 5.91,402.47 6.31,401.36 6.31,398.64 5.91,397.53 5.69,396.76 5.47,396.20 5.24,395.76 4.80,395.20 -4.80,395.20 -5.24,395.76 -5.47,396.20 -5.69,396.76 -5.91,397.53 -6.31,398.64 -6.31,401.36 -5.91,402.47 -5.69,403.24 -5.47,403.80 -5.24,404.24">
+        <request index="0" response="000000000000" foes="000100010000" cont="0"/>
+        <request index="1" response="000000000000" foes="111100110000" cont="0"/>
+        <request index="2" response="000011000000" foes="110011110000" cont="0"/>
+        <request index="3" response="000010000000" foes="100010000000" cont="0"/>
+        <request index="4" response="000110000111" foes="100110000111" cont="0"/>
+        <request index="5" response="011110000110" foes="011110000110" cont="0"/>
+        <request index="6" response="010000000100" foes="010000000100" cont="0"/>
+        <request index="7" response="110000111100" foes="110000111100" cont="0"/>
+        <request index="8" response="000000110011" foes="000000110011" cont="0"/>
+        <request index="9" response="000001000010" foes="000001000010" cont="0"/>
+        <request index="10" response="000111000110" foes="000111000110" cont="0"/>
+        <request index="11" response="000110011110" foes="000110011110" cont="0"/>
+    </junction>
+
+    <!-- East Commercial Intersection -->
+    <junction id="east_commercial" type="traffic_light" x="400.00" y="0.00" incLanes="north_commercial_0 east_feeder_0 south_commercial_0 west_connector_0" intLanes=":east_commercial_0_0 :east_commercial_1_0 :east_commercial_2_0 :east_commercial_3_0 :east_commercial_4_0 :east_commercial_5_0 :east_commercial_6_0 :east_commercial_7_0 :east_commercial_8_0 :east_commercial_9_0 :east_commercial_10_0 :east_commercial_11_0" shape="395.20,4.80 395.20,-4.80 395.76,-5.24 396.20,-5.47 396.76,-5.69 397.53,-5.91 398.64,-6.31 401.36,-6.31 402.47,-5.91 403.24,-5.69 403.80,-5.47 404.24,-5.24 404.80,-4.80 404.80,4.80 404.24,5.24 403.80,5.47 403.24,5.69 402.47,5.91 401.36,6.31 398.64,6.31 397.53,5.91 396.76,5.69 396.20,5.47 395.76,5.24">
+        <request index="0" response="000000000000" foes="000100010000" cont="0"/>
+        <request index="1" response="000000000000" foes="111100110000" cont="0"/>
+        <request index="2" response="000011000000" foes="110011110000" cont="0"/>
+        <request index="3" response="000010000000" foes="100010000000" cont="0"/>
+        <request index="4" response="000110000111" foes="100110000111" cont="0"/>
+        <request index="5" response="011110000110" foes="011110000110" cont="0"/>
+        <request index="6" response="010000000100" foes="010000000100" cont="0"/>
+        <request index="7" response="110000111100" foes="110000111100" cont="0"/>
+        <request index="8" response="000000110011" foes="000000110011" cont="0"/>
+        <request index="9" response="000001000010" foes="000001000010" cont="0"/>
+        <request index="10" response="000111000110" foes="000111000110" cont="0"/>
+        <request index="11" response="000110011110" foes="000110011110" cont="0"/>
+    </junction>
+
+    <!-- South Industrial Intersection -->
+    <junction id="south_industrial" type="traffic_light" x="0.00" y="-400.00" incLanes="north_connector_0 east_industrial_0 south_feeder_0 west_industrial_0" intLanes=":south_industrial_0_0 :south_industrial_1_0 :south_industrial_2_0 :south_industrial_3_0 :south_industrial_4_0 :south_industrial_5_0 :south_industrial_6_0 :south_industrial_7_0 :south_industrial_8_0 :south_industrial_9_0 :south_industrial_10_0 :south_industrial_11_0" shape="-4.80,-395.20 4.80,-395.20 5.24,-395.76 5.47,-396.20 5.69,-396.76 5.91,-397.53 6.31,-398.64 6.31,-401.36 5.91,-402.47 5.69,-403.24 5.47,-403.80 5.24,-404.24 4.80,-404.80 -4.80,-404.80 -5.24,-404.24 -5.47,-403.80 -5.69,-403.24 -5.91,-402.47 -6.31,-401.36 -6.31,-398.64 -5.91,-397.53 -5.69,-396.76 -5.47,-396.20 -5.24,-395.76">
+        <request index="0" response="000000000000" foes="000100010000" cont="0"/>
+        <request index="1" response="000000000000" foes="111100110000" cont="0"/>
+        <request index="2" response="000011000000" foes="110011110000" cont="0"/>
+        <request index="3" response="000010000000" foes="100010000000" cont="0"/>
+        <request index="4" response="000110000111" foes="100110000111" cont="0"/>
+        <request index="5" response="011110000110" foes="011110000110" cont="0"/>
+        <request index="6" response="010000000100" foes="010000000100" cont="0"/>
+        <request index="7" response="110000111100" foes="110000111100" cont="0"/>
+        <request index="8" response="000000110011" foes="000000110011" cont="0"/>
+        <request index="9" response="000001000010" foes="000001000010" cont="0"/>
+        <request index="10" response="000111000110" foes="000111000110" cont="0"/>
+        <request index="11" response="000110011110" foes="000110011110" cont="0"/>
+    </junction>
+
+    <!-- West University Roundabout -->
+    <junction id="west_roundabout" type="priority" x="-400.00" y="0.00" incLanes="north_university_0 east_roundabout_0 south_university_0 west_feeder_0" intLanes=":west_roundabout_0_0 :west_roundabout_1_0 :west_roundabout_2_0 :west_roundabout_3_0 :west_roundabout_4_0 :west_roundabout_5_0 :west_roundabout_6_0 :west_roundabout_7_0" shape="-395.20,4.80 -395.20,-4.80 -396.76,-5.69 -398.64,-6.31 -401.36,-6.31 -403.24,-5.69 -404.80,-4.80 -404.80,4.80 -403.24,5.69 -401.36,6.31 -398.64,6.31 -396.76,5.69">
+        <request index="0" response="00000000" foes="00010000" cont="0"/>
+        <request index="1" response="00000000" foes="11110000" cont="0"/>
+        <request index="2" response="00001000" foes="10001000" cont="0"/>
+        <request index="3" response="00001000" foes="10001000" cont="0"/>
+        <request index="4" response="00001100" foes="00001100" cont="0"/>
+        <request index="5" response="00001010" foes="00001010" cont="0"/>
+        <request index="6" response="00001001" foes="00001001" cont="0"/>
+        <request index="7" response="00000000" foes="00000000" cont="0"/>
+    </junction>
+
+    <!-- Entry/Exit Points -->
+    <junction id="north_entry" type="dead_end" x="0.00" y="800.00" incLanes="" intLanes="" shape="0.00,800.00 -3.20,800.00 0.00,800.00"/>
+    <junction id="east_entry" type="dead_end" x="800.00" y="0.00" incLanes="" intLanes="" shape="800.00,0.00 800.00,-3.20 800.00,0.00"/>
+    <junction id="south_entry" type="dead_end" x="0.00" y="-800.00" incLanes="" intLanes="" shape="0.00,-800.00 3.20,-800.00 0.00,-800.00"/>
+    <junction id="west_entry" type="dead_end" x="-800.00" y="0.00" incLanes="" intLanes="" shape="-800.00,0.00 -800.00,3.20 -800.00,0.00"/>
+
+    <!-- Additional Peripheral Nodes -->
+    <junction id="ne_peripheral" type="dead_end" x="600.00" y="300.00" incLanes="" intLanes="" shape="600.00,300.00 596.80,300.00 600.00,300.00"/>
+    <junction id="nw_peripheral" type="dead_end" x="-600.00" y="300.00" incLanes="" intLanes="" shape="-600.00,300.00 -596.80,300.00 -600.00,300.00"/>
+    <junction id="se_peripheral" type="dead_end" x="600.00" y="-300.00" incLanes="" intLanes="" shape="600.00,-300.00 603.20,-300.00 600.00,-300.00"/>
+    <junction id="sw_peripheral" type="dead_end" x="-600.00" y="-300.00" incLanes="" intLanes="" shape="-600.00,-300.00 -603.20,-300.00 -600.00,-300.00"/>
+
+    <!-- EDGES/ROADS -->
+    
+    <!-- Main Arterial Roads (High Capacity) -->
+    <edge id="north_arterial" from="north_residential" to="central_main" priority="15" numLanes="2" speed="22.22" shape="0.00,395.20 0.00,7.20"/>
+    <edge id="east_arterial" from="east_commercial" to="central_main" priority="15" numLanes="2" speed="22.22" shape="395.20,0.00 7.20,0.00"/>
+    <edge id="south_arterial" from="south_industrial" to="central_main" priority="15" numLanes="2" speed="22.22" shape="0.00,-395.20 0.00,-7.20"/>
+    <edge id="west_arterial" from="west_roundabout" to="central_main" priority="15" numLanes="2" speed="22.22" shape="-395.20,0.00 -7.20,0.00"/>
+
+    <!-- Connector Roads Between Secondary Intersections -->
+    <edge id="north_connector" from="central_main" to="south_industrial" priority="12" numLanes="1" speed="16.67" shape="0.00,-7.20 0.00,-395.20"/>
+    <edge id="east_connector" from="central_main" to="west_roundabout" priority="12" numLanes="1" speed="16.67" shape="-7.20,0.00 -395.20,0.00"/>
+    <edge id="south_connector" from="central_main" to="north_residential" priority="12" numLanes="1" speed="16.67" shape="0.00,7.20 0.00,395.20"/>
+    <edge id="west_connector" from="central_main" to="east_commercial" priority="12" numLanes="1" speed="16.67" shape="7.20,0.00 395.20,0.00"/>
+
+    <!-- Feeder Roads to External Areas -->
+    <edge id="north_feeder" from="north_entry" to="north_residential" priority="10" numLanes="1" speed="13.89" shape="0.00,800.00 0.00,404.80"/>
+    <edge id="east_feeder" from="east_entry" to="east_commercial" priority="10" numLanes="1" speed="13.89" shape="800.00,0.00 404.80,0.00"/>
+    <edge id="south_feeder" from="south_entry" to="south_industrial" priority="10" numLanes="1" speed="13.89" shape="0.00,-800.00 0.00,-404.80"/>
+    <edge id="west_feeder" from="west_entry" to="west_roundabout" priority="10" numLanes="1" speed="13.89" shape="-800.00,0.00 -404.80,0.00"/>
+
+    <!-- Residential Roads -->
+    <edge id="east_residential" from="ne_peripheral" to="north_residential" priority="8" numLanes="1" speed="11.11" shape="600.00,300.00 4.80,400.00"/>
+    <edge id="west_residential" from="nw_peripheral" to="north_residential" priority="8" numLanes="1" speed="11.11" shape="-600.00,300.00 -4.80,400.00"/>
+
+    <!-- Commercial Roads -->
+    <edge id="north_commercial" from="ne_peripheral" to="east_commercial" priority="8" numLanes="1" speed="13.89" shape="600.00,300.00 400.00,4.80"/>
+    <edge id="south_commercial" from="se_peripheral" to="east_commercial" priority="8" numLanes="1" speed="13.89" shape="600.00,-300.00 400.00,-4.80"/>
+
+    <!-- Industrial Roads -->
+    <edge id="east_industrial" from="se_peripheral" to="south_industrial" priority="8" numLanes="1" speed="13.89" shape="600.00,-300.00 4.80,-400.00"/>
+    <edge id="west_industrial" from="sw_peripheral" to="south_industrial" priority="8" numLanes="1" speed="13.89" shape="-600.00,-300.00 -4.80,-400.00"/>
+
+    <!-- University Roads -->
+    <edge id="north_university" from="nw_peripheral" to="west_roundabout" priority="8" numLanes="1" speed="11.11" shape="-600.00,300.00 -400.00,4.80"/>
+    <edge id="south_university" from="sw_peripheral" to="west_roundabout" priority="8" numLanes="1" speed="11.11" shape="-600.00,-300.00 -400.00,-4.80"/>
+
+    <!-- Roundabout Connection -->
+    <edge id="east_roundabout" from="central_main" to="west_roundabout" priority="12" numLanes="1" speed="16.67" shape="-7.20,0.00 -395.20,0.00"/>
+
+    <!-- TRAFFIC LIGHT LOGIC -->
+    
+    <!-- Central Main Intersection (Most Complex) -->
+    <tlLogic id="central_main" type="static" programID="0" offset="0">
+        <phase duration="30" state="GGrrrrGGrrrr"/>  <!-- North-South Arterial -->
+        <phase duration="3"  state="yyrrrryyrrrr"/>  <!-- Yellow North-South -->
+        <phase duration="30" state="rrGGrrrrGGrr"/>  <!-- East-West Arterial -->
+        <phase duration="3"  state="rryyrrrryyrr"/>  <!-- Yellow East-West -->
+        <phase duration="15" state="rrrrGGrrrrGG"/>  <!-- Left Turns -->
+        <phase duration="3"  state="rrrryyrrrryy"/>  <!-- Yellow Left -->
+    </tlLogic>
+
+    <!-- North Residential Intersection -->
+    <tlLogic id="north_residential" type="static" programID="0" offset="10">
+        <phase duration="25" state="GGrrrrGGrrrr"/>  <!-- Main Flow -->
+        <phase duration="3"  state="yyrrrryyrrrr"/>  <!-- Yellow -->
+        <phase duration="20" state="rrGGrrrrGGrr"/>  <!-- Cross Flow -->
+        <phase duration="3"  state="rryyrrrryyrr"/>  <!-- Yellow -->
+        <phase duration="12" state="rrrrGGrrrrGG"/>  <!-- Left Turns -->
+        <phase duration="3"  state="rrrryyrrrryy"/>  <!-- Yellow -->
+    </tlLogic>
+
+    <!-- East Commercial Intersection -->
+    <tlLogic id="east_commercial" type="static" programID="0" offset="20">
+        <phase duration="35" state="GGrrrrGGrrrr"/>  <!-- Main Commercial Flow -->
+        <phase duration="3"  state="yyrrrryyrrrr"/>  <!-- Yellow -->
+        <phase duration="25" state="rrGGrrrrGGrr"/>  <!-- Cross Flow -->
+        <phase duration="3"  state="rryyrrrryyrr"/>  <!-- Yellow -->
+        <phase duration="18" state="rrrrGGrrrrGG"/>  <!-- Left Turns -->
+        <phase duration="3"  state="rrrryyrrrryy"/>  <!-- Yellow -->
+    </tlLogic>
+
+    <!-- South Industrial Intersection -->
+    <tlLogic id="south_industrial" type="static" programID="0" offset="30">
+        <phase duration="40" state="GGrrrrGGrrrr"/>  <!-- Heavy Industrial Flow -->
+        <phase duration="3"  state="yyrrrryyrrrr"/>  <!-- Yellow -->
+        <phase duration="20" state="rrGGrrrrGGrr"/>  <!-- Cross Flow -->
+        <phase duration="3"  state="rryyrrrryyrr"/>  <!-- Yellow -->
+        <phase duration="10" state="rrrrGGrrrrGG"/>  <!-- Minimal Left Turns -->
+        <phase duration="3"  state="rrrryyrrrryy"/>  <!-- Yellow -->
+    </tlLogic>
+
+</net>

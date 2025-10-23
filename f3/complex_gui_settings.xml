@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- SUMO GUI Settings for Complex Network Visualization -->
+
+<viewsettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/guisettings.xsd">
+    
+    <viewport centerX="0.0" centerY="0.0" zoom="100.0" angle="0.0"/>
+    
+    <delay value="100"/>
+    
+    <scheme name="complex_network_view">
+        <openGL antialiase="1" dither="1"/>
+        
+        <!-- Background and Grid -->
+        <background backgroundColor="0.2,0.5,0.2" showGrid="1" gridXSize="100.0" gridYSize="100.0"/>
+        
+        <!-- Edge (Road) Visualization -->
+        <edge show="1" width="1.0" minWidth="0.5" exaggeration="1.0" 
+              showLinkDecals="1" showLinkRules="1" hideConnectors="0"
+              showRails="1" secondShape="0"/>
+        
+        <!-- Vehicle Visualization -->
+        <vehicle show="1" quality="2" minSize="1.0" exaggeration="1.0" 
+                showBlinker="1" drawMinGap="0" showBTRange="0" 
+                showRouteIndex="0" scaleLength="1" showParkingInfo="0"/>
+        
+        <!-- Junction Visualization -->
+        <junction show="1" color="0.4,0.4,0.4" exaggeration="1.0" 
+                 drawShape="1" drawCrossingsAndWalkingAreas="1"/>
+        
+        <!-- Traffic Light Visualization -->
+        <tls show="1" tlSize="20.0" tlSizeExaggeration="1.0"/>
+        
+        <!-- Additional Data -->
+        <additionalFile show="1" width="1.0"/>
+        <route show="0" width="0.2"/>
+        
+        <!-- POI and Polygons -->
+        <poi show="1" layer="202.00" textSize="50.00" textLayer="203.00"/>
+        <poly show="1" layer="201.00" textSize="50.00" textLayer="202.00"/>
+        
+        <!-- Legend -->
+        <legend show="1" x="10.0" y="10.0"/>
+        
+    </scheme>
+    
+    <!-- Color Schemes for Different Vehicle Types -->
+    <decal file="" centerX="0.0" centerY="0.0" width="10.0" height="10.0" 
+           altitude="0.0" rotation="0.0" tilt="0.0" roll="0.0" layer="0.0"/>
+
+</viewsettings>

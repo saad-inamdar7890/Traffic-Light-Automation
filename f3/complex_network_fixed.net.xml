@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Corrected Complex Multi-Intersection Traffic Network -->
+<net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="-1000.00,-1000.00,1000.00,1000.00" origBoundary="-1000.00,-1000.00,1000.00,1000.00" projParameter="!"/>
+
+    <!-- EDGE TYPES -->
+    <type id="arterial" priority="15" numLanes="2" speed="22.22"/>
+    <type id="connector" priority="12" numLanes="1" speed="16.67"/>
+    <type id="feeder" priority="10" numLanes="1" speed="13.89"/>
+    <type id="local" priority="8" numLanes="1" speed="11.11"/>
+
+    <!-- NODES -->
+    <!-- Main intersections -->
+    <junction id="central" type="traffic_light" x="0.00" y="0.00" shape="-8.00,8.00 8.00,8.00 8.00,-8.00 -8.00,-8.00"/>
+    <junction id="north_res" type="traffic_light" x="0.00" y="400.00" shape="-6.00,406.00 6.00,406.00 6.00,394.00 -6.00,394.00"/>
+    <junction id="east_comm" type="traffic_light" x="400.00" y="0.00" shape="394.00,6.00 406.00,6.00 406.00,-6.00 394.00,-6.00"/>
+    <junction id="south_ind" type="traffic_light" x="0.00" y="-400.00" shape="-6.00,-394.00 6.00,-394.00 6.00,-406.00 -6.00,-406.00"/>
+    <junction id="west_round" type="priority" x="-400.00" y="0.00" shape="-406.00,6.00 -394.00,6.00 -394.00,-6.00 -406.00,-6.00"/>
+    
+    <!-- External entry/exit points -->
+    <junction id="n_entry" type="dead_end" x="0.00" y="800.00" shape="-1.60,800.00 1.60,800.00"/>
+    <junction id="e_entry" type="dead_end" x="800.00" y="0.00" shape="800.00,-1.60 800.00,1.60"/>
+    <junction id="s_entry" type="dead_end" x="0.00" y="-800.00" shape="1.60,-800.00 -1.60,-800.00"/>
+    <junction id="w_entry" type="dead_end" x="-800.00" y="0.00" shape="-800.00,1.60 -800.00,-1.60"/>
+    
+    <!-- Peripheral nodes -->
+    <junction id="ne_area" type="dead_end" x="600.00" y="300.00" shape="598.40,300.00 601.60,300.00"/>
+    <junction id="nw_area" type="dead_end" x="-600.00" y="300.00" shape="-601.60,300.00 -598.40,300.00"/>
+    <junction id="se_area" type="dead_end" x="600.00" y="-300.00" shape="601.60,-300.00 598.40,-300.00"/>
+    <junction id="sw_area" type="dead_end" x="-600.00" y="-300.00" shape="-598.40,-300.00 -601.60,-300.00"/>
+
+    <!-- EDGES -->
+    <!-- Main arterial roads -->
+    <edge id="n_to_center" from="north_res" to="central" type="arterial" length="400.00"/>
+    <edge id="center_to_n" from="central" to="north_res" type="arterial" length="400.00"/>
+    <edge id="e_to_center" from="east_comm" to="central" type="arterial" length="400.00"/>
+    <edge id="center_to_e" from="central" to="east_comm" type="arterial" length="400.00"/>
+    <edge id="s_to_center" from="south_ind" to="central" type="arterial" length="400.00"/>
+    <edge id="center_to_s" from="central" to="south_ind" type="arterial" length="400.00"/>
+    <edge id="w_to_center" from="west_round" to="central" type="arterial" length="400.00"/>
+    <edge id="center_to_w" from="central" to="west_round" type="arterial" length="400.00"/>
+    
+    <!-- Feeder roads to external areas -->
+    <edge id="n_feeder_in" from="n_entry" to="north_res" type="feeder" length="400.00"/>
+    <edge id="n_feeder_out" from="north_res" to="n_entry" type="feeder" length="400.00"/>
+    <edge id="e_feeder_in" from="e_entry" to="east_comm" type="feeder" length="400.00"/>
+    <edge id="e_feeder_out" from="east_comm" to="e_entry" type="feeder" length="400.00"/>
+    <edge id="s_feeder_in" from="s_entry" to="south_ind" type="feeder" length="400.00"/>
+    <edge id="s_feeder_out" from="south_ind" to="s_entry" type="feeder" length="400.00"/>
+    <edge id="w_feeder_in" from="w_entry" to="west_round" type="feeder" length="400.00"/>
+    <edge id="w_feeder_out" from="west_round" to="w_entry" type="feeder" length="400.00"/>
+    
+    <!-- Local connecting roads -->
+    <edge id="ne_to_north" from="ne_area" to="north_res" type="local" length="360.56"/>
+    <edge id="ne_to_east" from="ne_area" to="east_comm" type="local" length="360.56"/>
+    <edge id="nw_to_north" from="nw_area" to="north_res" type="local" length="360.56"/>
+    <edge id="nw_to_west" from="nw_area" to="west_round" type="local" length="360.56"/>
+    <edge id="se_to_east" from="se_area" to="east_comm" type="local" length="360.56"/>
+    <edge id="se_to_south" from="se_area" to="south_ind" type="local" length="360.56"/>
+    <edge id="sw_to_south" from="sw_area" to="south_ind" type="local" length="360.56"/>
+    <edge id="sw_to_west" from="sw_area" to="west_round" type="local" length="360.56"/>
+
+    <!-- TRAFFIC LIGHT LOGIC -->
+    <!-- Central intersection (most complex) -->
+    <tlLogic id="central" type="static" programID="0" offset="0">
+        <phase duration="30" state="GGrrGGrr"/>  <!-- North-South flow -->
+        <phase duration="3"  state="yyrryyrr"/>  <!-- Yellow N-S -->
+        <phase duration="30" state="rrGGrrGG"/>  <!-- East-West flow -->
+        <phase duration="3"  state="rryyrryy"/>  <!-- Yellow E-W -->
+    </tlLogic>
+
+    <!-- North residential intersection -->
+    <tlLogic id="north_res" type="static" programID="0" offset="10">
+        <phase duration="25" state="GGrrGGrr"/>  <!-- Main flow -->
+        <phase duration="3"  state="yyrryyrr"/>  <!-- Yellow -->
+        <phase duration="20" state="rrGGrrGG"/>  <!-- Cross flow -->
+        <phase duration="3"  state="rryyrryy"/>  <!-- Yellow -->
+    </tlLogic>
+
+    <!-- East commercial intersection -->
+    <tlLogic id="east_comm" type="static" programID="0" offset="20">
+        <phase duration="35" state="GGrrGGrr"/>  <!-- Commercial priority -->
+        <phase duration="3"  state="yyrryyrr"/>  <!-- Yellow -->
+        <phase duration="25" state="rrGGrrGG"/>  <!-- Cross flow -->
+        <phase duration="3"  state="rryyrryy"/>  <!-- Yellow -->
+    </tlLogic>
+
+    <!-- South industrial intersection -->
+    <tlLogic id="south_ind" type="static" programID="0" offset="30">
+        <phase duration="40" state="GGrrGGrr"/>  <!-- Industrial heavy flow -->
+        <phase duration="3"  state="yyrryyrr"/>  <!-- Yellow -->
+        <phase duration="20" state="rrGGrrGG"/>  <!-- Cross flow -->
+        <phase duration="3"  state="rryyrryy"/>  <!-- Yellow -->
+    </tlLogic>
+
+</net>

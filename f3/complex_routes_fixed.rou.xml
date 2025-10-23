@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Corrected Traffic Routes for Fixed Complex Network -->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+    <!-- VEHICLE TYPES -->
+    <vType id="passenger" accel="2.6" decel="4.5" sigma="0.5" length="4.5" minGap="2.0" maxSpeed="22.22" color="cyan"/>
+    <vType id="delivery" accel="1.8" decel="4.0" sigma="0.3" length="6.5" minGap="3.0" maxSpeed="16.67" color="yellow"/>
+    <vType id="truck" accel="1.2" decel="3.5" sigma="0.2" length="12.0" minGap="4.0" maxSpeed="13.89" color="red"/>
+    <vType id="bus" accel="1.5" decel="4.0" sigma="0.2" length="12.0" minGap="3.0" maxSpeed="16.67" color="green"/>
+    <vType id="emergency" accel="3.5" decel="5.0" sigma="0.1" length="5.5" minGap="1.5" maxSpeed="27.78" color="orange"/>
+
+    <!-- ROUTE DEFINITIONS -->
+    
+    <!-- Main arterial routes -->
+    <route id="north_south_main" edges="n_feeder_in n_to_center center_to_s s_feeder_out"/>
+    <route id="south_north_main" edges="s_feeder_in s_to_center center_to_n n_feeder_out"/>
+    <route id="east_west_main" edges="e_feeder_in e_to_center center_to_w w_feeder_out"/>
+    <route id="west_east_main" edges="w_feeder_in w_to_center center_to_e e_feeder_out"/>
+    
+    <!-- Cross-city diagonal routes -->
+    <route id="ne_to_sw" edges="ne_to_north n_to_center center_to_w sw_to_west"/>
+    <route id="nw_to_se" edges="nw_to_west w_to_center center_to_e se_to_east"/>
+    <route id="se_to_nw" edges="se_to_south s_to_center center_to_n nw_to_north"/>
+    <route id="sw_to_ne" edges="sw_to_south s_to_center center_to_e ne_to_east"/>
+    
+    <!-- Local area routes -->
+    <route id="residential_to_commercial" edges="ne_to_north n_to_center center_to_e e_feeder_out"/>
+    <route id="commercial_to_residential" edges="e_feeder_in e_to_center center_to_n ne_to_north"/>
+    <route id="residential_to_industrial" edges="nw_to_north n_to_center center_to_s s_feeder_out"/>
+    <route id="industrial_to_residential" edges="s_feeder_in s_to_center center_to_n nw_to_north"/>
+    
+    <!-- University routes (via roundabout) -->
+    <route id="to_university_from_north" edges="n_feeder_in n_to_center center_to_w nw_to_west"/>
+    <route id="to_university_from_east" edges="e_feeder_in e_to_center center_to_w sw_to_west"/>
+    <route id="from_university_to_center" edges="nw_to_west w_to_center center_to_e e_feeder_out"/>
+    
+    <!-- Short local trips -->
+    <route id="north_local_loop" edges="ne_to_north n_feeder_out"/>
+    <route id="east_local_loop" edges="se_to_east e_feeder_out"/>
+    <route id="south_local_loop" edges="sw_to_south s_feeder_out"/>
+    <route id="west_local_loop" edges="nw_to_west w_feeder_out"/>
+
+    <!-- TRAFFIC FLOWS -->
+    
+    <!-- Morning Rush Hour (Simulated as first 2 hours) -->
+    <!-- Heavy commuter traffic from residential areas to commercial/industrial -->
+    <flow id="morning_commute_ns" type="passenger" route="north_south_main" 
+          begin="0" end="7200" vehsPerHour="400" departLane="best" departSpeed="max"/>
+    <flow id="morning_commute_res_comm" type="passenger" route="residential_to_commercial" 
+          begin="0" end="7200" vehsPerHour="300" departLane="best" departSpeed="max"/>
+    <flow id="morning_delivery" type="delivery" route="east_west_main" 
+          begin="0" end="7200" vehsPerHour="80" departLane="best" departSpeed="max"/>
+    
+    <!-- Mid-Day Activity (2-4 hours) -->
+    <!-- Moderate traffic with more diverse patterns -->
+    <flow id="midday_mixed_1" type="passenger" route="west_east_main" 
+          begin="7200" end="14400" vehsPerHour="200" departLane="best" departSpeed="max"/>
+    <flow id="midday_commercial" type="delivery" route="commercial_to_residential" 
+          begin="7200" end="14400" vehsPerHour="120" departLane="best" departSpeed="max"/>
+    <flow id="midday_university" type="passenger" route="to_university_from_north" 
+          begin="7200" end="14400" vehsPerHour="100" departLane="best" departSpeed="max"/>
+    
+    <!-- Afternoon Rush (4-6 hours) -->
+    <!-- Reverse commute pattern -->
+    <flow id="evening_commute_sn" type="passenger" route="south_north_main" 
+          begin="14400" end="21600" vehsPerHour="350" departLane="best" departSpeed="max"/>
+    <flow id="evening_commute_comm_res" type="passenger" route="commercial_to_residential" 
+          begin="14400" end="21600" vehsPerHour="280" departLane="best" departSpeed="max"/>
+    <flow id="evening_trucks" type="truck" route="industrial_to_residential" 
+          begin="14400" end="21600" vehsPerHour="150" departLane="best" departSpeed="max"/>
+    
+    <!-- Evening/Night (6-8 hours) -->
+    <!-- Reduced traffic -->
+    <flow id="night_traffic_1" type="passenger" route="ne_to_sw" 
+          begin="21600" end="28800" vehsPerHour="60" departLane="best" departSpeed="max"/>
+    <flow id="night_delivery" type="truck" route="nw_to_se" 
+          begin="21600" end="28800" vehsPerHour="40" departLane="best" departSpeed="max"/>
+    
+    <!-- All-day baseline traffic -->
+    <flow id="baseline_ew" type="passenger" route="east_west_main" 
+          begin="0" end="28800" vehsPerHour="50" departLane="best" departSpeed="max"/>
+    <flow id="baseline_we" type="passenger" route="west_east_main" 
+          begin="0" end="28800" vehsPerHour="50" departLane="best" departSpeed="max"/>
+    
+    <!-- Bus service (regular intervals) -->
+    <flow id="bus_main_route" type="bus" route="north_south_main" 
+          begin="0" end="28800" period="1200" departLane="best" departSpeed="max"/>
+    <flow id="bus_cross_route" type="bus" route="east_west_main" 
+          begin="0" end="28800" period="1800" departLane="best" departSpeed="max"/>
+    
+    <!-- Emergency vehicles (sporadic) -->
+    <flow id="emergency_service" type="emergency" route="from_university_to_center" 
+          begin="0" end="28800" vehsPerHour="3" departLane="best" departSpeed="max"/>
+    
+    <!-- Local area traffic -->
+    <flow id="local_north" type="passenger" route="north_local_loop" 
+          begin="0" end="28800" vehsPerHour="30" departLane="best" departSpeed="max"/>
+    <flow id="local_east" type="passenger" route="east_local_loop" 
+          begin="0" end="28800" vehsPerHour="40" departLane="best" departSpeed="max"/>
+    <flow id="local_south" type="passenger" route="south_local_loop" 
+          begin="0" end="28800" vehsPerHour="35" departLane="best" departSpeed="max"/>
+
+</routes>

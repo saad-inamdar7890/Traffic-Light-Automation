@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Simple Edge File for NETCONVERT -->
+<edges xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/edges_file.xsd">
+    
+    <!-- Main arterial roads (2 lanes each direction) -->
+    <edge id="n_to_c" from="north" to="center" numLanes="2" speed="22.22" priority="15"/>
+    <edge id="c_to_n" from="center" to="north" numLanes="2" speed="22.22" priority="15"/>
+    <edge id="e_to_c" from="east" to="center" numLanes="2" speed="22.22" priority="15"/>
+    <edge id="c_to_e" from="center" to="east" numLanes="2" speed="22.22" priority="15"/>
+    <edge id="s_to_c" from="south" to="center" numLanes="2" speed="22.22" priority="15"/>
+    <edge id="c_to_s" from="center" to="south" numLanes="2" speed="22.22" priority="15"/>
+    <edge id="w_to_c" from="west" to="center" numLanes="2" speed="22.22" priority="15"/>
+    <edge id="c_to_w" from="center" to="west" numLanes="2" speed="22.22" priority="15"/>
+    
+    <!-- Feeder roads from external -->
+    <edge id="ni_to_n" from="n_in" to="north" numLanes="1" speed="16.67" priority="10"/>
+    <edge id="n_to_ni" from="north" to="n_in" numLanes="1" speed="16.67" priority="10"/>
+    <edge id="ei_to_e" from="e_in" to="east" numLanes="1" speed="16.67" priority="10"/>
+    <edge id="e_to_ei" from="east" to="e_in" numLanes="1" speed="16.67" priority="10"/>
+    <edge id="si_to_s" from="s_in" to="south" numLanes="1" speed="16.67" priority="10"/>
+    <edge id="s_to_si" from="south" to="s_in" numLanes="1" speed="16.67" priority="10"/>
+    <edge id="wi_to_w" from="w_in" to="west" numLanes="1" speed="16.67" priority="10"/>
+    <edge id="w_to_wi" from="west" to="w_in" numLanes="1" speed="16.67" priority="10"/>
+    
+    <!-- Local connecting roads -->
+    <edge id="ne_to_n" from="ne" to="north" numLanes="1" speed="13.89" priority="8"/>
+    <edge id="ne_to_e" from="ne" to="east" numLanes="1" speed="13.89" priority="8"/>
+    <edge id="nw_to_n" from="nw" to="north" numLanes="1" speed="13.89" priority="8"/>
+    <edge id="nw_to_w" from="nw" to="west" numLanes="1" speed="13.89" priority="8"/>
+    <edge id="se_to_e" from="se" to="east" numLanes="1" speed="13.89" priority="8"/>
+    <edge id="se_to_s" from="se" to="south" numLanes="1" speed="13.89" priority="8"/>
+    <edge id="sw_to_s" from="sw" to="south" numLanes="1" speed="13.89" priority="8"/>
+    <edge id="sw_to_w" from="sw" to="west" numLanes="1" speed="13.89" priority="8"/>
+    
+</edges>

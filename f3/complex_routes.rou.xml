@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Complex Multi-Modal Traffic Routes -->
+<!-- Different vehicle types, routes, and traffic patterns for complex network -->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+    <!-- VEHICLE TYPES -->
+    
+    <!-- Regular Passenger Cars -->
+    <vType id="passenger" accel="2.6" decel="4.5" sigma="0.5" length="4.5" minGap="2.0" maxSpeed="22.22" color="cyan"/>
+    
+    <!-- Commercial Delivery Vehicles -->
+    <vType id="delivery" accel="1.8" decel="4.0" sigma="0.3" length="6.5" minGap="3.0" maxSpeed="16.67" color="yellow"/>
+    
+    <!-- Heavy Industrial Trucks -->
+    <vType id="truck" accel="1.2" decel="3.5" sigma="0.2" length="12.0" minGap="4.0" maxSpeed="13.89" color="red"/>
+    
+    <!-- City Buses -->
+    <vType id="bus" accel="1.5" decel="4.0" sigma="0.2" length="12.0" minGap="3.0" maxSpeed="16.67" color="green"/>
+    
+    <!-- Emergency Vehicles -->
+    <vType id="emergency" accel="3.5" decel="5.0" sigma="0.1" length="5.5" minGap="1.5" maxSpeed="27.78" color="orange"/>
+
+    <!-- ROUTE DEFINITIONS -->
+    
+    <!-- Main Arterial Routes (High Volume) -->
+    <route id="north_south_arterial" edges="north_feeder north_arterial south_arterial south_feeder"/>
+    <route id="south_north_arterial" edges="south_feeder south_arterial north_arterial north_feeder"/>
+    <route id="east_west_arterial" edges="east_feeder east_arterial west_arterial west_feeder"/>
+    <route id="west_east_arterial" edges="west_feeder west_arterial east_arterial east_feeder"/>
+    
+    <!-- Central Business District Circulation -->
+    <route id="cbd_circulation_cw" edges="north_feeder north_arterial west_connector west_feeder"/>
+    <route id="cbd_circulation_ccw" edges="east_feeder east_arterial north_connector north_feeder"/>
+    
+    <!-- Residential to Commercial Routes -->
+    <route id="residential_to_commercial" edges="east_residential south_connector west_connector north_commercial"/>
+    <route id="commercial_to_residential" edges="south_commercial east_connector north_connector west_residential"/>
+    
+    <!-- Industrial Supply Chain Routes -->
+    <route id="industrial_supply_east" edges="east_feeder east_arterial south_arterial east_industrial"/>
+    <route id="industrial_supply_west" edges="west_feeder west_arterial south_arterial west_industrial"/>
+    <route id="industrial_export" edges="west_industrial north_connector east_connector east_feeder"/>
+    
+    <!-- University Campus Routes -->
+    <route id="to_university_north" edges="north_feeder north_arterial east_roundabout north_university"/>
+    <route id="to_university_south" edges="south_feeder south_arterial east_roundabout south_university"/>
+    <route id="from_university" edges="north_university west_connector north_connector north_feeder"/>
+    
+    <!-- Cross-District Routes -->
+    <route id="ne_to_sw" edges="north_commercial west_connector south_arterial west_industrial"/>
+    <route id="nw_to_se" edges="west_residential south_connector east_connector south_commercial"/>
+    <route id="diagonal_traverse" edges="east_residential south_connector west_connector north_university"/>
+    
+    <!-- Emergency Routes (Priority) -->
+    <route id="emergency_north_south" edges="north_feeder north_arterial south_arterial south_feeder"/>
+    <route id="emergency_cross_city" edges="east_feeder east_arterial west_arterial west_feeder"/>
+    
+    <!-- Public Transit Routes -->
+    <route id="bus_route_main" edges="north_feeder north_arterial east_arterial south_arterial west_arterial north_arterial north_feeder"/>
+    <route id="bus_route_local" edges="east_residential north_connector west_connector south_university"/>
+
+    <!-- TRAFFIC FLOWS -->
+    
+    <!-- Morning Rush Hour (7:00-9:00 AM) -->
+    <!-- Heavy Residential to Commercial/Industrial Flow -->
+    <flow id="morning_commute_1" type="passenger" route="residential_to_commercial" begin="7200" end="10800" vehsPerHour="450" departLane="best" departSpeed="max"/>
+    <flow id="morning_commute_2" type="passenger" route="north_south_arterial" begin="7200" end="10800" vehsPerHour="600" departLane="best" departSpeed="max"/>
+    <flow id="morning_trucks" type="delivery" route="industrial_supply_east" begin="7200" end="10800" vehsPerHour="120" departLane="best" departSpeed="max"/>
+    
+    <!-- Mid-Day Commercial Activity (10:00 AM - 2:00 PM) -->
+    <flow id="midday_commercial_1" type="passenger" route="cbd_circulation_cw" begin="10800" end="14400" vehsPerHour="300" departLane="best" departSpeed="max"/>
+    <flow id="midday_commercial_2" type="delivery" route="east_west_arterial" begin="10800" end="14400" vehsPerHour="180" departLane="best" departSpeed="max"/>
+    <flow id="midday_university" type="passenger" route="to_university_north" begin="10800" end="14400" vehsPerHour="150" departLane="best" departSpeed="max"/>
+    
+    <!-- Afternoon Peak (4:00-6:00 PM) -->
+    <!-- Reverse Commute Pattern -->
+    <flow id="evening_commute_1" type="passenger" route="commercial_to_residential" begin="14400" end="18000" vehsPerHour="500" departLane="best" departSpeed="max"/>
+    <flow id="evening_commute_2" type="passenger" route="south_north_arterial" begin="14400" end="18000" vehsPerHour="550" departLane="best" departSpeed="max"/>
+    <flow id="evening_industrial" type="truck" route="industrial_export" begin="14400" end="18000" vehsPerHour="200" departLane="best" departSpeed="max"/>
+    
+    <!-- Evening Activity (6:00-9:00 PM) -->
+    <flow id="evening_leisure_1" type="passenger" route="diagonal_traverse" begin="18000" end="21600" vehsPerHour="200" departLane="best" departSpeed="max"/>
+    <flow id="evening_leisure_2" type="passenger" route="from_university" begin="18000" end="21600" vehsPerHour="180" departLane="best" departSpeed="max"/>
+    
+    <!-- Night Time (9:00 PM - 6:00 AM) -->
+    <!-- Reduced Traffic with Emergency and Late Night Workers -->
+    <flow id="night_traffic" type="passenger" route="west_east_arterial" begin="21600" end="28800" vehsPerHour="80" departLane="best" departSpeed="max"/>
+    <flow id="night_industrial" type="truck" route="industrial_supply_west" begin="21600" end="28800" vehsPerHour="60" departLane="best" departSpeed="max"/>
+    
+    <!-- Public Transit (All Day) -->
+    <flow id="bus_service_main" type="bus" route="bus_route_main" begin="21600" end="28800" period="1800" departLane="best" departSpeed="max"/>
+    <flow id="bus_service_local" type="bus" route="bus_route_local" begin="21600" end="28800" period="2700" departLane="best" departSpeed="max"/>
+    
+    <!-- Emergency Vehicles (Random Throughout Day) -->
+    <flow id="emergency_flow" type="emergency" route="emergency_north_south" begin="0" end="28800" vehsPerHour="5" departLane="best" departSpeed="max"/>
+    
+    <!-- Weekend Leisure Traffic -->
+    <flow id="weekend_leisure_1" type="passenger" route="ne_to_sw" begin="28800" end="57600" vehsPerHour="120" departLane="best" departSpeed="max"/>
+    <flow id="weekend_leisure_2" type="passenger" route="nw_to_se" begin="28800" end="57600" vehsPerHour="100" departLane="best" departSpeed="max"/>
+    
+    <!-- Heavy Truck Deliveries (Off-Peak Hours) -->
+    <flow id="heavy_delivery_1" type="truck" route="industrial_supply_east" begin="3600" end="7200" vehsPerHour="150" departLane="best" departSpeed="max"/>
+    <flow id="heavy_delivery_2" type="truck" route="industrial_export" begin="21600" end="25200" vehsPerHour="180" departLane="best" departSpeed="max"/>
+    
+    <!-- Special Event Traffic (University Events) -->
+    <flow id="university_event" type="passenger" route="to_university_south" begin="18000" end="19800" vehsPerHour="400" departLane="best" departSpeed="max"/>
+    
+    <!-- Cross-Town Express Routes -->
+    <flow id="express_cross_1" type="passenger" route="north_south_arterial" begin="0" end="28800" vehsPerHour="100" departLane="best" departSpeed="max"/>
+    <flow id="express_cross_2" type="passenger" route="east_west_arterial" begin="0" end="28800" vehsPerHour="120" departLane="best" departSpeed="max"/>
+
+</routes>

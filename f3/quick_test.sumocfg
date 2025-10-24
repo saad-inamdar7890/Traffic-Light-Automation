@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <input>
+        <net-file value="complex_network.net.xml"/>
+        <route-files value="complex_routes.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="300"/>
+        <step-length value="1"/>
+    </time>
+    <processing>
+        <max-depart-delay value="60"/>
+    </processing>
+    <report>
+        <verbose value="false"/>
+        <no-step-log value="true"/>
+        <duration-log.disable value="true"/>
+    </report>
+</configuration>

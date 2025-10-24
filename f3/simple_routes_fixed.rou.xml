@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Fixed Simple Routes -->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+    <!-- Vehicle types -->
+    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="4.5" minGap="2.0" maxSpeed="22.22" color="blue"/>
+    <vType id="truck" accel="1.2" decel="3.5" sigma="0.2" length="12.0" minGap="4.0" maxSpeed="16.67" color="red"/>
+    <vType id="bus" accel="1.5" decel="4.0" sigma="0.2" length="12.0" minGap="3.0" maxSpeed="16.67" color="green"/>
+
+    <!-- Main through routes -->
+    <route id="n_to_s" edges="ni_to_n n_to_c c_to_s s_to_si"/>
+    <route id="s_to_n" edges="si_to_s s_to_c c_to_n n_to_ni"/>
+    <route id="e_to_w" edges="ei_to_e e_to_c c_to_w w_to_wi"/>
+    <route id="w_to_e" edges="wi_to_w w_to_c c_to_e e_to_ei"/>
+    
+    <!-- Simple local routes (single edge) -->
+    <route id="ne_to_north" edges="ne_to_n"/>
+    <route id="ne_to_east" edges="ne_to_e"/>
+    <route id="nw_to_north" edges="nw_to_n"/>
+    <route id="nw_to_west" edges="nw_to_w"/>
+
+    <!-- Traffic flows -->
+    <flow id="flow_ns" type="car" route="n_to_s" begin="0" end="3600" vehsPerHour="200"/>
+    <flow id="flow_sn" type="car" route="s_to_n" begin="0" end="3600" vehsPerHour="180"/>
+    <flow id="flow_ew" type="car" route="e_to_w" begin="0" end="3600" vehsPerHour="150"/>
+    <flow id="flow_we" type="car" route="w_to_e" begin="0" end="3600" vehsPerHour="170"/>
+    
+    <!-- Local traffic -->
+    <flow id="local_ne_n" type="car" route="ne_to_north" begin="0" end="3600" vehsPerHour="30"/>
+    <flow id="local_ne_e" type="car" route="ne_to_east" begin="0" end="3600" vehsPerHour="25"/>
+    <flow id="local_nw_n" type="car" route="nw_to_north" begin="0" end="3600" vehsPerHour="20"/>
+    <flow id="local_nw_w" type="car" route="nw_to_west" begin="0" end="3600" vehsPerHour="15"/>
+    
+    <!-- Mixed vehicle types -->
+    <flow id="trucks" type="truck" route="s_to_n" begin="0" end="3600" vehsPerHour="30"/>
+    <flow id="buses" type="bus" route="e_to_w" begin="0" end="3600" period="300"/>
+
+</routes>

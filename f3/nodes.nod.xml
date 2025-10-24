@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Simple Node File for NETCONVERT -->
+<nodes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd">
+    
+    <!-- Main intersections -->
+    <node id="center" x="0.00" y="0.00" type="traffic_light"/>
+    <node id="north" x="0.00" y="400.00" type="traffic_light"/>
+    <node id="east" x="400.00" y="0.00" type="traffic_light"/>
+    <node id="south" x="0.00" y="-400.00" type="traffic_light"/>
+    <node id="west" x="-400.00" y="0.00" type="priority"/>
+    
+    <!-- External entry points -->
+    <node id="n_in" x="0.00" y="800.00" type="dead_end"/>
+    <node id="e_in" x="800.00" y="0.00" type="dead_end"/>
+    <node id="s_in" x="0.00" y="-800.00" type="dead_end"/>
+    <node id="w_in" x="-800.00" y="0.00" type="dead_end"/>
+    
+    <!-- Local area nodes -->
+    <node id="ne" x="600.00" y="300.00" type="dead_end"/>
+    <node id="nw" x="-600.00" y="300.00" type="dead_end"/>
+    <node id="se" x="600.00" y="-300.00" type="dead_end"/>
+    <node id="sw" x="-600.00" y="-300.00" type="dead_end"/>
+    
+</nodes>

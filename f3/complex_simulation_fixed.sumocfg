@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Corrected Complex Network Configuration -->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="complex_network_fixed.net.xml"/>
+        <route-files value="complex_routes_fixed.rou.xml"/>
+    </input>
+
+    <output>
+        <summary-output value="complex_simulation_summary.xml"/>
+        <tripinfo-output value="complex_tripinfo.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="28800"/>  <!-- 8 hours simulation -->
+        <step-length value="1"/>
+    </time>
+
+    <processing>
+        <collision.action value="warn"/>
+        <max-depart-delay value="900"/>
+        <routing-algorithm value="dijkstra"/>
+    </processing>
+
+    <gui_only>
+        <gui-settings-file value="complex_gui_settings.xml"/>
+        <start value="true"/>
+        <quit-on-end value="false"/>
+    </gui_only>
+
+    <traffic_light>
+        <tls.all-off value="false"/>
+    </traffic_light>
+
+    <report>
+        <verbose value="false"/>
+        <print-options value="false"/>
+        <duration-log.statistics value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+</configuration>

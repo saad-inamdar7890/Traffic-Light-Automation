@@ -19,6 +19,7 @@ Enhanced Features:
 import traci
 import statistics
 import math
+from typing import Dict, Any, List, Optional
 from collections import defaultdict, deque
 
 class AdaptiveTrafficController:
@@ -500,3 +501,133 @@ class AdaptiveTrafficController:
                 }
         
         return summary
+    
+    def control_traffic_lights(self, current_time: float, traci_connection) -> Dict[str, Any]:
+        """
+        Main interface method for controlling traffic lights using TraCI.
+        This method adapts the enhanced algorithm to the expected interface.
+        
+        Args:
+            current_time: Current simulation time
+            traci_connection: TraCI connection object
+            
+        Returns:
+            Control action information
+        """
+        try:
+            # Collect traffic data using the analyzer's format
+            from analyzer import TrafficAnalyzer
+            temp_analyzer = TrafficAnalyzer()
+            step_data = temp_analyzer.collect_traffic_metrics(int(current_time), traci_connection)
+            
+            if step_data is None:
+                return {
+                    'algorithm': 'adaptive_enhanced',
+                    'applied': False,
+                    'reason': 'No traffic data available',
+                    'timestamp': current_time
+                }
+            
+            # Apply the enhanced adaptive control
+            control_result = self.apply_adaptive_control(step_data, int(current_time))
+            
+            # Format response to match expected interface
+            result = {
+                'algorithm': 'adaptive_enhanced',
+                'applied': control_result.get('action_taken', False),
+                'action': control_result.get('action_description', 'no_action'),
+                'reason': control_result.get('reason', 'Normal operation'),
+                'traffic_data': step_data,
+                'timestamp': current_time,
+                'enhancement_details': {
+                    'pressure_analysis': control_result.get('pressure_analysis', {}),
+                    'phase_adjustments': control_result.get('phase_adjustments', {}),
+                    'efficiency_gain': control_result.get('efficiency_gain', 0)
+                }
+            }
+            
+            return result
+            
+        except Exception as e:
+            print(f"⚠️  Error in enhanced traffic light control: {e}")
+            return {
+                'algorithm': 'adaptive_enhanced',
+                'applied': False,
+                'error': str(e),
+                'timestamp': current_time
+            }
+    
+    def get_statistics(self) -> Dict[str, Any]:
+        """
+        Get comprehensive controller statistics.
+        Adapts the enhanced performance summary to the expected interface.
+        """
+        try:
+            performance_summary = self.get_performance_summary()
+            
+            # Calculate additional statistics
+            total_adaptations = performance_summary.get('total_adaptations', 0)
+            
+            # Extract detailed statistics
+            adaptations_log = []
+            actions = {}
+            
+            for phase_key, history in performance_summary.get('phase_history', {}).items():
+                if history.get('measurements', 0) > 0:
+                    actions[f"{phase_key}_optimizations"] = history['measurements']
+                    
+                    # Create log entries for recent adaptations
+                    adaptations_log.append({
+                        'phase': phase_key,
+                        'avg_pressure': history.get('avg_pressure', 0),
+                        'max_pressure': history.get('max_pressure', 0),
+                        'optimizations': history.get('measurements', 0)
+                    })
+            
+            statistics_result = {
+                'total_adaptations': total_adaptations,
+                'actions': actions,
+                'adaptations_log': adaptations_log[-5:],  # Last 5 adaptations
+                'algorithm_type': 'enhanced_adaptive',
+                'performance_metrics': {
+                    'total_pressure_reduced': getattr(self, 'total_pressure_reduced', 0),
+                    'phase_extensions': dict(getattr(self, 'phase_extensions', {})),
+                    'phase_reductions': dict(getattr(self, 'phase_reductions', {})),
+                    'adaptations_made': getattr(self, 'adaptations_made', 0)
+                }
+            }
+            
+            return statistics_result
+            
+        except Exception as e:
+            print(f"⚠️  Error getting enhanced controller statistics: {e}")
+            return {
+                'total_adaptations': 0,
+                'actions': {},
+                'adaptations_log': [],
+                'error': str(e)
+            }
+    
+    def reset_controller(self):
+        """Reset the enhanced controller state for a new simulation."""
+        try:
+            # Reset timing state
+            self.current_phase = 0
+            self.phase_start_time = 0
+            self.last_adaptation_time = 0
+            
+            # Reset performance tracking
+            self.adaptations_made = 0
+            self.total_pressure_reduced = 0
+            self.phase_extensions.clear()
+            self.phase_reductions.clear()
+            
+            # Reset traffic history and prediction data
+            self.traffic_history.clear()
+            self.pressure_trend.clear()
+            self.queue_history.clear()
+            
+            print(f"🔄 Enhanced traffic controller reset for junction {self.junction_id}")
+            
+        except Exception as e:
+            print(f"⚠️  Error resetting enhanced controller: {e}")

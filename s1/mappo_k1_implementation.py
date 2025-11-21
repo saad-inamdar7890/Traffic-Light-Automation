@@ -369,17 +369,41 @@ class K1Environment:
     
     def _init_sumo(self):
         """Initialize SUMO simulation"""
-        sumo_binary = "sumo-gui"  # Use "sumo" for no GUI
+        # Use headless SUMO (works on servers/Colab without display)
+        # Check if DISPLAY is available, otherwise force headless
+        import shutil
+        if os.environ.get('DISPLAY') and shutil.which('sumo-gui'):
+            sumo_binary = "sumo-gui"
+        else:
+            sumo_binary = "sumo"
+        
+        # Make config path absolute if relative
+        config_path = self.config.SUMO_CONFIG
+        if not os.path.isabs(config_path):
+            # Try to find it relative to the script directory
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            config_path = os.path.join(script_dir, config_path)
+            if not os.path.exists(config_path):
+                # Fallback: relative to current working directory
+                config_path = self.config.SUMO_CONFIG
+        
         sumo_cmd = [
             sumo_binary,
-            "-c", self.config.SUMO_CONFIG,
+            "-c", config_path,
             "--start",
             "--quit-on-end",
             "--no-warnings",
             "--no-step-log",
         ]
         
-        traci.start(sumo_cmd)
+        try:
+            traci.start(sumo_cmd)
+        except Exception as e:
+            print(f"Error starting SUMO with config: {config_path}")
+            print(f"Current working directory: {os.getcwd()}")
+            print(f"Config file exists: {os.path.exists(config_path)}")
+            print(f"SUMO binary: {sumo_binary}")
+            raise e
         
         # Initialize phase tracking
         for junction_id in self.junction_ids:

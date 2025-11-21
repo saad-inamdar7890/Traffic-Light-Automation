@@ -852,6 +852,9 @@ class MAPPOAgent:
             # Normalize advantages
             advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
             
+            # Detach advantages to prevent gradient flow issues
+            advantages = advantages.detach()
+            
             # PPO update epochs
             for epoch in range(self.config.PPO_EPOCHS):
                 # Get new action probabilities
@@ -859,8 +862,8 @@ class MAPPOAgent:
                 dist = Categorical(new_action_probs)
                 new_log_probs = dist.log_prob(batch['actions'][i])
                 
-                # Compute ratio
-                ratio = torch.exp(new_log_probs - batch['log_probs'][i])
+                # Compute ratio (detach old log_probs to avoid graph issues)
+                ratio = torch.exp(new_log_probs - batch['log_probs'][i].detach())
                 
                 # PPO clipped objective
                 surr1 = ratio * advantages

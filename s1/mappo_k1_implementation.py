@@ -1046,29 +1046,64 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
     print("=" * 80)
     
     # Create environment and agent
+    print("\n[1/4] Initializing SUMO environment...")
     env = K1Environment(config)
+    print("✓ SUMO environment initialized successfully")
+    
+    print("\n[2/4] Creating MAPPO agent (9 actors + 1 critic)...")
     agent = MAPPOAgent(config)
+    print("✓ Agent created successfully")
+    print(f"  - Actor networks: {config.NUM_JUNCTIONS}")
+    print(f"  - Critic network: 1 (shared)")
+    print(f"  - Total parameters: ~{sum(p.numel() for p in agent.actors[0].parameters()) * 9 + sum(p.numel() for p in agent.critic.parameters()):,}")
     
     # Resume from checkpoint if requested
     if resume_checkpoint:
-        print(f"Resuming training from checkpoint: {resume_checkpoint}")
+        print(f"\n[3/4] Resuming training from checkpoint: {resume_checkpoint}")
         agent.load_checkpoint(resume_checkpoint, load_buffer=True)
+        print(f"✓ Checkpoint loaded - resuming from episode {agent.episode_count}")
+    else:
+        print("\n[3/4] Starting fresh training (no checkpoint)")
 
     # Training loop
+    print("\n[4/4] Starting training loop...")
     start_time = time.time()
     max_seconds = None
     if max_hours is not None:
         max_seconds = float(max_hours) * 3600.0
+        print(f"✓ Time limit: {max_hours} hours ({max_seconds:.0f} seconds)")
+    else:
+        print("✓ No time limit set")
+    
+    print("\n" + "="*80)
+    print("TRAINING IN PROGRESS")
+    print("="*80)
 
     for episode in range(agent.episode_count, config.NUM_EPISODES):
+        episode_start_time = time.time()
+        
+        # Print episode header
+        print(f"\n{'='*80}")
+        print(f"Episode {episode}/{config.NUM_EPISODES} | Epsilon: {agent.epsilon:.4f}")
+        print(f"{'='*80}")
+        
         # Reset environment
+        print(f"[Step 1/4] Resetting SUMO environment...", end=" ", flush=True)
         local_states, global_state = env.reset()
+        print("✓")
         
         episode_reward = 0
         episode_length = 0
         
+        print(f"[Step 2/4] Running simulation ({config.STEPS_PER_EPISODE} steps)...")
+        
         # Episode loop
         for step in range(config.STEPS_PER_EPISODE):
+            # Progress indicator every 100 steps
+            if step % 100 == 0 and step > 0:
+                print(f"  Step {step}/{config.STEPS_PER_EPISODE} ({step/config.STEPS_PER_EPISODE*100:.1f}%) | "
+                      f"Reward: {episode_reward:.2f} | Buffer: {len(agent.buffer)}", flush=True)
+            
             # Select actions
             actions, log_probs, entropies = agent.select_actions(local_states)
             
@@ -1095,46 +1130,82 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
             global_state = next_global_state
             
             # Update agent
-            if step % config.UPDATE_FREQUENCY == 0:
+            if step % config.UPDATE_FREQUENCY == 0 and len(agent.buffer) >= config.UPDATE_FREQUENCY:
+                if step % 500 == 0:  # Less frequent update logging
+                    print(f"  → Updating networks (step {step})...", end=" ", flush=True)
                 agent.update()
+                if step % 500 == 0:
+                    print("✓")
             
             if done:
                 break
+        
+        # Episode summary
+        episode_duration = time.time() - episode_start_time
+        print(f"\n[Step 3/4] Episode completed in {episode_duration:.1f}s")
+        print(f"  Total reward: {episode_reward:.2f}")
+        print(f"  Steps: {episode_length}/{config.STEPS_PER_EPISODE}")
+        print(f"  Avg reward/step: {episode_reward/max(episode_length,1):.4f}")
         
         # Decay exploration
         agent.decay_epsilon()
         agent.episode_count = episode
         
         # Logging
+        print(f"[Step 4/4] Logging to TensorBoard...", end=" ", flush=True)
+        agent.writer.add_scalar('Episode/Reward', episode_reward, episode)
+        agent.writer.add_scalar('Episode/Length', episode_length, episode)
+        agent.writer.add_scalar('Episode/Epsilon', agent.epsilon, episode)
+        agent.writer.add_scalar('Episode/Duration', episode_duration, episode)
+        print("✓")
+        
         if episode % config.LOG_INTERVAL == 0:
-            print(f"Episode {episode}/{config.NUM_EPISODES} | "
-                  f"Reward: {episode_reward:.2f} | "
-                  f"Length: {episode_length} | "
-                  f"Epsilon: {agent.epsilon:.4f}")
-            
-            agent.writer.add_scalar('Episode/Reward', episode_reward, episode)
-            agent.writer.add_scalar('Episode/Length', episode_length, episode)
-            agent.writer.add_scalar('Episode/Epsilon', agent.epsilon, episode)
+            elapsed = time.time() - start_time
+            print(f"\n📊 PROGRESS SUMMARY (Episode {episode})")
+            print(f"  Elapsed time: {elapsed/3600:.2f}h ({elapsed:.0f}s)")
+            print(f"  Avg episode time: {elapsed/(episode+1-agent.episode_count):.1f}s")
+            print(f"  Episodes remaining: {config.NUM_EPISODES - episode}")
+            print(f"  Est. time remaining: {(config.NUM_EPISODES - episode) * (elapsed/(episode+1-agent.episode_count))/3600:.2f}h")
         
         # Save models / checkpoints
         if episode % config.SAVE_INTERVAL == 0 and episode > 0:
+            print(f"\n💾 SAVING CHECKPOINT (Episode {episode})...")
             model_path = os.path.join(config.MODEL_DIR, f'episode_{episode}')
             agent.save_models(model_path)
+            print(f"  ✓ Models saved to: {model_path}")
             # Also save a full checkpoint
             try:
-                agent.save_checkpoint(os.path.join(config.MODEL_DIR, f'checkpoint_{episode}'))
-            except Exception:
-                print('Warning: checkpoint save failed.')
+                checkpoint_path = os.path.join(config.MODEL_DIR, f'checkpoint_{episode}')
+                agent.save_checkpoint(checkpoint_path)
+                print(f"  ✓ Full checkpoint saved to: {checkpoint_path}")
+            except Exception as e:
+                print(f'  ⚠ Warning: checkpoint save failed: {e}')
 
         # Periodically check elapsed time for time-limited runs
         if max_seconds is not None:
             elapsed = time.time() - start_time
+            remaining = max_seconds - elapsed
+            if remaining < 300:  # Warn when <5 min remaining
+                print(f"\n⏰ WARNING: Only {remaining/60:.1f} minutes remaining!")
+            
             if elapsed >= max_seconds:
                 # Save a checkpoint and exit gracefully
                 timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
                 ckpt_path = os.path.join(config.MODEL_DIR, f'checkpoint_time_{timestamp}')
-                print(f"Max time reached ({max_hours} hours). Saving checkpoint to {ckpt_path} and exiting.")
+                print(f"\n{'='*80}")
+                print(f"⏰ TIME LIMIT REACHED ({max_hours} hours)")
+                print(f"{'='*80}")
+                print(f"\n💾 Saving final checkpoint...")
                 agent.save_checkpoint(ckpt_path)
+                print(f"✓ Checkpoint saved to: {ckpt_path}")
+                print(f"\n📊 TRAINING SUMMARY:")
+                print(f"  Episodes completed: {episode + 1}")
+                print(f"  Total time: {elapsed/3600:.2f}h")
+                print(f"  Final episode: {episode}")
+                print(f"\n✓ Training session completed successfully!")
+                print(f"\nTo resume, run:")
+                print(f"  python mappo_k1_implementation.py --resume-checkpoint {ckpt_path} --max-hours 3")
+                print(f"\n{'='*80}\n")
                 env.close()
                 agent.writer.close()
                 return

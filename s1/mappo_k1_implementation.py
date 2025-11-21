@@ -176,14 +176,14 @@ class ActorNetwork(nn.Module):
         
         Returns:
             action: Sampled action (integer)
-            log_prob: Log probability of action
-            entropy: Policy entropy (for exploration bonus)
+            log_prob: Log probability of action (scalar tensor)
+            entropy: Policy entropy (scalar tensor)
         """
         if np.random.random() < epsilon:
             # Random exploration
             action = np.random.randint(0, 4)
-            log_prob = torch.tensor(np.log(0.25))
-            entropy = torch.tensor(np.log(4))
+            log_prob = torch.tensor(np.log(0.25), dtype=torch.float32)
+            entropy = torch.tensor(np.log(4), dtype=torch.float32)
             return action, log_prob, entropy
         
         # Get action probabilities
@@ -195,8 +195,8 @@ class ActorNetwork(nn.Module):
         
         # Sample action
         action = dist.sample()
-        log_prob = dist.log_prob(action)
-        entropy = dist.entropy()
+        log_prob = dist.log_prob(action).squeeze()  # Ensure scalar
+        entropy = dist.entropy().squeeze()  # Ensure scalar
         
         return action.item(), log_prob, entropy
 
@@ -316,17 +316,18 @@ class ReplayBuffer:
             'entropies': [],
         }
         
-        # Convert per-agent data to tensors
+        # Convert per-agent data to tensors (optimize by converting to numpy first)
         for i in range(self.num_agents):
-            batch['local_states'].append(torch.FloatTensor(self.local_states[i]))
-            batch['actions'].append(torch.LongTensor(self.actions[i]))
-            batch['rewards'].append(torch.FloatTensor(self.rewards[i]))
+            # Convert lists to numpy arrays first (much faster)
+            batch['local_states'].append(torch.FloatTensor(np.array(self.local_states[i], dtype=np.float32)))
+            batch['actions'].append(torch.LongTensor(np.array(self.actions[i], dtype=np.int64)))
+            batch['rewards'].append(torch.FloatTensor(np.array(self.rewards[i], dtype=np.float32)))
             batch['log_probs'].append(torch.stack(self.log_probs[i]))
             batch['entropies'].append(torch.stack(self.entropies[i]))
         
         # Convert global data
-        batch['global_states'] = torch.FloatTensor(self.global_states)
-        batch['dones'] = torch.FloatTensor(self.dones)
+        batch['global_states'] = torch.FloatTensor(np.array(self.global_states, dtype=np.float32))
+        batch['dones'] = torch.FloatTensor(np.array(self.dones, dtype=np.float32))
         
         return batch
     

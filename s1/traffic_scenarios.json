@@ -1,0 +1,81 @@
+{
+  "scenarios": {
+    "test_light": {
+      "name": "Test - Light Traffic",
+      "description": "Quick test with light uniform traffic (1 hour)",
+      "duration": 3600,
+      "default_flow": 100,
+      "flow_multipliers": {}
+    },
+    
+    "test_heavy": {
+      "name": "Test - Heavy Traffic",
+      "description": "Quick test with heavy uniform traffic (1 hour)",
+      "duration": 3600,
+      "default_flow": 400,
+      "flow_multipliers": {}
+    },
+    
+    "peak_morning": {
+      "name": "Morning Peak Hour",
+      "description": "Simulates morning rush from residential to commercial areas",
+      "duration": 7200,
+      "default_flow": 150,
+      "flow_multipliers": {
+        "sw_to_se": 2.5,
+        "sw_to_e": 2.5,
+        "sw_to_center": 2.0,
+        "n_to_e_north": 2.0,
+        "n_to_center": 1.8,
+        "w_to_e": 1.5
+      }
+    },
+    
+    "peak_evening": {
+      "name": "Evening Peak Hour",
+      "description": "Simulates evening rush from commercial back to residential",
+      "duration": 7200,
+      "default_flow": 150,
+      "flow_multipliers": {
+        "e_center_to_sw": 2.5,
+        "e_north_to_sw": 2.5,
+        "se_to_sw": 2.0,
+        "e_edge_to_sw": 2.0
+      }
+    },
+    
+    "full_day": {
+      "name": "Complete 24-Hour Simulation",
+      "description": "Realistic 24-hour traffic pattern with rush hours",
+      "duration": 86400,
+      "default_flow": 200,
+      "time_periods": [
+        {"start": 0, "end": 21600, "multiplier": 0.15, "description": "Night (00:00-06:00)"},
+        {"start": 21600, "end": 32400, "multiplier": 2.5, "description": "Morning Rush (06:00-09:00)"},
+        {"start": 32400, "end": 61200, "multiplier": 1.0, "description": "Midday (09:00-17:00)"},
+        {"start": 61200, "end": 68400, "multiplier": 2.5, "description": "Evening Rush (17:00-19:00)"},
+        {"start": 68400, "end": 79200, "multiplier": 0.6, "description": "Evening (19:00-22:00)"},
+        {"start": 79200, "end": 86400, "multiplier": 0.2, "description": "Late Night (22:00-24:00)"}
+      ]
+    }
+  },
+  
+  "route_descriptions": {
+    "sw_to_se": "Southwest to Southeast (J19→J23)",
+    "sw_to_e": "Southwest to East (J19→J22)",
+    "sw_to_n": "Southwest to North (J19→J14)",
+    "sw_to_nw": "Southwest to Northwest (J19→J15)",
+    "sw_to_center": "Southwest to Center (J19→J11)",
+    "w_to_se": "West to Southeast (J13→J23)",
+    "w_to_e_north": "West to East North (J13→J17)",
+    "w_to_nw": "West to Northwest (J13→J15)",
+    "w_to_s": "West to South (J13→J8)",
+    "w_to_e": "West to East (J13→J22)",
+    "n_to_w": "North to West (J14→J13)",
+    "n_to_s": "North to South (J14→J8)",
+    "n_to_e_north": "North to East North (J14→J17)",
+    "n_to_center": "North to Center (J14→J11)",
+    "n_to_se": "North to Southeast (J14→J23)",
+    "nw_to_e": "Northwest to East (J15→J22)"
+  }
+}

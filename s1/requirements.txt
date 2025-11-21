@@ -1,0 +1,22 @@
+# MAPPO Traffic Light Control - Required Python Packages
+# Install with: pip install -r requirements.txt
+
+# Deep Learning Framework
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Numerical Computing
+numpy>=1.24.0
+
+# Training Monitoring
+tensorboard>=2.13.0
+
+# Note: SUMO (sumo, sumo-gui, traci) must be installed separately
+# Windows: Download from https://sumo.dlr.de/docs/Downloads.php
+# Linux: sudo apt-get install sumo sumo-tools sumo-doc
+# macOS: brew install sumo
+#
+# After installation, verify with:
+# - sumo --version
+# - python -c "import traci"

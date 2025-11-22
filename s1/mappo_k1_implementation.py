@@ -86,10 +86,20 @@ class MAPPOConfig:
     GRAD_CLIP = 0.5           # Gradient clipping
     
     # Training schedule
-    STEPS_PER_EPISODE = 3600  # 1 hour simulation
+    STEPS_PER_EPISODE = 3600  # Simulation duration per episode in seconds
+                               # 3600 = 1 hour, 86400 = 24 hours
     NUM_EPISODES = 5000
     UPDATE_FREQUENCY = 128     # Steps between updates
     PPO_EPOCHS = 10           # Updates per batch
+    
+    # Traffic variation for robust training
+    ENABLE_TRAFFIC_VARIATION = True   # Enable random traffic variation
+    TRAFFIC_VARIATION_PERCENT = 0.30  # ±30% random variation in flow rates
+    
+    # SUMO configuration
+    USE_REALISTIC_24H_TRAFFIC = False  # True = Time-varying rush hours, False = Constant traffic
+                                       # If True: uses k1_realistic.sumocfg with morning/evening peaks
+                                       # If False: uses k1.sumocfg with constant traffic rates
     
     # Exploration
     EPSILON_START = 0.1
@@ -108,6 +118,10 @@ class MAPPOConfig:
     SAVE_INTERVAL = 100       # Episodes between model saves
     TENSORBOARD_DIR = "mappo_logs"
     MODEL_DIR = "mappo_models"
+    
+    # Device (GPU/CPU) - Automatically detected
+    DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    USE_GPU = torch.cuda.is_available()  # Flag for easy checking
 
 
 # ============================================================================
@@ -122,8 +136,9 @@ class ActorNetwork(nn.Module):
     Each junction has its own actor network.
     """
     
-    def __init__(self, state_dim=17, action_dim=4, hidden_dims=[128, 64]):
+    def __init__(self, state_dim=17, action_dim=4, hidden_dims=[128, 64], device='cpu'):
         super(ActorNetwork, self).__init__()
+        self.device = torch.device(device) if isinstance(device, str) else device
         
         # Build network layers
         layers = []
@@ -162,6 +177,10 @@ class ActorNetwork(nn.Module):
         Returns:
             action_probs: Action probabilities (batch_size, 4)
         """
+        if not isinstance(state, torch.Tensor):
+            state = torch.FloatTensor(state).to(self.device)
+        elif state.device != self.device:
+            state = state.to(self.device)
         logits = self.network(state)
         action_probs = F.softmax(logits, dim=-1)
         return action_probs
@@ -209,8 +228,9 @@ class CriticNetwork(nn.Module):
     Shared by all junctions - enables coordination learning.
     """
     
-    def __init__(self, state_dim=155, hidden_dims=[256, 256, 128]):
+    def __init__(self, state_dim=155, hidden_dims=[256, 256, 128], device='cpu'):
         super(CriticNetwork, self).__init__()
+        self.device = torch.device(device) if isinstance(device, str) else device
         
         # Build network layers
         layers = []
@@ -246,6 +266,10 @@ class CriticNetwork(nn.Module):
         Returns:
             value: State value (batch_size, 1)
         """
+        if not isinstance(state, torch.Tensor):
+            state = torch.FloatTensor(state).to(self.device)
+        elif state.device != self.device:
+            state = state.to(self.device)
         value = self.network(state)
         return value
 
@@ -356,6 +380,10 @@ class K1Environment:
         self.neighbors = config.NEIGHBORS
         self.vehicle_weights = config.VEHICLE_WEIGHTS
         
+        # Traffic variation tracking
+        self.current_traffic_multiplier = 1.0
+        self.episode_count = 0
+        
         # Track metrics for rewards
         self.prev_waiting_times = defaultdict(float)
         self.prev_queue_lengths = defaultdict(float)
@@ -378,15 +406,20 @@ class K1Environment:
         else:
             sumo_binary = "sumo"
         
+        # Select config based on USE_REALISTIC_24H_TRAFFIC setting
+        if self.config.USE_REALISTIC_24H_TRAFFIC:
+            config_path = "k1_realistic.sumocfg"  # Time-varying traffic (rush hours)
+        else:
+            config_path = self.config.SUMO_CONFIG  # Constant traffic
+        
         # Make config path absolute if relative
-        config_path = self.config.SUMO_CONFIG
         if not os.path.isabs(config_path):
             # Try to find it relative to the script directory
             script_dir = os.path.dirname(os.path.abspath(__file__))
             config_path = os.path.join(script_dir, config_path)
             if not os.path.exists(config_path):
                 # Fallback: relative to current working directory
-                config_path = self.config.SUMO_CONFIG
+                config_path = config_path
         
         sumo_cmd = [
             sumo_binary,
@@ -406,16 +439,48 @@ class K1Environment:
             print(f"SUMO binary: {sumo_binary}")
             raise e
         
+        # Apply traffic variation by modifying vehicle type speeds if enabled
+        # (This affects all vehicles spawned during this episode)
+        if hasattr(self, 'current_traffic_multiplier') and self.current_traffic_multiplier != 1.0:
+            try:
+                # Modify flow density (indirect: via vType speed adjustments)
+                # Lower speed = more congestion, higher speed = less congestion
+                # Inverse relationship: more traffic (1.3x) → slower speeds (1/1.3x)
+                speed_factor = 1.0 / self.current_traffic_multiplier
+                
+                for vtype_id in ['DEFAULT_VEHTYPE', 'passenger', 'bus', 'truck']:
+                    try:
+                        if vtype_id in traci.vehicletype.getIDList():
+                            base_speed = traci.vehicletype.getMaxSpeed(vtype_id)
+                            new_speed = base_speed * speed_factor
+                            # Keep reasonable bounds (5-50 m/s)
+                            new_speed = max(5.0, min(50.0, new_speed))
+                            traci.vehicletype.setMaxSpeed(vtype_id, new_speed)
+                    except:
+                        pass
+            except:
+                pass  # Fail silently if variation can't be applied
+        
         # Initialize phase tracking
         for junction_id in self.junction_ids:
             self.current_phases[junction_id] = 0
             self.time_in_phase[junction_id] = 0
     
-    def reset(self):
+    def reset(self, apply_variation=True):
         """Reset environment for new episode"""
         # Close existing connection
         if traci.isLoaded():
             traci.close()
+        
+        # Generate random traffic variation if enabled
+        if apply_variation and self.config.ENABLE_TRAFFIC_VARIATION:
+            # Random multiplier: 1.0 ± TRAFFIC_VARIATION_PERCENT
+            variation = self.config.TRAFFIC_VARIATION_PERCENT
+            self.current_traffic_multiplier = 1.0 + np.random.uniform(-variation, variation)
+        else:
+            self.current_traffic_multiplier = 1.0
+        
+        self.episode_count += 1
         
         # Restart SUMO
         self._init_sumo()
@@ -729,22 +794,25 @@ class MAPPOAgent:
     def __init__(self, config):
         self.config = config
         self.num_agents = config.NUM_JUNCTIONS
+        self.device = config.DEVICE
         
-        # Create actors (one per junction)
+        # Create actors (one per junction) and move to device
         self.actors = [
             ActorNetwork(
                 state_dim=config.LOCAL_STATE_DIM,
                 action_dim=config.ACTION_DIM,
-                hidden_dims=config.ACTOR_HIDDEN
-            )
+                hidden_dims=config.ACTOR_HIDDEN,
+                device=self.device
+            ).to(self.device)
             for _ in range(self.num_agents)
         ]
         
-        # Create shared critic
+        # Create shared critic and move to device
         self.critic = CriticNetwork(
             state_dim=config.GLOBAL_STATE_DIM,
-            hidden_dims=config.CRITIC_HIDDEN
-        )
+            hidden_dims=config.CRITIC_HIDDEN,
+            device=self.device
+        ).to(self.device)
         
         # Optimizers
         self.actor_optimizers = [
@@ -978,10 +1046,16 @@ class MAPPOAgent:
 
     def load_checkpoint(self, path, load_buffer=True, map_location=None):
         """Load full training checkpoint and optimizer states."""
-        # Load model weights
+        # Use configured device if map_location not specified
+        if map_location is None:
+            map_location = self.device
+        
+        # Load model weights and move to device
         for i, actor in enumerate(self.actors):
             actor.load_state_dict(torch.load(os.path.join(path, f'actor_{i}.pth'), map_location=map_location))
+            actor.to(self.device)
         self.critic.load_state_dict(torch.load(os.path.join(path, 'critic.pth'), map_location=map_location))
+        self.critic.to(self.device)
 
         # Load optimizers if available
         for i, optim in enumerate(self.actor_optimizers):
@@ -1043,6 +1117,21 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
     print(f"Junctions: {config.NUM_JUNCTIONS}")
     print(f"Episodes: {config.NUM_EPISODES}")
     print(f"Steps per episode: {config.STEPS_PER_EPISODE}")
+    
+    # GPU/CPU info
+    print("\n🖥️  DEVICE INFORMATION:")
+    print(f"  Device: {config.DEVICE}")
+    if config.USE_GPU:
+        gpu_name = torch.cuda.get_device_name(0)
+        gpu_memory = torch.cuda.get_device_properties(0).total_memory / 1e9
+        print(f"  GPU: {gpu_name}")
+        print(f"  GPU Memory: {gpu_memory:.1f} GB")
+        print(f"  CUDA Version: {torch.version.cuda}")
+        print("  ✅ Neural networks will use GPU acceleration")
+    else:
+        print("  ⚠️  No GPU available - using CPU only")
+        print("  Note: SUMO simulation always uses CPU (expected)")
+    
     print("=" * 80)
     
     # Create environment and agent
@@ -1053,8 +1142,8 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
     print("\n[2/4] Creating MAPPO agent (9 actors + 1 critic)...")
     agent = MAPPOAgent(config)
     print("✓ Agent created successfully")
-    print(f"  - Actor networks: {config.NUM_JUNCTIONS}")
-    print(f"  - Critic network: 1 (shared)")
+    print(f"  - Actor networks: {config.NUM_JUNCTIONS} (on {config.DEVICE})")
+    print(f"  - Critic network: 1 shared (on {config.DEVICE})")
     print(f"  - Total parameters: ~{sum(p.numel() for p in agent.actors[0].parameters()) * 9 + sum(p.numel() for p in agent.critic.parameters()):,}")
     
     # Resume from checkpoint if requested
@@ -1090,7 +1179,13 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
         # Reset environment
         print(f"[Step 1/4] Resetting SUMO environment...", end=" ", flush=True)
         local_states, global_state = env.reset()
-        print("✓")
+        
+        # Show traffic variation info
+        if config.ENABLE_TRAFFIC_VARIATION:
+            variation_pct = (env.current_traffic_multiplier - 1.0) * 100
+            print(f" ✓ (Traffic: {variation_pct:+.1f}%)")
+        else:
+            print(" ✓")
         
         episode_reward = 0
         episode_length = 0

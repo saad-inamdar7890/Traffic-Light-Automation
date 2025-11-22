@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- SUMO Configuration for 24-Hour Realistic Traffic Patterns -->
+<!-- Use this config for training with morning/evening rush hours -->
+
+<sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="k1.net.xml"/>
+        <route-files value="k1_routes_24h_realistic.rou.xml"/>
+    </input>
+
+</sumoConfiguration>

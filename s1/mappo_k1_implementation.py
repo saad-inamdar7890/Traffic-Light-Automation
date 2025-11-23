@@ -285,8 +285,9 @@ class ReplayBuffer:
     Stores trajectories during episode for batch training.
     """
     
-    def __init__(self, num_agents=9):
+    def __init__(self, num_agents=9, device='cpu'):
         self.num_agents = num_agents
+        self.device = torch.device(device) if isinstance(device, str) else device
         self.clear()
     
     def clear(self):
@@ -340,18 +341,19 @@ class ReplayBuffer:
             'entropies': [],
         }
         
-        # Convert per-agent data to tensors (optimize by converting to numpy first)
+        # Convert per-agent data to tensors and move to device
         for i in range(self.num_agents):
-            # Convert lists to numpy arrays first (much faster)
-            batch['local_states'].append(torch.FloatTensor(np.array(self.local_states[i], dtype=np.float32)))
-            batch['actions'].append(torch.LongTensor(np.array(self.actions[i], dtype=np.int64)))
-            batch['rewards'].append(torch.FloatTensor(np.array(self.rewards[i], dtype=np.float32)))
-            batch['log_probs'].append(torch.stack(self.log_probs[i]))
-            batch['entropies'].append(torch.stack(self.entropies[i]))
+            # Convert lists to numpy arrays first (much faster), then to tensors on device
+            batch['local_states'].append(torch.FloatTensor(np.array(self.local_states[i], dtype=np.float32)).to(self.device))
+            batch['actions'].append(torch.LongTensor(np.array(self.actions[i], dtype=np.int64)).to(self.device))
+            batch['rewards'].append(torch.FloatTensor(np.array(self.rewards[i], dtype=np.float32)).to(self.device))
+            # Move log_probs and entropies to device before stacking
+            batch['log_probs'].append(torch.stack([lp.detach().to(self.device) for lp in self.log_probs[i]]))
+            batch['entropies'].append(torch.stack([ent.detach().to(self.device) for ent in self.entropies[i]]))
         
-        # Convert global data
-        batch['global_states'] = torch.FloatTensor(np.array(self.global_states, dtype=np.float32))
-        batch['dones'] = torch.FloatTensor(np.array(self.dones, dtype=np.float32))
+        # Convert global data and move to device
+        batch['global_states'] = torch.FloatTensor(np.array(self.global_states, dtype=np.float32)).to(self.device)
+        batch['dones'] = torch.FloatTensor(np.array(self.dones, dtype=np.float32)).to(self.device)
         
         return batch
     
@@ -428,6 +430,7 @@ class K1Environment:
             "--quit-on-end",
             "--no-warnings",
             "--no-step-log",
+            "--threads", "8",  # Multi-threading for Ryzen 7 (8 cores)
         ]
         
         try:
@@ -827,8 +830,8 @@ class MAPPOAgent:
         # Exploration rate
         self.epsilon = config.EPSILON_START
         
-        # Replay buffer
-        self.buffer = ReplayBuffer(num_agents=self.num_agents)
+        # Replay buffer (pass device for proper tensor handling)
+        self.buffer = ReplayBuffer(num_agents=self.num_agents, device=self.device)
         
         # Logging
         self.writer = SummaryWriter(config.TENSORBOARD_DIR)

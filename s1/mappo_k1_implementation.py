@@ -907,7 +907,7 @@ class MAPPOAgent:
             values = self.critic(batch['global_states']).squeeze()
             
             # Next values (shift by 1, last is 0)
-            next_values = torch.cat([values[1:], torch.zeros(1)])
+            next_values = torch.cat([values[1:], torch.zeros(1, device=self.device)])
         
         # Update each actor
         actor_losses = []

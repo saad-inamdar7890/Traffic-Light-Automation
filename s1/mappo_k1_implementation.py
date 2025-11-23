@@ -1089,6 +1089,9 @@ class MAPPOAgent:
             try:
                 with open(buffer_path, 'rb') as f:
                     self.buffer = pickle.load(f)
+                # Ensure device attribute exists (for buffers saved before device support)
+                if not hasattr(self.buffer, 'device'):
+                    self.buffer.device = self.device
             except Exception:
                 print('Warning: replay buffer could not be loaded.')
 

@@ -1294,8 +1294,10 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
     # Resume from checkpoint if requested
     if resume_checkpoint:
         print(f"\n[3/4] Resuming training from checkpoint: {resume_checkpoint}")
-        agent.load_checkpoint(resume_checkpoint, load_buffer=True)
+        # Don't load buffer to avoid shape mismatches between old (17-dim) and new (16-dim) states
+        agent.load_checkpoint(resume_checkpoint, load_buffer=False)
         print(f"✓ Checkpoint loaded - resuming from episode {agent.episode_count}")
+        print(f"  ℹ️  Replay buffer cleared (prevents shape mismatch errors)")
     else:
         print("\n[3/4] Starting fresh training (no checkpoint)")
 

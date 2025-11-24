@@ -41,7 +41,7 @@ class MAPPOConfig:
     """Configuration for MAPPO training"""
     
     # Environment
-    SUMO_CONFIG = "k1.sumocfg"
+    SUMO_CONFIG = "k1_3h_varying.sumocfg"  # 3-hour time-varying traffic scenario
     NUM_JUNCTIONS = 9
     JUNCTION_IDS = ["J0", "J1", "J5", "J6", "J7", "J10", "J11", "J12", "J22"]
     
@@ -75,41 +75,46 @@ class MAPPOConfig:
     ACTOR_HIDDEN = [128, 64]
     CRITIC_HIDDEN = [256, 256, 128]
     
-    # Training hyperparameters
-    LEARNING_RATE_ACTOR = 3e-4
+    # Training hyperparameters (Phase 1 optimized)
+    LEARNING_RATE_ACTOR = 5e-4     # 3e-4 → 5e-4 (faster learning)
     LEARNING_RATE_CRITIC = 1e-3
-    GAMMA = 0.99              # Discount factor
-    LAMBDA = 0.95             # GAE parameter
-    CLIP_EPSILON = 0.2        # PPO clip parameter
-    ENTROPY_COEF = 0.01       # Exploration bonus
-    GRAD_CLIP = 0.5           # Gradient clipping
+    GAMMA = 0.99                   # Discount factor
+    LAMBDA = 0.95                  # GAE parameter
+    CLIP_EPSILON = 0.25            # 0.2 → 0.25 (less conservative updates)
+    ENTROPY_COEF = 0.02            # 0.01 → 0.02 (better exploration)
+    GRAD_CLIP = 0.5                # Gradient clipping
     
     # Training schedule
-    STEPS_PER_EPISODE = 3600  # Simulation duration per episode in seconds
-                               # 3600 = 1 hour, 86400 = 24 hours
+    STEPS_PER_EPISODE = 10800      # Simulation duration per episode in seconds (3 hours)
+                                   # 3600 = 1 hour, 10800 = 3 hours, 86400 = 24 hours
     NUM_EPISODES = 5000
-    UPDATE_FREQUENCY = 128     # Steps between updates
-    PPO_EPOCHS = 10           # Updates per batch
+    UPDATE_FREQUENCY = 64          # 128 → 64 (2x more frequent updates)
+    PPO_EPOCHS = 15                # 10 → 15 (more thorough optimization)
     
     # Traffic variation for robust training
-    ENABLE_TRAFFIC_VARIATION = True   # Enable random traffic variation
-    TRAFFIC_VARIATION_PERCENT = 0.30  # ±30% random variation in flow rates
+    ENABLE_TRAFFIC_VARIATION = False  # Disabled: Using time-varying routes instead
+    TRAFFIC_VARIATION_PERCENT = 0.30  # (Not used when time-varying routes enabled)
     
     # SUMO configuration
     USE_REALISTIC_24H_TRAFFIC = False  # True = Time-varying rush hours, False = Constant traffic
                                        # If True: uses k1_realistic.sumocfg with morning/evening peaks
                                        # If False: uses k1.sumocfg with constant traffic rates
     
-    # Exploration
-    EPSILON_START = 0.1
+    # Exploration (Phase 1 optimized)
+    EPSILON_START = 0.2        # 0.1 → 0.2 (more initial exploration)
     EPSILON_END = 0.01
-    EPSILON_DECAY = 0.995
+    EPSILON_DECAY = 0.998      # 0.995 → 0.998 (slower decay, explore longer)
     
-    # Reward weights
-    REWARD_WEIGHT_OWN = 0.6        # Own junction performance
-    REWARD_WEIGHT_NEIGHBORS = 0.3   # Downstream impact
-    REWARD_WEIGHT_NETWORK = 0.1    # Network-wide
+    # Reward weights (Phase 1 rebalanced)
+    REWARD_WEIGHT_OWN = 0.5        # 0.6 → 0.5 (own junction)
+    REWARD_WEIGHT_NEIGHBORS = 0.35  # 0.3 → 0.35 (stronger coordination)
+    REWARD_WEIGHT_NETWORK = 0.15   # 0.1 → 0.15 (network awareness)
     DEADLOCK_PENALTY = -10.0
+    GREEN_WAVE_BONUS = 0.3         # NEW: Reward for coordination
+    
+    # Reward normalization constants
+    MAX_WAITING_THRESHOLD = 500.0  # For normalization
+    MAX_THROUGHPUT_PER_STEP = 10.0 # Expected max vehicles/step
     
     # Logging
     LOG_INTERVAL = 10         # Episodes between logs
@@ -384,6 +389,16 @@ class K1Environment:
         self.current_traffic_multiplier = 1.0
         self.episode_count = 0
         
+        # State tracking
+        self.prev_waiting_times = {}
+        self.prev_queue_lengths = {}
+        self.current_phases = {}
+        self.time_in_phase = {}
+        
+        # Phase 1: Neighbor coordination tracking
+        self.neighbor_last_action = {}  # Track when neighbors changed phase
+        self.steps_since_neighbor_change = {}  # For green wave detection
+        
         # Track metrics for rewards
         self.prev_waiting_times = defaultdict(float)
         self.prev_queue_lengths = defaultdict(float)
@@ -490,6 +505,8 @@ class K1Environment:
         self.prev_queue_lengths.clear()
         self.current_phases = {j: 0 for j in self.junction_ids}
         self.time_in_phase = {j: 0 for j in self.junction_ids}
+        self.neighbor_last_action = {j: 1 for j in self.junction_ids}  # 1 = keep
+        self.steps_since_neighbor_change = {j: 999 for j in self.junction_ids}  # Large number
         
         # Get initial states
         local_states = self.get_local_states()
@@ -623,10 +640,19 @@ class K1Environment:
             rewards: List of rewards for each junction
             done: Episode done flag
         """
-        # Execute actions
+        # Execute actions and track for green wave coordination
         for i, junction_id in enumerate(self.junction_ids):
             action = actions[i]
             self._execute_action(junction_id, action)
+            
+            # Track action for green wave bonus calculation
+            self.neighbor_last_action[junction_id] = action
+            
+            # Update steps since change counter
+            if action == 1:  # Phase change
+                self.steps_since_neighbor_change[junction_id] = 0
+            else:
+                self.steps_since_neighbor_change[junction_id] += 1
         
         # Simulate one step
         traci.simulationStep()
@@ -675,42 +701,70 @@ class K1Environment:
     
     def _compute_rewards(self):
         """
-        Compute rewards for all junctions (coordinated rewards)
+        Phase 1 Improved Reward Computation
         
-        Reward components:
-        - Own junction performance (60%)
-        - Downstream neighbor impact (30%)
-        - Network-wide metrics (10%)
-        - Bonuses/penalties
+        Improvements:
+        1. Normalized scales for all components
+        2. Balanced weights (0.5 own, 0.35 neighbor, 0.15 network)
+        3. Green wave coordination bonus
+        4. Queue balance incentive
+        
+        Returns:
+            rewards: List of rewards for each junction
         """
         rewards = []
         
         for junction_id in self.junction_ids:
-            reward = 0.0
-            
-            # 1. Own junction performance
+            # Get controlled lanes
             incoming_lanes = traci.trafficlight.getControlledLanes(junction_id)
             
-            # Waiting time change
+            # === 1. OWN JUNCTION PERFORMANCE (Normalized) ===
+            
+            # 1a. Waiting time change (normalized by max threshold)
             current_waiting = sum(
                 traci.lane.getWaitingTime(lane_id)
                 for lane_id in incoming_lanes
             )
-            waiting_change = self.prev_waiting_times.get(junction_id, current_waiting) - current_waiting
-            own_reward = 0.01 * waiting_change  # Positive if waiting decreased
+            prev_waiting = self.prev_waiting_times.get(junction_id, current_waiting)
+            waiting_reduction = (prev_waiting - current_waiting) / self.config.MAX_WAITING_THRESHOLD
+            # Clip to reasonable range [-1, 1]
+            waiting_reduction = np.clip(waiting_reduction, -1.0, 1.0)
             
             self.prev_waiting_times[junction_id] = current_waiting
             
-            # Throughput (vehicles that passed)
+            # 1b. Throughput (normalized by expected max)
             throughput = sum(
                 traci.lane.getLastStepVehicleNumber(lane_id)
                 for lane_id in incoming_lanes
             )
-            own_reward += 0.1 * throughput
+            throughput_normalized = throughput / self.config.MAX_THROUGHPUT_PER_STEP
+            throughput_normalized = np.clip(throughput_normalized, 0.0, 2.0)
             
-            # 2. Downstream neighbor impact
+            # 1c. Queue balance (penalize imbalanced queues across directions)
+            queues = []
+            for lane_id in incoming_lanes:
+                queue = traci.lane.getLastStepHaltingNumber(lane_id)
+                queues.append(queue)
+            
+            if len(queues) > 1:
+                queue_std = np.std(queues)
+                queue_balance = -queue_std / 10.0  # Normalize by typical std
+                queue_balance = np.clip(queue_balance, -1.0, 0.0)
+            else:
+                queue_balance = 0.0
+            
+            # Combine own metrics with balanced weights
+            own_reward = (
+                0.5 * waiting_reduction +     # Primary: reduce waiting
+                0.3 * throughput_normalized +  # Secondary: increase flow
+                0.2 * queue_balance           # Tertiary: balance queues
+            )
+            
+            # === 2. NEIGHBOR COORDINATION (Stronger weight) ===
+            
             neighbor_reward = 0.0
             neighbors = self.neighbors[junction_id]
+            
             if neighbors:
                 for neighbor_id in neighbors:
                     neighbor_lanes = traci.trafficlight.getControlledLanes(neighbor_id)
@@ -718,28 +772,47 @@ class K1Environment:
                         traci.lane.getWaitingTime(lane_id)
                         for lane_id in neighbor_lanes
                     )
-                    neighbor_change = self.prev_waiting_times.get(neighbor_id, neighbor_waiting) - neighbor_waiting
-                    neighbor_reward += 0.005 * neighbor_change
+                    prev_neighbor_waiting = self.prev_waiting_times.get(neighbor_id, neighbor_waiting)
+                    neighbor_waiting_reduction = (prev_neighbor_waiting - neighbor_waiting) / self.config.MAX_WAITING_THRESHOLD
+                    neighbor_waiting_reduction = np.clip(neighbor_waiting_reduction, -1.0, 1.0)
+                    
+                    neighbor_reward += neighbor_waiting_reduction
                 
                 neighbor_reward /= len(neighbors)
             
-            # 3. Network-wide metrics
+            # === 3. NETWORK-WIDE METRICS (Stronger penalty) ===
+            
             total_vehicles = traci.vehicle.getIDCount()
-            network_reward = -0.001 * total_vehicles  # Penalty for network congestion
+            network_reward = -0.01 * (total_vehicles / 100.0)  # 10x stronger than before
+            network_reward = np.clip(network_reward, -2.0, 0.0)
             
-            # 4. Bonuses/penalties
-            bonus = 0.0
+            # === 4. GREEN WAVE COORDINATION BONUS ===
             
-            # Deadlock penalty (very long waiting times)
-            if current_waiting > 500:  # 500 seconds = severe congestion
-                bonus += self.config.DEADLOCK_PENALTY
+            green_wave_bonus = 0.0
             
-            # Combine rewards
+            # Check if any neighbor recently changed phase (within last 5 steps)
+            # and current junction is keeping (good coordination)
+            for neighbor_id in neighbors:
+                steps_since_change = self.steps_since_neighbor_change.get(neighbor_id, 999)
+                if steps_since_change <= 5:  # Neighbor changed recently
+                    # If we kept our phase (didn't change), reward coordination
+                    if self.neighbor_last_action.get(junction_id, 1) == 0:  # action 0 = keep
+                        green_wave_bonus += self.config.GREEN_WAVE_BONUS / len(neighbors)
+            
+            # === 5. DEADLOCK PENALTY ===
+            
+            deadlock_penalty = 0.0
+            if current_waiting > self.config.MAX_WAITING_THRESHOLD:
+                deadlock_penalty = self.config.DEADLOCK_PENALTY
+            
+            # === COMBINE ALL COMPONENTS ===
+            
             total_reward = (
                 self.config.REWARD_WEIGHT_OWN * own_reward +
                 self.config.REWARD_WEIGHT_NEIGHBORS * neighbor_reward +
                 self.config.REWARD_WEIGHT_NETWORK * network_reward +
-                bonus
+                green_wave_bonus +
+                deadlock_penalty
             )
             
             rewards.append(total_reward)
@@ -1150,27 +1223,40 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
         print(f"{'='*80}")
         
         # Reset environment
+        reset_start = time.time()
         print(f"[Step 1/4] Resetting SUMO environment...", end=" ", flush=True)
         local_states, global_state = env.reset()
+        reset_time = time.time() - reset_start
         
         # Show traffic variation info
         if config.ENABLE_TRAFFIC_VARIATION:
             variation_pct = (env.current_traffic_multiplier - 1.0) * 100
-            print(f" ✓ (Traffic: {variation_pct:+.1f}%)")
+            print(f" ✓ (Traffic: {variation_pct:+.1f}%) [{reset_time:.1f}s]")
         else:
-            print(" ✓")
+            print(f" ✓ [{reset_time:.1f}s]")
         
         episode_reward = 0
         episode_length = 0
         
+        sim_start = time.time()
         print(f"[Step 2/4] Running simulation ({config.STEPS_PER_EPISODE} steps)...")
         
         # Episode loop
+        step_times = []
+        update_times = []
         for step in range(config.STEPS_PER_EPISODE):
+            step_start = time.time()
+            
             # Progress indicator every 100 steps
             if step % 100 == 0 and step > 0:
+                avg_step_time = np.mean(step_times[-100:]) if step_times else 0
+                steps_per_sec = 1.0 / avg_step_time if avg_step_time > 0 else 0
+                elapsed_sim = time.time() - sim_start
+                eta_sim = (config.STEPS_PER_EPISODE - step) * avg_step_time
                 print(f"  Step {step}/{config.STEPS_PER_EPISODE} ({step/config.STEPS_PER_EPISODE*100:.1f}%) | "
-                      f"Reward: {episode_reward:.2f} | Buffer: {len(agent.buffer)}", flush=True)
+                      f"Reward: {episode_reward:.2f} | "
+                      f"Speed: {steps_per_sec:.1f} steps/s | "
+                      f"Elapsed: {elapsed_sim/60:.1f}m | ETA: {eta_sim/60:.1f}m", flush=True)
             
             # Select actions
             actions, log_probs, entropies = agent.select_actions(local_states)
@@ -1197,23 +1283,41 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
             local_states = next_local_states
             global_state = next_global_state
             
+            # Track step time
+            step_times.append(time.time() - step_start)
+            
             # Update agent
             if step % config.UPDATE_FREQUENCY == 0 and len(agent.buffer) >= config.UPDATE_FREQUENCY:
+                update_start = time.time()
                 if step % 500 == 0:  # Less frequent update logging
                     print(f"  → Updating networks (step {step})...", end=" ", flush=True)
                 agent.update()
+                update_time = time.time() - update_start
+                update_times.append(update_time)
                 if step % 500 == 0:
-                    print("✓")
+                    print(f"✓ [{update_time:.2f}s]")
             
             if done:
                 break
         
+        sim_time = time.time() - sim_start
+        
         # Episode summary
         episode_duration = time.time() - episode_start_time
+        avg_step_time = np.mean(step_times) if step_times else 0
+        total_update_time = sum(update_times)
+        
         print(f"\n[Step 3/4] Episode completed in {episode_duration:.1f}s")
-        print(f"  Total reward: {episode_reward:.2f}")
-        print(f"  Steps: {episode_length}/{config.STEPS_PER_EPISODE}")
-        print(f"  Avg reward/step: {episode_reward/max(episode_length,1):.4f}")
+        print(f"  ⏱️  Timing breakdown:")
+        print(f"     - Reset time: {reset_time:.1f}s")
+        print(f"     - Simulation time: {sim_time:.1f}s ({sim_time/60:.2f} minutes)")
+        print(f"     - Network updates: {total_update_time:.1f}s ({len(update_times)} updates)")
+        print(f"     - Avg step time: {avg_step_time*1000:.1f}ms")
+        print(f"     - Steps per second: {1.0/avg_step_time:.1f}")
+        print(f"  📊 Episode metrics:")
+        print(f"     - Total reward: {episode_reward:.2f}")
+        print(f"     - Steps: {episode_length}/{config.STEPS_PER_EPISODE}")
+        print(f"     - Avg reward/step: {episode_reward/max(episode_length,1):.4f}")
         
         # Decay exploration
         agent.decay_epsilon()

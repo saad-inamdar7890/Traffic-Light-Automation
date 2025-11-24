@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 3-Hour Training Scenario with Time-Varying Traffic Patterns -->
+<!-- Smooth transitions: Light → Building → Rush → Peak → Declining -->
+<!-- Duration: 10,800 seconds (3 hours) -->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <!-- VTypes -->
+    <vType id="DEFAULT_VEHTYPE"/>
+    <vType id="passenger" vClass="passenger"/>
+    <vType id="bus" vClass="bus"/>
+    <vType id="truck" vClass="truck"/>
+    
+    <!-- TIME PERIODS (in seconds, 3-hour simulation):
+         Period 1 (Light):      0 - 2160   (36 min) → 60-80 veh/h    (baseline traffic)
+         Period 2 (Building): 2160 - 4320   (36 min) → 120-180 veh/h  (building up)
+         Period 3 (Rush):     4320 - 6480   (36 min) → 250-350 veh/h  (rush hour begins)
+         Period 4 (Peak):     6480 - 8640   (36 min) → 400-500 veh/h  (peak congestion)
+         Period 5 (Declining):8640 - 10800  (36 min) → 200-280 veh/h  (declining)
+    -->
+    
+    <!-- ==== MAJOR ROUTES: High volume corridors ==== -->
+    
+    <!-- Route f_0: Major corridor -E15 to E24 -->
+    <flow id="f_0_light" begin="0.00" from="-E15" to="E24" via="E4 -E5 E16" end="2160.00" vehsPerHour="80" type="passenger"/>
+    <flow id="f_0_building" begin="2160.00" from="-E15" to="E24" via="E4 -E5 E16" end="4320.00" vehsPerHour="180" type="passenger"/>
+    <flow id="f_0_rush" begin="4320.00" from="-E15" to="E24" via="E4 -E5 E16" end="6480.00" vehsPerHour="350" type="passenger"/>
+    <flow id="f_0_peak" begin="6480.00" from="-E15" to="E24" via="E4 -E5 E16" end="8640.00" vehsPerHour="500" type="passenger"/>
+    <flow id="f_0_declining" begin="8640.00" from="-E15" to="E24" via="E4 -E5 E16" end="10800.00" vehsPerHour="280" type="passenger"/>
+    
+    <!-- Route f_1: Major corridor -E15 to E21 -->
+    <flow id="f_1_light" begin="0.00" from="-E15" to="E21" via="-E18 E19 E20" end="2160.00" vehsPerHour="75" type="passenger"/>
+    <flow id="f_1_building" begin="2160.00" from="-E15" to="E21" via="-E18 E19 E20" end="4320.00" vehsPerHour="170" type="passenger"/>
+    <flow id="f_1_rush" begin="4320.00" from="-E15" to="E21" via="-E18 E19 E20" end="6480.00" vehsPerHour="330" type="passenger"/>
+    <flow id="f_1_peak" begin="6480.00" from="-E15" to="E21" via="-E18 E19 E20" end="8640.00" vehsPerHour="480" type="passenger"/>
+    <flow id="f_1_declining" begin="8640.00" from="-E15" to="E21" via="-E18 E19 E20" end="10800.00" vehsPerHour="260" type="passenger"/>
+    
+    <!-- Route f_2: Major corridor -E15 to E10 -->
+    <flow id="f_2_light" begin="0.00" from="-E15" to="E10" via="-E18 -E17" end="2160.00" vehsPerHour="70" type="passenger"/>
+    <flow id="f_2_building" begin="2160.00" from="-E15" to="E10" via="-E18 -E17" end="4320.00" vehsPerHour="160" type="passenger"/>
+    <flow id="f_2_rush" begin="4320.00" from="-E15" to="E10" via="-E18 -E17" end="6480.00" vehsPerHour="310" type="passenger"/>
+    <flow id="f_2_peak" begin="6480.00" from="-E15" to="E10" via="-E18 -E17" end="8640.00" vehsPerHour="450" type="passenger"/>
+    <flow id="f_2_declining" begin="8640.00" from="-E15" to="E10" via="-E18 -E17" end="10800.00" vehsPerHour="240" type="passenger"/>
+    
+    <!-- Route f_3: E6 to E24 -->
+    <flow id="f_3_light" begin="0.00" from="E6" to="E24" via="E16" end="2160.00" vehsPerHour="65" type="passenger"/>
+    <flow id="f_3_building" begin="2160.00" from="E6" to="E24" via="E16" end="4320.00" vehsPerHour="150" type="passenger"/>
+    <flow id="f_3_rush" begin="4320.00" from="E6" to="E24" via="E16" end="6480.00" vehsPerHour="290" type="passenger"/>
+    <flow id="f_3_peak" begin="6480.00" from="E6" to="E24" via="E16" end="8640.00" vehsPerHour="420" type="passenger"/>
+    <flow id="f_3_declining" begin="8640.00" from="E6" to="E24" via="E16" end="10800.00" vehsPerHour="220" type="passenger"/>
+    
+    <!-- Route f_4: E6 to E21 -->
+    <flow id="f_4_light" begin="0.00" from="E6" to="E21" end="2160.00" vehsPerHour="70" type="passenger"/>
+    <flow id="f_4_building" begin="2160.00" from="E6" to="E21" end="4320.00" vehsPerHour="165" type="passenger"/>
+    <flow id="f_4_rush" begin="4320.00" from="E6" to="E21" end="6480.00" vehsPerHour="320" type="passenger"/>
+    <flow id="f_4_peak" begin="6480.00" from="E6" to="E21" end="8640.00" vehsPerHour="460" type="passenger"/>
+    <flow id="f_4_declining" begin="8640.00" from="E6" to="E21" end="10800.00" vehsPerHour="250" type="passenger"/>
+    
+    <!-- ==== MEDIUM ROUTES: Moderate volume ==== -->
+    
+    <!-- Route f_16: -E11 to E21 -->
+    <flow id="f_16_light" begin="0.00" from="-E11" to="E21" end="2160.00" vehsPerHour="50" type="passenger"/>
+    <flow id="f_16_building" begin="2160.00" from="-E11" to="E21" end="4320.00" vehsPerHour="120" type="passenger"/>
+    <flow id="f_16_rush" begin="4320.00" from="-E11" to="E21" end="6480.00" vehsPerHour="220" type="passenger"/>
+    <flow id="f_16_peak" begin="6480.00" from="-E11" to="E21" end="8640.00" vehsPerHour="320" type="passenger"/>
+    <flow id="f_16_declining" begin="8640.00" from="-E11" to="E21" end="10800.00" vehsPerHour="180" type="passenger"/>
+    
+    <!-- Route f_17: -E12 to E15 -->
+    <flow id="f_17_light" begin="0.00" from="-E12" to="E15" end="2160.00" vehsPerHour="55" type="passenger"/>
+    <flow id="f_17_building" begin="2160.00" from="-E12" to="E15" end="4320.00" vehsPerHour="130" type="passenger"/>
+    <flow id="f_17_rush" begin="4320.00" from="-E12" to="E15" end="6480.00" vehsPerHour="240" type="passenger"/>
+    <flow id="f_17_peak" begin="6480.00" from="-E12" to="E15" end="8640.00" vehsPerHour="340" type="passenger"/>
+    <flow id="f_17_declining" begin="8640.00" from="-E12" to="E15" end="10800.00" vehsPerHour="190" type="passenger"/>
+    
+    <!-- Route f_19: -E13 to E9 -->
+    <flow id="f_19_light" begin="0.00" from="-E13" to="E9" end="2160.00" vehsPerHour="45" type="passenger"/>
+    <flow id="f_19_building" begin="2160.00" from="-E13" to="E9" end="4320.00" vehsPerHour="110" type="passenger"/>
+    <flow id="f_19_rush" begin="4320.00" from="-E13" to="E9" end="6480.00" vehsPerHour="200" type="passenger"/>
+    <flow id="f_19_peak" begin="6480.00" from="-E13" to="E9" end="8640.00" vehsPerHour="290" type="passenger"/>
+    <flow id="f_19_declining" begin="8640.00" from="-E13" to="E9" end="10800.00" vehsPerHour="160" type="passenger"/>
+    
+    <!-- Route f_20: -E13 to E15 -->
+    <flow id="f_20_light" begin="0.00" from="-E13" to="E15" end="2160.00" vehsPerHour="60" type="passenger"/>
+    <flow id="f_20_building" begin="2160.00" from="-E13" to="E15" end="4320.00" vehsPerHour="140" type="passenger"/>
+    <flow id="f_20_rush" begin="4320.00" from="-E13" to="E15" end="6480.00" vehsPerHour="260" type="passenger"/>
+    <flow id="f_20_peak" begin="6480.00" from="-E13" to="E15" end="8640.00" vehsPerHour="370" type="passenger"/>
+    <flow id="f_20_declining" begin="8640.00" from="-E13" to="E15" end="10800.00" vehsPerHour="200" type="passenger"/>
+    
+    <!-- Route f_21: -E24 to E12 -->
+    <flow id="f_21_light" begin="0.00" from="-E24" to="E12" via="-E23" end="2160.00" vehsPerHour="50" type="passenger"/>
+    <flow id="f_21_building" begin="2160.00" from="-E24" to="E12" via="-E23" end="4320.00" vehsPerHour="125" type="passenger"/>
+    <flow id="f_21_rush" begin="4320.00" from="-E24" to="E12" via="-E23" end="6480.00" vehsPerHour="230" type="passenger"/>
+    <flow id="f_21_peak" begin="6480.00" from="-E24" to="E12" via="-E23" end="8640.00" vehsPerHour="330" type="passenger"/>
+    <flow id="f_21_declining" begin="8640.00" from="-E24" to="E12" via="-E23" end="10800.00" vehsPerHour="185" type="passenger"/>
+    
+    <!-- Route f_22: -E24 to E15 -->
+    <flow id="f_22_light" begin="0.00" from="-E24" to="E15" end="2160.00" vehsPerHour="55" type="passenger"/>
+    <flow id="f_22_building" begin="2160.00" from="-E24" to="E15" end="4320.00" vehsPerHour="135" type="passenger"/>
+    <flow id="f_22_rush" begin="4320.00" from="-E24" to="E15" end="6480.00" vehsPerHour="250" type="passenger"/>
+    <flow id="f_22_peak" begin="6480.00" from="-E24" to="E15" end="8640.00" vehsPerHour="360" type="passenger"/>
+    <flow id="f_22_declining" begin="8640.00" from="-E24" to="E15" end="10800.00" vehsPerHour="195" type="passenger"/>
+    
+    <!-- Route f_23: -E21 to E15 -->
+    <flow id="f_23_light" begin="0.00" from="-E21" to="E15" end="2160.00" vehsPerHour="60" type="passenger"/>
+    <flow id="f_23_building" begin="2160.00" from="-E21" to="E15" end="4320.00" vehsPerHour="145" type="passenger"/>
+    <flow id="f_23_rush" begin="4320.00" from="-E21" to="E15" end="6480.00" vehsPerHour="270" type="passenger"/>
+    <flow id="f_23_peak" begin="6480.00" from="-E21" to="E15" end="8640.00" vehsPerHour="390" type="passenger"/>
+    <flow id="f_23_declining" begin="8640.00" from="-E21" to="E15" end="10800.00" vehsPerHour="210" type="passenger"/>
+    
+    <!-- Route f_24: -E21 to E10 -->
+    <flow id="f_24_light" begin="0.00" from="-E21" to="E10" end="2160.00" vehsPerHour="50" type="passenger"/>
+    <flow id="f_24_building" begin="2160.00" from="-E21" to="E10" end="4320.00" vehsPerHour="120" type="passenger"/>
+    <flow id="f_24_rush" begin="4320.00" from="-E21" to="E10" end="6480.00" vehsPerHour="220" type="passenger"/>
+    <flow id="f_24_peak" begin="6480.00" from="-E21" to="E10" end="8640.00" vehsPerHour="310" type="passenger"/>
+    <flow id="f_24_declining" begin="8640.00" from="-E21" to="E10" end="10800.00" vehsPerHour="175" type="passenger"/>
+    
+    <!-- ==== LIGHT ROUTES: Lower volume for variety ==== -->
+    
+    <!-- Route f_25: E10 to E15 -->
+    <flow id="f_25_light" begin="0.00" from="E10" to="E15" end="2160.00" vehsPerHour="40" type="passenger"/>
+    <flow id="f_25_building" begin="2160.00" from="E10" to="E15" end="4320.00" vehsPerHour="100" type="passenger"/>
+    <flow id="f_25_rush" begin="4320.00" from="E10" to="E15" end="6480.00" vehsPerHour="180" type="passenger"/>
+    <flow id="f_25_peak" begin="6480.00" from="E10" to="E15" end="8640.00" vehsPerHour="260" type="passenger"/>
+    <flow id="f_25_declining" begin="8640.00" from="E10" to="E15" end="10800.00" vehsPerHour="140" type="passenger"/>
+    
+    <!-- Route f_26: E9 to E12 -->
+    <flow id="f_26_light" begin="0.00" from="E9" to="E12" end="2160.00" vehsPerHour="35" type="passenger"/>
+    <flow id="f_26_building" begin="2160.00" from="E9" to="E12" end="4320.00" vehsPerHour="90" type="passenger"/>
+    <flow id="f_26_rush" begin="4320.00" from="E9" to="E12" end="6480.00" vehsPerHour="160" type="passenger"/>
+    <flow id="f_26_peak" begin="6480.00" from="E9" to="E12" end="8640.00" vehsPerHour="230" type="passenger"/>
+    <flow id="f_26_declining" begin="8640.00" from="E9" to="E12" end="10800.00" vehsPerHour="125" type="passenger"/>
+    
+    <!-- Route f_27: E9 to E24 -->
+    <flow id="f_27_light" begin="0.00" from="E9" to="E24" end="2160.00" vehsPerHour="40" type="passenger"/>
+    <flow id="f_27_building" begin="2160.00" from="E9" to="E24" end="4320.00" vehsPerHour="95" type="passenger"/>
+    <flow id="f_27_rush" begin="4320.00" from="E9" to="E24" end="6480.00" vehsPerHour="175" type="passenger"/>
+    <flow id="f_27_peak" begin="6480.00" from="E9" to="E24" end="8640.00" vehsPerHour="250" type="passenger"/>
+    <flow id="f_27_declining" begin="8640.00" from="E9" to="E24" end="10800.00" vehsPerHour="135" type="passenger"/>
+    
+    <!-- ==== BUS ROUTES: Mixed traffic for realism ==== -->
+    
+    <!-- Bus route b_1: -E15 to E24 -->
+    <flow id="b_1_light" begin="0.00" from="-E15" to="E24" via="E4 -E5 E16" end="2160.00" vehsPerHour="10" type="bus"/>
+    <flow id="b_1_building" begin="2160.00" from="-E15" to="E24" via="E4 -E5 E16" end="4320.00" vehsPerHour="15" type="bus"/>
+    <flow id="b_1_rush" begin="4320.00" from="-E15" to="E24" via="E4 -E5 E16" end="6480.00" vehsPerHour="20" type="bus"/>
+    <flow id="b_1_peak" begin="6480.00" from="-E15" to="E24" via="E4 -E5 E16" end="8640.00" vehsPerHour="25" type="bus"/>
+    <flow id="b_1_declining" begin="8640.00" from="-E15" to="E24" via="E4 -E5 E16" end="10800.00" vehsPerHour="15" type="bus"/>
+    
+    <!-- Bus route b_2: -E15 to E21 -->
+    <flow id="b_2_light" begin="0.00" from="-E15" to="E21" via="-E18 E19 E20" end="2160.00" vehsPerHour="10" type="bus"/>
+    <flow id="b_2_building" begin="2160.00" from="-E15" to="E21" via="-E18 E19 E20" end="4320.00" vehsPerHour="15" type="bus"/>
+    <flow id="b_2_rush" begin="4320.00" from="-E15" to="E21" via="-E18 E19 E20" end="6480.00" vehsPerHour="20" type="bus"/>
+    <flow id="b_2_peak" begin="6480.00" from="-E15" to="E21" via="-E18 E19 E20" end="8640.00" vehsPerHour="25" type="bus"/>
+    <flow id="b_2_declining" begin="8640.00" from="-E15" to="E21" via="-E18 E19 E20" end="10800.00" vehsPerHour="15" type="bus"/>
+    
+    <!-- ==== TRUCK ROUTES: Cargo traffic for variety ==== -->
+    
+    <!-- Truck route t_1: -E15 to E10 -->
+    <flow id="t_1_light" begin="0.00" from="-E15" to="E10" via="-E18 -E17" end="2160.00" vehsPerHour="8" type="truck"/>
+    <flow id="t_1_building" begin="2160.00" from="-E15" to="E10" via="-E18 -E17" end="4320.00" vehsPerHour="12" type="truck"/>
+    <flow id="t_1_rush" begin="4320.00" from="-E15" to="E10" via="-E18 -E17" end="6480.00" vehsPerHour="18" type="truck"/>
+    <flow id="t_1_peak" begin="6480.00" from="-E15" to="E10" via="-E18 -E17" end="8640.00" vehsPerHour="22" type="truck"/>
+    <flow id="t_1_declining" begin="8640.00" from="-E15" to="E10" via="-E18 -E17" end="10800.00" vehsPerHour="12" type="truck"/>
+    
+    <!-- Truck route t_2: E6 to E24 -->
+    <flow id="t_2_light" begin="0.00" from="E6" to="E24" via="E16" end="2160.00" vehsPerHour="7" type="truck"/>
+    <flow id="t_2_building" begin="2160.00" from="E6" to="E24" via="E16" end="4320.00" vehsPerHour="10" type="truck"/>
+    <flow id="t_2_rush" begin="4320.00" from="E6" to="E24" via="E16" end="6480.00" vehsPerHour="15" type="truck"/>
+    <flow id="t_2_peak" begin="6480.00" from="E6" to="E24" via="E16" end="8640.00" vehsPerHour="20" type="truck"/>
+    <flow id="t_2_declining" begin="8640.00" from="E6" to="E24" via="E16" end="10800.00" vehsPerHour="10" type="truck"/>
+    
+</routes>

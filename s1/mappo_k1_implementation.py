@@ -1093,12 +1093,111 @@ class MAPPOAgent:
         if map_location is None:
             map_location = self.device
         
-        # Load model weights and move to device
+        def _adapt_and_copy(src_tensor, dst_tensor):
+            """Copy overlapping region from src_tensor into a new tensor shaped like dst_tensor."""
+            # Ensure both are tensors
+            if not isinstance(src_tensor, torch.Tensor):
+                src_tensor = torch.tensor(src_tensor)
+            if not isinstance(dst_tensor, torch.Tensor):
+                dst_tensor = torch.tensor(dst_tensor)
+
+            new_tensor = dst_tensor.clone().detach()
+
+            # Build slices for overlapping region
+            slices = []
+            for s_sz, d_sz in zip(src_tensor.shape, dst_tensor.shape):
+                m = min(s_sz, d_sz)
+                slices.append(slice(0, m))
+
+            # For extra dimensions in dst, we keep initialized values
+            try:
+                new_tensor[tuple(slices)] = src_tensor[tuple(slices)].to(new_tensor.dtype)
+            except Exception:
+                # As a fallback, attempt to copy flattened overlap
+                flat_src = src_tensor.flatten()
+                flat_dst = new_tensor.flatten()
+                m = min(flat_src.numel(), flat_dst.numel())
+                flat_dst[:m] = flat_src[:m].to(flat_dst.dtype)
+                new_tensor = flat_dst.reshape(new_tensor.shape)
+
+            return new_tensor
+
+        # Load model weights and move to device (shape-tolerant)
         for i, actor in enumerate(self.actors):
-            actor.load_state_dict(torch.load(os.path.join(path, f'actor_{i}.pth'), map_location=map_location))
+            actor_path = os.path.join(path, f'actor_{i}.pth')
+            if not os.path.exists(actor_path):
+                print(f"Warning: actor file missing: {actor_path}")
+                continue
+
+            try:
+                loaded_sd = torch.load(actor_path, map_location=map_location)
+            except Exception as e:
+                print(f"Error loading actor state {actor_path}: {e}")
+                continue
+
+            # Current model state
+            current_sd = actor.state_dict()
+            adapted_sd = {}
+
+            for k, v in current_sd.items():
+                if k in loaded_sd:
+                    src = loaded_sd[k]
+                    dst = v
+                    if isinstance(src, torch.Tensor) and src.shape == dst.shape:
+                        adapted_sd[k] = src.to(dst.dtype)
+                    else:
+                        # Shapes differ - adapt by copying overlap
+                        try:
+                            adapted = _adapt_and_copy(src, dst)
+                            print(f"Adapted parameter '{k}' for actor_{i}: {getattr(src, 'shape', None)} -> {dst.shape}")
+                            adapted_sd[k] = adapted
+                        except Exception as e:
+                            print(f"Failed to adapt parameter '{k}' for actor_{i}: {e}")
+                            adapted_sd[k] = dst
+                else:
+                    # Key missing in checkpoint, keep current init
+                    adapted_sd[k] = v
+
+            # Load adapted state dict
+            try:
+                actor.load_state_dict(adapted_sd)
+            except Exception as e:
+                print(f"Warning: actor_{i} load_state_dict raised: {e} - attempting non-strict load")
+                actor.load_state_dict(adapted_sd, strict=False)
+
             actor.to(self.device)
-        self.critic.load_state_dict(torch.load(os.path.join(path, 'critic.pth'), map_location=map_location))
-        self.critic.to(self.device)
+
+        # Critic
+        critic_path = os.path.join(path, 'critic.pth')
+        if os.path.exists(critic_path):
+            try:
+                loaded_sd = torch.load(critic_path, map_location=map_location)
+                current_sd = self.critic.state_dict()
+                adapted_sd = {}
+                for k, v in current_sd.items():
+                    if k in loaded_sd:
+                        src = loaded_sd[k]
+                        dst = v
+                        if isinstance(src, torch.Tensor) and src.shape == dst.shape:
+                            adapted_sd[k] = src.to(dst.dtype)
+                        else:
+                            adapted = _adapt_and_copy(src, dst)
+                            print(f"Adapted parameter '{k}' for critic: {getattr(src, 'shape', None)} -> {dst.shape}")
+                            adapted_sd[k] = adapted
+                    else:
+                        adapted_sd[k] = v
+
+                try:
+                    self.critic.load_state_dict(adapted_sd)
+                except Exception as e:
+                    print(f"Warning: critic load_state_dict raised: {e} - attempting non-strict load")
+                    self.critic.load_state_dict(adapted_sd, strict=False)
+
+                self.critic.to(self.device)
+            except Exception as e:
+                print(f"Error loading critic state {critic_path}: {e}")
+        else:
+            print(f"Warning: critic file missing: {critic_path}")
 
         # Load optimizers if available
         for i, optim in enumerate(self.actor_optimizers):

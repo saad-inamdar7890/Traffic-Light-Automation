@@ -1,0 +1,78 @@
+DYNAMIC MIXED VEHICLE TRAFFIC SCENARIO ANALYSIS REPORT
+======================================================================
+
+Test Date: 2025-10-07 19:41:06
+Total Simulation Time: 3.0 hours
+Phase Duration: 30 minutes each
+Vehicle Mix: 70% Cars + 30% Motorcycles
+
+VEHICLE MIX ANALYSIS:
+----------------------------------------
+Average Cars in Network: 20.3
+Average Motorcycles in Network: 8.6
+Actual Motorcycle Ratio: 29.7%
+Target Motorcycle Ratio: 30.0%
+
+PHASE-BY-PHASE MIXED VEHICLE ANALYSIS:
+--------------------------------------------------
+
+Phase 1: Low Mixed Traffic All Lanes
+  Normal Mode:
+    Avg Waiting Time: 1.81s
+  Adaptive Mode:
+    Avg Waiting Time: 10.47s
+    Avg Cars: 2.2
+    Avg Motorcycles: 0.8
+  Improvement: -478.9%
+
+Phase 2: Heavy North Traffic (Mixed)
+  Normal Mode:
+    Avg Waiting Time: 2.73s
+  Adaptive Mode:
+    Avg Waiting Time: 21.95s
+    Avg Cars: 21.7
+    Avg Motorcycles: 8.5
+  Improvement: -704.5%
+
+Phase 3: Heavy East Traffic (Mixed)
+  Normal Mode:
+    Avg Waiting Time: 2.45s
+  Adaptive Mode:
+    Avg Waiting Time: 24.95s
+    Avg Cars: 30.7
+    Avg Motorcycles: 13.0
+  Improvement: -917.2%
+
+Phase 4: Reduced Mixed Traffic All Lanes
+  Normal Mode:
+    Avg Waiting Time: 136.51s
+  Adaptive Mode:
+    Avg Waiting Time: 13.61s
+    Avg Cars: 2.7
+    Avg Motorcycles: 1.5
+  Improvement: +90.0%
+
+Phase 5: Rush Hour - Heavy Mixed Traffic All Lanes
+  Normal Mode:
+    Avg Waiting Time: 83.13s
+  Adaptive Mode:
+    Avg Waiting Time: 26.60s
+    Avg Cars: 28.7
+    Avg Motorcycles: 11.8
+  Improvement: +68.0%
+
+Phase 6: Gradual Reduction Mixed Traffic
+  Normal Mode:
+    Avg Waiting Time: 62.04s
+  Adaptive Mode:
+    Avg Waiting Time: 28.41s
+    Avg Cars: 35.8
+    Avg Motorcycles: 15.7
+  Improvement: +54.2%
+
+OVERALL MIXED VEHICLE PERFORMANCE SUMMARY:
+--------------------------------------------------
+Average Improvement: -314.7%
+Total Algorithm Adaptations: 0
+Adaptation Rate: 0.0 adaptations/minute
+OPTIMIZATION NEEDED: Edge Algorithm needs tuning for mixed vehicle scenarios

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <input>
+        <net-file value="../../demo.net.xml"/>
+        <route-files value="dynamic_mixed_traffic_adaptive.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="10800"/>
+        <step-length value="1"/>
+    </time>
+    <processing>
+        <time-to-teleport value="300"/>
+    </processing>
+    <output>
+        <tripinfo-output value="tripinfo_adaptive.xml"/>
+    </output>
+</configuration>

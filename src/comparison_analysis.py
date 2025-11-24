@@ -21,7 +21,7 @@ from typing import Dict, List, Optional, Any, Tuple
 # Add src directory to path for imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from traffic_controller import AdaptiveTrafficController
+from edge_traffic_controller import EdgeTrafficController
 from analyzer import TrafficAnalyzer
 from visualizer import TrafficVisualizer
 from utils import RouteGenerator, SUMOConfigManager, FileManager, SimulationUtils
@@ -190,7 +190,10 @@ class ComparisonAnalyzer:
             
             # Initialize controllers and analyzer
             if algorithm_type == 'adaptive':
-                controller = AdaptiveTrafficController()
+                controller = EdgeTrafficController(
+                    junction_id="J4",
+                    base_green_time=30  # Edge algorithm with project specifications
+                )
             else:
                 controller = NormalTrafficController()
             

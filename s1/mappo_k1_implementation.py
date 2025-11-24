@@ -971,7 +971,16 @@ class MAPPOAgent:
                 # Get new action probabilities
                 new_action_probs = self.actors[i](batch['local_states'][i])
                 dist = Categorical(new_action_probs)
-                new_log_probs = dist.log_prob(batch['actions'][i])
+                
+                # Validate and clip actions to current action space
+                # (handles old checkpoints with action_dim=4 vs new action_dim=3)
+                actions_tensor = batch['actions'][i]
+                max_action = new_action_probs.shape[-1] - 1  # e.g., 2 for 3 actions
+                if torch.any(actions_tensor > max_action):
+                    print(f"Warning: Found invalid actions (max={actions_tensor.max()}, expected<={max_action}). Clipping...")
+                    actions_tensor = torch.clamp(actions_tensor, 0, max_action)
+                
+                new_log_probs = dist.log_prob(actions_tensor)
                 
                 # Compute ratio (detach old log_probs to avoid graph issues)
                 ratio = torch.exp(new_log_probs - batch['log_probs'][i].detach())

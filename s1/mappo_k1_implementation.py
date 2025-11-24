@@ -654,8 +654,22 @@ class K1Environment:
             else:
                 self.steps_since_neighbor_change[junction_id] += 1
         
-        # Simulate one step
-        traci.simulationStep()
+        # Simulate one step with error recovery
+        try:
+            traci.simulationStep()
+        except traci.exceptions.FatalTraCIError as e:
+            # Handle SUMO crashes gracefully (e.g., invalid vehicle routes)
+            error_msg = str(e)
+            if "Connection closed" in error_msg or "has no valid route" in error_msg:
+                print(f"\n⚠️  SUMO error: {error_msg}")
+                print("   Attempting to continue training by restarting episode...")
+                # Mark as done to trigger reset
+                done = True
+                # Return safe default values
+                return self.get_local_states(), self.get_global_state(), [0.0] * len(self.junction_ids), done
+            else:
+                # Re-raise if it's a different error
+                raise
         
         # Update phase timers
         for junction_id in self.junction_ids:

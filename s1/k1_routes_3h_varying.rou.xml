@@ -116,12 +116,12 @@
     
     <!-- ==== LIGHT ROUTES: Lower volume for variety ==== -->
     
-    <!-- Route f_25: E10 to E15 -->
-    <flow id="f_25_light" begin="0.00" from="E10" to="E15" end="2160.00" vehsPerHour="40" type="passenger"/>
-    <flow id="f_25_building" begin="2160.00" from="E10" to="E15" end="4320.00" vehsPerHour="100" type="passenger"/>
-    <flow id="f_25_rush" begin="4320.00" from="E10" to="E15" end="6480.00" vehsPerHour="180" type="passenger"/>
-    <flow id="f_25_peak" begin="6480.00" from="E10" to="E15" end="8640.00" vehsPerHour="260" type="passenger"/>
-    <flow id="f_25_declining" begin="8640.00" from="E10" to="E15" end="10800.00" vehsPerHour="140" type="passenger"/>
+    <!-- Route f_25: E10 to E15 via E17 and E18 -->
+    <flow id="f_25_light" begin="0.00" from="E10" to="E15" via="E17 E18" end="2160.00" vehsPerHour="40" type="passenger"/>
+    <flow id="f_25_building" begin="2160.00" from="E10" to="E15" via="E17 E18" end="4320.00" vehsPerHour="100" type="passenger"/>
+    <flow id="f_25_rush" begin="4320.00" from="E10" to="E15" via="E17 E18" end="6480.00" vehsPerHour="180" type="passenger"/>
+    <flow id="f_25_peak" begin="6480.00" from="E10" to="E15" via="E17 E18" end="8640.00" vehsPerHour="260" type="passenger"/>
+    <flow id="f_25_declining" begin="8640.00" from="E10" to="E15" via="E17 E18" end="10800.00" vehsPerHour="140" type="passenger"/>
     
     <!-- Route f_26: E9 to E12 -->
     <flow id="f_26_light" begin="0.00" from="E9" to="E12" end="2160.00" vehsPerHour="35" type="passenger"/>

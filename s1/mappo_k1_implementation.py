@@ -1087,8 +1087,15 @@ class MAPPOAgent:
 
         print(f"Checkpoint saved to {path}")
 
-    def load_checkpoint(self, path, load_buffer=True, map_location=None):
-        """Load full training checkpoint and optimizer states."""
+    def load_checkpoint(self, path, load_buffer=True, load_optimizer=True, map_location=None):
+        """Load full training checkpoint and optimizer states.
+        
+        Args:
+            path: Path to checkpoint directory
+            load_buffer: Whether to load replay buffer (set False if state shapes changed)
+            load_optimizer: Whether to load optimizer state (set False if state shapes changed)
+            map_location: Device to map tensors to
+        """
         # Use configured device if map_location not specified
         if map_location is None:
             map_location = self.device
@@ -1199,14 +1206,23 @@ class MAPPOAgent:
         else:
             print(f"Warning: critic file missing: {critic_path}")
 
-        # Load optimizers if available
-        for i, optim in enumerate(self.actor_optimizers):
-            optim_path = os.path.join(path, f'actor_optim_{i}.pth')
-            if os.path.exists(optim_path):
-                optim.load_state_dict(torch.load(optim_path, map_location=map_location))
-        critic_optim_path = os.path.join(path, 'critic_optim.pth')
-        if os.path.exists(critic_optim_path):
-            self.critic_optimizer.load_state_dict(torch.load(critic_optim_path, map_location=map_location))
+        # Load optimizers if available and requested
+        if load_optimizer:
+            for i, optim in enumerate(self.actor_optimizers):
+                optim_path = os.path.join(path, f'actor_optim_{i}.pth')
+                if os.path.exists(optim_path):
+                    try:
+                        optim.load_state_dict(torch.load(optim_path, map_location=map_location))
+                    except Exception as e:
+                        print(f"Warning: Could not load actor optimizer {i}: {e}")
+            critic_optim_path = os.path.join(path, 'critic_optim.pth')
+            if os.path.exists(critic_optim_path):
+                try:
+                    self.critic_optimizer.load_state_dict(torch.load(critic_optim_path, map_location=map_location))
+                except Exception as e:
+                    print(f"Warning: Could not load critic optimizer: {e}")
+        else:
+            print("  ℹ️  Optimizer state not loaded (prevents shape mismatch with old checkpoints)")
 
         # Load training state
         state_path = os.path.join(path, 'train_state.pkl')
@@ -1294,10 +1310,11 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
     # Resume from checkpoint if requested
     if resume_checkpoint:
         print(f"\n[3/4] Resuming training from checkpoint: {resume_checkpoint}")
-        # Don't load buffer to avoid shape mismatches between old (17-dim) and new (16-dim) states
-        agent.load_checkpoint(resume_checkpoint, load_buffer=False)
+        # Don't load buffer or optimizer to avoid shape mismatches between old (17-dim) and new (16-dim) states
+        agent.load_checkpoint(resume_checkpoint, load_buffer=False, load_optimizer=False)
         print(f"✓ Checkpoint loaded - resuming from episode {agent.episode_count}")
-        print(f"  ℹ️  Replay buffer cleared (prevents shape mismatch errors)")
+        print(f"  ℹ️  Replay buffer & optimizer state cleared (prevents shape mismatch errors)")
+        print(f"  ℹ️  Optimizer will restart with fresh momentum (learning continues normally)")
     else:
         print("\n[3/4] Starting fresh training (no checkpoint)")
 

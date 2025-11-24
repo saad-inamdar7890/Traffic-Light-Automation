@@ -59,17 +59,16 @@ class MAPPOConfig:
     }
     
     # State dimensions
-    LOCAL_STATE_DIM = 17   # Per junction
-    GLOBAL_STATE_DIM = 155 # All junctions + network features
-    ACTION_DIM = 4         # [keep, next_phase, extend, emergency]
+    LOCAL_STATE_DIM = 16   # Per junction (reduced from 17, removed emergency flag)
+    GLOBAL_STATE_DIM = 146 # All junctions + network features (9*16 + 2 = 146)
+    ACTION_DIM = 3         # [keep, next_phase, extend]
     
     # Vehicle type weights (Passenger Car Equivalents - PCE)
     VEHICLE_WEIGHTS = {
         'passenger': 1.0,
         'delivery': 2.5,
         'truck': 5.0,
-        'bus': 4.5,
-        'emergency': 1.5
+        'bus': 4.5
     }
     
     # Network architecture
@@ -110,7 +109,6 @@ class MAPPOConfig:
     REWARD_WEIGHT_OWN = 0.6        # Own junction performance
     REWARD_WEIGHT_NEIGHBORS = 0.3   # Downstream impact
     REWARD_WEIGHT_NETWORK = 0.1    # Network-wide
-    EMERGENCY_BONUS = 5.0
     DEADLOCK_PENALTY = -10.0
     
     # Logging
@@ -168,11 +166,11 @@ class ActorNetwork(nn.Module):
         Forward pass
         
         Args:
-            state: Local state tensor (batch_size, 17)
+            state: Local state tensor (batch_size, 16)
                    [current_phase, queue_n, queue_s, queue_e, queue_w,
                     weighted_veh_n, weighted_veh_s, weighted_veh_e, weighted_veh_w,
                     occupancy_n, occupancy_s, occupancy_e, occupancy_w,
-                    time_in_phase, emergency, neighbor1_phase, neighbor2_phase]
+                    time_in_phase, neighbor1_phase, neighbor2_phase]
         
         Returns:
             action_probs: Action probabilities (batch_size, 4)
@@ -389,7 +387,6 @@ class K1Environment:
         # Track metrics for rewards
         self.prev_waiting_times = defaultdict(float)
         self.prev_queue_lengths = defaultdict(float)
-        self.emergency_cleared = defaultdict(bool)
         
         # Phase tracking
         self.current_phases = {}
@@ -491,7 +488,6 @@ class K1Environment:
         # Reset tracking
         self.prev_waiting_times.clear()
         self.prev_queue_lengths.clear()
-        self.emergency_cleared.clear()
         self.current_phases = {j: 0 for j in self.junction_ids}
         self.time_in_phase = {j: 0 for j in self.junction_ids}
         
@@ -506,11 +502,11 @@ class K1Environment:
         Get local state for specific junction (realistic sensors only)
         
         Returns:
-            state: numpy array (17,)
+            state: numpy array (16,)
                 [current_phase, queue_n, queue_s, queue_e, queue_w,
                  weighted_veh_n, weighted_veh_s, weighted_veh_e, weighted_veh_w,
                  occupancy_n, occupancy_s, occupancy_e, occupancy_w,
-                 time_in_phase, emergency, neighbor1_phase, neighbor2_phase]
+                 time_in_phase, neighbor1_phase, neighbor2_phase]
         """
         state = []
         
@@ -570,30 +566,17 @@ class K1Environment:
         # 3. Time in current phase (seconds)
         state.append(self.time_in_phase[junction_id])
         
-        # 4. Emergency vehicle present (0 or 1)
-        emergency = 0
-        for lane_id in incoming_lanes:
-            vehicle_ids = traci.lane.getLastStepVehicleIDs(lane_id)
-            for veh_id in vehicle_ids:
-                veh_type = traci.vehicle.getTypeID(veh_id)
-                if 'emergency' in veh_type.lower():
-                    emergency = 1
-                    break
-            if emergency:
-                break
-        state.append(emergency)
-        
-        # 5. Neighbor junction phases (for coordination)
+        # 4. Neighbor junction phases (for coordination)
         neighbors = self.neighbors[junction_id]
         for neighbor_id in neighbors[:2]:  # Max 2 neighbors for fixed state size
             neighbor_phase = self.current_phases.get(neighbor_id, 0)
             state.append(neighbor_phase)
         
         # Pad if less than 2 neighbors
-        while len(state) < 17:
+        while len(state) < 16:
             state.append(0)
         
-        return np.array(state[:17], dtype=np.float32)
+        return np.array(state[:16], dtype=np.float32)
     
     def get_local_states(self):
         """Get local states for all junctions"""
@@ -604,11 +587,11 @@ class K1Environment:
         Get global state (all junction info + network features)
         
         Returns:
-            state: numpy array (155,)
+            state: numpy array (146,)  # 9 junctions * 16 + 2 network features
         """
         global_state = []
         
-        # 1. All local states concatenated (9 × 17 = 153)
+        # 1. All local states concatenated (9 × 16 = 144)
         for junction_id in self.junction_ids:
             local_state = self.get_local_state(junction_id)
             global_state.extend(local_state)
@@ -672,7 +655,6 @@ class K1Environment:
         0: Keep current phase
         1: Switch to next phase
         2: Extend current phase (add time)
-        3: Emergency override (prioritize emergency vehicles)
         """
         if action == 0:
             # Keep current phase - do nothing
@@ -690,16 +672,6 @@ class K1Environment:
             # Extend current phase (stay in current for longer)
             # Just keep tracking time
             pass
-        
-        elif action == 3:
-            # Emergency override - switch to phase that helps emergency
-            # For now, just switch to next phase
-            # In full implementation, would detect emergency direction
-            num_phases = len(traci.trafficlight.getAllProgramLogics(junction_id)[0].phases)
-            next_phase = (self.current_phases[junction_id] + 1) % num_phases
-            traci.trafficlight.setPhase(junction_id, next_phase)
-            self.current_phases[junction_id] = next_phase
-            self.time_in_phase[junction_id] = 0
     
     def _compute_rewards(self):
         """
@@ -757,11 +729,6 @@ class K1Environment:
             
             # 4. Bonuses/penalties
             bonus = 0.0
-            
-            # Emergency vehicle bonus
-            if self.emergency_cleared.get(junction_id, False):
-                bonus += self.config.EMERGENCY_BONUS
-                self.emergency_cleared[junction_id] = False
             
             # Deadlock penalty (very long waiting times)
             if current_waiting > 500:  # 500 seconds = severe congestion

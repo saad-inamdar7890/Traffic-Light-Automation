@@ -977,7 +977,11 @@ class MAPPOAgent:
                 actions_tensor = batch['actions'][i]
                 max_action = new_action_probs.shape[-1] - 1  # e.g., 2 for 3 actions
                 if torch.any(actions_tensor > max_action):
-                    print(f"Warning: Found invalid actions (max={actions_tensor.max()}, expected<={max_action}). Clipping...")
+                    # Only warn once per update (not every epoch)
+                    if epoch == 0 and not hasattr(self, '_action_clip_warned'):
+                        invalid_count = (actions_tensor > max_action).sum().item()
+                        print(f"  ⚠️  Clipping {invalid_count} invalid actions from old checkpoint (this will stop once buffer refreshes)")
+                        self._action_clip_warned = True
                     actions_tensor = torch.clamp(actions_tensor, 0, max_action)
                 
                 new_log_probs = dist.log_prob(actions_tensor)

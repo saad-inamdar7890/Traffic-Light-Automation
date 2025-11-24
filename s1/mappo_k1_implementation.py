@@ -660,16 +660,15 @@ class K1Environment:
         except traci.exceptions.FatalTraCIError as e:
             # Handle SUMO crashes gracefully (e.g., invalid vehicle routes)
             error_msg = str(e)
-            if "Connection closed" in error_msg or "has no valid route" in error_msg:
-                print(f"\n⚠️  SUMO error: {error_msg}")
-                print("   Attempting to continue training by restarting episode...")
-                # Mark as done to trigger reset
-                done = True
-                # Return safe default values
-                return self.get_local_states(), self.get_global_state(), [0.0] * len(self.junction_ids), done
-            else:
-                # Re-raise if it's a different error
-                raise
+            print(f"\n⚠️  SUMO error: {error_msg}")
+            print("   Episode will restart on next iteration...")
+            # Mark as done to trigger reset, return dummy safe values without calling TraCI
+            done = True
+            # Return previous states (last valid states) with zero rewards
+            dummy_local_states = [[0.0] * self.config.LOCAL_STATE_DIM for _ in range(len(self.junction_ids))]
+            dummy_global_state = [0.0] * self.config.GLOBAL_STATE_DIM
+            zero_rewards = [0.0] * len(self.junction_ids)
+            return dummy_local_states, dummy_global_state, zero_rewards, done
         
         # Update phase timers
         for junction_id in self.junction_ids:

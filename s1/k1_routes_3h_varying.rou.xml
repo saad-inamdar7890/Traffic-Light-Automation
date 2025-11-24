@@ -142,7 +142,33 @@
     <!-- Bus route b_1: -E15 to E24 -->
     <flow id="b_1_light" begin="0.00" from="-E15" to="E24" via="E4 -E5 E16" end="2160.00" vehsPerHour="10" type="bus"/>
     <flow id="b_1_building" begin="2160.00" from="-E15" to="E24" via="E4 -E5 E16" end="4320.00" vehsPerHour="15" type="bus"/>
+        <!-- ==== BUS ROUTES: Public transport (DISABLED - routing issues) ==== -->
+    <!--
     <flow id="b_1_rush" begin="4320.00" from="-E15" to="E24" via="E4 -E5 E16" end="6480.00" vehsPerHour="20" type="bus"/>
+    <flow id="b_1_peak" begin="6480.00" from="-E15" to="E24" via="E4 -E5 E16" end="8640.00" vehsPerHour="25" type="bus"/>
+    <flow id="b_1_declining" begin="8640.00" from="-E15" to="E24" via="E4 -E5 E16" end="10800.00" vehsPerHour="15" type="bus"/>
+    
+    <flow id="b_2_light" begin="0.00" from="-E15" to="E21" via="-E18 E19 E20" end="2160.00" vehsPerHour="10" type="bus"/>
+    <flow id="b_2_building" begin="2160.00" from="-E15" to="E21" via="-E18 E19 E20" end="4320.00" vehsPerHour="15" type="bus"/>
+    <flow id="b_2_rush" begin="4320.00" from="-E15" to="E21" via="-E18 E19 E20" end="6480.00" vehsPerHour="20" type="bus"/>
+    <flow id="b_2_peak" begin="6480.00" from="-E15" to="E21" via="-E18 E19 E20" end="8640.00" vehsPerHour="25" type="bus"/>
+    <flow id="b_2_declining" begin="8640.00" from="-E15" to="E21" via="-E18 E19 E20" end="10800.00" vehsPerHour="15" type="bus"/>
+    -->
+    
+    <!-- ==== TRUCK ROUTES: Cargo traffic (DISABLED - routing issues) ==== -->
+    <!--
+    <flow id="t_1_light" begin="0.00" from="-E15" to="E10" via="-E18 -E17" end="2160.00" vehsPerHour="8" type="truck"/>
+    <flow id="t_1_building" begin="2160.00" from="-E15" to="E10" via="-E18 -E17" end="4320.00" vehsPerHour="12" type="truck"/>
+    <flow id="t_1_rush" begin="4320.00" from="-E15" to="E10" via="-E18 -E17" end="6480.00" vehsPerHour="18" type="truck"/>
+    <flow id="t_1_peak" begin="6480.00" from="-E15" to="E10" via="-E18 -E17" end="8640.00" vehsPerHour="22" type="truck"/>
+    <flow id="t_1_declining" begin="8640.00" from="-E15" to="E10" via="-E18 -E17" end="10800.00" vehsPerHour="12" type="truck"/>
+    
+    <flow id="t_2_light" begin="0.00" from="E6" to="E24" via="E16" end="2160.00" vehsPerHour="7" type="truck"/>
+    <flow id="t_2_building" begin="2160.00" from="E6" to="E24" via="E16" end="4320.00" vehsPerHour="10" type="truck"/>
+    <flow id="t_2_rush" begin="4320.00" from="E6" to="E24" via="E16" end="6480.00" vehsPerHour="15" type="truck"/>
+    <flow id="t_2_peak" begin="6480.00" from="E6" to="E24" via="E16" end="8640.00" vehsPerHour="20" type="truck"/>
+    <flow id="t_2_declining" begin="8640.00" from="E6" to="E24" via="E16" end="10800.00" vehsPerHour="10" type="truck"/>
+    -->
     <flow id="b_1_peak" begin="6480.00" from="-E15" to="E24" via="E4 -E5 E16" end="8640.00" vehsPerHour="25" type="bus"/>
     <flow id="b_1_declining" begin="8640.00" from="-E15" to="E24" via="E4 -E5 E16" end="10800.00" vehsPerHour="15" type="bus"/>
     

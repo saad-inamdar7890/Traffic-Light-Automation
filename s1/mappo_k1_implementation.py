@@ -1249,6 +1249,10 @@ class MAPPOAgent:
                     self.buffer.device = self.device
             except Exception:
                 print('Warning: replay buffer could not be loaded.')
+        else:
+            # Explicitly clear buffer when not loading
+            self.buffer.clear()
+            print("  ℹ️  Replay buffer cleared")
 
         print(f"Checkpoint loaded from {path}")
     

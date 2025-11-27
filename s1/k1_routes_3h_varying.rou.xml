@@ -78,16 +78,13 @@
     <flow id="f_17_declining" begin="8640.00" from="-E12" to="E15" end="10800.00" vehsPerHour="190" type="passenger"/>
     -->
     
-    <!-- Route f_19: -E13 to E9 (DISABLED - no via path) -->
-    <!--
+    <!-- Routes f_19 and f_20 DISABLED (no via path)
     <flow id="f_19_light" begin="0.00" from="-E13" to="E9" end="2160.00" vehsPerHour="45" type="passenger"/>
     <flow id="f_19_building" begin="2160.00" from="-E13" to="E9" end="4320.00" vehsPerHour="110" type="passenger"/>
     <flow id="f_19_rush" begin="4320.00" from="-E13" to="E9" end="6480.00" vehsPerHour="200" type="passenger"/>
     <flow id="f_19_peak" begin="6480.00" from="-E13" to="E9" end="8640.00" vehsPerHour="290" type="passenger"/>
     <flow id="f_19_declining" begin="8640.00" from="-E13" to="E9" end="10800.00" vehsPerHour="160" type="passenger"/>
-    
-    <!-- Route f_20: -E13 to E15 (DISABLED - no via path) -->
-    <!--
+
     <flow id="f_20_light" begin="0.00" from="-E13" to="E15" end="2160.00" vehsPerHour="60" type="passenger"/>
     <flow id="f_20_building" begin="2160.00" from="-E13" to="E15" end="4320.00" vehsPerHour="140" type="passenger"/>
     <flow id="f_20_rush" begin="4320.00" from="-E13" to="E15" end="6480.00" vehsPerHour="260" type="passenger"/>

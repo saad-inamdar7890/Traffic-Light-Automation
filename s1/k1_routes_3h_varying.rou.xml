@@ -202,11 +202,12 @@
     <flow id="t_1_peak" begin="6480.00" from="-E15" to="E10" via="-E18 -E17" end="8640.00" vehsPerHour="22" type="truck"/>
     <flow id="t_1_declining" begin="8640.00" from="-E15" to="E10" via="-E18 -E17" end="10800.00" vehsPerHour="12" type="truck"/>
     
-    <!-- Truck route t_2: E6 to E24 -->
+    <!-- Truck route t_2: E6 to E24 (DISABLED - causes no-route errors)
     <flow id="t_2_light" begin="0.00" from="E6" to="E24" via="E16" end="2160.00" vehsPerHour="7" type="truck"/>
     <flow id="t_2_building" begin="2160.00" from="E6" to="E24" via="E16" end="4320.00" vehsPerHour="10" type="truck"/>
     <flow id="t_2_rush" begin="4320.00" from="E6" to="E24" via="E16" end="6480.00" vehsPerHour="15" type="truck"/>
     <flow id="t_2_peak" begin="6480.00" from="E6" to="E24" via="E16" end="8640.00" vehsPerHour="20" type="truck"/>
     <flow id="t_2_declining" begin="8640.00" from="E6" to="E24" via="E16" end="10800.00" vehsPerHour="10" type="truck"/>
+    -->
     
 </routes>

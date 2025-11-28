@@ -96,19 +96,19 @@
     <flow id="f_24_evening_peak" begin="14400.00" from="-E21" to="E10" end="18000.00" vehsPerHour="350" type="passenger"/>
     <flow id="f_24_night" begin="18000.00" from="-E21" to="E10" end="21600.00" vehsPerHour="105" type="passenger"/>
 
-    <flow id="f_25_early_morning" begin="0.00" from="E10" to="E15" via="E17 E18" end="3600.00" vehsPerHour="57" type="passenger"/>
-    <flow id="f_25_morning_peak" begin="3600.00" from="E10" to="E15" via="E17 E18" end="7200.00" vehsPerHour="144" type="passenger"/>
-    <flow id="f_25_midday" begin="7200.00" from="E10" to="E15" via="E17 E18" end="10800.00" vehsPerHour="259" type="passenger"/>
-    <flow id="f_25_afternoon" begin="10800.00" from="E10" to="E15" via="E17 E18" end="14400.00" vehsPerHour="216" type="passenger"/>
-    <flow id="f_25_evening_peak" begin="14400.00" from="E10" to="E15" via="E17 E18" end="18000.00" vehsPerHour="288" type="passenger"/>
-    <flow id="f_25_night" begin="18000.00" from="E10" to="E15" via="E17 E18" end="21600.00" vehsPerHour="86" type="passenger"/>
+    <flow id="f_25_early_morning" begin="0.00" from="E10" to="E15" end="3600.00" vehsPerHour="57" type="passenger"/>
+    <flow id="f_25_morning_peak" begin="3600.00" from="E10" to="E15" end="7200.00" vehsPerHour="144" type="passenger"/>
+    <flow id="f_25_midday" begin="7200.00" from="E10" to="E15" end="10800.00" vehsPerHour="259" type="passenger"/>
+    <flow id="f_25_afternoon" begin="10800.00" from="E10" to="E15" end="14400.00" vehsPerHour="216" type="passenger"/>
+    <flow id="f_25_evening_peak" begin="14400.00" from="E10" to="E15" end="18000.00" vehsPerHour="288" type="passenger"/>
+    <flow id="f_25_night" begin="18000.00" from="E10" to="E15" end="21600.00" vehsPerHour="86" type="passenger"/>
 
-    <flow id="f_26_early_morning" begin="0.00" from="E9" to="E12" via="E11" end="3600.00" vehsPerHour="81" type="passenger"/>
-    <flow id="f_26_morning_peak" begin="3600.00" from="E9" to="E12" via="E11" end="7200.00" vehsPerHour="204" type="passenger"/>
-    <flow id="f_26_midday" begin="7200.00" from="E9" to="E12" via="E11" end="10800.00" vehsPerHour="367" type="passenger"/>
-    <flow id="f_26_afternoon" begin="10800.00" from="E9" to="E12" via="E11" end="14400.00" vehsPerHour="306" type="passenger"/>
-    <flow id="f_26_evening_peak" begin="14400.00" from="E9" to="E12" via="E11" end="18000.00" vehsPerHour="408" type="passenger"/>
-    <flow id="f_26_night" begin="18000.00" from="E9" to="E12" via="E11" end="21600.00" vehsPerHour="122" type="passenger"/>
+    <flow id="f_26_early_morning" begin="0.00" from="E9" to="E12" end="3600.00" vehsPerHour="81" type="passenger"/>
+    <flow id="f_26_morning_peak" begin="3600.00" from="E9" to="E12" end="7200.00" vehsPerHour="204" type="passenger"/>
+    <flow id="f_26_midday" begin="7200.00" from="E9" to="E12" end="10800.00" vehsPerHour="367" type="passenger"/>
+    <flow id="f_26_afternoon" begin="10800.00" from="E9" to="E12" end="14400.00" vehsPerHour="306" type="passenger"/>
+    <flow id="f_26_evening_peak" begin="14400.00" from="E9" to="E12" end="18000.00" vehsPerHour="408" type="passenger"/>
+    <flow id="f_26_night" begin="18000.00" from="E9" to="E12" end="21600.00" vehsPerHour="122" type="passenger"/>
 
     <flow id="f_27_early_morning" begin="0.00" from="E9" to="E24" end="3600.00" vehsPerHour="55" type="passenger"/>
     <flow id="f_27_morning_peak" begin="3600.00" from="E9" to="E24" end="7200.00" vehsPerHour="139" type="passenger"/>

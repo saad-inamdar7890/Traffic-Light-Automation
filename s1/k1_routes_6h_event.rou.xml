@@ -5,11 +5,11 @@
     <vType id="bus" vClass="bus"/>
     <vType id="truck" vClass="truck"/>
 
-    <flow id="b_1_early_morning" begin="0.00" from="-E15" to="E24" via="E4 -E5 E16" end="3600.00" vehsPerHour="7" type="bus"/>
+    <flow id="b_1_early_morning" begin="0.00" from="-E15" to="E24" via="E4 -E5 E16" end="3600.00" vehsPerHour="6" type="bus"/>
     <flow id="b_1_morning_peak" begin="3600.00" from="-E15" to="E24" via="E4 -E5 E16" end="7200.00" vehsPerHour="17" type="bus"/>
-    <flow id="b_1_midday" begin="7200.00" from="-E15" to="E24" via="E4 -E5 E16" end="10800.00" vehsPerHour="32" type="bus"/>
-    <flow id="b_1_afternoon" begin="10800.00" from="-E15" to="E24" via="E4 -E5 E16" end="14400.00" vehsPerHour="26" type="bus"/>
-    <flow id="b_1_evening_peak" begin="14400.00" from="-E15" to="E24" via="E4 -E5 E16" end="18000.00" vehsPerHour="35" type="bus"/>
+    <flow id="b_1_midday" begin="7200.00" from="-E15" to="E24" via="E4 -E5 E16" end="10800.00" vehsPerHour="30" type="bus"/>
+    <flow id="b_1_afternoon" begin="10800.00" from="-E15" to="E24" via="E4 -E5 E16" end="14400.00" vehsPerHour="25" type="bus"/>
+    <flow id="b_1_evening_peak" begin="14400.00" from="-E15" to="E24" via="E4 -E5 E16" end="18000.00" vehsPerHour="34" type="bus"/>
     <flow id="b_1_night" begin="18000.00" from="-E15" to="E24" via="E4 -E5 E16" end="21600.00" vehsPerHour="10" type="bus"/>
 
     <flow id="b_2_early_morning" begin="0.00" from="-E15" to="E21" via="-E18 E19 E20" end="3600.00" vehsPerHour="6" type="bus"/>
@@ -124,14 +124,12 @@
     <flow id="f_3_evening_peak" begin="14400.00" from="E6" to="E24" via="E16" end="18000.00" vehsPerHour="458" type="passenger"/>
     <flow id="f_3_night" begin="18000.00" from="E6" to="E24" via="E16" end="21600.00" vehsPerHour="137" type="passenger"/>
 
-    <!-- f_4 flows DISABLED - E6 to E21 has no valid route
     <flow id="f_4_early_morning" begin="0.00" from="E6" to="E21" end="3600.00" vehsPerHour="101" type="passenger"/>
     <flow id="f_4_morning_peak" begin="3600.00" from="E6" to="E21" end="7200.00" vehsPerHour="253" type="passenger"/>
     <flow id="f_4_midday" begin="7200.00" from="E6" to="E21" end="10800.00" vehsPerHour="455" type="passenger"/>
     <flow id="f_4_afternoon" begin="10800.00" from="E6" to="E21" end="14400.00" vehsPerHour="379" type="passenger"/>
     <flow id="f_4_evening_peak" begin="14400.00" from="E6" to="E21" end="18000.00" vehsPerHour="506" type="passenger"/>
     <flow id="f_4_night" begin="18000.00" from="E6" to="E21" end="21600.00" vehsPerHour="151" type="passenger"/>
-    -->
 
     <flow id="t_1_early_morning" begin="0.00" from="-E15" to="E10" via="-E18 -E17" end="3600.00" vehsPerHour="5" type="truck"/>
     <flow id="t_1_morning_peak" begin="3600.00" from="-E15" to="E10" via="-E18 -E17" end="7200.00" vehsPerHour="14" type="truck"/>

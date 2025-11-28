@@ -45,7 +45,7 @@ FLOW_REGEX = re.compile(r'<flow\s+id="([^"]+)"\s+[^>]*from="([^"]+)"\s+[^>]*to="
 
 
 def parse_flows(raw_text):
-    """Return dict: base_name -> list of flow dicts (id, from, to, via, vehsPerHour, type, commented)"""
+    """Return dict: base_name -> list of flow dicts (id, from, to, via, vehsPerHour, type, commented) - ONLY NON-COMMENTED"""
     flows = []
     for m in FLOW_REGEX.finditer(raw_text):
         fid = m.group(1)
@@ -58,7 +58,10 @@ def parse_flows(raw_text):
         start = m.start()
         before = raw_text[:start]
         is_commented = before.count('<!--') > before.count('-->')
-        flows.append({'id': fid, 'from': ffrom, 'to': fto, 'via': via, 'rate': rate, 'type': vtype, 'commented': is_commented})
+        
+        # ONLY include flows that are NOT commented
+        if not is_commented:
+            flows.append({'id': fid, 'from': ffrom, 'to': fto, 'via': via, 'rate': rate, 'type': vtype, 'commented': is_commented})
 
     # Group by base name
     groups = {}

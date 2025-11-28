@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<viewsettings>
+    <scheme name="real world"/>
+    <delay value="100"/>
+    <viewport zoom="200" x="0" y="0"/>
+    
+    <background backgroundColor="255,255,255"/>
+    
+    <!-- Show vehicle routes -->
+    <vehicles vehicleMode="0" vehicleQuality="2" minVehicleSize="1" vehicleSize="1" showBlinker="true" drawMinGap="true" showRouteIndex="true"/>
+    
+    <!-- Show edges clearly -->
+    <edges laneEdgeMode="0" scaleWidth="true" laneShowBorders="true" showLinkDecals="true" showRails="true" hideConnectors="false"/>
+    
+    <!-- Show junctions -->
+    <junctions showLane2Lane="true" drawShape="true" drawCrossingsAndWalkingareas="true"/>
+    
+    <!-- Legend -->
+    <legend showSizeLegend="true" showColorLegend="true"/>
+</viewsettings>

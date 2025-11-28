@@ -1556,10 +1556,25 @@ if __name__ == "__main__":
                         help='Run training for at most this many hours, then save checkpoint and exit')
     parser.add_argument('--num-episodes', type=int, default=None,
                         help='Override number of episodes in config')
+    parser.add_argument('--scenario', type=str, default='3h', choices=['3h', 'weekday', 'weekend', 'event'],
+                        help='Traffic scenario: 3h (default), weekday, weekend, or event (6h scenarios)')
     args = parser.parse_args()
 
     # Create configuration
     config = MAPPOConfig()
+    
+    # Set SUMO config based on scenario
+    if args.scenario == 'weekday':
+        config.SUMO_CONFIG = 'k1_6h_weekday.sumocfg'
+        config.STEPS_PER_EPISODE = 21600  # 6 hours
+    elif args.scenario == 'weekend':
+        config.SUMO_CONFIG = 'k1_6h_weekend.sumocfg'
+        config.STEPS_PER_EPISODE = 21600
+    elif args.scenario == 'event':
+        config.SUMO_CONFIG = 'k1_6h_event.sumocfg'
+        config.STEPS_PER_EPISODE = 21600
+    # else: keep default 3h scenario
+    
     if args.num_episodes is not None:
         config.NUM_EPISODES = args.num_episodes
 

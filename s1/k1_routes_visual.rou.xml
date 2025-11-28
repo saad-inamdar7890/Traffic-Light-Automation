@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <!-- Visualization file - one vehicle per unique route -->
+    <vType id="DEFAULT_VEHTYPE" />
+    <vType id="passenger" vClass="passenger" />
+    <vType id="bus" vClass="bus" />
+    <vType id="truck" vClass="truck" />
+    <vehicle id="test_f_0_light" depart="0" from="-E15" to="E24" via="E4 -E5 E16" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_1_light" depart="2" from="-E15" to="E21" via="-E18 E19 E20" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_2_light" depart="4" from="-E15" to="E10" via="-E18 -E17" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_3_light" depart="6" from="E6" to="E24" via="E16" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_4_light" depart="8" from="E6" to="E21" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_16_light" depart="10" from="-E11" to="E21" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_17_light" depart="12" from="-E12" to="E15" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_19_light" depart="14" from="-E13" to="E9" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_20_light" depart="16" from="-E13" to="E15" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_21_light" depart="18" from="-E24" to="E12" via="-E23" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_22_light" depart="20" from="-E24" to="E15" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_23_light" depart="22" from="-E21" to="E15" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_24_light" depart="24" from="-E21" to="E10" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_25_light" depart="26" from="E10" to="E15" via="E17 E18" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_26_light" depart="28" from="E9" to="E12" via="E11" type="passenger" color="0,0,255" />
+    <vehicle id="test_f_27_light" depart="30" from="E9" to="E24" type="passenger" color="0,0,255" />
+    <vehicle id="test_b_1_light" depart="32" from="-E15" to="E24" via="E4 -E5 E16" type="bus" color="255,165,0" />
+    <vehicle id="test_b_2_light" depart="34" from="-E15" to="E21" via="-E18 E19 E20" type="bus" color="255,165,0" />
+    <vehicle id="test_t_1_light" depart="36" from="-E15" to="E10" via="-E18 -E17" type="truck" color="0,128,0" />
+    <vehicle id="test_t_2_light" depart="38" from="E6" to="E24" via="E16" type="truck" color="0,128,0" />
+</routes>

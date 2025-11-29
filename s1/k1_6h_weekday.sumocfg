@@ -14,6 +14,9 @@
 
     <processing>
         <time-to-teleport value="-1"/>
+        <max-depart-delay value="300"/>
+        <routing-algorithm value="dijkstra"/>
+        <device.rerouting.probability value="0"/>
     </processing>
 
     <report>

@@ -130,12 +130,12 @@
     <flow id="f_26_peak" begin="6480.00" from="E9" to="E12" end="8640.00" vehsPerHour="375" type="passenger"/>
     <flow id="f_26_declining" begin="8640.00" from="E9" to="E12" end="10800.00" vehsPerHour="205" type="passenger"/>
     
-    <!-- Route f_27: E9 to E24 -->
-    <flow id="f_27_light" begin="0.00" from="E9" to="E24" end="2160.00" vehsPerHour="40" type="passenger"/>
-    <flow id="f_27_building" begin="2160.00" from="E9" to="E24" end="4320.00" vehsPerHour="95" type="passenger"/>
-    <flow id="f_27_rush" begin="4320.00" from="E9" to="E24" end="6480.00" vehsPerHour="175" type="passenger"/>
-    <flow id="f_27_peak" begin="6480.00" from="E9" to="E24" end="8640.00" vehsPerHour="250" type="passenger"/>
-    <flow id="f_27_declining" begin="8640.00" from="E9" to="E24" end="10800.00" vehsPerHour="135" type="passenger"/>
+    <!-- Route f_27: E9 to E24 via suggested path -->
+    <flow id="f_27_light" begin="0.00" from="E9" to="E24" via="-E9 E17 E19 E0.55 E16" end="2160.00" vehsPerHour="40" type="passenger"/>
+    <flow id="f_27_building" begin="2160.00" from="E9" to="E24" via="-E9 E17 E19 E0.55 E16" end="4320.00" vehsPerHour="95" type="passenger"/>
+    <flow id="f_27_rush" begin="4320.00" from="E9" to="E24" via="-E9 E17 E19 E0.55 E16" end="6480.00" vehsPerHour="175" type="passenger"/>
+    <flow id="f_27_peak" begin="6480.00" from="E9" to="E24" via="-E9 E17 E19 E0.55 E16" end="8640.00" vehsPerHour="250" type="passenger"/>
+    <flow id="f_27_declining" begin="8640.00" from="E9" to="E24" via="-E9 E17 E19 E0.55 E16" end="10800.00" vehsPerHour="135" type="passenger"/>
     
     <!-- ==== BUS ROUTES: Mixed traffic for realism ==== -->
     

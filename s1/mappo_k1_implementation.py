@@ -31,6 +31,8 @@ import traci
 from datetime import datetime
 import json
 from collections import defaultdict
+import hashlib
+import xml.etree.ElementTree as ET
 
 
 # ============================================================================
@@ -434,6 +436,66 @@ class K1Environment:
             if not os.path.exists(config_path):
                 # Fallback: relative to current working directory
                 config_path = config_path
+
+        # --- Route file verification & checksum (helps confirm Kaggle / remote runs use same files) ---
+        try:
+            route_files_value = None
+            # Parse sumo config XML to find the route-files value
+            try:
+                tree = ET.parse(config_path)
+                root = tree.getroot()
+                rf = root.find('input/route-files')
+                if rf is None:
+                    # try namespace-agnostic search
+                    for elem in root.iter():
+                        if elem.tag.endswith('route-files'):
+                            rf = elem
+                            break
+                if rf is not None:
+                    route_files_value = rf.attrib.get('value')
+            except Exception:
+                route_files_value = None
+
+            if route_files_value:
+                # support comma-separated route-files
+                first_route = route_files_value.split(',')[0].strip()
+                if not os.path.isabs(first_route):
+                    cfg_dir = os.path.dirname(config_path)
+                    route_abs = os.path.join(cfg_dir, first_route)
+                else:
+                    route_abs = first_route
+
+                if os.path.exists(route_abs):
+                    with open(route_abs, 'rb') as rf_f:
+                        data = rf_f.read()
+                    sha = hashlib.sha256(data).hexdigest()
+                    print(f"✓ Using route file: {route_abs}")
+                    print(f"  - SHA256: {sha}")
+                    # Save a copy of the route file into model dir for post-mortem (helps Kaggle debugging)
+                    try:
+                        model_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), self.config.MODEL_DIR)
+                        os.makedirs(model_dir, exist_ok=True)
+                        copy_name = os.path.join(model_dir, f"route_{sha[:8]}.rou.xml")
+                        if not os.path.exists(copy_name):
+                            with open(copy_name, 'wb') as out_f:
+                                out_f.write(data)
+                            print(f"  - Copied route file to: {copy_name}")
+                    except Exception as _e:
+                        print(f"  - Warning: could not copy route file for artifact: {_e}")
+                    # Quick check for known problematic night flows
+                    text = data.decode('utf-8', errors='ignore')
+                    for fid in ['f_25_night', 'f_26_night', 'f_27_night']:
+                        cnt = text.count(fid)
+                        if cnt:
+                            print(f"  - Found '{fid}' occurrences: {cnt}")
+                        else:
+                            print(f"  - '{fid}' not present in route file")
+                else:
+                    print(f"⚠ Route file referenced in config not found: {route_abs}")
+            else:
+                print("⚠ Could not locate 'route-files' in sumo config; proceeding without checksum.")
+        except Exception as _e:
+            print(f"⚠ Warning: route-file checksum check failed: {_e}")
         
         sumo_cmd = [
             sumo_binary,

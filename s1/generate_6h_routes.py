@@ -13,16 +13,25 @@ Algorithm:
 - Apply scenario multipliers per period to base rate to form vehsPerHour for each period
 - Preserve via and vehicle type
 - Write scenario route files and a small header
+
+Optional: --duarouter flag to run SUMO duarouter and produce precomputed static routes
+          This converts <flow> entries to <vehicle> or <trip> with explicit routes,
+          eliminating runtime routing failures.
 """
 
 import re
 import xml.etree.ElementTree as ET
 from statistics import mean
 from pathlib import Path
+import subprocess
+import shutil
+import argparse
+import os
 
 ROOT = Path(__file__).resolve().parents[0]
 INPUT_ROUTE = ROOT / 'k1_routes_3h_varying.rou.xml'
 OUTPUT_PREFIX = ROOT / 'k1_routes_6h'
+NETWORK_FILE = ROOT / 'k1.net.xml'
 
 # Time periods (6 x 3600s = 21600s => 6 hours)
 PERIODS = [
@@ -114,18 +123,163 @@ def build_route_entries(groups, scenario_name):
     return '\n'.join(lines)
 
 
+def run_duarouter(route_file: Path, network_file: Path, output_file: Path):
+    """
+    Run SUMO duarouter to precompute static routes from flows.
+    
+    This converts <flow> entries to explicit <vehicle> or <trip> entries with
+    precomputed routes, which eliminates runtime DijkstraRouter failures.
+    
+    Args:
+        route_file: Input route file with flows
+        network_file: SUMO network file (.net.xml)
+        output_file: Output file with precomputed routes
+    
+    Returns:
+        True if successful, False otherwise
+    """
+    # Find duarouter binary
+    duarouter_bin = shutil.which('duarouter')
+    if not duarouter_bin:
+        # Try common SUMO installation paths
+        sumo_home = os.environ.get('SUMO_HOME', '')
+        if sumo_home:
+            candidate = Path(sumo_home) / 'bin' / 'duarouter'
+            if candidate.exists():
+                duarouter_bin = str(candidate)
+            candidate_exe = Path(sumo_home) / 'bin' / 'duarouter.exe'
+            if candidate_exe.exists():
+                duarouter_bin = str(candidate_exe)
+    
+    if not duarouter_bin:
+        print(f"  ⚠️  duarouter not found in PATH or SUMO_HOME. Skipping precomputation.")
+        print(f"      Set SUMO_HOME or add SUMO bin directory to PATH to enable this feature.")
+        return False
+    
+    print(f"  → Running duarouter on {route_file.name}...")
+    
+    # Build duarouter command
+    cmd = [
+        duarouter_bin,
+        '-n', str(network_file),
+        '-r', str(route_file),
+        '-o', str(output_file),
+        '--ignore-errors',           # Continue on routing errors (log them)
+        '--repair',                  # Try to repair invalid routes
+        '--remove-loops',            # Remove U-turns
+        '--routing-algorithm', 'dijkstra',
+        '--no-warnings',
+        '--write-license',
+    ]
+    
+    try:
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            timeout=300  # 5 minute timeout
+        )
+        
+        if result.returncode == 0:
+            print(f"  ✅ Precomputed routes written to: {output_file.name}")
+            return True
+        else:
+            print(f"  ⚠️  duarouter returned code {result.returncode}")
+            if result.stderr:
+                # Print first few lines of stderr
+                lines = result.stderr.strip().split('\n')
+                for line in lines[:10]:
+                    print(f"      {line}")
+                if len(lines) > 10:
+                    print(f"      ... ({len(lines) - 10} more lines)")
+            return False
+            
+    except subprocess.TimeoutExpired:
+        print(f"  ⚠️  duarouter timed out after 5 minutes")
+        return False
+    except Exception as e:
+        print(f"  ⚠️  duarouter failed: {e}")
+        return False
+
+
 def main():
-    raw = INPUT_ROUTE.read_text(encoding='utf-8')
-    groups = parse_flows(raw)
-    print(f"Found {len(groups)} unique route groups to expand")
+    parser = argparse.ArgumentParser(
+        description='Generate 6-hour route files from 3h definitions',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python generate_6h_routes.py                    # Generate flow-based routes only
+  python generate_6h_routes.py --duarouter        # Also precompute static routes
+  python generate_6h_routes.py --duarouter-only   # Only precompute (skip generation)
+"""
+    )
+    parser.add_argument(
+        '--duarouter', '-d',
+        action='store_true',
+        help='Run duarouter to precompute static routes after generating flows'
+    )
+    parser.add_argument(
+        '--duarouter-only',
+        action='store_true',
+        help='Only run duarouter on existing route files (skip flow generation)'
+    )
+    parser.add_argument(
+        '--network', '-n',
+        type=Path,
+        default=NETWORK_FILE,
+        help=f'Path to network file (default: {NETWORK_FILE.name})'
+    )
+    args = parser.parse_args()
 
-    for scen in SCENARIOS.keys():
-        out = OUTPUT_PREFIX.with_name(f'k1_routes_6h_{scen}.rou.xml')
-        content = build_route_entries(groups, scen)
-        out.write_text(content, encoding='utf-8')
-        print(f"Wrote scenario: {out.name}")
+    generated_files = []
 
-    print("\nDone. Run validate_routes.py on each generated file to verify connectivity.")
+    if not args.duarouter_only:
+        raw = INPUT_ROUTE.read_text(encoding='utf-8')
+        groups = parse_flows(raw)
+        print(f"Found {len(groups)} unique route groups to expand")
+
+        for scen in SCENARIOS.keys():
+            out = OUTPUT_PREFIX.with_name(f'k1_routes_6h_{scen}.rou.xml')
+            content = build_route_entries(groups, scen)
+            out.write_text(content, encoding='utf-8')
+            print(f"Wrote scenario: {out.name}")
+            generated_files.append(out)
+
+        print("\nDone generating flow-based routes.")
+    else:
+        # Collect existing route files
+        for scen in SCENARIOS.keys():
+            f = OUTPUT_PREFIX.with_name(f'k1_routes_6h_{scen}.rou.xml')
+            if f.exists():
+                generated_files.append(f)
+        print(f"Found {len(generated_files)} existing route files for duarouter.")
+
+    # Run duarouter if requested
+    if args.duarouter or args.duarouter_only:
+        print("\n" + "="*60)
+        print("DUAROUTER: Precomputing static routes")
+        print("="*60)
+        
+        if not args.network.exists():
+            print(f"❌ Network file not found: {args.network}")
+            return
+        
+        success_count = 0
+        for route_file in generated_files:
+            precomputed_file = route_file.with_name(
+                route_file.stem.replace('.rou', '') + '_precomputed.rou.xml'
+            )
+            if run_duarouter(route_file, args.network, precomputed_file):
+                success_count += 1
+        
+        print(f"\n✅ Precomputed {success_count}/{len(generated_files)} route files successfully.")
+        if success_count > 0:
+            print("\nTo use precomputed routes, update your .sumocfg to reference the *_precomputed.rou.xml files.")
+            print("Precomputed routes eliminate runtime DijkstraRouter failures.")
+    else:
+        print("\nRun validate_routes.py on each generated file to verify connectivity.")
+        print("Tip: Use --duarouter to precompute static routes and avoid runtime routing errors.")
+
 
 if __name__ == '__main__':
     main()

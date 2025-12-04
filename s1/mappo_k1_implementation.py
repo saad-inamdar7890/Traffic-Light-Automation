@@ -1509,6 +1509,14 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
             
             if done:
                 break
+            
+            # Check time limit MID-EPISODE (every 500 steps to avoid overhead)
+            if max_seconds is not None and step % 500 == 0:
+                elapsed = time.time() - start_time
+                if elapsed >= max_seconds:
+                    print(f"\n⏰ TIME LIMIT REACHED mid-episode at step {step}")
+                    done = True  # Mark episode as done to trigger save
+                    break
         
         sim_time = time.time() - sim_start
         
@@ -1564,25 +1572,31 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
                 print(f'  ⚠ Warning: checkpoint save failed: {e}')
 
         # Periodically check elapsed time for time-limited runs
+        # =================== TIME LIMIT CHECK (END OF EPISODE) ===================
+        print(f"\n🔍 DEBUG: Checking time limit... max_seconds={max_seconds}")
         if max_seconds is not None:
             elapsed = time.time() - start_time
             remaining = max_seconds - elapsed
-            if remaining < 300:  # Warn when <5 min remaining
+            print(f"  ⏱️  Time check: elapsed={elapsed:.1f}s, max={max_seconds:.1f}s, remaining={remaining:.1f}s")
+            print(f"  🔍 DEBUG: Condition check: elapsed({elapsed:.1f}) >= max_seconds({max_seconds:.1f}) = {elapsed >= max_seconds}")
+            
+            if remaining < 300 and remaining > 0:  # Warn when <5 min remaining
                 print(f"\n⏰ WARNING: Only {remaining/60:.1f} minutes remaining!")
             
             if elapsed >= max_seconds:
+                print(f"\n🔍 DEBUG: INSIDE TIME LIMIT BLOCK - SHOULD EXIT NOW!")
                 # Save a checkpoint and exit gracefully
                 timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
                 ckpt_path = os.path.join(config.MODEL_DIR, f'checkpoint_time_{timestamp}')
                 print(f"\n{'='*80}")
-                print(f"⏰ TIME LIMIT REACHED ({max_hours} hours)")
+                print(f"⏰ TIME LIMIT REACHED ({max_hours} hours = {max_seconds:.0f}s)")
                 print(f"{'='*80}")
                 print(f"\n💾 Saving final checkpoint...")
                 agent.save_checkpoint(ckpt_path)
                 print(f"✓ Checkpoint saved to: {ckpt_path}")
                 print(f"\n📊 TRAINING SUMMARY:")
                 print(f"  Episodes completed: {episode + 1}")
-                print(f"  Total time: {elapsed/3600:.2f}h")
+                print(f"  Total time: {elapsed/3600:.2f}h ({elapsed:.0f}s)")
                 print(f"  Final episode: {episode}")
                 print(f"\n✓ Training session completed successfully!")
                 print(f"\nTo resume, run:")
@@ -1590,7 +1604,11 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
                 print(f"\n{'='*80}\n")
                 env.close()
                 agent.writer.close()
-                return
+                print(f"🔍 DEBUG: About to RETURN from train_mappo function!")
+                return  # Exit the function completely
+        else:
+            print(f"  ⏱️  No time limit set (max_seconds is None)")
+        # ========================================================================
     
     # Final save
     agent.save_models(os.path.join(config.MODEL_DIR, 'final'))

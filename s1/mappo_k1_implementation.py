@@ -1635,7 +1635,9 @@ if __name__ == "__main__":
     parser.add_argument('--max-hours', type=float, default=None,
                         help='Run training for at most this many hours, then save checkpoint and exit')
     parser.add_argument('--num-episodes', type=int, default=None,
-                        help='Override number of episodes in config')
+                        help='Override total number of episodes in config')
+    parser.add_argument('--run-episodes', type=int, default=None,
+                        help='Run exactly this many episodes from current checkpoint, then stop')
     parser.add_argument('--scenario', type=str, default='3h', choices=['3h', 'weekday', 'weekend', 'event'],
                         help='Traffic scenario: 3h (default), weekday, weekend, or event (6h scenarios)')
     args = parser.parse_args()
@@ -1657,10 +1659,33 @@ if __name__ == "__main__":
     
     if args.num_episodes is not None:
         config.NUM_EPISODES = args.num_episodes
+    
+    # Handle --run-episodes: we'll set NUM_EPISODES after loading checkpoint
+    run_episodes_override = args.run_episodes
 
     # Create directories
     os.makedirs(config.TENSORBOARD_DIR, exist_ok=True)
     os.makedirs(config.MODEL_DIR, exist_ok=True)
+
+    # If --run-episodes is set, we need to load checkpoint first to get episode_count
+    # then set NUM_EPISODES = episode_count + run_episodes
+    if run_episodes_override is not None and args.resume_checkpoint:
+        # Peek at checkpoint to get episode count
+        state_path = os.path.join(args.resume_checkpoint, 'train_state.pkl')
+        if os.path.exists(state_path):
+            with open(state_path, 'rb') as f:
+                state = pickle.load(f)
+            checkpoint_episode = state.get('episode_count', 0)
+            config.NUM_EPISODES = checkpoint_episode + run_episodes_override
+            print(f"✓ --run-episodes {run_episodes_override}: will run episodes {checkpoint_episode} to {config.NUM_EPISODES - 1}")
+        else:
+            # No checkpoint state, just use run_episodes as total
+            config.NUM_EPISODES = run_episodes_override
+            print(f"✓ --run-episodes {run_episodes_override}: no checkpoint state found, running {run_episodes_override} episodes total")
+    elif run_episodes_override is not None:
+        # No checkpoint, just run that many episodes
+        config.NUM_EPISODES = run_episodes_override
+        print(f"✓ --run-episodes {run_episodes_override}: running {run_episodes_override} episodes")
 
     # Train with optional resume and time limit
     train_mappo(config, resume_checkpoint=args.resume_checkpoint, max_hours=args.max_hours)

@@ -1,0 +1,16 @@
+Loading net-file from 'D:\Codes\Projects\Traffic-Light-Automation\s1\k1.net.xml' ... done (41ms).
+Loading route-files incrementally from 'D:\Codes\Projects\Traffic-Light-Automation\s1\k1_routes_6h_weekday.rou.xml'
+Loading done.
+Simulation version 1.24.0 started with time: 0.00.
+Simulation ended at time: 100.00.
+Reason: The final simulation step has been reached.
+Performance:
+ Duration: 0.02s
+ Real time factor: 4545.45
+ UPS: 4545.454545
+Vehicles:
+ Inserted: 1
+ Running: 1
+ Waiting: 0
+DijkstraRouter answered 4 queries and explored 2.50 edges on average.
+DijkstraRouter spent 0.00s answering queries (0.00ms on average).

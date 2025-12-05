@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<routes>
+    <vType id="passenger" vClass="passenger"/>
+    <flow id="t1" from="-E15" to="E24" begin="0" end="100" vehsPerHour="36" type="passenger"/>
+</routes>

@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-12-04T22:51:12.072942",
+  "scenario": "weekday",
+  "duration": 21600,
+  "fixed_phase_duration": 30,
+  "checkpoint": "checkpoint_time_20251129_103621.zip",
+  "results": {
+    "fixed_time": {
+      "avg_waiting_time": 1152.03,
+      "avg_queue_length": 0.16,
+      "total_throughput": 1247
+    },
+    "mappo": {
+      "avg_waiting_time": 269.8,
+      "avg_queue_length": 0.08,
+      "total_throughput": 1274
+    },
+    "improvement": {
+      "waiting_time_reduction_pct": 76.58,
+      "queue_length_reduction_pct": 48.43,
+      "throughput_increase_pct": 2.17
+    }
+  }
+}

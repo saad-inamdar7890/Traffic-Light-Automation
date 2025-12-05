@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-12-04 23:08:31 by Eclipse SUMO duarouter Version 1.24.0
+<duarouterConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="D:\Codes\Projects\Traffic-Light-Automation\s1\k1.net.xml"/>
+        <route-files value="D:\Codes\Projects\Traffic-Light-Automation\s1\k1_routes_6h_weekday.rou.xml"/>
+    </input>
+
+    <output>
+        <output-file value="test_route.xml"/>
+    </output>
+
+    <report>
+        <ignore-errors value="true"/>
+    </report>
+
+</duarouterConfiguration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="bus" vClass="bus"/>
+    <vehicle id="b_1_early_morning.0" type="bus" depart="0.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_early_morning.1" type="bus" depart="450.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_early_morning.2" type="bus" depart="900.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_early_morning.3" type="bus" depart="1350.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_early_morning.4" type="bus" depart="1800.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_early_morning.5" type="bus" depart="2250.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_early_morning.6" type="bus" depart="2700.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_early_morning.7" type="bus" depart="3150.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.0" type="bus" depart="3600.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.1" type="bus" depart="3733.33">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.2" type="bus" depart="3866.67">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.3" type="bus" depart="4000.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.4" type="bus" depart="4133.33">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.5" type="bus" depart="4266.67">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.6" type="bus" depart="4400.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.7" type="bus" depart="4533.33">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.8" type="bus" depart="4666.66">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.9" type="bus" depart="4800.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.10" type="bus" depart="4933.33">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.11" type="bus" depart="5066.66">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.12" type="bus" depart="5200.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.13" type="bus" depart="5333.33">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.14" type="bus" depart="5466.66">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.15" type="bus" depart="5600.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.16" type="bus" depart="5733.33">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.17" type="bus" depart="5866.66">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.18" type="bus" depart="5999.99">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.19" type="bus" depart="6133.33">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.20" type="bus" depart="6266.66">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.21" type="bus" depart="6399.99">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.22" type="bus" depart="6533.33">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.23" type="bus" depart="6666.66">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.24" type="bus" depart="6799.99">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.25" type="bus" depart="6933.33">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.26" type="bus" depart="7066.66">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_morning_peak.27" type="bus" depart="7199.99">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.0" type="bus" depart="7200.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.1" type="bus" depart="7411.77">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.2" type="bus" depart="7623.53">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.3" type="bus" depart="7835.30">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.4" type="bus" depart="8047.06">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.5" type="bus" depart="8258.83">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.6" type="bus" depart="8470.59">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.7" type="bus" depart="8682.36">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.8" type="bus" depart="8894.12">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.9" type="bus" depart="9105.89">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.10" type="bus" depart="9317.65">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.11" type="bus" depart="9529.42">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.12" type="bus" depart="9741.18">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.13" type="bus" depart="9952.95">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.14" type="bus" depart="10164.71">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.15" type="bus" depart="10376.48">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_midday.16" type="bus" depart="10588.24">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.0" type="bus" depart="10800.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.1" type="bus" depart="11040.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.2" type="bus" depart="11280.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.3" type="bus" depart="11520.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.4" type="bus" depart="11760.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.5" type="bus" depart="12000.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.6" type="bus" depart="12240.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.7" type="bus" depart="12480.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.8" type="bus" depart="12720.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.9" type="bus" depart="12960.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.10" type="bus" depart="13200.00">
+        <route edges="-E15 E4 -E5 E16 E24"/>
+    </vehicle>
+    <vehicle id="b_1_afternoon.11" type="bus" 

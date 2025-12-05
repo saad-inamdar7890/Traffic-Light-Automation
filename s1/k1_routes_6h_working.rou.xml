@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 6-Hour Working Route File for Evaluation
+     Uses validated direct routes that work with K1 network
+     All routes tested to ensure connectivity
+     Total: ~3000 vehicles over 6 hours (increasing demand pattern)
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="passenger" vClass="passenger"/>
+    <vType id="bus" vClass="bus"/>
+    <vType id="truck" vClass="truck"/>
+
+    <!-- Hour 1 (0-3600): Early morning - low traffic ~290 veh/hr -->
+    <flow id="ns1_h1" from="-E15" to="E15" begin="0" end="3600" vehsPerHour="40" type="passenger"/>
+    <flow id="ns2_h1" from="-E15" to="E24" begin="0" end="3600" vehsPerHour="35" type="passenger"/>
+    <flow id="ns3_h1" from="-E15" to="E21" begin="0" end="3600" vehsPerHour="30" type="passenger"/>
+    <flow id="ns4_h1" from="-E15" to="E10" begin="0" end="3600" vehsPerHour="25" type="passenger"/>
+    <flow id="ew1_h1" from="-E24" to="E24" begin="0" end="3600" vehsPerHour="30" type="passenger"/>
+    <flow id="ew2_h1" from="-E24" to="E15" begin="0" end="3600" vehsPerHour="25" type="passenger"/>
+    <flow id="r1_h1" from="-E21" to="E21" begin="0" end="3600" vehsPerHour="20" type="passenger"/>
+    <flow id="r2_h1" from="-E21" to="E15" begin="0" end="3600" vehsPerHour="20" type="passenger"/>
+    <flow id="r3_h1" from="-E11" to="E11" begin="0" end="3600" vehsPerHour="15" type="passenger"/>
+    <flow id="r4_h1" from="-E12" to="E12" begin="0" end="3600" vehsPerHour="15" type="passenger"/>
+    <flow id="r5_h1" from="-E6" to="E6" begin="0" end="3600" vehsPerHour="15" type="passenger"/>
+    <flow id="r6_h1" from="-E10" to="E10" begin="0" end="3600" vehsPerHour="15" type="passenger"/>
+    <flow id="bus1_h1" from="-E15" to="E24" begin="0" end="3600" vehsPerHour="6" type="bus"/>
+    <flow id="truck1_h1" from="-E15" to="E21" begin="0" end="3600" vehsPerHour="4" type="truck"/>
+
+    <!-- Hour 2 (3600-7200): Morning - medium traffic ~560 veh/hr -->
+    <flow id="ns1_h2" from="-E15" to="E15" begin="3600" end="7200" vehsPerHour="80" type="passenger"/>
+    <flow id="ns2_h2" from="-E15" to="E24" begin="3600" end="7200" vehsPerHour="70" type="passenger"/>
+    <flow id="ns3_h2" from="-E15" to="E21" begin="3600" end="7200" vehsPerHour="60" type="passenger"/>
+    <flow id="ns4_h2" from="-E15" to="E10" begin="3600" end="7200" vehsPerHour="50" type="passenger"/>
+    <flow id="ew1_h2" from="-E24" to="E24" begin="3600" end="7200" vehsPerHour="60" type="passenger"/>
+    <flow id="ew2_h2" from="-E24" to="E15" begin="3600" end="7200" vehsPerHour="50" type="passenger"/>
+    <flow id="r1_h2" from="-E21" to="E21" begin="3600" end="7200" vehsPerHour="40" type="passenger"/>
+    <flow id="r2_h2" from="-E21" to="E15" begin="3600" end="7200" vehsPerHour="40" type="passenger"/>
+    <flow id="r3_h2" from="-E11" to="E11" begin="3600" end="7200" vehsPerHour="30" type="passenger"/>
+    <flow id="r4_h2" from="-E12" to="E12" begin="3600" end="7200" vehsPerHour="30" type="passenger"/>
+    <flow id="r5_h2" from="-E6" to="E6" begin="3600" end="7200" vehsPerHour="30" type="passenger"/>
+    <flow id="r6_h2" from="-E10" to="E10" begin="3600" end="7200" vehsPerHour="30" type="passenger"/>
+    <flow id="bus1_h2" from="-E15" to="E24" begin="3600" end="7200" vehsPerHour="10" type="bus"/>
+    <flow id="truck1_h2" from="-E15" to="E21" begin="3600" end="7200" vehsPerHour="6" type="truck"/>
+
+    <!-- Hour 3 (7200-10800): Morning peak - high traffic ~1145 veh/hr -->
+    <flow id="ns1_h3" from="-E15" to="E15" begin="7200" end="10800" vehsPerHour="160" type="passenger"/>
+    <flow id="ns2_h3" from="-E15" to="E24" begin="7200" end="10800" vehsPerHour="140" type="passenger"/>
+    <flow id="ns3_h3" from="-E15" to="E21" begin="7200" end="10800" vehsPerHour="120" type="passenger"/>
+    <flow id="ns4_h3" from="-E15" to="E10" begin="7200" end="10800" vehsPerHour="100" type="passenger"/>
+    <flow id="ew1_h3" from="-E24" to="E24" begin="7200" end="10800" vehsPerHour="120" type="passenger"/>
+    <flow id="ew2_h3" from="-E24" to="E15" begin="7200" end="10800" vehsPerHour="100" type="passenger"/>
+    <flow id="r1_h3" from="-E21" to="E21" begin="7200" end="10800" vehsPerHour="80" type="passenger"/>
+    <flow id="r2_h3" from="-E21" to="E15" begin="7200" end="10800" vehsPerHour="80" type="passenger"/>
+    <flow id="r3_h3" from="-E11" to="E11" begin="7200" end="10800" vehsPerHour="60" type="passenger"/>
+    <flow id="r4_h3" from="-E12" to="E12" begin="7200" end="10800" vehsPerHour="60" type="passenger"/>
+    <flow id="r5_h3" from="-E6" to="E6" begin="7200" end="10800" vehsPerHour="60" type="passenger"/>
+    <flow id="r6_h3" from="-E10" to="E10" begin="7200" end="10800" vehsPerHour="60" type="passenger"/>
+    <flow id="bus1_h3" from="-E15" to="E24" begin="7200" end="10800" vehsPerHour="15" type="bus"/>
+    <flow id="truck1_h3" from="-E15" to="E21" begin="7200" end="10800" vehsPerHour="10" type="truck"/>
+
+    <!-- Hour 4 (10800-14400): Mid-day - medium-high traffic ~870 veh/hr -->
+    <flow id="ns1_h4" from="-E15" to="E15" begin="10800" end="14400" vehsPerHour="120" type="passenger"/>
+    <flow id="ns2_h4" from="-E15" to="E24" begin="10800" end="14400" vehsPerHour="100" type="passenger"/>
+    <flow id="ns3_h4" from="-E15" to="E21" begin="10800" end="14400" vehsPerHour="90" type="passenger"/>
+    <flow id="ns4_h4" from="-E15" to="E10" begin="10800" end="14400" vehsPerHour="75" type="passenger"/>
+    <flow id="ew1_h4" from="-E24" to="E24" begin="10800" end="14400" vehsPerHour="90" type="passenger"/>
+    <flow id="ew2_h4" from="-E24" to="E15" begin="10800" end="14400" vehsPerHour="75" type="passenger"/>
+    <flow id="r1_h4" from="-E21" to="E21" begin="10800" end="14400" vehsPerHour="60" type="passenger"/>
+    <flow id="r2_h4" from="-E21" to="E15" begin="10800" end="14400" vehsPerHour="60" type="passenger"/>
+    <flow id="r3_h4" from="-E11" to="E11" begin="10800" end="14400" vehsPerHour="45" type="passenger"/>
+    <flow id="r4_h4" from="-E12" to="E12" begin="10800" end="14400" vehsPerHour="45" type="passenger"/>
+    <flow id="r5_h4" from="-E6" to="E6" begin="10800" end="14400" vehsPerHour="45" type="passenger"/>
+    <flow id="r6_h4" from="-E10" to="E10" begin="10800" end="14400" vehsPerHour="45" type="passenger"/>
+    <flow id="bus1_h4" from="-E15" to="E24" begin="10800" end="14400" vehsPerHour="12" type="bus"/>
+    <flow id="truck1_h4" from="-E15" to="E21" begin="10800" end="14400" vehsPerHour="8" type="truck"/>
+
+    <!-- Hour 5 (14400-18000): Afternoon - medium traffic ~710 veh/hr -->
+    <flow id="ns1_h5" from="-E15" to="E15" begin="14400" end="18000" vehsPerHour="100" type="passenger"/>
+    <flow id="ns2_h5" from="-E15" to="E24" begin="14400" end="18000" vehsPerHour="85" type="passenger"/>
+    <flow id="ns3_h5" from="-E15" to="E21" begin="14400" end="18000" vehsPerHour="75" type="passenger"/>
+    <flow id="ns4_h5" from="-E15" to="E10" begin="14400" end="18000" vehsPerHour="60" type="passenger"/>
+    <flow id="ew1_h5" from="-E24" to="E24" begin="14400" end="18000" vehsPerHour="75" type="passenger"/>
+    <flow id="ew2_h5" from="-E24" to="E15" begin="14400" end="18000" vehsPerHour="60" type="passenger"/>
+    <flow id="r1_h5" from="-E21" to="E21" begin="14400" end="18000" vehsPerHour="50" type="passenger"/>
+    <flow id="r2_h5" from="-E21" to="E15" begin="14400" end="18000" vehsPerHour="50" type="passenger"/>
+    <flow id="r3_h5" from="-E11" to="E11" begin="14400" end="18000" vehsPerHour="35" type="passenger"/>
+    <flow id="r4_h5" from="-E12" to="E12" begin="14400" end="18000" vehsPerHour="35" type="passenger"/>
+    <flow id="r5_h5" from="-E6" to="E6" begin="14400" end="18000" vehsPerHour="35" type="passenger"/>
+    <flow id="r6_h5" from="-E10" to="E10" begin="14400" end="18000" vehsPerHour="35" type="passenger"/>
+    <flow id="bus1_h5" from="-E15" to="E24" begin="14400" end="18000" vehsPerHour="10" type="bus"/>
+    <flow id="truck1_h5" from="-E15" to="E21" begin="14400" end="18000" vehsPerHour="6" type="truck"/>
+
+    <!-- Hour 6 (18000-21600): Evening - medium-low traffic ~565 veh/hr -->
+    <flow id="ns1_h6" from="-E15" to="E15" begin="18000" end="21600" vehsPerHour="80" type="passenger"/>
+    <flow id="ns2_h6" from="-E15" to="E24" begin="18000" end="21600" vehsPerHour="70" type="passenger"/>
+    <flow id="ns3_h6" from="-E15" to="E21" begin="18000" end="21600" vehsPerHour="60" type="passenger"/>
+    <flow id="ns4_h6" from="-E15" to="E10" begin="18000" end="21600" vehsPerHour="50" type="passenger"/>
+    <flow id="ew1_h6" from="-E24" to="E24" begin="18000" end="21600" vehsPerHour="60" type="passenger"/>
+    <flow id="ew2_h6" from="-E24" to="E15" begin="18000" end="21600" vehsPerHour="50" type="passenger"/>
+    <flow id="r1_h6" from="-E21" to="E21" begin="18000" end="21600" vehsPerHour="40" type="passenger"/>
+    <flow id="r2_h6" from="-E21" to="E15" begin="18000" end="21600" vehsPerHour="40" type="passenger"/>
+    <flow id="r3_h6" from="-E11" to="E11" begin="18000" end="21600" vehsPerHour="25" type="passenger"/>
+    <flow id="r4_h6" from="-E12" to="E12" begin="18000" end="21600" vehsPerHour="25" type="passenger"/>
+    <flow id="r5_h6" from="-E6" to="E6" begin="18000" end="21600" vehsPerHour="25" type="passenger"/>
+    <flow id="r6_h6" from="-E10" to="E10" begin="18000" end="21600" vehsPerHour="25" type="passenger"/>
+    <flow id="bus1_h6" from="-E15" to="E24" begin="18000" end="21600" vehsPerHour="8" type="bus"/>
+    <flow id="truck1_h6" from="-E15" to="E21" begin="18000" end="21600" vehsPerHour="4" type="truck"/>
+
+</routes>

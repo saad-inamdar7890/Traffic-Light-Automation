@@ -5,7 +5,7 @@
 
     <input>
         <net-file value="k1.net.xml"/>
-        <route-files value="k1_routes_6h_working.rou.xml"/>
+        <route-files value="k1_routes_6h_weekday.rou.xml"/>
     </input>
 
     <time>

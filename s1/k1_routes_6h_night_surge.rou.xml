@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    K1 Network - NIGHT SURGE SCENARIO (6 hours)
+    ============================================
+    Unexpected late-night event (hours 4-6).
+    Very low traffic initially, then sudden surge at night.
+    Simulates bar closing, late concert, emergency evacuation, etc.
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+    <!-- ==================== NIGHT SURGE: LATE-NIGHT EVENT ==================== -->
+    <!-- Hours 0-3: Very low traffic (late night quiet) -->
+    <!-- Hours 3-4: Building up -->
+    <!-- Hours 4-6: Massive surge (event ends, bars close) -->
+    
+    <!-- Route Group 1: E2 to E5 -->
+    <flow id="f_1_night_quiet1" from="E2" to="E5" begin="0" end="3600" vehsPerHour="30" type="passenger"/>
+    <flow id="f_1_night_quiet2" from="E2" to="E5" begin="3600" end="7200" vehsPerHour="25" type="passenger"/>
+    <flow id="f_1_night_quiet3" from="E2" to="E5" begin="7200" end="10800" vehsPerHour="20" type="passenger"/>
+    <flow id="f_1_night_buildup" from="E2" to="E5" begin="10800" end="14400" vehsPerHour="150" type="passenger"/>
+    <flow id="f_1_night_SURGE" from="E2" to="E5" begin="14400" end="18000" vehsPerHour="500" type="passenger"/>
+    <flow id="f_1_night_surge2" from="E2" to="E5" begin="18000" end="21600" vehsPerHour="400" type="passenger"/>
+
+    <!-- Route Group 2: E5 to E2 -->
+    <flow id="f_2_night_quiet1" from="E5" to="E2" begin="0" end="3600" vehsPerHour="30" type="passenger"/>
+    <flow id="f_2_night_quiet2" from="E5" to="E2" begin="3600" end="7200" vehsPerHour="25" type="passenger"/>
+    <flow id="f_2_night_quiet3" from="E5" to="E2" begin="7200" end="10800" vehsPerHour="20" type="passenger"/>
+    <flow id="f_2_night_buildup" from="E5" to="E2" begin="10800" end="14400" vehsPerHour="150" type="passenger"/>
+    <flow id="f_2_night_SURGE" from="E5" to="E2" begin="14400" end="18000" vehsPerHour="500" type="passenger"/>
+    <flow id="f_2_night_surge2" from="E5" to="E2" begin="18000" end="21600" vehsPerHour="400" type="passenger"/>
+
+    <!-- Route Group 3: E9 to E13 -->
+    <flow id="f_3_night_quiet1" from="E9" to="E13" via="E10 E11" begin="0" end="3600" vehsPerHour="20" type="passenger"/>
+    <flow id="f_3_night_quiet2" from="E9" to="E13" via="E10 E11" begin="3600" end="7200" vehsPerHour="15" type="passenger"/>
+    <flow id="f_3_night_quiet3" from="E9" to="E13" via="E10 E11" begin="7200" end="10800" vehsPerHour="15" type="passenger"/>
+    <flow id="f_3_night_buildup" from="E9" to="E13" via="E10 E11" begin="10800" end="14400" vehsPerHour="120" type="passenger"/>
+    <flow id="f_3_night_SURGE" from="E9" to="E13" via="E10 E11" begin="14400" end="18000" vehsPerHour="400" type="passenger"/>
+    <flow id="f_3_night_surge2" from="E9" to="E13" via="E10 E11" begin="18000" end="21600" vehsPerHour="350" type="passenger"/>
+
+    <!-- Route Group 4: E13 to E9 -->
+    <flow id="f_4_night_quiet1" from="E13" to="E9" via="E12 E11" begin="0" end="3600" vehsPerHour="20" type="passenger"/>
+    <flow id="f_4_night_quiet2" from="E13" to="E9" via="E12 E11" begin="3600" end="7200" vehsPerHour="15" type="passenger"/>
+    <flow id="f_4_night_quiet3" from="E13" to="E9" via="E12 E11" begin="7200" end="10800" vehsPerHour="15" type="passenger"/>
+    <flow id="f_4_night_buildup" from="E13" to="E9" via="E12 E11" begin="10800" end="14400" vehsPerHour="120" type="passenger"/>
+    <flow id="f_4_night_SURGE" from="E13" to="E9" via="E12 E11" begin="14400" end="18000" vehsPerHour="400" type="passenger"/>
+    <flow id="f_4_night_surge2" from="E13" to="E9" via="E12 E11" begin="18000" end="21600" vehsPerHour="350" type="passenger"/>
+
+    <!-- Route Group 5: E0 to E8 -->
+    <flow id="f_5_night_quiet1" from="E0" to="E8" begin="0" end="3600" vehsPerHour="15" type="passenger"/>
+    <flow id="f_5_night_quiet2" from="E0" to="E8" begin="3600" end="7200" vehsPerHour="10" type="passenger"/>
+    <flow id="f_5_night_quiet3" from="E0" to="E8" begin="7200" end="10800" vehsPerHour="10" type="passenger"/>
+    <flow id="f_5_night_buildup" from="E0" to="E8" begin="10800" end="14400" vehsPerHour="100" type="passenger"/>
+    <flow id="f_5_night_SURGE" from="E0" to="E8" begin="14400" end="18000" vehsPerHour="350" type="passenger"/>
+    <flow id="f_5_night_surge2" from="E0" to="E8" begin="18000" end="21600" vehsPerHour="300" type="passenger"/>
+
+    <!-- Route Group 6: E8 to E0 -->
+    <flow id="f_6_night_quiet1" from="E8" to="E0" begin="0" end="3600" vehsPerHour="15" type="passenger"/>
+    <flow id="f_6_night_quiet2" from="E8" to="E0" begin="3600" end="7200" vehsPerHour="10" type="passenger"/>
+    <flow id="f_6_night_quiet3" from="E8" to="E0" begin="7200" end="10800" vehsPerHour="10" type="passenger"/>
+    <flow id="f_6_night_buildup" from="E8" to="E0" begin="10800" end="14400" vehsPerHour="100" type="passenger"/>
+    <flow id="f_6_night_SURGE" from="E8" to="E0" begin="14400" end="18000" vehsPerHour="350" type="passenger"/>
+    <flow id="f_6_night_surge2" from="E8" to="E0" begin="18000" end="21600" vehsPerHour="300" type="passenger"/>
+
+    <!-- Route Group 7: E1 to E14 -->
+    <flow id="f_7_night_quiet1" from="E1" to="E14" begin="0" end="3600" vehsPerHour="10" type="passenger"/>
+    <flow id="f_7_night_quiet2" from="E1" to="E14" begin="3600" end="7200" vehsPerHour="8" type="passenger"/>
+    <flow id="f_7_night_quiet3" from="E1" to="E14" begin="7200" end="10800" vehsPerHour="8" type="passenger"/>
+    <flow id="f_7_night_buildup" from="E1" to="E14" begin="10800" end="14400" vehsPerHour="80" type="passenger"/>
+    <flow id="f_7_night_SURGE" from="E1" to="E14" begin="14400" end="18000" vehsPerHour="280" type="passenger"/>
+    <flow id="f_7_night_surge2" from="E1" to="E14" begin="18000" end="21600" vehsPerHour="250" type="passenger"/>
+
+    <!-- Route Group 8: E14 to E1 -->
+    <flow id="f_8_night_quiet1" from="E14" to="E1" begin="0" end="3600" vehsPerHour="10" type="passenger"/>
+    <flow id="f_8_night_quiet2" from="E14" to="E1" begin="3600" end="7200" vehsPerHour="8" type="passenger"/>
+    <flow id="f_8_night_quiet3" from="E14" to="E1" begin="7200" end="10800" vehsPerHour="8" type="passenger"/>
+    <flow id="f_8_night_buildup" from="E14" to="E1" begin="10800" end="14400" vehsPerHour="80" type="passenger"/>
+    <flow id="f_8_night_SURGE" from="E14" to="E1" begin="14400" end="18000" vehsPerHour="280" type="passenger"/>
+    <flow id="f_8_night_surge2" from="E14" to="E1" begin="18000" end="21600" vehsPerHour="250" type="passenger"/>
+
+    <!-- Taxis during night surge (common after events) -->
+    <flow id="f_taxi_1_night" from="E2" to="E8" begin="14400" end="21600" vehsPerHour="60" type="passenger"/>
+    <flow id="f_taxi_2_night" from="E5" to="E13" begin="14400" end="21600" vehsPerHour="50" type="passenger"/>
+    <flow id="f_taxi_3_night" from="E0" to="E14" begin="14400" end="21600" vehsPerHour="40" type="passenger"/>
+
+    <!-- Late night buses (night service) -->
+    <flow id="f_bus_night" from="E0" to="E5" begin="14400" end="21600" vehsPerHour="8" type="bus"/>
+
+</routes>

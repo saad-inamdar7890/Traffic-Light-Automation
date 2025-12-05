@@ -543,11 +543,20 @@ class K1Environment:
             self.current_phases[junction_id] = 0
             self.time_in_phase[junction_id] = 0
     
-    def reset(self, apply_variation=True):
-        """Reset environment for new episode"""
+    def reset(self, apply_variation=True, scenario_override=None):
+        """Reset environment for new episode
+        
+        Args:
+            apply_variation: Whether to apply traffic variation
+            scenario_override: Optional SUMO config to use (for mixed training)
+        """
         # Close existing connection
         if traci.isLoaded():
             traci.close()
+        
+        # Override scenario config if specified (for mixed training)
+        if scenario_override:
+            self.config.SUMO_CONFIG = scenario_override
         
         # Generate random traffic variation if enabled
         if apply_variation and self.config.ENABLE_TRAFFIC_VARIATION:
@@ -1432,10 +1441,18 @@ def train_mappo(config, resume_checkpoint=None, max_hours=None):
         print(f"Episode {episode}/{config.NUM_EPISODES} | Epsilon: {agent.epsilon:.4f}")
         print(f"{'='*80}")
         
+        # Handle mixed scenario training - randomly select a scenario each episode
+        scenario_override = None
+        current_scenario_name = "default"
+        if hasattr(config, 'MIXED_SCENARIOS') and config.MIXED_SCENARIOS:
+            scenario_override = random.choice(config.MIXED_SCENARIOS)
+            current_scenario_name = scenario_override.replace('k1_6h_', '').replace('.sumocfg', '')
+            print(f"🎲 Mixed training: Selected scenario '{current_scenario_name}'")
+        
         # Reset environment
         reset_start = time.time()
         print(f"[Step 1/4] Resetting SUMO environment...", end=" ", flush=True)
-        local_states, global_state = env.reset()
+        local_states, global_state = env.reset(scenario_override=scenario_override)
         reset_time = time.time() - reset_start
         
         # Show traffic variation info
@@ -1638,8 +1655,9 @@ if __name__ == "__main__":
                         help='Override total number of episodes in config')
     parser.add_argument('--run-episodes', type=int, default=None,
                         help='Run exactly this many episodes from current checkpoint, then stop')
-    parser.add_argument('--scenario', type=str, default='3h', choices=['3h', 'weekday', 'weekend', 'event'],
-                        help='Traffic scenario: 3h (default), weekday, weekend, or event (6h scenarios)')
+    parser.add_argument('--scenario', type=str, default='3h', 
+                        choices=['3h', 'weekday', 'weekend', 'event', 'gridlock', 'incident', 'spike', 'night_surge', 'mixed'],
+                        help='Traffic scenario: 3h (default), weekday, weekend, event, gridlock, incident, spike, night_surge, or mixed (random each episode)')
     args = parser.parse_args()
 
     # Create configuration
@@ -1655,6 +1673,31 @@ if __name__ == "__main__":
     elif args.scenario == 'event':
         config.SUMO_CONFIG = 'k1_6h_event.sumocfg'
         config.STEPS_PER_EPISODE = 21600
+    elif args.scenario == 'gridlock':
+        config.SUMO_CONFIG = 'k1_6h_gridlock.sumocfg'
+        config.STEPS_PER_EPISODE = 21600
+    elif args.scenario == 'incident':
+        config.SUMO_CONFIG = 'k1_6h_incident.sumocfg'
+        config.STEPS_PER_EPISODE = 21600
+    elif args.scenario == 'spike':
+        config.SUMO_CONFIG = 'k1_6h_spike.sumocfg'
+        config.STEPS_PER_EPISODE = 21600
+    elif args.scenario == 'night_surge':
+        config.SUMO_CONFIG = 'k1_6h_night_surge.sumocfg'
+        config.STEPS_PER_EPISODE = 21600
+    elif args.scenario == 'mixed':
+        # Mixed mode: will be handled specially in training loop
+        config.SUMO_CONFIG = 'k1_6h_weekday.sumocfg'  # Default, will change each episode
+        config.STEPS_PER_EPISODE = 21600
+        config.MIXED_SCENARIOS = [
+            'k1_6h_weekday.sumocfg',
+            'k1_6h_weekend.sumocfg',
+            'k1_6h_event.sumocfg',
+            'k1_6h_gridlock.sumocfg',
+            'k1_6h_incident.sumocfg',
+            'k1_6h_spike.sumocfg',
+            'k1_6h_night_surge.sumocfg',
+        ]
     # else: keep default 3h scenario
     
     if args.num_episodes is not None:

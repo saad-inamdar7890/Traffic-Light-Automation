@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    K1 Network - INCIDENT SCENARIO (6 hours)
+    =========================================
+    Asymmetric traffic flow simulating an incident/road closure.
+    Heavy traffic rerouted through alternate corridors.
+    One direction significantly heavier than the other.
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+    <!-- ==================== INCIDENT: ASYMMETRIC FLOW ==================== -->
+    <!-- Simulates incident on main E2-E5 corridor causing rerouting -->
+    
+    <!-- Route Group 1: E2 to E5 - REDUCED (simulating partial closure) -->
+    <flow id="f_1_incident_early" from="E2" to="E5" begin="0" end="3600" vehsPerHour="50" type="passenger"/>
+    <flow id="f_1_incident_morning" from="E2" to="E5" begin="3600" end="10800" vehsPerHour="75" type="passenger"/>
+    <flow id="f_1_incident_midday" from="E2" to="E5" begin="10800" end="14400" vehsPerHour="60" type="passenger"/>
+    <flow id="f_1_incident_afternoon" from="E2" to="E5" begin="14400" end="18000" vehsPerHour="70" type="passenger"/>
+    <flow id="f_1_incident_evening" from="E2" to="E5" begin="18000" end="21600" vehsPerHour="75" type="passenger"/>
+
+    <!-- Route Group 2: E5 to E2 - NORMAL (opposite direction unaffected) -->
+    <flow id="f_2_incident_early" from="E5" to="E2" begin="0" end="3600" vehsPerHour="150" type="passenger"/>
+    <flow id="f_2_incident_morning" from="E5" to="E2" begin="3600" end="10800" vehsPerHour="300" type="passenger"/>
+    <flow id="f_2_incident_midday" from="E5" to="E2" begin="10800" end="14400" vehsPerHour="200" type="passenger"/>
+    <flow id="f_2_incident_afternoon" from="E5" to="E2" begin="14400" end="18000" vehsPerHour="250" type="passenger"/>
+    <flow id="f_2_incident_evening" from="E5" to="E2" begin="18000" end="21600" vehsPerHour="300" type="passenger"/>
+
+    <!-- Route Group 3: E9 to E13 - HEAVY (rerouted traffic) -->
+    <flow id="f_3_incident_early" from="E9" to="E13" via="E10 E11" begin="0" end="3600" vehsPerHour="200" type="passenger"/>
+    <flow id="f_3_incident_morning" from="E9" to="E13" via="E10 E11" begin="3600" end="10800" vehsPerHour="450" type="passenger"/>
+    <flow id="f_3_incident_midday" from="E9" to="E13" via="E10 E11" begin="10800" end="14400" vehsPerHour="350" type="passenger"/>
+    <flow id="f_3_incident_afternoon" from="E9" to="E13" via="E10 E11" begin="14400" end="18000" vehsPerHour="400" type="passenger"/>
+    <flow id="f_3_incident_evening" from="E9" to="E13" via="E10 E11" begin="18000" end="21600" vehsPerHour="450" type="passenger"/>
+
+    <!-- Route Group 4: E13 to E9 - NORMAL -->
+    <flow id="f_4_incident_early" from="E13" to="E9" via="E12 E11" begin="0" end="3600" vehsPerHour="100" type="passenger"/>
+    <flow id="f_4_incident_morning" from="E13" to="E9" via="E12 E11" begin="3600" end="10800" vehsPerHour="200" type="passenger"/>
+    <flow id="f_4_incident_midday" from="E13" to="E9" via="E12 E11" begin="10800" end="14400" vehsPerHour="150" type="passenger"/>
+    <flow id="f_4_incident_afternoon" from="E13" to="E9" via="E12 E11" begin="14400" end="18000" vehsPerHour="180" type="passenger"/>
+    <flow id="f_4_incident_evening" from="E13" to="E9" via="E12 E11" begin="18000" end="21600" vehsPerHour="200" type="passenger"/>
+
+    <!-- Route Group 5: E0 to E8 - HEAVY (alternate route absorbing rerouted traffic) -->
+    <flow id="f_5_incident_early" from="E0" to="E8" begin="0" end="3600" vehsPerHour="250" type="passenger"/>
+    <flow id="f_5_incident_morning" from="E0" to="E8" begin="3600" end="10800" vehsPerHour="500" type="passenger"/>
+    <flow id="f_5_incident_midday" from="E0" to="E8" begin="10800" end="14400" vehsPerHour="400" type="passenger"/>
+    <flow id="f_5_incident_afternoon" from="E0" to="E8" begin="14400" end="18000" vehsPerHour="450" type="passenger"/>
+    <flow id="f_5_incident_evening" from="E0" to="E8" begin="18000" end="21600" vehsPerHour="500" type="passenger"/>
+
+    <!-- Route Group 6: E8 to E0 - LIGHT -->
+    <flow id="f_6_incident_early" from="E8" to="E0" begin="0" end="3600" vehsPerHour="80" type="passenger"/>
+    <flow id="f_6_incident_morning" from="E8" to="E0" begin="3600" end="10800" vehsPerHour="150" type="passenger"/>
+    <flow id="f_6_incident_midday" from="E8" to="E0" begin="10800" end="14400" vehsPerHour="120" type="passenger"/>
+    <flow id="f_6_incident_afternoon" from="E8" to="E0" begin="14400" end="18000" vehsPerHour="140" type="passenger"/>
+    <flow id="f_6_incident_evening" from="E8" to="E0" begin="18000" end="21600" vehsPerHour="150" type="passenger"/>
+
+    <!-- Route Group 7: E1 to E14 - HEAVY (another alternate route) -->
+    <flow id="f_7_incident_early" from="E1" to="E14" begin="0" end="3600" vehsPerHour="180" type="passenger"/>
+    <flow id="f_7_incident_morning" from="E1" to="E14" begin="3600" end="10800" vehsPerHour="350" type="passenger"/>
+    <flow id="f_7_incident_midday" from="E1" to="E14" begin="10800" end="14400" vehsPerHour="280" type="passenger"/>
+    <flow id="f_7_incident_afternoon" from="E1" to="E14" begin="14400" end="18000" vehsPerHour="320" type="passenger"/>
+    <flow id="f_7_incident_evening" from="E1" to="E14" begin="18000" end="21600" vehsPerHour="350" type="passenger"/>
+
+    <!-- Route Group 8: E14 to E1 - LIGHT -->
+    <flow id="f_8_incident_early" from="E14" to="E1" begin="0" end="3600" vehsPerHour="60" type="passenger"/>
+    <flow id="f_8_incident_morning" from="E14" to="E1" begin="3600" end="10800" vehsPerHour="120" type="passenger"/>
+    <flow id="f_8_incident_midday" from="E14" to="E1" begin="10800" end="14400" vehsPerHour="90" type="passenger"/>
+    <flow id="f_8_incident_afternoon" from="E14" to="E1" begin="14400" end="18000" vehsPerHour="100" type="passenger"/>
+    <flow id="f_8_incident_evening" from="E14" to="E1" begin="18000" end="21600" vehsPerHour="120" type="passenger"/>
+
+    <!-- Emergency vehicles during incident (occasional) -->
+    <flow id="f_emergency_incident" from="E2" to="E8" begin="3600" end="14400" vehsPerHour="10" type="emergency"/>
+    
+    <!-- Heavy vehicles - reduced due to incident -->
+    <flow id="f_truck_1_incident" from="E9" to="E13" begin="3600" end="18000" vehsPerHour="20" type="truck"/>
+    <flow id="f_bus_1_incident" from="E0" to="E5" begin="0" end="21600" vehsPerHour="15" type="bus"/>
+
+</routes>

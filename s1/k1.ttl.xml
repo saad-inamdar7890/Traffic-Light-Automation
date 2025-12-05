@@ -33,6 +33,15 @@
         <phase duration="42" state="GGGgrrrrGGGgrrrr"/>
         <phase duration="3"  state="yyyyrrrryyyyrrrr"/>
     </tlLogic>
+    <tlLogic id="J21" type="static" programID="0" offset="0">
+        <phase duration="3"  state="rrrrrrrrrrrrrr" next="1"/>
+        <phase duration="42" state="grrGGGGrrrrrrr" next="2"/>
+        <phase duration="3"  state="yrryyyrrrrrrrr" next="3"/>
+        <phase duration="42" state="GGGGGrgrrrrrrr" next="4"/>
+        <phase duration="3"  state="yyyyyryrrrrrrr" next="5"/>
+        <phase duration="2"  state="GrrggrGGrrrrrr" next="6"/>
+        <phase duration="3"  state="yrryryyyrrrrrr" next="1"/>
+    </tlLogic>
     <tlLogic id="J22" type="static" programID="0" offset="0">
         <phase duration="42" state="GGGgrrrrGGGgrrrr"/>
         <phase duration="3"  state="yyyyrrrryyyyrrrr"/>

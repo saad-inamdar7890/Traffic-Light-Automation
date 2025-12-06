@@ -1,88 +1,181 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-    K1 Network - NIGHT SURGE SCENARIO (6 hours)
-    ============================================
-    Unexpected late-night event (hours 4-6).
-    Very low traffic initially, then sudden surge at night.
-    Simulates bar closing, late concert, emergency evacuation, etc.
--->
+<?xml version='1.0' encoding='utf-8'?>
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-
-    <!-- ==================== NIGHT SURGE: LATE-NIGHT EVENT ==================== -->
-    <!-- Hours 0-3: Very low traffic (late night quiet) -->
-    <!-- Hours 3-4: Building up -->
-    <!-- Hours 4-6: Massive surge (event ends, bars close) -->
-    
-    <!-- Route Group 1: E2 to E5 -->
-    <flow id="f_1_night_quiet1" from="E2" to="E5" begin="0" end="3600" vehsPerHour="30" type="passenger"/>
-    <flow id="f_1_night_quiet2" from="E2" to="E5" begin="3600" end="7200" vehsPerHour="25" type="passenger"/>
-    <flow id="f_1_night_quiet3" from="E2" to="E5" begin="7200" end="10800" vehsPerHour="20" type="passenger"/>
-    <flow id="f_1_night_buildup" from="E2" to="E5" begin="10800" end="14400" vehsPerHour="150" type="passenger"/>
-    <flow id="f_1_night_SURGE" from="E2" to="E5" begin="14400" end="18000" vehsPerHour="500" type="passenger"/>
-    <flow id="f_1_night_surge2" from="E2" to="E5" begin="18000" end="21600" vehsPerHour="400" type="passenger"/>
-
-    <!-- Route Group 2: E5 to E2 -->
-    <flow id="f_2_night_quiet1" from="E5" to="E2" begin="0" end="3600" vehsPerHour="30" type="passenger"/>
-    <flow id="f_2_night_quiet2" from="E5" to="E2" begin="3600" end="7200" vehsPerHour="25" type="passenger"/>
-    <flow id="f_2_night_quiet3" from="E5" to="E2" begin="7200" end="10800" vehsPerHour="20" type="passenger"/>
-    <flow id="f_2_night_buildup" from="E5" to="E2" begin="10800" end="14400" vehsPerHour="150" type="passenger"/>
-    <flow id="f_2_night_SURGE" from="E5" to="E2" begin="14400" end="18000" vehsPerHour="500" type="passenger"/>
-    <flow id="f_2_night_surge2" from="E5" to="E2" begin="18000" end="21600" vehsPerHour="400" type="passenger"/>
-
-    <!-- Route Group 3: E9 to E13 -->
-    <flow id="f_3_night_quiet1" from="E9" to="E13" via="E10 E11" begin="0" end="3600" vehsPerHour="20" type="passenger"/>
-    <flow id="f_3_night_quiet2" from="E9" to="E13" via="E10 E11" begin="3600" end="7200" vehsPerHour="15" type="passenger"/>
-    <flow id="f_3_night_quiet3" from="E9" to="E13" via="E10 E11" begin="7200" end="10800" vehsPerHour="15" type="passenger"/>
-    <flow id="f_3_night_buildup" from="E9" to="E13" via="E10 E11" begin="10800" end="14400" vehsPerHour="120" type="passenger"/>
-    <flow id="f_3_night_SURGE" from="E9" to="E13" via="E10 E11" begin="14400" end="18000" vehsPerHour="400" type="passenger"/>
-    <flow id="f_3_night_surge2" from="E9" to="E13" via="E10 E11" begin="18000" end="21600" vehsPerHour="350" type="passenger"/>
-
-    <!-- Route Group 4: E13 to E9 -->
-    <flow id="f_4_night_quiet1" from="E13" to="E9" via="E12 E11" begin="0" end="3600" vehsPerHour="20" type="passenger"/>
-    <flow id="f_4_night_quiet2" from="E13" to="E9" via="E12 E11" begin="3600" end="7200" vehsPerHour="15" type="passenger"/>
-    <flow id="f_4_night_quiet3" from="E13" to="E9" via="E12 E11" begin="7200" end="10800" vehsPerHour="15" type="passenger"/>
-    <flow id="f_4_night_buildup" from="E13" to="E9" via="E12 E11" begin="10800" end="14400" vehsPerHour="120" type="passenger"/>
-    <flow id="f_4_night_SURGE" from="E13" to="E9" via="E12 E11" begin="14400" end="18000" vehsPerHour="400" type="passenger"/>
-    <flow id="f_4_night_surge2" from="E13" to="E9" via="E12 E11" begin="18000" end="21600" vehsPerHour="350" type="passenger"/>
-
-    <!-- Route Group 5: E0 to E8 -->
-    <flow id="f_5_night_quiet1" from="E0" to="E8" begin="0" end="3600" vehsPerHour="15" type="passenger"/>
-    <flow id="f_5_night_quiet2" from="E0" to="E8" begin="3600" end="7200" vehsPerHour="10" type="passenger"/>
-    <flow id="f_5_night_quiet3" from="E0" to="E8" begin="7200" end="10800" vehsPerHour="10" type="passenger"/>
-    <flow id="f_5_night_buildup" from="E0" to="E8" begin="10800" end="14400" vehsPerHour="100" type="passenger"/>
-    <flow id="f_5_night_SURGE" from="E0" to="E8" begin="14400" end="18000" vehsPerHour="350" type="passenger"/>
-    <flow id="f_5_night_surge2" from="E0" to="E8" begin="18000" end="21600" vehsPerHour="300" type="passenger"/>
-
-    <!-- Route Group 6: E8 to E0 -->
-    <flow id="f_6_night_quiet1" from="E8" to="E0" begin="0" end="3600" vehsPerHour="15" type="passenger"/>
-    <flow id="f_6_night_quiet2" from="E8" to="E0" begin="3600" end="7200" vehsPerHour="10" type="passenger"/>
-    <flow id="f_6_night_quiet3" from="E8" to="E0" begin="7200" end="10800" vehsPerHour="10" type="passenger"/>
-    <flow id="f_6_night_buildup" from="E8" to="E0" begin="10800" end="14400" vehsPerHour="100" type="passenger"/>
-    <flow id="f_6_night_SURGE" from="E8" to="E0" begin="14400" end="18000" vehsPerHour="350" type="passenger"/>
-    <flow id="f_6_night_surge2" from="E8" to="E0" begin="18000" end="21600" vehsPerHour="300" type="passenger"/>
-
-    <!-- Route Group 7: E1 to E14 -->
-    <flow id="f_7_night_quiet1" from="E1" to="E14" begin="0" end="3600" vehsPerHour="10" type="passenger"/>
-    <flow id="f_7_night_quiet2" from="E1" to="E14" begin="3600" end="7200" vehsPerHour="8" type="passenger"/>
-    <flow id="f_7_night_quiet3" from="E1" to="E14" begin="7200" end="10800" vehsPerHour="8" type="passenger"/>
-    <flow id="f_7_night_buildup" from="E1" to="E14" begin="10800" end="14400" vehsPerHour="80" type="passenger"/>
-    <flow id="f_7_night_SURGE" from="E1" to="E14" begin="14400" end="18000" vehsPerHour="280" type="passenger"/>
-    <flow id="f_7_night_surge2" from="E1" to="E14" begin="18000" end="21600" vehsPerHour="250" type="passenger"/>
-
-    <!-- Route Group 8: E14 to E1 -->
-    <flow id="f_8_night_quiet1" from="E14" to="E1" begin="0" end="3600" vehsPerHour="10" type="passenger"/>
-    <flow id="f_8_night_quiet2" from="E14" to="E1" begin="3600" end="7200" vehsPerHour="8" type="passenger"/>
-    <flow id="f_8_night_quiet3" from="E14" to="E1" begin="7200" end="10800" vehsPerHour="8" type="passenger"/>
-    <flow id="f_8_night_buildup" from="E14" to="E1" begin="10800" end="14400" vehsPerHour="80" type="passenger"/>
-    <flow id="f_8_night_SURGE" from="E14" to="E1" begin="14400" end="18000" vehsPerHour="280" type="passenger"/>
-    <flow id="f_8_night_surge2" from="E14" to="E1" begin="18000" end="21600" vehsPerHour="250" type="passenger"/>
-
-    <!-- Taxis during night surge (common after events) -->
-    <flow id="f_taxi_1_night" from="E2" to="E8" begin="14400" end="21600" vehsPerHour="60" type="passenger"/>
-    <flow id="f_taxi_2_night" from="E5" to="E13" begin="14400" end="21600" vehsPerHour="50" type="passenger"/>
-    <flow id="f_taxi_3_night" from="E0" to="E14" begin="14400" end="21600" vehsPerHour="40" type="passenger"/>
-
-    <!-- Late night buses (night service) -->
-    <flow id="f_bus_night" from="E0" to="E5" begin="14400" end="21600" vehsPerHour="8" type="bus"/>
-
+    <!-- NIGHT SURGE SCENARIO: Late-night event traffic -->
+    <vType id="bus" vClass="bus" />
+    <vType id="passenger" vClass="passenger" />
+    <vType id="truck" vClass="truck" />
+    <flow id="ngt_r_E9_E13_early_morning" type="passenger" begin="0" end="3600" from="-E9" to="E13" via="E8 E8.59" vehsPerHour="9" />
+    <flow id="ngt_r_E9_E13_morning_peak" type="passenger" begin="3600" end="7200" from="-E9" to="E13" via="E8 E8.59" vehsPerHour="22" />
+    <flow id="ngt_r_E9_E13_midday" type="passenger" begin="7200" end="10800" from="-E9" to="E13" via="E8 E8.59" vehsPerHour="14" />
+    <flow id="ngt_r_E9_E13_afternoon" type="passenger" begin="10800" end="14400" from="-E9" to="E13" via="E8 E8.59" vehsPerHour="122" />
+    <flow id="ngt_r_E9_E13_evening_peak" type="passenger" begin="14400" end="18000" from="-E9" to="E13" via="E8 E8.59" vehsPerHour="536" />
+    <flow id="ngt_r_E9_E13_night" type="passenger" begin="18000" end="21600" from="-E9" to="E13" via="E8 E8.59" vehsPerHour="108" />
+    <flow id="ngt_r_E9_E6_early_morning" type="passenger" begin="0" end="3600" from="-E9" to="E6" via="E8 E0 E0.55 E5" vehsPerHour="8" />
+    <flow id="ngt_r_E9_E6_morning_peak" type="passenger" begin="3600" end="7200" from="-E9" to="E6" via="E8 E0 E0.55 E5" vehsPerHour="19" />
+    <flow id="ngt_r_E9_E6_midday" type="passenger" begin="7200" end="10800" from="-E9" to="E6" via="E8 E0 E0.55 E5" vehsPerHour="12" />
+    <flow id="ngt_r_E9_E6_afternoon" type="passenger" begin="10800" end="14400" from="-E9" to="E6" via="E8 E0 E0.55 E5" vehsPerHour="108" />
+    <flow id="ngt_r_E9_E6_evening_peak" type="passenger" begin="14400" end="18000" from="-E9" to="E6" via="E8 E0 E0.55 E5" vehsPerHour="476" />
+    <flow id="ngt_r_E9_E6_night" type="passenger" begin="18000" end="21600" from="-E9" to="E6" via="E8 E0 E0.55 E5" vehsPerHour="96" />
+    <flow id="ngt_r_E9_E24_early_morning" type="passenger" begin="0" end="3600" from="-E9" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="10" />
+    <flow id="ngt_r_E9_E24_morning_peak" type="passenger" begin="3600" end="7200" from="-E9" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="24" />
+    <flow id="ngt_r_E9_E24_midday" type="passenger" begin="7200" end="10800" from="-E9" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="15" />
+    <flow id="ngt_r_E9_E24_afternoon" type="passenger" begin="10800" end="14400" from="-E9" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="135" />
+    <flow id="ngt_r_E9_E24_evening_peak" type="passenger" begin="14400" end="18000" from="-E9" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="595" />
+    <flow id="ngt_r_E9_E24_night" type="passenger" begin="18000" end="21600" from="-E9" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="120" />
+    <flow id="ngt_r_E9_E21_early_morning" type="passenger" begin="0" end="3600" from="-E9" to="E21" via="E17 E19 E20" vehsPerHour="11" />
+    <flow id="ngt_r_E9_E21_morning_peak" type="passenger" begin="3600" end="7200" from="-E9" to="E21" via="E17 E19 E20" vehsPerHour="26" />
+    <flow id="ngt_r_E9_E21_midday" type="passenger" begin="7200" end="10800" from="-E9" to="E21" via="E17 E19 E20" vehsPerHour="16" />
+    <flow id="ngt_r_E9_E21_afternoon" type="passenger" begin="10800" end="14400" from="-E9" to="E21" via="E17 E19 E20" vehsPerHour="148" />
+    <flow id="ngt_r_E9_E21_evening_peak" type="passenger" begin="14400" end="18000" from="-E9" to="E21" via="E17 E19 E20" vehsPerHour="654" />
+    <flow id="ngt_r_E9_E21_night" type="passenger" begin="18000" end="21600" from="-E9" to="E21" via="E17 E19 E20" vehsPerHour="132" />
+    <flow id="ngt_r_E9_E12_early_morning" type="passenger" begin="0" end="3600" from="-E9" to="E12" via="E8 E8.59" vehsPerHour="8" />
+    <flow id="ngt_r_E9_E12_morning_peak" type="passenger" begin="3600" end="7200" from="-E9" to="E12" via="E8 E8.59" vehsPerHour="20" />
+    <flow id="ngt_r_E9_E12_midday" type="passenger" begin="7200" end="10800" from="-E9" to="E12" via="E8 E8.59" vehsPerHour="13" />
+    <flow id="ngt_r_E9_E12_afternoon" type="passenger" begin="10800" end="14400" from="-E9" to="E12" via="E8 E8.59" vehsPerHour="114" />
+    <flow id="ngt_r_E9_E12_evening_peak" type="passenger" begin="14400" end="18000" from="-E9" to="E12" via="E8 E8.59" vehsPerHour="500" />
+    <flow id="ngt_r_E9_E12_night" type="passenger" begin="18000" end="21600" from="-E9" to="E12" via="E8 E8.59" vehsPerHour="102" />
+    <flow id="ngt_r_E9_E10_early_morning" type="passenger" begin="0" end="3600" from="-E9" to="E10" vehsPerHour="8" />
+    <flow id="ngt_r_E9_E10_morning_peak" type="passenger" begin="3600" end="7200" from="-E9" to="E10" vehsPerHour="18" />
+    <flow id="ngt_r_E9_E10_midday" type="passenger" begin="7200" end="10800" from="-E9" to="E10" vehsPerHour="11" />
+    <flow id="ngt_r_E9_E10_afternoon" type="passenger" begin="10800" end="14400" from="-E9" to="E10" vehsPerHour="102" />
+    <flow id="ngt_r_E9_E10_evening_peak" type="passenger" begin="14400" end="18000" from="-E9" to="E10" vehsPerHour="452" />
+    <flow id="ngt_r_E9_E10_night" type="passenger" begin="18000" end="21600" from="-E9" to="E10" vehsPerHour="90" />
+    <flow id="ngt_r_E10_E9_early_morning" type="passenger" begin="0" end="3600" from="-E10" to="E9" vehsPerHour="10" />
+    <flow id="ngt_r_E10_E9_morning_peak" type="passenger" begin="3600" end="7200" from="-E10" to="E9" vehsPerHour="23" />
+    <flow id="ngt_r_E10_E9_midday" type="passenger" begin="7200" end="10800" from="-E10" to="E9" vehsPerHour="14" />
+    <flow id="ngt_r_E10_E9_afternoon" type="passenger" begin="10800" end="14400" from="-E10" to="E9" vehsPerHour="129" />
+    <flow id="ngt_r_E10_E9_evening_peak" type="passenger" begin="14400" end="18000" from="-E10" to="E9" vehsPerHour="570" />
+    <flow id="ngt_r_E10_E9_night" type="passenger" begin="18000" end="21600" from="-E10" to="E9" vehsPerHour="114" />
+    <flow id="ngt_r_E10_E6_early_morning" type="passenger" begin="0" end="3600" from="-E10" to="E6" via="E17 E18 E4" vehsPerHour="7" />
+    <flow id="ngt_r_E10_E6_morning_peak" type="passenger" begin="3600" end="7200" from="-E10" to="E6" via="E17 E18 E4" vehsPerHour="17" />
+    <flow id="ngt_r_E10_E6_midday" type="passenger" begin="7200" end="10800" from="-E10" to="E6" via="E17 E18 E4" vehsPerHour="10" />
+    <flow id="ngt_r_E10_E6_afternoon" type="passenger" begin="10800" end="14400" from="-E10" to="E6" via="E17 E18 E4" vehsPerHour="94" />
+    <flow id="ngt_r_E10_E6_evening_peak" type="passenger" begin="14400" end="18000" from="-E10" to="E6" via="E17 E18 E4" vehsPerHour="416" />
+    <flow id="ngt_r_E10_E6_night" type="passenger" begin="18000" end="21600" from="-E10" to="E6" via="E17 E18 E4" vehsPerHour="84" />
+    <flow id="ngt_r_E10_E13_early_morning" type="passenger" begin="0" end="3600" from="-E10" to="E13" via="E8 E8.59" vehsPerHour="8" />
+    <flow id="ngt_r_E10_E13_morning_peak" type="passenger" begin="3600" end="7200" from="-E10" to="E13" via="E8 E8.59" vehsPerHour="19" />
+    <flow id="ngt_r_E10_E13_midday" type="passenger" begin="7200" end="10800" from="-E10" to="E13" via="E8 E8.59" vehsPerHour="12" />
+    <flow id="ngt_r_E10_E13_afternoon" type="passenger" begin="10800" end="14400" from="-E10" to="E13" via="E8 E8.59" vehsPerHour="108" />
+    <flow id="ngt_r_E10_E13_evening_peak" type="passenger" begin="14400" end="18000" from="-E10" to="E13" via="E8 E8.59" vehsPerHour="476" />
+    <flow id="ngt_r_E10_E13_night" type="passenger" begin="18000" end="21600" from="-E10" to="E13" via="E8 E8.59" vehsPerHour="96" />
+    <flow id="ngt_r_E10_E24_early_morning" type="passenger" begin="0" end="3600" from="-E10" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="9" />
+    <flow id="ngt_r_E10_E24_morning_peak" type="passenger" begin="3600" end="7200" from="-E10" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="21" />
+    <flow id="ngt_r_E10_E24_midday" type="passenger" begin="7200" end="10800" from="-E10" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="13" />
+    <flow id="ngt_r_E10_E24_afternoon" type="passenger" begin="10800" end="14400" from="-E10" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="118" />
+    <flow id="ngt_r_E10_E24_evening_peak" type="passenger" begin="14400" end="18000" from="-E10" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="525" />
+    <flow id="ngt_r_E10_E24_night" type="passenger" begin="18000" end="21600" from="-E10" to="E24" via="E8 E0 E0.55 E16" vehsPerHour="105" />
+    <flow id="ngt_r_E10_E21_early_morning" type="passenger" begin="0" end="3600" from="-E10" to="E21" via="E17 E19 E20" vehsPerHour="9" />
+    <flow id="ngt_r_E10_E21_morning_peak" type="passenger" begin="3600" end="7200" from="-E10" to="E21" via="E17 E19 E20" vehsPerHour="22" />
+    <flow id="ngt_r_E10_E21_midday" type="passenger" begin="7200" end="10800" from="-E10" to="E21" via="E17 E19 E20" vehsPerHour="14" />
+    <flow id="ngt_r_E10_E21_afternoon" type="passenger" begin="10800" end="14400" from="-E10" to="E21" via="E17 E19 E20" vehsPerHour="124" />
+    <flow id="ngt_r_E10_E21_evening_peak" type="passenger" begin="14400" end="18000" from="-E10" to="E21" via="E17 E19 E20" vehsPerHour="546" />
+    <flow id="ngt_r_E10_E21_night" type="passenger" begin="18000" end="21600" from="-E10" to="E21" via="E17 E19 E20" vehsPerHour="111" />
+    <flow id="ngt_r_E6_E21_early_morning" type="passenger" begin="0" end="3600" from="-E6" to="E21" via="-E5 -E0.55 E20" vehsPerHour="10" />
+    <flow id="ngt_r_E6_E21_morning_peak" type="passenger" begin="3600" end="7200" from="-E6" to="E21" via="-E5 -E0.55 E20" vehsPerHour="25" />
+    <flow id="ngt_r_E6_E21_midday" type="passenger" begin="7200" end="10800" from="-E6" to="E21" via="-E5 -E0.55 E20" vehsPerHour="16" />
+    <flow id="ngt_r_E6_E21_afternoon" type="passenger" begin="10800" end="14400" from="-E6" to="E21" via="-E5 -E0.55 E20" vehsPerHour="141" />
+    <flow id="ngt_r_E6_E21_evening_peak" type="passenger" begin="14400" end="18000" from="-E6" to="E21" via="-E5 -E0.55 E20" vehsPerHour="620" />
+    <flow id="ngt_r_E6_E21_night" type="passenger" begin="18000" end="21600" from="-E6" to="E21" via="-E5 -E0.55 E20" vehsPerHour="126" />
+    <flow id="ngt_r_E6_E10_early_morning" type="passenger" begin="0" end="3600" from="-E6" to="E10" via="-E4 -E18 -E17" vehsPerHour="7" />
+    <flow id="ngt_r_E6_E10_morning_peak" type="passenger" begin="3600" end="7200" from="-E6" to="E10" via="-E4 -E18 -E17" vehsPerHour="17" />
+    <flow id="ngt_r_E6_E10_midday" type="passenger" begin="7200" end="10800" from="-E6" to="E10" via="-E4 -E18 -E17" vehsPerHour="11" />
+    <flow id="ngt_r_E6_E10_afternoon" type="passenger" begin="10800" end="14400" from="-E6" to="E10" via="-E4 -E18 -E17" vehsPerHour="98" />
+    <flow id="ngt_r_E6_E10_evening_peak" type="passenger" begin="14400" end="18000" from="-E6" to="E10" via="-E4 -E18 -E17" vehsPerHour="427" />
+    <flow id="ngt_r_E6_E10_night" type="passenger" begin="18000" end="21600" from="-E6" to="E10" via="-E4 -E18 -E17" vehsPerHour="87" />
+    <flow id="ngt_r_E6_E11_early_morning" type="passenger" begin="0" end="3600" from="-E6" to="E11" via="-E5 -E0.55 -E0" vehsPerHour="10" />
+    <flow id="ngt_r_E6_E11_morning_peak" type="passenger" begin="3600" end="7200" from="-E6" to="E11" via="-E5 -E0.55 -E0" vehsPerHour="23" />
+    <flow id="ngt_r_E6_E11_midday" type="passenger" begin="7200" end="10800" from="-E6" to="E11" via="-E5 -E0.55 -E0" vehsPerHour="14" />
+    <flow id="ngt_r_E6_E11_afternoon" type="passenger" begin="10800" end="14400" from="-E6" to="E11" via="-E5 -E0.55 -E0" vehsPerHour="129" />
+    <flow id="ngt_r_E6_E11_evening_peak" type="passenger" begin="14400" end="18000" from="-E6" to="E11" via="-E5 -E0.55 -E0" vehsPerHour="570" />
+    <flow id="ngt_r_E6_E11_night" type="passenger" begin="18000" end="21600" from="-E6" to="E11" via="-E5 -E0.55 -E0" vehsPerHour="114" />
+    <flow id="ngt_r_E6_E15_early_morning" type="passenger" begin="0" end="3600" from="-E6" to="E15" via="-E4" vehsPerHour="9" />
+    <flow id="ngt_r_E6_E15_morning_peak" type="passenger" begin="3600" end="7200" from="-E6" to="E15" via="-E4" vehsPerHour="21" />
+    <flow id="ngt_r_E6_E15_midday" type="passenger" begin="7200" end="10800" from="-E6" to="E15" via="-E4" vehsPerHour="13" />
+    <flow id="ngt_r_E6_E15_afternoon" type="passenger" begin="10800" end="14400" from="-E6" to="E15" via="-E4" vehsPerHour="116" />
+    <flow id="ngt_r_E6_E15_evening_peak" type="passenger" begin="14400" end="18000" from="-E6" to="E15" via="-E4" vehsPerHour="511" />
+    <flow id="ngt_r_E6_E15_night" type="passenger" begin="18000" end="21600" from="-E6" to="E15" via="-E4" vehsPerHour="102" />
+    <flow id="ngt_b_1_early_morning" type="bus" begin="0.00" from="-E15" to="E24" via="E4 -E5 E16" end="3600.00" vehsPerHour="2" />
+    <flow id="ngt_b_2_early_morning" type="bus" begin="0.00" from="-E15" to="E21" via="-E18 E19 E20" end="3600.00" vehsPerHour="2" />
+    <flow id="ngt_f_0_early_morning" type="passenger" begin="0.00" from="-E15" to="E24" via="E4 -E5 E16" end="3600.00" vehsPerHour="28" />
+    <flow id="ngt_f_16_early_morning" type="passenger" begin="0.00" from="-E11" to="E21" end="3600.00" vehsPerHour="18" />
+    <flow id="ngt_f_17_early_morning" type="passenger" begin="0.00" from="-E12" to="E15" end="3600.00" vehsPerHour="19" />
+    <flow id="ngt_f_19_early_morning" type="passenger" begin="0.00" from="-E13" to="E9" end="3600.00" vehsPerHour="16" />
+    <flow id="ngt_f_1_early_morning" type="passenger" begin="0.00" from="-E15" to="E21" via="-E18 E19 E20" end="3600.00" vehsPerHour="26" />
+    <flow id="ngt_f_20_early_morning" type="passenger" begin="0.00" from="-E13" to="E15" end="3600.00" vehsPerHour="21" />
+    <flow id="ngt_f_21_early_morning" type="passenger" begin="0.00" from="-E24" to="E12" via="-E23" end="3600.00" vehsPerHour="18" />
+    <flow id="ngt_f_22_early_morning" type="passenger" begin="0.00" from="-E24" to="E15" end="3600.00" vehsPerHour="20" />
+    <flow id="ngt_f_23_early_morning" type="passenger" begin="0.00" from="-E21" to="E15" end="3600.00" vehsPerHour="21" />
+    <flow id="ngt_f_24_early_morning" type="passenger" begin="0.00" from="-E21" to="E10" end="3600.00" vehsPerHour="17" />
+    <flow id="ngt_f_2_early_morning" type="passenger" begin="0.00" from="-E15" to="E10" via="-E18 -E17" end="3600.00" vehsPerHour="25" />
+    <flow id="ngt_t_1_early_morning" type="truck" begin="0.00" from="-E15" to="E10" via="-E18 -E17" end="3600.00" vehsPerHour="1" />
+    <flow id="ngt_b_1_morning_peak" type="bus" begin="3600.00" from="-E15" to="E24" via="E4 -E5 E16" end="7200.00" vehsPerHour="4" />
+    <flow id="ngt_b_2_morning_peak" type="bus" begin="3600.00" from="-E15" to="E21" via="-E18 E19 E20" end="7200.00" vehsPerHour="4" />
+    <flow id="ngt_f_0_morning_peak" type="passenger" begin="3600.00" from="-E15" to="E24" via="E4 -E5 E16" end="7200.00" vehsPerHour="67" />
+    <flow id="ngt_f_16_morning_peak" type="passenger" begin="3600.00" from="-E11" to="E21" end="7200.00" vehsPerHour="43" />
+    <flow id="ngt_f_17_morning_peak" type="passenger" begin="3600.00" from="-E12" to="E15" end="7200.00" vehsPerHour="46" />
+    <flow id="ngt_f_19_morning_peak" type="passenger" begin="3600.00" from="-E13" to="E9" end="7200.00" vehsPerHour="39" />
+    <flow id="ngt_f_1_morning_peak" type="passenger" begin="3600.00" from="-E15" to="E21" via="-E18 E19 E20" end="7200.00" vehsPerHour="63" />
+    <flow id="ngt_f_20_morning_peak" type="passenger" begin="3600.00" from="-E13" to="E15" end="7200.00" vehsPerHour="49" />
+    <flow id="ngt_f_21_morning_peak" type="passenger" begin="3600.00" from="-E24" to="E12" via="-E23" end="7200.00" vehsPerHour="44" />
+    <flow id="ngt_f_22_morning_peak" type="passenger" begin="3600.00" from="-E24" to="E15" end="7200.00" vehsPerHour="48" />
+    <flow id="ngt_f_23_morning_peak" type="passenger" begin="3600.00" from="-E21" to="E15" end="7200.00" vehsPerHour="52" />
+    <flow id="ngt_f_24_morning_peak" type="passenger" begin="3600.00" from="-E21" to="E10" end="7200.00" vehsPerHour="42" />
+    <flow id="ngt_f_2_morning_peak" type="passenger" begin="3600.00" from="-E15" to="E10" via="-E18 -E17" end="7200.00" vehsPerHour="59" />
+    <flow id="ngt_t_1_morning_peak" type="truck" begin="3600.00" from="-E15" to="E10" via="-E18 -E17" end="7200.00" vehsPerHour="3" />
+    <flow id="ngt_b_1_midday" type="bus" begin="7200.00" from="-E15" to="E24" via="E4 -E5 E16" end="10800.00" vehsPerHour="3" />
+    <flow id="ngt_b_2_midday" type="bus" begin="7200.00" from="-E15" to="E21" via="-E18 E19 E20" end="10800.00" vehsPerHour="3" />
+    <flow id="ngt_f_0_midday" type="passenger" begin="7200.00" from="-E15" to="E24" via="E4 -E5 E16" end="10800.00" vehsPerHour="42" />
+    <flow id="ngt_f_16_midday" type="passenger" begin="7200.00" from="-E11" to="E21" end="10800.00" vehsPerHour="27" />
+    <flow id="ngt_f_17_midday" type="passenger" begin="7200.00" from="-E12" to="E15" end="10800.00" vehsPerHour="29" />
+    <flow id="ngt_f_19_midday" type="passenger" begin="7200.00" from="-E13" to="E9" end="10800.00" vehsPerHour="24" />
+    <flow id="ngt_f_1_midday" type="passenger" begin="7200.00" from="-E15" to="E21" via="-E18 E19 E20" end="10800.00" vehsPerHour="39" />
+    <flow id="ngt_f_20_midday" type="passenger" begin="7200.00" from="-E13" to="E15" end="10800.00" vehsPerHour="31" />
+    <flow id="ngt_f_21_midday" type="passenger" begin="7200.00" from="-E24" to="E12" via="-E23" end="10800.00" vehsPerHour="28" />
+    <flow id="ngt_f_22_midday" type="passenger" begin="7200.00" from="-E24" to="E15" end="10800.00" vehsPerHour="30" />
+    <flow id="ngt_f_23_midday" type="passenger" begin="7200.00" from="-E21" to="E15" end="10800.00" vehsPerHour="32" />
+    <flow id="ngt_f_24_midday" type="passenger" begin="7200.00" from="-E21" to="E10" end="10800.00" vehsPerHour="26" />
+    <flow id="ngt_f_2_midday" type="passenger" begin="7200.00" from="-E15" to="E10" via="-E18 -E17" end="10800.00" vehsPerHour="37" />
+    <flow id="ngt_t_1_midday" type="truck" begin="7200.00" from="-E15" to="E10" via="-E18 -E17" end="10800.00" vehsPerHour="2" />
+    <flow id="ngt_b_1_afternoon" type="bus" begin="10800.00" from="-E15" to="E24" via="E4 -E5 E16" end="14400.00" vehsPerHour="22" />
+    <flow id="ngt_b_2_afternoon" type="bus" begin="10800.00" from="-E15" to="E21" via="-E18 E19 E20" end="14400.00" vehsPerHour="22" />
+    <flow id="ngt_f_0_afternoon" type="passenger" begin="10800.00" from="-E15" to="E24" via="E4 -E5 E16" end="14400.00" vehsPerHour="375" />
+    <flow id="ngt_f_16_afternoon" type="passenger" begin="10800.00" from="-E11" to="E21" end="14400.00" vehsPerHour="240" />
+    <flow id="ngt_f_17_afternoon" type="passenger" begin="10800.00" from="-E12" to="E15" end="14400.00" vehsPerHour="257" />
+    <flow id="ngt_f_19_afternoon" type="passenger" begin="10800.00" from="-E13" to="E9" end="14400.00" vehsPerHour="216" />
+    <flow id="ngt_f_1_afternoon" type="passenger" begin="10800.00" from="-E15" to="E21" via="-E18 E19 E20" end="14400.00" vehsPerHour="354" />
+    <flow id="ngt_f_20_afternoon" type="passenger" begin="10800.00" from="-E13" to="E15" end="14400.00" vehsPerHour="277" />
+    <flow id="ngt_f_21_afternoon" type="passenger" begin="10800.00" from="-E24" to="E12" via="-E23" end="14400.00" vehsPerHour="247" />
+    <flow id="ngt_f_22_afternoon" type="passenger" begin="10800.00" from="-E24" to="E15" end="14400.00" vehsPerHour="269" />
+    <flow id="ngt_f_23_afternoon" type="passenger" begin="10800.00" from="-E21" to="E15" end="14400.00" vehsPerHour="290" />
+    <flow id="ngt_f_24_afternoon" type="passenger" begin="10800.00" from="-E21" to="E10" end="14400.00" vehsPerHour="236" />
+    <flow id="ngt_f_2_afternoon" type="passenger" begin="10800.00" from="-E15" to="E10" via="-E18 -E17" end="14400.00" vehsPerHour="331" />
+    <flow id="ngt_t_1_afternoon" type="truck" begin="10800.00" from="-E15" to="E10" via="-E18 -E17" end="14400.00" vehsPerHour="18" />
+    <flow id="ngt_b_1_evening_peak" type="bus" begin="14400.00" from="-E15" to="E24" via="E4 -E5 E16" end="18000.00" vehsPerHour="98" />
+    <flow id="ngt_b_2_evening_peak" type="bus" begin="14400.00" from="-E15" to="E21" via="-E18 E19 E20" end="18000.00" vehsPerHour="98" />
+    <flow id="ngt_f_0_evening_peak" type="passenger" begin="14400.00" from="-E15" to="E24" via="E4 -E5 E16" end="18000.00" vehsPerHour="1651" />
+    <flow id="ngt_f_16_evening_peak" type="passenger" begin="14400.00" from="-E11" to="E21" end="18000.00" vehsPerHour="1057" />
+    <flow id="ngt_f_17_evening_peak" type="passenger" begin="14400.00" from="-E12" to="E15" end="18000.00" vehsPerHour="1134" />
+    <flow id="ngt_f_19_evening_peak" type="passenger" begin="14400.00" from="-E13" to="E9" end="18000.00" vehsPerHour="955" />
+    <flow id="ngt_f_1_evening_peak" type="passenger" begin="14400.00" from="-E15" to="E21" via="-E18 E19 E20" end="18000.00" vehsPerHour="1565" />
+    <flow id="ngt_f_20_evening_peak" type="passenger" begin="14400.00" from="-E13" to="E15" end="18000.00" vehsPerHour="1224" />
+    <flow id="ngt_f_21_evening_peak" type="passenger" begin="14400.00" from="-E24" to="E12" via="-E23" end="18000.00" vehsPerHour="1092" />
+    <flow id="ngt_f_22_evening_peak" type="passenger" begin="14400.00" from="-E24" to="E15" end="18000.00" vehsPerHour="1183" />
+    <flow id="ngt_f_23_evening_peak" type="passenger" begin="14400.00" from="-E21" to="E15" end="18000.00" vehsPerHour="1278" />
+    <flow id="ngt_f_24_evening_peak" type="passenger" begin="14400.00" from="-E21" to="E10" end="18000.00" vehsPerHour="1040" />
+    <flow id="ngt_f_2_evening_peak" type="passenger" begin="14400.00" from="-E15" to="E10" via="-E18 -E17" end="18000.00" vehsPerHour="1463" />
+    <flow id="ngt_t_1_evening_peak" type="truck" begin="14400.00" from="-E15" to="E10" via="-E18 -E17" end="18000.00" vehsPerHour="84" />
+    <flow id="ngt_b_1_night" type="bus" begin="18000.00" from="-E15" to="E24" via="E4 -E5 E16" end="21600.00" vehsPerHour="18" />
+    <flow id="ngt_b_2_night" type="bus" begin="18000.00" from="-E15" to="E21" via="-E18 E19 E20" end="21600.00" vehsPerHour="18" />
+    <flow id="ngt_f_0_night" type="passenger" begin="18000.00" from="-E15" to="E24" via="E4 -E5 E16" end="21600.00" vehsPerHour="333" />
+    <flow id="ngt_f_16_night" type="passenger" begin="18000.00" from="-E11" to="E21" end="21600.00" vehsPerHour="213" />
+    <flow id="ngt_f_17_night" type="passenger" begin="18000.00" from="-E12" to="E15" end="21600.00" vehsPerHour="228" />
+    <flow id="ngt_f_19_night" type="passenger" begin="18000.00" from="-E13" to="E9" end="21600.00" vehsPerHour="192" />
+    <flow id="ngt_f_1_night" type="passenger" begin="18000.00" from="-E15" to="E21" via="-E18 E19 E20" end="21600.00" vehsPerHour="315" />
+    <flow id="ngt_f_20_night" type="passenger" begin="18000.00" from="-E13" to="E15" end="21600.00" vehsPerHour="246" />
+    <flow id="ngt_f_21_night" type="passenger" begin="18000.00" from="-E24" to="E12" via="-E23" end="21600.00" vehsPerHour="219" />
+    <flow id="ngt_f_22_night" type="passenger" begin="18000.00" from="-E24" to="E15" end="21600.00" vehsPerHour="237" />
+    <flow id="ngt_f_23_night" type="passenger" begin="18000.00" from="-E21" to="E15" end="21600.00" vehsPerHour="258" />
+    <flow id="ngt_f_24_night" type="passenger" begin="18000.00" from="-E21" to="E10" end="21600.00" vehsPerHour="210" />
+    <flow id="ngt_f_2_night" type="passenger" begin="18000.00" from="-E15" to="E10" via="-E18 -E17" end="21600.00" vehsPerHour="294" />
+    <flow id="ngt_t_1_night" type="truck" begin="18000.00" from="-E15" to="E10" via="-E18 -E17" end="21600.00" vehsPerHour="15" />
 </routes>

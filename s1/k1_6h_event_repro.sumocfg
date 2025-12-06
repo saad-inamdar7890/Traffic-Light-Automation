@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <input>
+    <net-file value="k1.net.xml"/>
+    <route-files value="k1_routes_6h_event_repro.rou.xml"/>
+    <!-- Keep additional files (TLS) same as original event config if needed -->
+  </input>
+  <time>
+    <begin value="0"/>
+    <end value="21600"/>
+  </time>
+</configuration>

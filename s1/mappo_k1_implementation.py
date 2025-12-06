@@ -111,7 +111,7 @@ class MAPPOConfig:
     REWARD_WEIGHT_OWN = 0.5        # 0.6 → 0.5 (own junction)
     REWARD_WEIGHT_NEIGHBORS = 0.35  # 0.3 → 0.35 (stronger coordination)
     REWARD_WEIGHT_NETWORK = 0.15   # 0.1 → 0.15 (network awareness)
-    DEADLOCK_PENALTY = -10.0
+    DEADLOCK_PENALTY = -2.0       # Reduced from -10 (was too harsh and destabilizing)
     GREEN_WAVE_BONUS = 0.3         # NEW: Reward for coordination
     
     # Reward normalization constants
@@ -883,11 +883,15 @@ class K1Environment:
                     if self.neighbor_last_action.get(junction_id, 1) == 0:  # action 0 = keep
                         green_wave_bonus += self.config.GREEN_WAVE_BONUS / len(neighbors)
             
-            # === 5. DEADLOCK PENALTY ===
-            
+            # === 5. DEADLOCK PENALTY (Proportional) ===
+            # Instead of a harsh binary penalty, use a soft proportional penalty
+            # that increases gradually as waiting exceeds threshold
             deadlock_penalty = 0.0
             if current_waiting > self.config.MAX_WAITING_THRESHOLD:
-                deadlock_penalty = self.config.DEADLOCK_PENALTY
+                # Proportional penalty: scales with how much we exceed threshold
+                excess_ratio = (current_waiting - self.config.MAX_WAITING_THRESHOLD) / self.config.MAX_WAITING_THRESHOLD
+                excess_ratio = min(excess_ratio, 2.0)  # Cap at 2x threshold
+                deadlock_penalty = self.config.DEADLOCK_PENALTY * excess_ratio
             
             # === COMBINE ALL COMPONENTS ===
             
@@ -898,8 +902,16 @@ class K1Environment:
                 green_wave_bonus +
                 deadlock_penalty
             )
-            
-            rewards.append(total_reward)
+
+            # Safety guard: ensure reward is finite and within reasonable bounds
+            if not np.isfinite(total_reward):
+                print(f"⚠️  Non-finite reward computed at junction {junction_id}: {total_reward} -> clipping to -5.0")
+                total_reward = -5.0
+
+            # Clip per-junction reward to avoid single-step explosions that destabilize training
+            # Tighter clipping range to keep rewards stable during congestion
+            clipped_reward = float(np.clip(total_reward, -5.0, 5.0))
+            rewards.append(clipped_reward)
         
         return rewards
     

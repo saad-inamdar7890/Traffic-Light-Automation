@@ -53,8 +53,8 @@ class Config12H(MAPPOConfig):
     STEPS_PER_EPISODE = 43200
     
     # Training parameters
-    UPDATE_FREQUENCY = 128        # Update frequency
-    PPO_EPOCHS = 10               # PPO epochs per update
+    UPDATE_FREQUENCY = 64         # More frequent updates (was 128)
+    PPO_EPOCHS = 4                # Safe middle ground (not too aggressive)
     
     # Exploration settings
     EPSILON_START = 0.25
@@ -395,6 +395,10 @@ def train_12h(
                     if metadata:
                         start_episode = metadata.get('episode', 0) + 1
                         print(f"  Resuming from episode {start_episode}")
+                    # Force config values after loading checkpoint
+                    agent.config.UPDATE_FREQUENCY = config.UPDATE_FREQUENCY
+                    agent.config.PPO_EPOCHS = config.PPO_EPOCHS
+                    print(f"  Forced UPDATE_FREQUENCY={config.UPDATE_FREQUENCY}, PPO_EPOCHS={config.PPO_EPOCHS}")
                     checkpoint_found = True
                 break
         

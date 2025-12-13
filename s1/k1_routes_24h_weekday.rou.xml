@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 24-Hour Traffic Scenario: WEEKDAY -->
+<!-- Generated: 2025-12-13T10:53:17.924618 -->
+<!-- Duration: 86400 seconds (24 hours) -->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+    <!-- Vehicle Types -->
+    <vType id="DEFAULT_VEHTYPE"/>
+    <vType id="passenger" vClass="passenger" accel="2.6" decel="4.5" sigma="0.5" length="4.5" maxSpeed="50"/>
+    <vType id="delivery" vClass="delivery" accel="2.0" decel="4.0" sigma="0.5" length="6.0" maxSpeed="40"/>
+    <vType id="truck" vClass="truck" accel="1.3" decel="4.0" sigma="0.5" length="12.0" maxSpeed="35"/>
+    <vType id="bus" vClass="bus" accel="1.2" decel="4.0" sigma="0.5" length="12.0" maxSpeed="30"/>
+
+    <!-- ========== MAJOR ROUTES (High Volume) ========== -->
+    <!-- Route M0: -E15 → E24 -->
+    <flow id="major_0_night" begin="0" end="21600" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="30" type="passenger"/>
+    <flow id="major_0_early_morning" begin="21600" end="28800" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="160" type="passenger"/>
+    <flow id="major_0_morning_peak" begin="28800" end="32400" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="240" type="passenger"/>
+    <flow id="major_0_late_morning" begin="32400" end="43200" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="130" type="passenger"/>
+    <flow id="major_0_lunch" begin="43200" end="50400" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="120" type="passenger"/>
+    <flow id="major_0_early_afternoon" begin="50400" end="57600" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="110" type="passenger"/>
+    <flow id="major_0_late_afternoon" begin="57600" end="61200" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="150" type="passenger"/>
+    <flow id="major_0_evening_peak" begin="61200" end="72000" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="250" type="passenger"/>
+    <flow id="major_0_late_evening" begin="72000" end="79200" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="90" type="passenger"/>
+    <flow id="major_0_late_night" begin="79200" end="86400" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="40" type="passenger"/>
+
+    <!-- Route M1: -E15 → E21 -->
+    <flow id="major_1_night" begin="0" end="21600" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="30" type="passenger"/>
+    <flow id="major_1_early_morning" begin="21600" end="28800" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="160" type="passenger"/>
+    <flow id="major_1_morning_peak" begin="28800" end="32400" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="240" type="passenger"/>
+    <flow id="major_1_late_morning" begin="32400" end="43200" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="130" type="passenger"/>
+    <flow id="major_1_lunch" begin="43200" end="50400" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="120" type="passenger"/>
+    <flow id="major_1_early_afternoon" begin="50400" end="57600" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="110" type="passenger"/>
+    <flow id="major_1_late_afternoon" begin="57600" end="61200" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="150" type="passenger"/>
+    <flow id="major_1_evening_peak" begin="61200" end="72000" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="250" type="passenger"/>
+    <flow id="major_1_late_evening" begin="72000" end="79200" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="90" type="passenger"/>
+    <flow id="major_1_late_night" begin="79200" end="86400" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="40" type="passenger"/>
+
+    <!-- Route M2: -E15 → E10 -->
+    <flow id="major_2_night" begin="0" end="21600" from="-E15" to="E10" via="-E18 -E17" vehsPerHour="30" type="passenger"/>
+    <flow id="major_2_early_morning" begin="21600" end="28800" from="-E15" to="E10" via="-E18 -E17" vehsPerHour="160" type="passenger"/>
+    <flow id="major_2_morning_peak" begin="28800" end="32400" from="-E15" to="E10" via="-E18 -E17" vehsPerHour="240" type="passenger"/>
+    <flow id="major_2_late_morning" begin="32400" end="43200" from="-E15" to="E10" via="-E18 -E17" vehsPerHour="130" type="passenger"/>
+    <flow id="major_2_lunch" begin="43200" end="50400" from="-E15" to="E10" via="-E18 -E17" vehsPerHour="120" type="passenger"/>
+    <flow id="major_2_early_afternoon" begin="50400" end="57600" from="-E15" to="E10" via="-E18 -E17" vehsPerHour="110" type="passenger"/>
+    <flow id="major_2_late_afternoon" begin="57600" end="61200" from="-E15" to="E10" via="-E18 -E17" vehsPerHour="150" type="passenger"/>
+    <flow id="major_2_evening_peak" begin="61200" end="72000" from="-E15" to="E10" via="-E18 -E17" vehsPerHour="250" type="passenger"/>
+    <flow id="major_2_late_evening" begin="72000" end="79200" from="-E15" to="E10" via="-E18 -E17" vehsPerHour="90" type="passenger"/>
+    <flow id="major_2_late_night" begin="79200" end="86400" from="-E15" to="E10" via="-E18 -E17" vehsPerHour="40" type="passenger"/>
+
+    <!-- Route M3: -E24 → E15 -->
+    <flow id="major_3_night" begin="0" end="21600" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="30" type="passenger"/>
+    <flow id="major_3_early_morning" begin="21600" end="28800" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="160" type="passenger"/>
+    <flow id="major_3_morning_peak" begin="28800" end="32400" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="240" type="passenger"/>
+    <flow id="major_3_late_morning" begin="32400" end="43200" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="130" type="passenger"/>
+    <flow id="major_3_lunch" begin="43200" end="50400" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="120" type="passenger"/>
+    <flow id="major_3_early_afternoon" begin="50400" end="57600" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="110" type="passenger"/>
+    <flow id="major_3_late_afternoon" begin="57600" end="61200" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="150" type="passenger"/>
+    <flow id="major_3_evening_peak" begin="61200" end="72000" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="250" type="passenger"/>
+    <flow id="major_3_late_evening" begin="72000" end="79200" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="90" type="passenger"/>
+    <flow id="major_3_late_night" begin="79200" end="86400" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="40" type="passenger"/>
+
+    <!-- Route M4: -E21 → E15 -->
+    <flow id="major_4_night" begin="0" end="21600" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="30" type="passenger"/>
+    <flow id="major_4_early_morning" begin="21600" end="28800" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="160" type="passenger"/>
+    <flow id="major_4_morning_peak" begin="28800" end="32400" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="240" type="passenger"/>
+    <flow id="major_4_late_morning" begin="32400" end="43200" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="130" type="passenger"/>
+    <flow id="major_4_lunch" begin="43200" end="50400" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="120" type="passenger"/>
+    <flow id="major_4_early_afternoon" begin="50400" end="57600" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="110" type="passenger"/>
+    <flow id="major_4_late_afternoon" begin="57600" end="61200" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="150" type="passenger"/>
+    <flow id="major_4_evening_peak" begin="61200" end="72000" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="250" type="passenger"/>
+    <flow id="major_4_late_evening" begin="72000" end="79200" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="90" type="passenger"/>
+    <flow id="major_4_late_night" begin="79200" end="86400" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="40" type="passenger"/>
+
+    <!-- Route M5: -E10 → E15 -->
+    <flow id="major_5_night" begin="0" end="21600" from="-E10" to="E15" via="E17 E18" vehsPerHour="30" type="passenger"/>
+    <flow id="major_5_early_morning" begin="21600" end="28800" from="-E10" to="E15" via="E17 E18" vehsPerHour="160" type="passenger"/>
+    <flow id="major_5_morning_peak" begin="28800" end="32400" from="-E10" to="E15" via="E17 E18" vehsPerHour="240" type="passenger"/>
+    <flow id="major_5_late_morning" begin="32400" end="43200" from="-E10" to="E15" via="E17 E18" vehsPerHour="130" type="passenger"/>
+    <flow id="major_5_lunch" begin="43200" end="50400" from="-E10" to="E15" via="E17 E18" vehsPerHour="120" type="passenger"/>
+    <flow id="major_5_early_afternoon" begin="50400" end="57600" from="-E10" to="E15" via="E17 E18" vehsPerHour="110" type="passenger"/>
+    <flow id="major_5_late_afternoon" begin="57600" end="61200" from="-E10" to="E15" via="E17 E18" vehsPerHour="150" type="passenger"/>
+    <flow id="major_5_evening_peak" begin="61200" end="72000" from="-E10" to="E15" via="E17 E18" vehsPerHour="250" type="passenger"/>
+    <flow id="major_5_late_evening" begin="72000" end="79200" from="-E10" to="E15" via="E17 E18" vehsPerHour="90" type="passenger"/>
+    <flow id="major_5_late_night" begin="79200" end="86400" from="-E10" to="E15" via="E17 E18" vehsPerHour="40" type="passenger"/>
+
+    <!-- Route M6: -E11 → E24 -->
+    <flow id="major_6_night" begin="0" end="21600" from="-E11" to="E24" vehsPerHour="30" type="passenger"/>
+    <flow id="major_6_early_morning" begin="21600" end="28800" from="-E11" to="E24" vehsPerHour="160" type="passenger"/>
+    <flow id="major_6_morning_peak" begin="28800" end="32400" from="-E11" to="E24" vehsPerHour="240" type="passenger"/>
+    <flow id="major_6_late_morning" begin="32400" end="43200" from="-E11" to="E24" vehsPerHour="130" type="passenger"/>
+    <flow id="major_6_lunch" begin="43200" end="50400" from="-E11" to="E24" vehsPerHour="120" type="passenger"/>
+    <flow id="major_6_early_afternoon" begin="50400" end="57600" from="-E11" to="E24" vehsPerHour="110" type="passenger"/>
+    <flow id="major_6_late_afternoon" begin="57600" end="61200" from="-E11" to="E24" vehsPerHour="150" type="passenger"/>
+    <flow id="major_6_evening_peak" begin="61200" end="72000" from="-E11" to="E24" vehsPerHour="250" type="passenger"/>
+    <flow id="major_6_late_evening" begin="72000" end="79200" from="-E11" to="E24" vehsPerHour="90" type="passenger"/>
+    <flow id="major_6_late_night" begin="79200" end="86400" from="-E11" to="E24" vehsPerHour="40" type="passenger"/>
+
+    <!-- Route M7: -E24 → E11 -->
+    <flow id="major_7_night" begin="0" end="21600" from="-E24" to="E11" via="-E23" vehsPerHour="30" type="passenger"/>
+    <flow id="major_7_early_morning" begin="21600" end="28800" from="-E24" to="E11" via="-E23" vehsPerHour="160" type="passenger"/>
+    <flow id="major_7_morning_peak" begin="28800" end="32400" from="-E24" to="E11" via="-E23" vehsPerHour="240" type="passenger"/>
+    <flow id="major_7_late_morning" begin="32400" end="43200" from="-E24" to="E11" via="-E23" vehsPerHour="130" type="passenger"/>
+    <flow id="major_7_lunch" begin="43200" end="50400" from="-E24" to="E11" via="-E23" vehsPerHour="120" type="passenger"/>
+    <flow id="major_7_early_afternoon" begin="50400" end="57600" from="-E24" to="E11" via="-E23" vehsPerHour="110" type="passenger"/>
+    <flow id="major_7_late_afternoon" begin="57600" end="61200" from="-E24" to="E11" via="-E23" vehsPerHour="150" type="passenger"/>
+    <flow id="major_7_evening_peak" begin="61200" end="72000" from="-E24" to="E11" via="-E23" vehsPerHour="250" type="passenger"/>
+    <flow id="major_7_late_evening" begin="72000" end="79200" from="-E24" to="E11" via="-E23" vehsPerHour="90" type="passenger"/>
+    <flow id="major_7_late_night" begin="79200" end="86400" from="-E24" to="E11" via="-E23" vehsPerHour="40" type="passenger"/>
+
+    <!-- Route M8: -E9 → E24 -->
+    <flow id="major_8_night" begin="0" end="21600" from="-E9" to="E24" vehsPerHour="30" type="passenger"/>
+    <flow id="major_8_early_morning" begin="21600" end="28800" from="-E9" to="E24" vehsPerHour="160" type="passenger"/>
+    <flow id="major_8_morning_peak" begin="28800" end="32400" from="-E9" to="E24" vehsPerHour="240" type="passenger"/>
+    <flow id="major_8_late_morning" begin="32400" end="43200" from="-E9" to="E24" vehsPerHour="130" type="passenger"/>
+    <flow id="major_8_lunch" begin="43200" end="50400" from="-E9" to="E24" vehsPerHour="120" type="passenger"/>
+    <flow id="major_8_early_afternoon" begin="50400" end="57600" from="-E9" to="E24" vehsPerHour="110" type="passenger"/>
+    <flow id="major_8_late_afternoon" begin="57600" end="61200" from="-E9" to="E24" vehsPerHour="150" type="passenger"/>
+    <flow id="major_8_evening_peak" begin="61200" end="72000" from="-E9" to="E24" vehsPerHour="250" type="passenger"/>
+    <flow id="major_8_late_evening" begin="72000" end="79200" from="-E9" to="E24" vehsPerHour="90" type="passenger"/>
+    <flow id="major_8_late_night" begin="79200" end="86400" from="-E9" to="E24" vehsPerHour="40" type="passenger"/>
+
+    <!-- Route M9: -E12 → E21 -->
+    <flow id="major_9_night" begin="0" end="21600" from="-E12" to="E21" vehsPerHour="30" type="passenger"/>
+    <flow id="major_9_early_morning" begin="21600" end="28800" from="-E12" to="E21" vehsPerHour="160" type="passenger"/>
+    <flow id="major_9_morning_peak" begin="28800" end="32400" from="-E12" to="E21" vehsPerHour="240" type="passenger"/>
+    <flow id="major_9_late_morning" begin="32400" end="43200" from="-E12" to="E21" vehsPerHour="130" type="passenger"/>
+    <flow id="major_9_lunch" begin="43200" end="50400" from="-E12" to="E21" vehsPerHour="120" type="passenger"/>
+    <flow id="major_9_early_afternoon" begin="50400" end="57600" from="-E12" to="E21" vehsPerHour="110" type="passenger"/>
+    <flow id="major_9_late_afternoon" begin="57600" end="61200" from="-E12" to="E21" vehsPerHour="150" type="passenger"/>
+    <flow id="major_9_evening_peak" begin="61200" end="72000" from="-E12" to="E21" vehsPerHour="250" type="passenger"/>
+    <flow id="major_9_late_evening" begin="72000" end="79200" from="-E12" to="E21" vehsPerHour="90" type="passenger"/>
+    <flow id="major_9_late_night" begin="79200" end="86400" from="-E12" to="E21" vehsPerHour="40" type="passenger"/>
+
+    <!-- ========== MEDIUM ROUTES (Secondary) ========== -->
+    <!-- Route S0: -E11 → E21 -->
+    <flow id="medium_0_night" begin="0" end="21600" from="-E11" to="E21" vehsPerHour="12" type="passenger"/>
+    <flow id="medium_0_early_morning" begin="21600" end="28800" from="-E11" to="E21" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_0_morning_peak" begin="28800" end="32400" from="-E11" to="E21" vehsPerHour="132" type="passenger"/>
+    <flow id="medium_0_late_morning" begin="32400" end="43200" from="-E11" to="E21" vehsPerHour="72" type="passenger"/>
+    <flow id="medium_0_lunch" begin="43200" end="50400" from="-E11" to="E21" vehsPerHour="66" type="passenger"/>
+    <flow id="medium_0_early_afternoon" begin="50400" end="57600" from="-E11" to="E21" vehsPerHour="60" type="passenger"/>
+    <flow id="medium_0_late_afternoon" begin="57600" end="61200" from="-E11" to="E21" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_0_evening_peak" begin="61200" end="72000" from="-E11" to="E21" vehsPerHour="138" type="passenger"/>
+    <flow id="medium_0_late_evening" begin="72000" end="79200" from="-E11" to="E21" vehsPerHour="48" type="passenger"/>
+    <flow id="medium_0_late_night" begin="79200" end="86400" from="-E11" to="E21" vehsPerHour="18" type="passenger"/>
+
+    <!-- Route S1: -E12 → E15 -->
+    <flow id="medium_1_night" begin="0" end="21600" from="-E12" to="E15" vehsPerHour="12" type="passenger"/>
+    <flow id="medium_1_early_morning" begin="21600" end="28800" from="-E12" to="E15" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_1_morning_peak" begin="28800" end="32400" from="-E12" to="E15" vehsPerHour="132" type="passenger"/>
+    <flow id="medium_1_late_morning" begin="32400" end="43200" from="-E12" to="E15" vehsPerHour="72" type="passenger"/>
+    <flow id="medium_1_lunch" begin="43200" end="50400" from="-E12" to="E15" vehsPerHour="66" type="passenger"/>
+    <flow id="medium_1_early_afternoon" begin="50400" end="57600" from="-E12" to="E15" vehsPerHour="60" type="passenger"/>
+    <flow id="medium_1_late_afternoon" begin="57600" end="61200" from="-E12" to="E15" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_1_evening_peak" begin="61200" end="72000" from="-E12" to="E15" vehsPerHour="138" type="passenger"/>
+    <flow id="medium_1_late_evening" begin="72000" end="79200" from="-E12" to="E15" vehsPerHour="48" type="passenger"/>
+    <flow id="medium_1_late_night" begin="79200" end="86400" from="-E12" to="E15" vehsPerHour="18" type="passenger"/>
+
+    <!-- Route S2: -E13 → E9 -->
+    <flow id="medium_2_night" begin="0" end="21600" from="-E13" to="E9" vehsPerHour="12" type="passenger"/>
+    <flow id="medium_2_early_morning" begin="21600" end="28800" from="-E13" to="E9" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_2_morning_peak" begin="28800" end="32400" from="-E13" to="E9" vehsPerHour="132" type="passenger"/>
+    <flow id="medium_2_late_morning" begin="32400" end="43200" from="-E13" to="E9" vehsPerHour="72" type="passenger"/>
+    <flow id="medium_2_lunch" begin="43200" end="50400" from="-E13" to="E9" vehsPerHour="66" type="passenger"/>
+    <flow id="medium_2_early_afternoon" begin="50400" end="57600" from="-E13" to="E9" vehsPerHour="60" type="passenger"/>
+    <flow id="medium_2_late_afternoon" begin="57600" end="61200" from="-E13" to="E9" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_2_evening_peak" begin="61200" end="72000" from="-E13" to="E9" vehsPerHour="138" type="passenger"/>
+    <flow id="medium_2_late_evening" begin="72000" end="79200" from="-E13" to="E9" vehsPerHour="48" type="passenger"/>
+    <flow id="medium_2_late_night" begin="79200" end="86400" from="-E13" to="E9" vehsPerHour="18" type="passenger"/>
+
+    <!-- Route S3: -E13 → E15 -->
+    <flow id="medium_3_night" begin="0" end="21600" from="-E13" to="E15" vehsPerHour="12" type="passenger"/>
+    <flow id="medium_3_early_morning" begin="21600" end="28800" from="-E13" to="E15" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_3_morning_peak" begin="28800" end="32400" from="-E13" to="E15" vehsPerHour="132" type="passenger"/>
+    <flow id="medium_3_late_morning" begin="32400" end="43200" from="-E13" to="E15" vehsPerHour="72" type="passenger"/>
+    <flow id="medium_3_lunch" begin="43200" end="50400" from="-E13" to="E15" vehsPerHour="66" type="passenger"/>
+    <flow id="medium_3_early_afternoon" begin="50400" end="57600" from="-E13" to="E15" vehsPerHour="60" type="passenger"/>
+    <flow id="medium_3_late_afternoon" begin="57600" end="61200" from="-E13" to="E15" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_3_evening_peak" begin="61200" end="72000" from="-E13" to="E15" vehsPerHour="138" type="passenger"/>
+    <flow id="medium_3_late_evening" begin="72000" end="79200" from="-E13" to="E15" vehsPerHour="48" type="passenger"/>
+    <flow id="medium_3_late_night" begin="79200" end="86400" from="-E13" to="E15" vehsPerHour="18" type="passenger"/>
+
+    <!-- Route S4: -E24 → E12 -->
+    <flow id="medium_4_night" begin="0" end="21600" from="-E24" to="E12" via="-E23" vehsPerHour="12" type="passenger"/>
+    <flow id="medium_4_early_morning" begin="21600" end="28800" from="-E24" to="E12" via="-E23" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_4_morning_peak" begin="28800" end="32400" from="-E24" to="E12" via="-E23" vehsPerHour="132" type="passenger"/>
+    <flow id="medium_4_late_morning" begin="32400" end="43200" from="-E24" to="E12" via="-E23" vehsPerHour="72" type="passenger"/>
+    <flow id="medium_4_lunch" begin="43200" end="50400" from="-E24" to="E12" via="-E23" vehsPerHour="66" type="passenger"/>
+    <flow id="medium_4_early_afternoon" begin="50400" end="57600" from="-E24" to="E12" via="-E23" vehsPerHour="60" type="passenger"/>
+    <flow id="medium_4_late_afternoon" begin="57600" end="61200" from="-E24" to="E12" via="-E23" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_4_evening_peak" begin="61200" end="72000" from="-E24" to="E12" via="-E23" vehsPerHour="138" type="passenger"/>
+    <flow id="medium_4_late_evening" begin="72000" end="79200" from="-E24" to="E12" via="-E23" vehsPerHour="48" type="passenger"/>
+    <flow id="medium_4_late_night" begin="79200" end="86400" from="-E24" to="E12" via="-E23" vehsPerHour="18" type="passenger"/>
+
+    <!-- Route S5: -E24 → E15 -->
+    <flow id="medium_5_night" begin="0" end="21600" from="-E24" to="E15" vehsPerHour="12" type="passenger"/>
+    <flow id="medium_5_early_morning" begin="21600" end="28800" from="-E24" to="E15" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_5_morning_peak" begin="28800" end="32400" from="-E24" to="E15" vehsPerHour="132" type="passenger"/>
+    <flow id="medium_5_late_morning" begin="32400" end="43200" from="-E24" to="E15" vehsPerHour="72" type="passenger"/>
+    <flow id="medium_5_lunch" begin="43200" end="50400" from="-E24" to="E15" vehsPerHour="66" type="passenger"/>
+    <flow id="medium_5_early_afternoon" begin="50400" end="57600" from="-E24" to="E15" vehsPerHour="60" type="passenger"/>
+    <flow id="medium_5_late_afternoon" begin="57600" end="61200" from="-E24" to="E15" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_5_evening_peak" begin="61200" end="72000" from="-E24" to="E15" vehsPerHour="138" type="passenger"/>
+    <flow id="medium_5_late_evening" begin="72000" end="79200" from="-E24" to="E15" vehsPerHour="48" type="passenger"/>
+    <flow id="medium_5_late_night" begin="79200" end="86400" from="-E24" to="E15" vehsPerHour="18" type="passenger"/>
+
+    <!-- Route S6: -E21 → E15 -->
+    <flow id="medium_6_night" begin="0" end="21600" from="-E21" to="E15" vehsPerHour="12" type="passenger"/>
+    <flow id="medium_6_early_morning" begin="21600" end="28800" from="-E21" to="E15" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_6_morning_peak" begin="28800" end="32400" from="-E21" to="E15" vehsPerHour="132" type="passenger"/>
+    <flow id="medium_6_late_morning" begin="32400" end="43200" from="-E21" to="E15" vehsPerHour="72" type="passenger"/>
+    <flow id="medium_6_lunch" begin="43200" end="50400" from="-E21" to="E15" vehsPerHour="66" type="passenger"/>
+    <flow id="medium_6_early_afternoon" begin="50400" end="57600" from="-E21" to="E15" vehsPerHour="60" type="passenger"/>
+    <flow id="medium_6_late_afternoon" begin="57600" end="61200" from="-E21" to="E15" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_6_evening_peak" begin="61200" end="72000" from="-E21" to="E15" vehsPerHour="138" type="passenger"/>
+    <flow id="medium_6_late_evening" begin="72000" end="79200" from="-E21" to="E15" vehsPerHour="48" type="passenger"/>
+    <flow id="medium_6_late_night" begin="79200" end="86400" from="-E21" to="E15" vehsPerHour="18" type="passenger"/>
+
+    <!-- Route S7: -E21 → E10 -->
+    <flow id="medium_7_night" begin="0" end="21600" from="-E21" to="E10" vehsPerHour="12" type="passenger"/>
+    <flow id="medium_7_early_morning" begin="21600" end="28800" from="-E21" to="E10" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_7_morning_peak" begin="28800" end="32400" from="-E21" to="E10" vehsPerHour="132" type="passenger"/>
+    <flow id="medium_7_late_morning" begin="32400" end="43200" from="-E21" to="E10" vehsPerHour="72" type="passenger"/>
+    <flow id="medium_7_lunch" begin="43200" end="50400" from="-E21" to="E10" vehsPerHour="66" type="passenger"/>
+    <flow id="medium_7_early_afternoon" begin="50400" end="57600" from="-E21" to="E10" vehsPerHour="60" type="passenger"/>
+    <flow id="medium_7_late_afternoon" begin="57600" end="61200" from="-E21" to="E10" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_7_evening_peak" begin="61200" end="72000" from="-E21" to="E10" vehsPerHour="138" type="passenger"/>
+    <flow id="medium_7_late_evening" begin="72000" end="79200" from="-E21" to="E10" vehsPerHour="48" type="passenger"/>
+    <flow id="medium_7_late_night" begin="79200" end="86400" from="-E21" to="E10" vehsPerHour="18" type="passenger"/>
+
+    <!-- Route S8: -E21 → E11 -->
+    <flow id="medium_8_night" begin="0" end="21600" from="-E21" to="E11" via="-E20 -E19 E18 -E17" vehsPerHour="12" type="passenger"/>
+    <flow id="medium_8_early_morning" begin="21600" end="28800" from="-E21" to="E11" via="-E20 -E19 E18 -E17" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_8_morning_peak" begin="28800" end="32400" from="-E21" to="E11" via="-E20 -E19 E18 -E17" vehsPerHour="132" type="passenger"/>
+    <flow id="medium_8_late_morning" begin="32400" end="43200" from="-E21" to="E11" via="-E20 -E19 E18 -E17" vehsPerHour="72" type="passenger"/>
+    <flow id="medium_8_lunch" begin="43200" end="50400" from="-E21" to="E11" via="-E20 -E19 E18 -E17" vehsPerHour="66" type="passenger"/>
+    <flow id="medium_8_early_afternoon" begin="50400" end="57600" from="-E21" to="E11" via="-E20 -E19 E18 -E17" vehsPerHour="60" type="passenger"/>
+    <flow id="medium_8_late_afternoon" begin="57600" end="61200" from="-E21" to="E11" via="-E20 -E19 E18 -E17" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_8_evening_peak" begin="61200" end="72000" from="-E21" to="E11" via="-E20 -E19 E18 -E17" vehsPerHour="138" type="passenger"/>
+    <flow id="medium_8_late_evening" begin="72000" end="79200" from="-E21" to="E11" via="-E20 -E19 E18 -E17" vehsPerHour="48" type="passenger"/>
+    <flow id="medium_8_late_night" begin="79200" end="86400" from="-E21" to="E11" via="-E20 -E19 E18 -E17" vehsPerHour="18" type="passenger"/>
+
+    <!-- Route S9: -E10 → E21 -->
+    <flow id="medium_9_night" begin="0" end="21600" from="-E10" to="E21" via="E17 E18 E19 E20" vehsPerHour="12" type="passenger"/>
+    <flow id="medium_9_early_morning" begin="21600" end="28800" from="-E10" to="E21" via="E17 E18 E19 E20" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_9_morning_peak" begin="28800" end="32400" from="-E10" to="E21" via="E17 E18 E19 E20" vehsPerHour="132" type="passenger"/>
+    <flow id="medium_9_late_morning" begin="32400" end="43200" from="-E10" to="E21" via="E17 E18 E19 E20" vehsPerHour="72" type="passenger"/>
+    <flow id="medium_9_lunch" begin="43200" end="50400" from="-E10" to="E21" via="E17 E18 E19 E20" vehsPerHour="66" type="passenger"/>
+    <flow id="medium_9_early_afternoon" begin="50400" end="57600" from="-E10" to="E21" via="E17 E18 E19 E20" vehsPerHour="60" type="passenger"/>
+    <flow id="medium_9_late_afternoon" begin="57600" end="61200" from="-E10" to="E21" via="E17 E18 E19 E20" vehsPerHour="84" type="passenger"/>
+    <flow id="medium_9_evening_peak" begin="61200" end="72000" from="-E10" to="E21" via="E17 E18 E19 E20" vehsPerHour="138" type="passenger"/>
+    <flow id="medium_9_late_evening" begin="72000" end="79200" from="-E10" to="E21" via="E17 E18 E19 E20" vehsPerHour="48" type="passenger"/>
+    <flow id="medium_9_late_night" begin="79200" end="86400" from="-E10" to="E21" via="E17 E18 E19 E20" vehsPerHour="18" type="passenger"/>
+
+    <!-- ========== MINOR ROUTES (Local) ========== -->
+    <!-- Route L0: -E9 → E15 -->
+    <flow id="minor_0_night" begin="0" end="21600" from="-E9" to="E15" vehsPerHour="4" type="passenger"/>
+    <flow id="minor_0_early_morning" begin="21600" end="28800" from="-E9" to="E15" vehsPerHour="30" type="passenger"/>
+    <flow id="minor_0_morning_peak" begin="28800" end="32400" from="-E9" to="E15" vehsPerHour="48" type="passenger"/>
+    <flow id="minor_0_late_morning" begin="32400" end="43200" from="-E9" to="E15" vehsPerHour="27" type="passenger"/>
+    <flow id="minor_0_lunch" begin="43200" end="50400" from="-E9" to="E15" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_0_early_afternoon" begin="50400" end="57600" from="-E9" to="E15" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_0_late_afternoon" begin="57600" end="61200" from="-E9" to="E15" vehsPerHour="33" type="passenger"/>
+    <flow id="minor_0_evening_peak" begin="61200" end="72000" from="-E9" to="E15" vehsPerHour="54" type="passenger"/>
+    <flow id="minor_0_late_evening" begin="72000" end="79200" from="-E9" to="E15" vehsPerHour="18" type="passenger"/>
+    <flow id="minor_0_late_night" begin="79200" end="86400" from="-E9" to="E15" vehsPerHour="6" type="passenger"/>
+
+    <!-- Route L1: -E9 → E21 -->
+    <flow id="minor_1_night" begin="0" end="21600" from="-E9" to="E21" vehsPerHour="4" type="passenger"/>
+    <flow id="minor_1_early_morning" begin="21600" end="28800" from="-E9" to="E21" vehsPerHour="30" type="passenger"/>
+    <flow id="minor_1_morning_peak" begin="28800" end="32400" from="-E9" to="E21" vehsPerHour="48" type="passenger"/>
+    <flow id="minor_1_late_morning" begin="32400" end="43200" from="-E9" to="E21" vehsPerHour="27" type="passenger"/>
+    <flow id="minor_1_lunch" begin="43200" end="50400" from="-E9" to="E21" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_1_early_afternoon" begin="50400" end="57600" from="-E9" to="E21" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_1_late_afternoon" begin="57600" end="61200" from="-E9" to="E21" vehsPerHour="33" type="passenger"/>
+    <flow id="minor_1_evening_peak" begin="61200" end="72000" from="-E9" to="E21" vehsPerHour="54" type="passenger"/>
+    <flow id="minor_1_late_evening" begin="72000" end="79200" from="-E9" to="E21" vehsPerHour="18" type="passenger"/>
+    <flow id="minor_1_late_night" begin="79200" end="86400" from="-E9" to="E21" vehsPerHour="6" type="passenger"/>
+
+    <!-- Route L2: -E9 → E12 -->
+    <flow id="minor_2_night" begin="0" end="21600" from="-E9" to="E12" vehsPerHour="4" type="passenger"/>
+    <flow id="minor_2_early_morning" begin="21600" end="28800" from="-E9" to="E12" vehsPerHour="30" type="passenger"/>
+    <flow id="minor_2_morning_peak" begin="28800" end="32400" from="-E9" to="E12" vehsPerHour="48" type="passenger"/>
+    <flow id="minor_2_late_morning" begin="32400" end="43200" from="-E9" to="E12" vehsPerHour="27" type="passenger"/>
+    <flow id="minor_2_lunch" begin="43200" end="50400" from="-E9" to="E12" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_2_early_afternoon" begin="50400" end="57600" from="-E9" to="E12" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_2_late_afternoon" begin="57600" end="61200" from="-E9" to="E12" vehsPerHour="33" type="passenger"/>
+    <flow id="minor_2_evening_peak" begin="61200" end="72000" from="-E9" to="E12" vehsPerHour="54" type="passenger"/>
+    <flow id="minor_2_late_evening" begin="72000" end="79200" from="-E9" to="E12" vehsPerHour="18" type="passenger"/>
+    <flow id="minor_2_late_night" begin="79200" end="86400" from="-E9" to="E12" vehsPerHour="6" type="passenger"/>
+
+    <!-- Route L3: -E11 → E12 -->
+    <flow id="minor_3_night" begin="0" end="21600" from="-E11" to="E12" vehsPerHour="4" type="passenger"/>
+    <flow id="minor_3_early_morning" begin="21600" end="28800" from="-E11" to="E12" vehsPerHour="30" type="passenger"/>
+    <flow id="minor_3_morning_peak" begin="28800" end="32400" from="-E11" to="E12" vehsPerHour="48" type="passenger"/>
+    <flow id="minor_3_late_morning" begin="32400" end="43200" from="-E11" to="E12" vehsPerHour="27" type="passenger"/>
+    <flow id="minor_3_lunch" begin="43200" end="50400" from="-E11" to="E12" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_3_early_afternoon" begin="50400" end="57600" from="-E11" to="E12" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_3_late_afternoon" begin="57600" end="61200" from="-E11" to="E12" vehsPerHour="33" type="passenger"/>
+    <flow id="minor_3_evening_peak" begin="61200" end="72000" from="-E11" to="E12" vehsPerHour="54" type="passenger"/>
+    <flow id="minor_3_late_evening" begin="72000" end="79200" from="-E11" to="E12" vehsPerHour="18" type="passenger"/>
+    <flow id="minor_3_late_night" begin="79200" end="86400" from="-E11" to="E12" vehsPerHour="6" type="passenger"/>
+
+    <!-- Route L4: -E13 → E21 -->
+    <flow id="minor_4_night" begin="0" end="21600" from="-E13" to="E21" vehsPerHour="4" type="passenger"/>
+    <flow id="minor_4_early_morning" begin="21600" end="28800" from="-E13" to="E21" vehsPerHour="30" type="passenger"/>
+    <flow id="minor_4_morning_peak" begin="28800" end="32400" from="-E13" to="E21" vehsPerHour="48" type="passenger"/>
+    <flow id="minor_4_late_morning" begin="32400" end="43200" from="-E13" to="E21" vehsPerHour="27" type="passenger"/>
+    <flow id="minor_4_lunch" begin="43200" end="50400" from="-E13" to="E21" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_4_early_afternoon" begin="50400" end="57600" from="-E13" to="E21" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_4_late_afternoon" begin="57600" end="61200" from="-E13" to="E21" vehsPerHour="33" type="passenger"/>
+    <flow id="minor_4_evening_peak" begin="61200" end="72000" from="-E13" to="E21" vehsPerHour="54" type="passenger"/>
+    <flow id="minor_4_late_evening" begin="72000" end="79200" from="-E13" to="E21" vehsPerHour="18" type="passenger"/>
+    <flow id="minor_4_late_night" begin="79200" end="86400" from="-E13" to="E21" vehsPerHour="6" type="passenger"/>
+
+    <!-- Route L5: -E13 → E24 -->
+    <flow id="minor_5_night" begin="0" end="21600" from="-E13" to="E24" vehsPerHour="4" type="passenger"/>
+    <flow id="minor_5_early_morning" begin="21600" end="28800" from="-E13" to="E24" vehsPerHour="30" type="passenger"/>
+    <flow id="minor_5_morning_peak" begin="28800" end="32400" from="-E13" to="E24" vehsPerHour="48" type="passenger"/>
+    <flow id="minor_5_late_morning" begin="32400" end="43200" from="-E13" to="E24" vehsPerHour="27" type="passenger"/>
+    <flow id="minor_5_lunch" begin="43200" end="50400" from="-E13" to="E24" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_5_early_afternoon" begin="50400" end="57600" from="-E13" to="E24" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_5_late_afternoon" begin="57600" end="61200" from="-E13" to="E24" vehsPerHour="33" type="passenger"/>
+    <flow id="minor_5_evening_peak" begin="61200" end="72000" from="-E13" to="E24" vehsPerHour="54" type="passenger"/>
+    <flow id="minor_5_late_evening" begin="72000" end="79200" from="-E13" to="E24" vehsPerHour="18" type="passenger"/>
+    <flow id="minor_5_late_night" begin="79200" end="86400" from="-E13" to="E24" vehsPerHour="6" type="passenger"/>
+
+    <!-- Route L6: -E12 → E9 -->
+    <flow id="minor_6_night" begin="0" end="21600" from="-E12" to="E9" vehsPerHour="4" type="passenger"/>
+    <flow id="minor_6_early_morning" begin="21600" end="28800" from="-E12" to="E9" vehsPerHour="30" type="passenger"/>
+    <flow id="minor_6_morning_peak" begin="28800" end="32400" from="-E12" to="E9" vehsPerHour="48" type="passenger"/>
+    <flow id="minor_6_late_morning" begin="32400" end="43200" from="-E12" to="E9" vehsPerHour="27" type="passenger"/>
+    <flow id="minor_6_lunch" begin="43200" end="50400" from="-E12" to="E9" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_6_early_afternoon" begin="50400" end="57600" from="-E12" to="E9" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_6_late_afternoon" begin="57600" end="61200" from="-E12" to="E9" vehsPerHour="33" type="passenger"/>
+    <flow id="minor_6_evening_peak" begin="61200" end="72000" from="-E12" to="E9" vehsPerHour="54" type="passenger"/>
+    <flow id="minor_6_late_evening" begin="72000" end="79200" from="-E12" to="E9" vehsPerHour="18" type="passenger"/>
+    <flow id="minor_6_late_night" begin="79200" end="86400" from="-E12" to="E9" vehsPerHour="6" type="passenger"/>
+
+    <!-- Route L7: -E12 → E24 -->
+    <flow id="minor_7_night" begin="0" end="21600" from="-E12" to="E24" vehsPerHour="4" type="passenger"/>
+    <flow id="minor_7_early_morning" begin="21600" end="28800" from="-E12" to="E24" vehsPerHour="30" type="passenger"/>
+    <flow id="minor_7_morning_peak" begin="28800" end="32400" from="-E12" to="E24" vehsPerHour="48" type="passenger"/>
+    <flow id="minor_7_late_morning" begin="32400" end="43200" from="-E12" to="E24" vehsPerHour="27" type="passenger"/>
+    <flow id="minor_7_lunch" begin="43200" end="50400" from="-E12" to="E24" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_7_early_afternoon" begin="50400" end="57600" from="-E12" to="E24" vehsPerHour="24" type="passenger"/>
+    <flow id="minor_7_late_afternoon" begin="57600" end="61200" from="-E12" to="E24" vehsPerHour="33" type="passenger"/>
+    <flow id="minor_7_evening_peak" begin="61200" end="72000" from="-E12" to="E24" vehsPerHour="54" type="passenger"/>
+    <flow id="minor_7_late_evening" begin="72000" end="79200" from="-E12" to="E24" vehsPerHour="18" type="passenger"/>
+    <flow id="minor_7_late_night" begin="79200" end="86400" from="-E12" to="E24" vehsPerHour="6" type="passenger"/>
+
+    <!-- ========== COMMERCIAL TRAFFIC (Business Hours) ========== -->
+    <!-- Commercial 0: -E15 → E24 (truck) -->
+    <flow id="commercial_0_night" begin="0" end="21600" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="7" type="truck"/>
+    <flow id="commercial_0_early_morning" begin="21600" end="28800" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="7" type="truck"/>
+    <flow id="commercial_0_morning_peak" begin="28800" end="32400" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="7" type="truck"/>
+    <flow id="commercial_0_late_morning" begin="32400" end="43200" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="37" type="truck"/>
+    <flow id="commercial_0_lunch" begin="43200" end="50400" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="37" type="truck"/>
+    <flow id="commercial_0_early_afternoon" begin="50400" end="57600" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="37" type="truck"/>
+    <flow id="commercial_0_late_afternoon" begin="57600" end="61200" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="37" type="truck"/>
+    <flow id="commercial_0_evening_peak" begin="61200" end="72000" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="7" type="truck"/>
+    <flow id="commercial_0_late_evening" begin="72000" end="79200" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="7" type="truck"/>
+    <flow id="commercial_0_late_night" begin="79200" end="86400" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="7" type="truck"/>
+
+    <!-- Commercial 1: -E24 → E15 (truck) -->
+    <flow id="commercial_1_night" begin="0" end="21600" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="7" type="truck"/>
+    <flow id="commercial_1_early_morning" begin="21600" end="28800" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="7" type="truck"/>
+    <flow id="commercial_1_morning_peak" begin="28800" end="32400" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="7" type="truck"/>
+    <flow id="commercial_1_late_morning" begin="32400" end="43200" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="37" type="truck"/>
+    <flow id="commercial_1_lunch" begin="43200" end="50400" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="37" type="truck"/>
+    <flow id="commercial_1_early_afternoon" begin="50400" end="57600" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="37" type="truck"/>
+    <flow id="commercial_1_late_afternoon" begin="57600" end="61200" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="37" type="truck"/>
+    <flow id="commercial_1_evening_peak" begin="61200" end="72000" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="7" type="truck"/>
+    <flow id="commercial_1_late_evening" begin="72000" end="79200" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="7" type="truck"/>
+    <flow id="commercial_1_late_night" begin="79200" end="86400" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="7" type="truck"/>
+
+    <!-- Commercial 2: -E11 → E24 (delivery) -->
+    <flow id="commercial_2_night" begin="0" end="21600" from="-E11" to="E24" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_2_early_morning" begin="21600" end="28800" from="-E11" to="E24" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_2_morning_peak" begin="28800" end="32400" from="-E11" to="E24" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_2_late_morning" begin="32400" end="43200" from="-E11" to="E24" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_2_lunch" begin="43200" end="50400" from="-E11" to="E24" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_2_early_afternoon" begin="50400" end="57600" from="-E11" to="E24" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_2_late_afternoon" begin="57600" end="61200" from="-E11" to="E24" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_2_evening_peak" begin="61200" end="72000" from="-E11" to="E24" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_2_late_evening" begin="72000" end="79200" from="-E11" to="E24" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_2_late_night" begin="79200" end="86400" from="-E11" to="E24" vehsPerHour="7" type="delivery"/>
+
+    <!-- Commercial 3: -E24 → E11 (delivery) -->
+    <flow id="commercial_3_night" begin="0" end="21600" from="-E24" to="E11" via="-E23" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_3_early_morning" begin="21600" end="28800" from="-E24" to="E11" via="-E23" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_3_morning_peak" begin="28800" end="32400" from="-E24" to="E11" via="-E23" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_3_late_morning" begin="32400" end="43200" from="-E24" to="E11" via="-E23" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_3_lunch" begin="43200" end="50400" from="-E24" to="E11" via="-E23" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_3_early_afternoon" begin="50400" end="57600" from="-E24" to="E11" via="-E23" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_3_late_afternoon" begin="57600" end="61200" from="-E24" to="E11" via="-E23" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_3_evening_peak" begin="61200" end="72000" from="-E24" to="E11" via="-E23" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_3_late_evening" begin="72000" end="79200" from="-E24" to="E11" via="-E23" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_3_late_night" begin="79200" end="86400" from="-E24" to="E11" via="-E23" vehsPerHour="7" type="delivery"/>
+
+    <!-- Commercial 4: -E15 → E21 (delivery) -->
+    <flow id="commercial_4_night" begin="0" end="21600" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_4_early_morning" begin="21600" end="28800" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_4_morning_peak" begin="28800" end="32400" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_4_late_morning" begin="32400" end="43200" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_4_lunch" begin="43200" end="50400" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_4_early_afternoon" begin="50400" end="57600" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_4_late_afternoon" begin="57600" end="61200" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="37" type="delivery"/>
+    <flow id="commercial_4_evening_peak" begin="61200" end="72000" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_4_late_evening" begin="72000" end="79200" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="7" type="delivery"/>
+    <flow id="commercial_4_late_night" begin="79200" end="86400" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="7" type="delivery"/>
+
+    <!-- ========== BUS ROUTES (Public Transit) ========== -->
+    <!-- Bus Route 0: -E15 → E24 -->
+    <flow id="bus_0_night" begin="0" end="21600" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="2" type="bus"/>
+    <flow id="bus_0_early_morning" begin="21600" end="28800" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="8" type="bus"/>
+    <flow id="bus_0_morning_peak" begin="28800" end="32400" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="12" type="bus"/>
+    <flow id="bus_0_late_morning" begin="32400" end="43200" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="8" type="bus"/>
+    <flow id="bus_0_lunch" begin="43200" end="50400" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="8" type="bus"/>
+    <flow id="bus_0_early_afternoon" begin="50400" end="57600" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="8" type="bus"/>
+    <flow id="bus_0_late_afternoon" begin="57600" end="61200" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="8" type="bus"/>
+    <flow id="bus_0_evening_peak" begin="61200" end="72000" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="12" type="bus"/>
+    <flow id="bus_0_late_evening" begin="72000" end="79200" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="8" type="bus"/>
+    <flow id="bus_0_late_night" begin="79200" end="86400" from="-E15" to="E24" via="E4 -E5 E16" vehsPerHour="2" type="bus"/>
+
+    <!-- Bus Route 1: -E24 → E15 -->
+    <flow id="bus_1_night" begin="0" end="21600" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="2" type="bus"/>
+    <flow id="bus_1_early_morning" begin="21600" end="28800" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="8" type="bus"/>
+    <flow id="bus_1_morning_peak" begin="28800" end="32400" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="12" type="bus"/>
+    <flow id="bus_1_late_morning" begin="32400" end="43200" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="8" type="bus"/>
+    <flow id="bus_1_lunch" begin="43200" end="50400" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="8" type="bus"/>
+    <flow id="bus_1_early_afternoon" begin="50400" end="57600" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="8" type="bus"/>
+    <flow id="bus_1_late_afternoon" begin="57600" end="61200" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="8" type="bus"/>
+    <flow id="bus_1_evening_peak" begin="61200" end="72000" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="12" type="bus"/>
+    <flow id="bus_1_late_evening" begin="72000" end="79200" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="8" type="bus"/>
+    <flow id="bus_1_late_night" begin="79200" end="86400" from="-E24" to="E15" via="-E16 E5 -E4" vehsPerHour="2" type="bus"/>
+
+    <!-- Bus Route 2: -E21 → E15 -->
+    <flow id="bus_2_night" begin="0" end="21600" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="2" type="bus"/>
+    <flow id="bus_2_early_morning" begin="21600" end="28800" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="8" type="bus"/>
+    <flow id="bus_2_morning_peak" begin="28800" end="32400" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="12" type="bus"/>
+    <flow id="bus_2_late_morning" begin="32400" end="43200" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="8" type="bus"/>
+    <flow id="bus_2_lunch" begin="43200" end="50400" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="8" type="bus"/>
+    <flow id="bus_2_early_afternoon" begin="50400" end="57600" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="8" type="bus"/>
+    <flow id="bus_2_late_afternoon" begin="57600" end="61200" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="8" type="bus"/>
+    <flow id="bus_2_evening_peak" begin="61200" end="72000" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="12" type="bus"/>
+    <flow id="bus_2_late_evening" begin="72000" end="79200" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="8" type="bus"/>
+    <flow id="bus_2_late_night" begin="79200" end="86400" from="-E21" to="E15" via="-E20 -E19 E18" vehsPerHour="2" type="bus"/>
+
+    <!-- Bus Route 3: -E15 → E21 -->
+    <flow id="bus_3_night" begin="0" end="21600" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="2" type="bus"/>
+    <flow id="bus_3_early_morning" begin="21600" end="28800" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="8" type="bus"/>
+    <flow id="bus_3_morning_peak" begin="28800" end="32400" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="12" type="bus"/>
+    <flow id="bus_3_late_morning" begin="32400" end="43200" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="8" type="bus"/>
+    <flow id="bus_3_lunch" begin="43200" end="50400" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="8" type="bus"/>
+    <flow id="bus_3_early_afternoon" begin="50400" end="57600" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="8" type="bus"/>
+    <flow id="bus_3_late_afternoon" begin="57600" end="61200" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="8" type="bus"/>
+    <flow id="bus_3_evening_peak" begin="61200" end="72000" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="12" type="bus"/>
+    <flow id="bus_3_late_evening" begin="72000" end="79200" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="8" type="bus"/>
+    <flow id="bus_3_late_night" begin="79200" end="86400" from="-E15" to="E21" via="-E18 E19 E20" vehsPerHour="2" type="bus"/>
+
+</routes>

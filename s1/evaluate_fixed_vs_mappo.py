@@ -61,6 +61,11 @@ SCENARIOS = {
     'event': 'k1_6h_event.sumocfg',
     '3h': 'k1_3h_varying.sumocfg',
     'realistic': 'k1_6h_evaluation.sumocfg',  # Uses validated 24h_realistic routes
+    # 24-hour scenarios
+    '24h_weekday': 'k1_24h_weekday.sumocfg',
+    '24h_weekend': 'k1_24h_weekend.sumocfg',
+    '24h_friday': 'k1_24h_friday.sumocfg',
+    '24h_event': 'k1_24h_event.sumocfg',
 }
 
 # Default fixed phase duration (seconds per phase)
@@ -678,7 +683,8 @@ Examples:
         '--scenario', '-s',
         type=str,
         default='realistic',
-        choices=['weekday', 'weekend', 'event', '3h', 'realistic'],
+        choices=['weekday', 'weekend', 'event', '3h', 'realistic', 
+                 '24h_weekday', '24h_weekend', '24h_friday', '24h_event'],
         help='Traffic scenario to evaluate (default: realistic - uses validated routes)'
     )
     parser.add_argument(

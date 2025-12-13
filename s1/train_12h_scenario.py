@@ -450,6 +450,61 @@ def train_12h(
     final_path = str(SCRIPT_DIR / config.MODEL_DIR / final_name)
     agent.save_checkpoint(final_path)
     print(f"Final model saved: {final_name}")
+    
+    # =========================================================================
+    # KAGGLE: Save and zip checkpoint for easy download
+    # =========================================================================
+    try:
+        import shutil
+        kaggle_output = Path('/kaggle/working')
+        
+        if kaggle_output.exists():
+            print(f"\n{'='*70}")
+            print("KAGGLE: Saving final checkpoint for download...")
+            print(f"{'='*70}")
+            
+            model_dir = SCRIPT_DIR / config.MODEL_DIR
+            
+            # 1. Copy final model to /kaggle/working/mappo_final
+            kaggle_final = kaggle_output / 'mappo_final'
+            if kaggle_final.exists():
+                shutil.rmtree(kaggle_final)
+            shutil.copytree(final_path, kaggle_final)
+            print(f"✓ Final model copied to {kaggle_final}")
+            
+            # 2. Copy best checkpoint if exists
+            best_path = model_dir / 'best'
+            if best_path.exists():
+                kaggle_best = kaggle_output / 'mappo_best'
+                if kaggle_best.exists():
+                    shutil.rmtree(kaggle_best)
+                shutil.copytree(best_path, kaggle_best)
+                print(f"✓ Best model copied to {kaggle_best}")
+            
+            # 3. Create zip file for easy download
+            zip_name = f"mappo_12h_{scenario}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+            zip_path = kaggle_output / zip_name
+            shutil.make_archive(str(zip_path), 'zip', str(model_dir))
+            print(f"✓ Created {zip_name}.zip for download")
+            
+            # 4. Also create a simple named zip
+            simple_zip = kaggle_output / 'mappo_trained_model'
+            if Path(f"{simple_zip}.zip").exists():
+                Path(f"{simple_zip}.zip").unlink()
+            shutil.make_archive(str(simple_zip), 'zip', str(model_dir))
+            print(f"✓ Created mappo_trained_model.zip")
+            
+            print(f"\n{'='*70}")
+            print("DOWNLOAD FILES:")
+            print(f"  - /kaggle/working/mappo_final/ (folder)")
+            print(f"  - /kaggle/working/mappo_trained_model.zip")
+            print(f"  - /kaggle/working/{zip_name}.zip")
+            print(f"{'='*70}")
+        else:
+            print("Not running on Kaggle, skipping Kaggle-specific saves")
+            
+    except Exception as e:
+        print(f"Warning: Could not save Kaggle output: {e}")
 
 
 def main():

@@ -155,17 +155,18 @@ def train_1h_scenario(
     
     # Create MAPPOConfig
     mappo_config = MAPPOConfig()
-    mappo_config.sumo_cfg = str(config_file)
-    mappo_config.max_steps = SCENARIO_CONFIG['max_steps']
+    mappo_config.SUMO_CONFIG = str(config_file)  # Override to 1h heavy config
+    mappo_config.STEPS_PER_EPISODE = SCENARIO_CONFIG['max_steps']
+    mappo_config.USE_REALISTIC_24H_TRAFFIC = False  # Use our custom config, not k1_realistic
     mappo_config.use_gui = use_gui
     
     # Initialize environment
     env = K1Environment(mappo_config)
     
     print(f"Environment initialized:")
-    print(f"  - Traffic lights: {env.num_agents}")
-    print(f"  - State dimension: {env.state_dim}")
-    print(f"  - Action dimension: {env.action_dim}")
+    print(f"  - Traffic lights: {len(env.junction_ids)}")
+    print(f"  - Local state dim: {mappo_config.LOCAL_STATE_DIM}")
+    print(f"  - Action dim: {mappo_config.ACTION_DIM}")
     print()
     
     # Initialize agent
@@ -297,7 +298,7 @@ def train_1h_scenario(
                   f"Time={episode_time:.1f}s")
             
             # Update agent
-            if len(agent.buffer) >= mappo_config.batch_size:
+            if len(agent.buffer) >= mappo_config.UPDATE_FREQUENCY:
                 loss = agent.update()
                 if loss:
                     print(f"    -> Policy update, Loss: {loss:.4f}")

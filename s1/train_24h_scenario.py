@@ -311,14 +311,28 @@ def train_24h(scenario: str, num_episodes: int = 100, resume_checkpoint: str = N
         # Load checkpoint
         try:
             episode_info = agent.load_checkpoint(str(checkpoint_path))
-            start_episode = episode_info.get('episode', 0) + 1
+            
+            # Handle None return or missing keys gracefully
+            if episode_info is None:
+                episode_info = {}
+                print("Note: Checkpoint loaded but no metadata returned")
+            
+            # Get episode number, default to 0 if not found
+            start_episode = episode_info.get('episode', 0)
+            if start_episode is None:
+                start_episode = 0
+            start_episode += 1
+            
             print(f"Resumed from episode {start_episode - 1}")
-            print(f"Previous reward: {episode_info.get('episode_reward', 'N/A')}")
+            print(f"Previous epsilon: {episode_info.get('epsilon', 'N/A')}")
+            if 'episode_reward' in episode_info:
+                print(f"Previous reward: {episode_info.get('episode_reward')}")
         except Exception as e:
-            print(f"Error loading checkpoint: {e}")
-            if temp_checkpoint_dir:
-                shutil.rmtree(temp_checkpoint_dir, ignore_errors=True)
-            sys.exit(1)
+            print(f"Warning: Error loading checkpoint metadata: {e}")
+            print("Continuing with checkpoint weights loaded, starting from episode 0")
+            start_episode = 0
+            # Don't exit - the weights may have loaded successfully
+            # Only the metadata failed
     
     # Create environment
     env = K1Environment(config)

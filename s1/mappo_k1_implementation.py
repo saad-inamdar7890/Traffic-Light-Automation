@@ -1364,6 +1364,25 @@ class MAPPOAgent:
             print("  ℹ️  Replay buffer cleared")
 
         print(f"Checkpoint loaded from {path}")
+        
+        # Return metadata for caller
+        metadata = {
+            'episode': self.episode_count,
+            'epsilon': self.epsilon,
+            'path': path,
+        }
+        
+        # Try to load additional metadata from JSON if exists
+        metadata_path = os.path.join(path, 'metadata.json')
+        if os.path.exists(metadata_path):
+            try:
+                with open(metadata_path, 'r') as f:
+                    saved_metadata = json.load(f)
+                metadata.update(saved_metadata)
+            except Exception:
+                pass
+        
+        return metadata
     
     def load_models(self, path):
         """Load actor and critic models"""

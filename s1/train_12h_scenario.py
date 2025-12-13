@@ -331,17 +331,17 @@ def train_12h(
     
     print(f"✓ Using route file: {route_file}")
     
+    # Set the SUMO config in the config object
+    config.SUMO_CONFIG = str(config_file)
+    config.USE_REALISTIC_24H_TRAFFIC = False  # We use our own config file
+    
     # Create environment
     print("\nInitializing environment...")
-    env = K1Environment(
-        sumocfg_file=str(config_file),
-        use_gui=False,
-        max_steps=config.STEPS_PER_EPISODE
-    )
+    env = K1Environment(config)
     
     # Create agent
     print("Initializing MAPPO agent...")
-    agent = MAPPOAgent(config, env.local_state_dim, env.global_state_dim)
+    agent = MAPPOAgent(config)
     
     # Resume from checkpoint if specified
     start_episode = 1

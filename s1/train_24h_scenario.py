@@ -141,8 +141,15 @@ def train_24h_episode(config: Config24H, agent: MAPPOAgent, env: K1Environment,
             # Select actions
             actions, log_probs, entropies = agent.select_actions(local_states)
             
-            # Environment step
-            next_local_states, next_global_state, rewards, done, info = env.step(actions)
+            # Environment step (returns 4 values, not 5)
+            step_result = env.step(actions)
+            
+            # Handle both 4-value and 5-value returns for compatibility
+            if len(step_result) == 4:
+                next_local_states, next_global_state, rewards, done = step_result
+                info = {}  # No info dict returned
+            else:
+                next_local_states, next_global_state, rewards, done, info = step_result
             
             # Store experience
             agent.buffer.add(
@@ -171,9 +178,15 @@ def train_24h_episode(config: Config24H, agent: MAPPOAgent, env: K1Environment,
             if episode_steps % 3600 == 0:
                 hour = episode_steps // 3600
                 hourly_rewards.append(current_hour_reward)
+                # Get vehicle count from TraCI if info not available
+                try:
+                    import traci
+                    total_vehicles = traci.vehicle.getIDCount() if traci.isLoaded() else 0
+                except:
+                    total_vehicles = info.get('total_vehicles', 0)
                 print(f"  Hour {hour:2d}/24: Reward={current_hour_reward:+.2f}, "
                       f"Cumulative={episode_reward:+.2f}, "
-                      f"Vehicles={info.get('total_vehicles', 0)}")
+                      f"Vehicles={total_vehicles}")
                 current_hour_reward = 0.0
             
             # PPO update

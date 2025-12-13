@@ -257,6 +257,7 @@ def train_1h_scenario(
             local_states, global_state = env.reset()
             episode_reward = 0
             step = 0
+            update_count = 0
             
             # Episode loop
             while True:
@@ -269,6 +270,14 @@ def train_1h_scenario(
                 # Store transition in buffer
                 agent.buffer.store(local_states, global_state, actions, rewards, log_probs, entropies, done)
                 
+                # Update agent periodically DURING episode (triggers GPU usage)
+                if len(agent.buffer) >= mappo_config.UPDATE_FREQUENCY:
+                    agent.update()
+                    update_count += 1
+                    # Print progress every 10 updates
+                    if update_count % 10 == 0:
+                        print(f"    Step {step}, Updates: {update_count}, Reward so far: {episode_reward:.2f}")
+                
                 # Update metrics
                 episode_reward += np.mean(rewards)
                 local_states = next_local_states
@@ -277,6 +286,9 @@ def train_1h_scenario(
                 
                 if done:
                     break
+            
+            # Decay exploration rate after each episode
+            agent.decay_epsilon()
             
             # Get episode statistics (rewards already tracked, steps = throughput proxy)
             # Note: K1Environment.step() doesn't return info dict, so we use step count
@@ -294,16 +306,9 @@ def train_1h_scenario(
             
             print(f"  Episode {episode + 1}/{episodes_per_epoch}: "
                   f"Reward={episode_reward:.2f}, "
-                  f"Wait={waiting_time:.0f}s, "
-                  f"Throughput={throughput}, "
                   f"Steps={step}, "
+                  f"Updates={update_count}, "
                   f"Time={episode_time:.1f}s")
-            
-            # Update agent
-            if len(agent.buffer) >= mappo_config.UPDATE_FREQUENCY:
-                loss = agent.update()
-                if loss:
-                    print(f"    -> Policy update, Loss: {loss:.4f}")
         
         # Epoch summary
         avg_reward = np.mean(epoch_rewards)

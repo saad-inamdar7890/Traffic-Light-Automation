@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2025-12-05 17:24:33 by Eclipse SUMO netedit Version 1.24.0
+<!-- generated on 2025-12-13 21:56:14 by Eclipse SUMO netedit Version 1.24.0
 -->
 
 <neteditConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/neteditConfiguration.xsd">
 
     <input>
-        <sumocfg-file value="k1_6h_weekday.sumocfg"/>
-        <route-files value="k1_routes_6h_weekday.rou.xml"/>
+        <sumocfg-file value="k1_12h_weekday.sumocfg"/>
+        <route-files value="k1_routes_12h_weekday.rou.xml"/>
         <sumo-net-file value="k1.net.xml"/>
     </input>
-
-    <output>
-        <tls-file value="D:\Codes\Projects\Traffic-Light-Automation\s1\k1.ttl.xml"/>
-    </output>
 
     <processing>
         <geometry.min-radius.fix.railways value="false"/>

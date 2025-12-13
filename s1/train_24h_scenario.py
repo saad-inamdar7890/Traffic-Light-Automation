@@ -151,17 +151,15 @@ def train_24h_episode(config: Config24H, agent: MAPPOAgent, env: K1Environment,
             else:
                 next_local_states, next_global_state, rewards, done, info = step_result
             
-            # Store experience
-            agent.buffer.add(
+            # Store experience using the correct method name
+            agent.buffer.store(
                 local_states=local_states,
                 global_state=global_state,
                 actions=actions,
                 rewards=rewards,
-                next_local_states=next_local_states,
-                next_global_state=next_global_state,
-                dones=[done] * config.NUM_JUNCTIONS,
                 log_probs=log_probs,
-                values=None  # Will be computed during update
+                entropies=entropies,
+                done=done
             )
             
             # Update states

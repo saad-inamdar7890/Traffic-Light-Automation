@@ -7,12 +7,7 @@
     <!-- VTypes -->
     <vType id="car" length="5.00" maxSpeed="50.00" accel="2.6" decel="4.5" sigma="0.5"/>
     <!-- Vehicles, persons and containers (sorted by depart) -->
-    <trip id="t_0" depart="0.00" from="-E15" to="E24"/>
-    <trip id="t_1" depart="0.00" from="-E15" to="E13"/>
-    <trip id="t_2" depart="0.00" from="-E15" to="E10"/>
-    <trip id="t_3" depart="0.00" from="-E15" to="E6"/>
-    <trip id="t_4" depart="0.00" from="-E15" to="E11"/>
-    <flow id="f_0_early_morning" type="car" begin="0.00" from="-E9" to="E13" end="7200.00" vehsPerHour="60"/>
+       <flow id="f_0_early_morning" type="car" begin="0.00" from="-E9" to="E13" end="7200.00" vehsPerHour="60"/>
     <flow id="f_10_early_morning" type="car" begin="0.00" from="-E10" to="E15" end="7200.00" vehsPerHour="108.01"/>
     <flow id="f_11_early_morning" type="car" begin="0.00" from="-E11" to="E6" end="7200.00" vehsPerHour="54"/>
     <flow id="f_12_early_morning" type="car" begin="0.00" from="-E11" to="E9" end="7200.00" vehsPerHour="48"/>

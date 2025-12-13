@@ -189,16 +189,17 @@ def train_24h_episode(config: Config24H, agent: MAPPOAgent, env: K1Environment,
             
             # PPO update
             if len(agent.buffer) >= config.UPDATE_FREQUENCY:
-                actor_loss, critic_loss = agent.update()
+                update_result = agent.update()
                 
+                # agent.update() returns None (doesn't return losses)
                 # Progress logging every 15 minutes (900 steps)
                 if episode_steps % 900 == 0:
                     sim_hour = episode_steps // 3600
                     sim_min = (episode_steps % 3600) // 60
                     elapsed = time.time() - start_time
-                    remaining = (elapsed / episode_steps) * (config.STEPS_PER_EPISODE - episode_steps)
+                    remaining = (elapsed / episode_steps) * (config.STEPS_PER_EPISODE - episode_steps) if episode_steps > 0 else 0
                     print(f"    Step {episode_steps:5d} (Sim {sim_hour:02d}:{sim_min:02d}): "
-                          f"Actor Loss={actor_loss:.4f}, Critic Loss={critic_loss:.4f}, "
+                          f"Reward={current_hour_reward:+.2f}, "
                           f"ETA={remaining/60:.1f}min")
             
             # Periodic checkpoint within episode

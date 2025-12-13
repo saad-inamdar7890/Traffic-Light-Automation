@@ -261,13 +261,13 @@ def train_1h_scenario(
             # Episode loop
             while True:
                 # Agent selects actions based on local states
-                actions, log_probs, values = agent.select_actions(local_states)
+                actions, log_probs, entropies = agent.select_actions(local_states)
                 
                 # Environment step - returns (next_local, next_global, rewards, done)
                 next_local_states, next_global_state, rewards, done = env.step(actions)
                 
-                # Store transition (using local states for actors)
-                agent.store_transition(local_states, actions, rewards, next_local_states, done, log_probs, values)
+                # Store transition in buffer
+                agent.buffer.store(local_states, global_state, actions, rewards, log_probs, entropies, done)
                 
                 # Update metrics
                 episode_reward += np.mean(rewards)

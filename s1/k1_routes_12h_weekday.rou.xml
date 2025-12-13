@@ -1,242 +1,264 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 12-Hour Weekday Traffic Scenario (6am-6pm) -->
+<!-- Generated from validated routes in original.rou.xml -->
+<!-- 39 routes x 6 time periods = 234 flows -->
+
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
 
-    <!-- Vehicle Types -->
-    <vType id="passenger" accel="2.6" decel="4.5" sigma="0.5" length="5" maxSpeed="50" guiShape="passenger"/>
-    <vType id="truck" accel="1.3" decel="4.0" sigma="0.5" length="12" maxSpeed="36" guiShape="truck"/>
-    <vType id="bus" accel="1.2" decel="4.0" sigma="0.3" length="12" maxSpeed="25" guiShape="bus"/>
-    <vType id="delivery" accel="2.0" decel="4.0" sigma="0.5" length="7" maxSpeed="40" guiShape="delivery"/>
+    <!-- Vehicle Type -->
+    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" maxSpeed="50"/>
 
-    <!-- MAJOR Routes -->
-    <flow id="f_0_early_morning" from="-E15" to="E24" via="E4 -E5 E16" begin="0" end="7200" probability="0.004444" type="passenger"/>
-    <flow id="f_1_morning_peak" from="-E15" to="E24" via="E4 -E5 E16" begin="7200" end="10800" probability="0.006667" type="passenger"/>
-    <flow id="f_2_late_morning" from="-E15" to="E24" via="E4 -E5 E16" begin="10800" end="21600" probability="0.003611" type="passenger"/>
-    <flow id="f_3_lunch" from="-E15" to="E24" via="E4 -E5 E16" begin="21600" end="28800" probability="0.003333" type="passenger"/>
-    <flow id="f_4_early_afternoon" from="-E15" to="E24" via="E4 -E5 E16" begin="28800" end="36000" probability="0.003056" type="passenger"/>
-    <flow id="f_5_late_afternoon" from="-E15" to="E24" via="E4 -E5 E16" begin="36000" end="43200" probability="0.011111" type="passenger"/>
-    <flow id="f_6_early_morning" from="-E15" to="E21" via="-E18 E19 E20" begin="0" end="7200" probability="0.004444" type="passenger"/>
-    <flow id="f_7_morning_peak" from="-E15" to="E21" via="-E18 E19 E20" begin="7200" end="10800" probability="0.006667" type="passenger"/>
-    <flow id="f_8_late_morning" from="-E15" to="E21" via="-E18 E19 E20" begin="10800" end="21600" probability="0.003611" type="passenger"/>
-    <flow id="f_9_lunch" from="-E15" to="E21" via="-E18 E19 E20" begin="21600" end="28800" probability="0.003333" type="passenger"/>
-    <flow id="f_10_early_afternoon" from="-E15" to="E21" via="-E18 E19 E20" begin="28800" end="36000" probability="0.003056" type="passenger"/>
-    <flow id="f_11_late_afternoon" from="-E15" to="E21" via="-E18 E19 E20" begin="36000" end="43200" probability="0.011111" type="passenger"/>
-    <flow id="f_12_early_morning" from="-E15" to="E10" via="-E18 -E17" begin="0" end="7200" probability="0.004444" type="passenger"/>
-    <flow id="f_13_morning_peak" from="-E15" to="E10" via="-E18 -E17" begin="7200" end="10800" probability="0.006667" type="passenger"/>
-    <flow id="f_14_late_morning" from="-E15" to="E10" via="-E18 -E17" begin="10800" end="21600" probability="0.003611" type="passenger"/>
-    <flow id="f_15_lunch" from="-E15" to="E10" via="-E18 -E17" begin="21600" end="28800" probability="0.003333" type="passenger"/>
-    <flow id="f_16_early_afternoon" from="-E15" to="E10" via="-E18 -E17" begin="28800" end="36000" probability="0.003056" type="passenger"/>
-    <flow id="f_17_late_afternoon" from="-E15" to="E10" via="-E18 -E17" begin="36000" end="43200" probability="0.011111" type="passenger"/>
-    <flow id="f_18_early_morning" from="-E24" to="E15" via="-E16 E5 -E4" begin="0" end="7200" probability="0.004444" type="passenger"/>
-    <flow id="f_19_morning_peak" from="-E24" to="E15" via="-E16 E5 -E4" begin="7200" end="10800" probability="0.006667" type="passenger"/>
-    <flow id="f_20_late_morning" from="-E24" to="E15" via="-E16 E5 -E4" begin="10800" end="21600" probability="0.003611" type="passenger"/>
-    <flow id="f_21_lunch" from="-E24" to="E15" via="-E16 E5 -E4" begin="21600" end="28800" probability="0.003333" type="passenger"/>
-    <flow id="f_22_early_afternoon" from="-E24" to="E15" via="-E16 E5 -E4" begin="28800" end="36000" probability="0.003056" type="passenger"/>
-    <flow id="f_23_late_afternoon" from="-E24" to="E15" via="-E16 E5 -E4" begin="36000" end="43200" probability="0.011111" type="passenger"/>
-    <flow id="f_24_early_morning" from="-E21" to="E15" via="-E20 -E19 E18" begin="0" end="7200" probability="0.004444" type="passenger"/>
-    <flow id="f_25_morning_peak" from="-E21" to="E15" via="-E20 -E19 E18" begin="7200" end="10800" probability="0.006667" type="passenger"/>
-    <flow id="f_26_late_morning" from="-E21" to="E15" via="-E20 -E19 E18" begin="10800" end="21600" probability="0.003611" type="passenger"/>
-    <flow id="f_27_lunch" from="-E21" to="E15" via="-E20 -E19 E18" begin="21600" end="28800" probability="0.003333" type="passenger"/>
-    <flow id="f_28_early_afternoon" from="-E21" to="E15" via="-E20 -E19 E18" begin="28800" end="36000" probability="0.003056" type="passenger"/>
-    <flow id="f_29_late_afternoon" from="-E21" to="E15" via="-E20 -E19 E18" begin="36000" end="43200" probability="0.011111" type="passenger"/>
-    <flow id="f_30_early_morning" from="-E10" to="E15" via="E17 E18" begin="0" end="7200" probability="0.004444" type="passenger"/>
-    <flow id="f_31_morning_peak" from="-E10" to="E15" via="E17 E18" begin="7200" end="10800" probability="0.006667" type="passenger"/>
-    <flow id="f_32_late_morning" from="-E10" to="E15" via="E17 E18" begin="10800" end="21600" probability="0.003611" type="passenger"/>
-    <flow id="f_33_lunch" from="-E10" to="E15" via="E17 E18" begin="21600" end="28800" probability="0.003333" type="passenger"/>
-    <flow id="f_34_early_afternoon" from="-E10" to="E15" via="E17 E18" begin="28800" end="36000" probability="0.003056" type="passenger"/>
-    <flow id="f_35_late_afternoon" from="-E10" to="E15" via="E17 E18" begin="36000" end="43200" probability="0.011111" type="passenger"/>
-    <flow id="f_36_early_morning" from="-E11" to="E24" begin="0" end="7200" probability="0.004444" type="passenger"/>
-    <flow id="f_37_morning_peak" from="-E11" to="E24" begin="7200" end="10800" probability="0.006667" type="passenger"/>
-    <flow id="f_38_late_morning" from="-E11" to="E24" begin="10800" end="21600" probability="0.003611" type="passenger"/>
-    <flow id="f_39_lunch" from="-E11" to="E24" begin="21600" end="28800" probability="0.003333" type="passenger"/>
-    <flow id="f_40_early_afternoon" from="-E11" to="E24" begin="28800" end="36000" probability="0.003056" type="passenger"/>
-    <flow id="f_41_late_afternoon" from="-E11" to="E24" begin="36000" end="43200" probability="0.011111" type="passenger"/>
-    <flow id="f_42_early_morning" from="-E24" to="E11" via="-E23" begin="0" end="7200" probability="0.004444" type="passenger"/>
-    <flow id="f_43_morning_peak" from="-E24" to="E11" via="-E23" begin="7200" end="10800" probability="0.006667" type="passenger"/>
-    <flow id="f_44_late_morning" from="-E24" to="E11" via="-E23" begin="10800" end="21600" probability="0.003611" type="passenger"/>
-    <flow id="f_45_lunch" from="-E24" to="E11" via="-E23" begin="21600" end="28800" probability="0.003333" type="passenger"/>
-    <flow id="f_46_early_afternoon" from="-E24" to="E11" via="-E23" begin="28800" end="36000" probability="0.003056" type="passenger"/>
-    <flow id="f_47_late_afternoon" from="-E24" to="E11" via="-E23" begin="36000" end="43200" probability="0.011111" type="passenger"/>
-    <flow id="f_48_early_morning" from="-E9" to="E24" begin="0" end="7200" probability="0.004444" type="passenger"/>
-    <flow id="f_49_morning_peak" from="-E9" to="E24" begin="7200" end="10800" probability="0.006667" type="passenger"/>
-    <flow id="f_50_late_morning" from="-E9" to="E24" begin="10800" end="21600" probability="0.003611" type="passenger"/>
-    <flow id="f_51_lunch" from="-E9" to="E24" begin="21600" end="28800" probability="0.003333" type="passenger"/>
-    <flow id="f_52_early_afternoon" from="-E9" to="E24" begin="28800" end="36000" probability="0.003056" type="passenger"/>
-    <flow id="f_53_late_afternoon" from="-E9" to="E24" begin="36000" end="43200" probability="0.011111" type="passenger"/>
-    <flow id="f_54_early_morning" from="-E12" to="E21" begin="0" end="7200" probability="0.004444" type="passenger"/>
-    <flow id="f_55_morning_peak" from="-E12" to="E21" begin="7200" end="10800" probability="0.006667" type="passenger"/>
-    <flow id="f_56_late_morning" from="-E12" to="E21" begin="10800" end="21600" probability="0.003611" type="passenger"/>
-    <flow id="f_57_lunch" from="-E12" to="E21" begin="21600" end="28800" probability="0.003333" type="passenger"/>
-    <flow id="f_58_early_afternoon" from="-E12" to="E21" begin="28800" end="36000" probability="0.003056" type="passenger"/>
-    <flow id="f_59_late_afternoon" from="-E12" to="E21" begin="36000" end="43200" probability="0.011111" type="passenger"/>
+    <!-- Traffic Flows (39 routes x 6 periods) -->
 
-    <!-- MEDIUM Routes -->
-    <flow id="f_60_early_morning" from="-E11" to="E21" begin="0" end="7200" probability="0.002333" type="passenger"/>
-    <flow id="f_61_morning_peak" from="-E11" to="E21" begin="7200" end="10800" probability="0.003667" type="passenger"/>
-    <flow id="f_62_late_morning" from="-E11" to="E21" begin="10800" end="21600" probability="0.002000" type="passenger"/>
-    <flow id="f_63_lunch" from="-E11" to="E21" begin="21600" end="28800" probability="0.001833" type="passenger"/>
-    <flow id="f_64_early_afternoon" from="-E11" to="E21" begin="28800" end="36000" probability="0.001667" type="passenger"/>
-    <flow id="f_65_late_afternoon" from="-E11" to="E21" begin="36000" end="43200" probability="0.006000" type="passenger"/>
-    <flow id="f_66_early_morning" from="-E12" to="E15" begin="0" end="7200" probability="0.002333" type="passenger"/>
-    <flow id="f_67_morning_peak" from="-E12" to="E15" begin="7200" end="10800" probability="0.003667" type="passenger"/>
-    <flow id="f_68_late_morning" from="-E12" to="E15" begin="10800" end="21600" probability="0.002000" type="passenger"/>
-    <flow id="f_69_lunch" from="-E12" to="E15" begin="21600" end="28800" probability="0.001833" type="passenger"/>
-    <flow id="f_70_early_afternoon" from="-E12" to="E15" begin="28800" end="36000" probability="0.001667" type="passenger"/>
-    <flow id="f_71_late_afternoon" from="-E12" to="E15" begin="36000" end="43200" probability="0.006000" type="passenger"/>
-    <flow id="f_72_early_morning" from="-E13" to="E9" begin="0" end="7200" probability="0.002333" type="passenger"/>
-    <flow id="f_73_morning_peak" from="-E13" to="E9" begin="7200" end="10800" probability="0.003667" type="passenger"/>
-    <flow id="f_74_late_morning" from="-E13" to="E9" begin="10800" end="21600" probability="0.002000" type="passenger"/>
-    <flow id="f_75_lunch" from="-E13" to="E9" begin="21600" end="28800" probability="0.001833" type="passenger"/>
-    <flow id="f_76_early_afternoon" from="-E13" to="E9" begin="28800" end="36000" probability="0.001667" type="passenger"/>
-    <flow id="f_77_late_afternoon" from="-E13" to="E9" begin="36000" end="43200" probability="0.006000" type="passenger"/>
-    <flow id="f_78_early_morning" from="-E13" to="E15" begin="0" end="7200" probability="0.002333" type="passenger"/>
-    <flow id="f_79_morning_peak" from="-E13" to="E15" begin="7200" end="10800" probability="0.003667" type="passenger"/>
-    <flow id="f_80_late_morning" from="-E13" to="E15" begin="10800" end="21600" probability="0.002000" type="passenger"/>
-    <flow id="f_81_lunch" from="-E13" to="E15" begin="21600" end="28800" probability="0.001833" type="passenger"/>
-    <flow id="f_82_early_afternoon" from="-E13" to="E15" begin="28800" end="36000" probability="0.001667" type="passenger"/>
-    <flow id="f_83_late_afternoon" from="-E13" to="E15" begin="36000" end="43200" probability="0.006000" type="passenger"/>
-    <flow id="f_84_early_morning" from="-E24" to="E12" via="-E23" begin="0" end="7200" probability="0.002333" type="passenger"/>
-    <flow id="f_85_morning_peak" from="-E24" to="E12" via="-E23" begin="7200" end="10800" probability="0.003667" type="passenger"/>
-    <flow id="f_86_late_morning" from="-E24" to="E12" via="-E23" begin="10800" end="21600" probability="0.002000" type="passenger"/>
-    <flow id="f_87_lunch" from="-E24" to="E12" via="-E23" begin="21600" end="28800" probability="0.001833" type="passenger"/>
-    <flow id="f_88_early_afternoon" from="-E24" to="E12" via="-E23" begin="28800" end="36000" probability="0.001667" type="passenger"/>
-    <flow id="f_89_late_afternoon" from="-E24" to="E12" via="-E23" begin="36000" end="43200" probability="0.006000" type="passenger"/>
-    <flow id="f_90_early_morning" from="-E24" to="E15" begin="0" end="7200" probability="0.002333" type="passenger"/>
-    <flow id="f_91_morning_peak" from="-E24" to="E15" begin="7200" end="10800" probability="0.003667" type="passenger"/>
-    <flow id="f_92_late_morning" from="-E24" to="E15" begin="10800" end="21600" probability="0.002000" type="passenger"/>
-    <flow id="f_93_lunch" from="-E24" to="E15" begin="21600" end="28800" probability="0.001833" type="passenger"/>
-    <flow id="f_94_early_afternoon" from="-E24" to="E15" begin="28800" end="36000" probability="0.001667" type="passenger"/>
-    <flow id="f_95_late_afternoon" from="-E24" to="E15" begin="36000" end="43200" probability="0.006000" type="passenger"/>
-    <flow id="f_96_early_morning" from="-E21" to="E15" begin="0" end="7200" probability="0.002333" type="passenger"/>
-    <flow id="f_97_morning_peak" from="-E21" to="E15" begin="7200" end="10800" probability="0.003667" type="passenger"/>
-    <flow id="f_98_late_morning" from="-E21" to="E15" begin="10800" end="21600" probability="0.002000" type="passenger"/>
-    <flow id="f_99_lunch" from="-E21" to="E15" begin="21600" end="28800" probability="0.001833" type="passenger"/>
-    <flow id="f_100_early_afternoon" from="-E21" to="E15" begin="28800" end="36000" probability="0.001667" type="passenger"/>
-    <flow id="f_101_late_afternoon" from="-E21" to="E15" begin="36000" end="43200" probability="0.006000" type="passenger"/>
-    <flow id="f_102_early_morning" from="-E21" to="E10" begin="0" end="7200" probability="0.002333" type="passenger"/>
-    <flow id="f_103_morning_peak" from="-E21" to="E10" begin="7200" end="10800" probability="0.003667" type="passenger"/>
-    <flow id="f_104_late_morning" from="-E21" to="E10" begin="10800" end="21600" probability="0.002000" type="passenger"/>
-    <flow id="f_105_lunch" from="-E21" to="E10" begin="21600" end="28800" probability="0.001833" type="passenger"/>
-    <flow id="f_106_early_afternoon" from="-E21" to="E10" begin="28800" end="36000" probability="0.001667" type="passenger"/>
-    <flow id="f_107_late_afternoon" from="-E21" to="E10" begin="36000" end="43200" probability="0.006000" type="passenger"/>
-    <flow id="f_108_early_morning" from="-E21" to="E11" via="-E20 -E19 E18 -E17" begin="0" end="7200" probability="0.002333" type="passenger"/>
-    <flow id="f_109_morning_peak" from="-E21" to="E11" via="-E20 -E19 E18 -E17" begin="7200" end="10800" probability="0.003667" type="passenger"/>
-    <flow id="f_110_late_morning" from="-E21" to="E11" via="-E20 -E19 E18 -E17" begin="10800" end="21600" probability="0.002000" type="passenger"/>
-    <flow id="f_111_lunch" from="-E21" to="E11" via="-E20 -E19 E18 -E17" begin="21600" end="28800" probability="0.001833" type="passenger"/>
-    <flow id="f_112_early_afternoon" from="-E21" to="E11" via="-E20 -E19 E18 -E17" begin="28800" end="36000" probability="0.001667" type="passenger"/>
-    <flow id="f_113_late_afternoon" from="-E21" to="E11" via="-E20 -E19 E18 -E17" begin="36000" end="43200" probability="0.006000" type="passenger"/>
-    <flow id="f_114_early_morning" from="-E10" to="E21" via="E17 E18 E19 E20" begin="0" end="7200" probability="0.002333" type="passenger"/>
-    <flow id="f_115_morning_peak" from="-E10" to="E21" via="E17 E18 E19 E20" begin="7200" end="10800" probability="0.003667" type="passenger"/>
-    <flow id="f_116_late_morning" from="-E10" to="E21" via="E17 E18 E19 E20" begin="10800" end="21600" probability="0.002000" type="passenger"/>
-    <flow id="f_117_lunch" from="-E10" to="E21" via="E17 E18 E19 E20" begin="21600" end="28800" probability="0.001833" type="passenger"/>
-    <flow id="f_118_early_afternoon" from="-E10" to="E21" via="E17 E18 E19 E20" begin="28800" end="36000" probability="0.001667" type="passenger"/>
-    <flow id="f_119_late_afternoon" from="-E10" to="E21" via="E17 E18 E19 E20" begin="36000" end="43200" probability="0.006000" type="passenger"/>
+    <!-- Routes from -E9 -->
+    <flow id="f_0_early_morning" begin="0" end="7200" from="-E9" to="E13" vehsPerHour="60" type="car"/>
+    <flow id="f_0_morning_peak" begin="7200" end="10800" from="-E9" to="E13" vehsPerHour="120" type="car"/>
+    <flow id="f_0_late_morning" begin="10800" end="21600" from="-E9" to="E13" vehsPerHour="65" type="car"/>
+    <flow id="f_0_lunch" begin="21600" end="28800" from="-E9" to="E13" vehsPerHour="55" type="car"/>
+    <flow id="f_0_early_afternoon" begin="28800" end="36000" from="-E9" to="E13" vehsPerHour="50" type="car"/>
+    <flow id="f_0_late_afternoon" begin="36000" end="43200" from="-E9" to="E13" vehsPerHour="200" type="car"/>
+    <flow id="f_1_early_morning" begin="0" end="7200" from="-E9" to="E6" vehsPerHour="60" type="car"/>
+    <flow id="f_1_morning_peak" begin="7200" end="10800" from="-E9" to="E6" vehsPerHour="120" type="car"/>
+    <flow id="f_1_late_morning" begin="10800" end="21600" from="-E9" to="E6" vehsPerHour="65" type="car"/>
+    <flow id="f_1_lunch" begin="21600" end="28800" from="-E9" to="E6" vehsPerHour="55" type="car"/>
+    <flow id="f_1_early_afternoon" begin="28800" end="36000" from="-E9" to="E6" vehsPerHour="50" type="car"/>
+    <flow id="f_1_late_afternoon" begin="36000" end="43200" from="-E9" to="E6" vehsPerHour="200" type="car"/>
+    <flow id="f_2_early_morning" begin="0" end="7200" from="-E9" to="E24" vehsPerHour="72" type="car"/>
+    <flow id="f_2_morning_peak" begin="7200" end="10800" from="-E9" to="E24" vehsPerHour="144" type="car"/>
+    <flow id="f_2_late_morning" begin="10800" end="21600" from="-E9" to="E24" vehsPerHour="78" type="car"/>
+    <flow id="f_2_lunch" begin="21600" end="28800" from="-E9" to="E24" vehsPerHour="66" type="car"/>
+    <flow id="f_2_early_afternoon" begin="28800" end="36000" from="-E9" to="E24" vehsPerHour="60" type="car"/>
+    <flow id="f_2_late_afternoon" begin="36000" end="43200" from="-E9" to="E24" vehsPerHour="240" type="car"/>
+    <flow id="f_3_early_morning" begin="0" end="7200" from="-E9" to="E10" vehsPerHour="48" type="car"/>
+    <flow id="f_3_morning_peak" begin="7200" end="10800" from="-E9" to="E10" vehsPerHour="96" type="car"/>
+    <flow id="f_3_late_morning" begin="10800" end="21600" from="-E9" to="E10" vehsPerHour="52" type="car"/>
+    <flow id="f_3_lunch" begin="21600" end="28800" from="-E9" to="E10" vehsPerHour="44" type="car"/>
+    <flow id="f_3_early_afternoon" begin="28800" end="36000" from="-E9" to="E10" vehsPerHour="40" type="car"/>
+    <flow id="f_3_late_afternoon" begin="36000" end="43200" from="-E9" to="E10" vehsPerHour="160" type="car"/>
+    <flow id="f_4_early_morning" begin="0" end="7200" from="-E9" to="E21" vehsPerHour="54" type="car"/>
+    <flow id="f_4_morning_peak" begin="7200" end="10800" from="-E9" to="E21" vehsPerHour="108" type="car"/>
+    <flow id="f_4_late_morning" begin="10800" end="21600" from="-E9" to="E21" vehsPerHour="58" type="car"/>
+    <flow id="f_4_lunch" begin="21600" end="28800" from="-E9" to="E21" vehsPerHour="50" type="car"/>
+    <flow id="f_4_early_afternoon" begin="28800" end="36000" from="-E9" to="E21" vehsPerHour="45" type="car"/>
+    <flow id="f_4_late_afternoon" begin="36000" end="43200" from="-E9" to="E21" vehsPerHour="180" type="car"/>
 
-    <!-- MINOR Routes -->
-    <flow id="f_120_early_morning" from="-E9" to="E15" begin="0" end="7200" probability="0.001042" type="passenger"/>
-    <flow id="f_121_morning_peak" from="-E9" to="E15" begin="7200" end="10800" probability="0.001667" type="passenger"/>
-    <flow id="f_122_late_morning" from="-E9" to="E15" begin="10800" end="21600" probability="0.000937" type="passenger"/>
-    <flow id="f_123_lunch" from="-E9" to="E15" begin="21600" end="28800" probability="0.000833" type="passenger"/>
-    <flow id="f_124_early_afternoon" from="-E9" to="E15" begin="28800" end="36000" probability="0.000833" type="passenger"/>
-    <flow id="f_125_late_afternoon" from="-E9" to="E15" begin="36000" end="43200" probability="0.002917" type="passenger"/>
-    <flow id="f_126_early_morning" from="-E9" to="E21" begin="0" end="7200" probability="0.001042" type="passenger"/>
-    <flow id="f_127_morning_peak" from="-E9" to="E21" begin="7200" end="10800" probability="0.001667" type="passenger"/>
-    <flow id="f_128_late_morning" from="-E9" to="E21" begin="10800" end="21600" probability="0.000937" type="passenger"/>
-    <flow id="f_129_lunch" from="-E9" to="E21" begin="21600" end="28800" probability="0.000833" type="passenger"/>
-    <flow id="f_130_early_afternoon" from="-E9" to="E21" begin="28800" end="36000" probability="0.000833" type="passenger"/>
-    <flow id="f_131_late_afternoon" from="-E9" to="E21" begin="36000" end="43200" probability="0.002917" type="passenger"/>
-    <flow id="f_132_early_morning" from="-E9" to="E12" begin="0" end="7200" probability="0.001042" type="passenger"/>
-    <flow id="f_133_morning_peak" from="-E9" to="E12" begin="7200" end="10800" probability="0.001667" type="passenger"/>
-    <flow id="f_134_late_morning" from="-E9" to="E12" begin="10800" end="21600" probability="0.000937" type="passenger"/>
-    <flow id="f_135_lunch" from="-E9" to="E12" begin="21600" end="28800" probability="0.000833" type="passenger"/>
-    <flow id="f_136_early_afternoon" from="-E9" to="E12" begin="28800" end="36000" probability="0.000833" type="passenger"/>
-    <flow id="f_137_late_afternoon" from="-E9" to="E12" begin="36000" end="43200" probability="0.002917" type="passenger"/>
-    <flow id="f_138_early_morning" from="-E11" to="E12" begin="0" end="7200" probability="0.001042" type="passenger"/>
-    <flow id="f_139_morning_peak" from="-E11" to="E12" begin="7200" end="10800" probability="0.001667" type="passenger"/>
-    <flow id="f_140_late_morning" from="-E11" to="E12" begin="10800" end="21600" probability="0.000937" type="passenger"/>
-    <flow id="f_141_lunch" from="-E11" to="E12" begin="21600" end="28800" probability="0.000833" type="passenger"/>
-    <flow id="f_142_early_afternoon" from="-E11" to="E12" begin="28800" end="36000" probability="0.000833" type="passenger"/>
-    <flow id="f_143_late_afternoon" from="-E11" to="E12" begin="36000" end="43200" probability="0.002917" type="passenger"/>
-    <flow id="f_144_early_morning" from="-E13" to="E21" begin="0" end="7200" probability="0.001042" type="passenger"/>
-    <flow id="f_145_morning_peak" from="-E13" to="E21" begin="7200" end="10800" probability="0.001667" type="passenger"/>
-    <flow id="f_146_late_morning" from="-E13" to="E21" begin="10800" end="21600" probability="0.000937" type="passenger"/>
-    <flow id="f_147_lunch" from="-E13" to="E21" begin="21600" end="28800" probability="0.000833" type="passenger"/>
-    <flow id="f_148_early_afternoon" from="-E13" to="E21" begin="28800" end="36000" probability="0.000833" type="passenger"/>
-    <flow id="f_149_late_afternoon" from="-E13" to="E21" begin="36000" end="43200" probability="0.002917" type="passenger"/>
-    <flow id="f_150_early_morning" from="-E13" to="E24" begin="0" end="7200" probability="0.001042" type="passenger"/>
-    <flow id="f_151_morning_peak" from="-E13" to="E24" begin="7200" end="10800" probability="0.001667" type="passenger"/>
-    <flow id="f_152_late_morning" from="-E13" to="E24" begin="10800" end="21600" probability="0.000937" type="passenger"/>
-    <flow id="f_153_lunch" from="-E13" to="E24" begin="21600" end="28800" probability="0.000833" type="passenger"/>
-    <flow id="f_154_early_afternoon" from="-E13" to="E24" begin="28800" end="36000" probability="0.000833" type="passenger"/>
-    <flow id="f_155_late_afternoon" from="-E13" to="E24" begin="36000" end="43200" probability="0.002917" type="passenger"/>
-    <flow id="f_156_early_morning" from="-E12" to="E9" begin="0" end="7200" probability="0.001042" type="passenger"/>
-    <flow id="f_157_morning_peak" from="-E12" to="E9" begin="7200" end="10800" probability="0.001667" type="passenger"/>
-    <flow id="f_158_late_morning" from="-E12" to="E9" begin="10800" end="21600" probability="0.000937" type="passenger"/>
-    <flow id="f_159_lunch" from="-E12" to="E9" begin="21600" end="28800" probability="0.000833" type="passenger"/>
-    <flow id="f_160_early_afternoon" from="-E12" to="E9" begin="28800" end="36000" probability="0.000833" type="passenger"/>
-    <flow id="f_161_late_afternoon" from="-E12" to="E9" begin="36000" end="43200" probability="0.002917" type="passenger"/>
-    <flow id="f_162_early_morning" from="-E12" to="E24" begin="0" end="7200" probability="0.001042" type="passenger"/>
-    <flow id="f_163_morning_peak" from="-E12" to="E24" begin="7200" end="10800" probability="0.001667" type="passenger"/>
-    <flow id="f_164_late_morning" from="-E12" to="E24" begin="10800" end="21600" probability="0.000937" type="passenger"/>
-    <flow id="f_165_lunch" from="-E12" to="E24" begin="21600" end="28800" probability="0.000833" type="passenger"/>
-    <flow id="f_166_early_afternoon" from="-E12" to="E24" begin="28800" end="36000" probability="0.000833" type="passenger"/>
-    <flow id="f_167_late_afternoon" from="-E12" to="E24" begin="36000" end="43200" probability="0.002917" type="passenger"/>
+    <!-- Routes from -E10 -->
+    <flow id="f_5_early_morning" begin="0" end="7200" from="-E10" to="E6" vehsPerHour="60" type="car"/>
+    <flow id="f_5_morning_peak" begin="7200" end="10800" from="-E10" to="E6" vehsPerHour="120" type="car"/>
+    <flow id="f_5_late_morning" begin="10800" end="21600" from="-E10" to="E6" vehsPerHour="65" type="car"/>
+    <flow id="f_5_lunch" begin="21600" end="28800" from="-E10" to="E6" vehsPerHour="55" type="car"/>
+    <flow id="f_5_early_afternoon" begin="28800" end="36000" from="-E10" to="E6" vehsPerHour="50" type="car"/>
+    <flow id="f_5_late_afternoon" begin="36000" end="43200" from="-E10" to="E6" vehsPerHour="200" type="car"/>
+    <flow id="f_6_early_morning" begin="0" end="7200" from="-E10" to="E21" vehsPerHour="90" type="car"/>
+    <flow id="f_6_morning_peak" begin="7200" end="10800" from="-E10" to="E21" vehsPerHour="180" type="car"/>
+    <flow id="f_6_late_morning" begin="10800" end="21600" from="-E10" to="E21" vehsPerHour="98" type="car"/>
+    <flow id="f_6_lunch" begin="21600" end="28800" from="-E10" to="E21" vehsPerHour="82" type="car"/>
+    <flow id="f_6_early_afternoon" begin="28800" end="36000" from="-E10" to="E21" vehsPerHour="75" type="car"/>
+    <flow id="f_6_late_afternoon" begin="36000" end="43200" from="-E10" to="E21" vehsPerHour="300" type="car"/>
+    <flow id="f_7_early_morning" begin="0" end="7200" from="-E10" to="E15" vehsPerHour="108" type="car"/>
+    <flow id="f_7_morning_peak" begin="7200" end="10800" from="-E10" to="E15" vehsPerHour="216" type="car"/>
+    <flow id="f_7_late_morning" begin="10800" end="21600" from="-E10" to="E15" vehsPerHour="117" type="car"/>
+    <flow id="f_7_lunch" begin="21600" end="28800" from="-E10" to="E15" vehsPerHour="99" type="car"/>
+    <flow id="f_7_early_afternoon" begin="28800" end="36000" from="-E10" to="E15" vehsPerHour="90" type="car"/>
+    <flow id="f_7_late_afternoon" begin="36000" end="43200" from="-E10" to="E15" vehsPerHour="360" type="car"/>
+    <flow id="f_8_early_morning" begin="0" end="7200" from="-E10" to="E24" vehsPerHour="72" type="car"/>
+    <flow id="f_8_morning_peak" begin="7200" end="10800" from="-E10" to="E24" vehsPerHour="144" type="car"/>
+    <flow id="f_8_late_morning" begin="10800" end="21600" from="-E10" to="E24" vehsPerHour="78" type="car"/>
+    <flow id="f_8_lunch" begin="21600" end="28800" from="-E10" to="E24" vehsPerHour="66" type="car"/>
+    <flow id="f_8_early_afternoon" begin="28800" end="36000" from="-E10" to="E24" vehsPerHour="60" type="car"/>
+    <flow id="f_8_late_afternoon" begin="36000" end="43200" from="-E10" to="E24" vehsPerHour="240" type="car"/>
+    <flow id="f_9_early_morning" begin="0" end="7200" from="-E10" to="E13" vehsPerHour="48" type="car"/>
+    <flow id="f_9_morning_peak" begin="7200" end="10800" from="-E10" to="E13" vehsPerHour="96" type="car"/>
+    <flow id="f_9_late_morning" begin="10800" end="21600" from="-E10" to="E13" vehsPerHour="52" type="car"/>
+    <flow id="f_9_lunch" begin="21600" end="28800" from="-E10" to="E13" vehsPerHour="44" type="car"/>
+    <flow id="f_9_early_afternoon" begin="28800" end="36000" from="-E10" to="E13" vehsPerHour="40" type="car"/>
+    <flow id="f_9_late_afternoon" begin="36000" end="43200" from="-E10" to="E13" vehsPerHour="160" type="car"/>
+    <flow id="f_10_early_morning" begin="0" end="7200" from="-E10" to="E15" vehsPerHour="108" type="car"/>
+    <flow id="f_10_morning_peak" begin="7200" end="10800" from="-E10" to="E15" vehsPerHour="216" type="car"/>
+    <flow id="f_10_late_morning" begin="10800" end="21600" from="-E10" to="E15" vehsPerHour="117" type="car"/>
+    <flow id="f_10_lunch" begin="21600" end="28800" from="-E10" to="E15" vehsPerHour="99" type="car"/>
+    <flow id="f_10_early_afternoon" begin="28800" end="36000" from="-E10" to="E15" vehsPerHour="90" type="car"/>
+    <flow id="f_10_late_afternoon" begin="36000" end="43200" from="-E10" to="E15" vehsPerHour="360" type="car"/>
 
-    <!-- COMMERCIAL Routes -->
-    <flow id="f_168_early_morning" from="-E15" to="E24" via="E4 -E5 E16" begin="0" end="7200" probability="0.000972" type="truck"/>
-    <flow id="f_169_morning_peak" from="-E15" to="E24" via="E4 -E5 E16" begin="7200" end="10800" probability="0.001528" type="truck"/>
-    <flow id="f_170_late_morning" from="-E15" to="E24" via="E4 -E5 E16" begin="10800" end="21600" probability="0.000833" type="truck"/>
-    <flow id="f_171_lunch" from="-E15" to="E24" via="E4 -E5 E16" begin="21600" end="28800" probability="0.000764" type="truck"/>
-    <flow id="f_172_early_afternoon" from="-E15" to="E24" via="E4 -E5 E16" begin="28800" end="36000" probability="0.000694" type="truck"/>
-    <flow id="f_173_late_afternoon" from="-E15" to="E24" via="E4 -E5 E16" begin="36000" end="43200" probability="0.002500" type="truck"/>
-    <flow id="f_174_early_morning" from="-E24" to="E15" via="-E16 E5 -E4" begin="0" end="7200" probability="0.000972" type="truck"/>
-    <flow id="f_175_morning_peak" from="-E24" to="E15" via="-E16 E5 -E4" begin="7200" end="10800" probability="0.001528" type="truck"/>
-    <flow id="f_176_late_morning" from="-E24" to="E15" via="-E16 E5 -E4" begin="10800" end="21600" probability="0.000833" type="truck"/>
-    <flow id="f_177_lunch" from="-E24" to="E15" via="-E16 E5 -E4" begin="21600" end="28800" probability="0.000764" type="truck"/>
-    <flow id="f_178_early_afternoon" from="-E24" to="E15" via="-E16 E5 -E4" begin="28800" end="36000" probability="0.000694" type="truck"/>
-    <flow id="f_179_late_afternoon" from="-E24" to="E15" via="-E16 E5 -E4" begin="36000" end="43200" probability="0.002500" type="truck"/>
-    <flow id="f_180_early_morning" from="-E11" to="E24" begin="0" end="7200" probability="0.000972" type="delivery"/>
-    <flow id="f_181_morning_peak" from="-E11" to="E24" begin="7200" end="10800" probability="0.001528" type="delivery"/>
-    <flow id="f_182_late_morning" from="-E11" to="E24" begin="10800" end="21600" probability="0.000833" type="delivery"/>
-    <flow id="f_183_lunch" from="-E11" to="E24" begin="21600" end="28800" probability="0.000764" type="delivery"/>
-    <flow id="f_184_early_afternoon" from="-E11" to="E24" begin="28800" end="36000" probability="0.000694" type="delivery"/>
-    <flow id="f_185_late_afternoon" from="-E11" to="E24" begin="36000" end="43200" probability="0.002500" type="delivery"/>
-    <flow id="f_186_early_morning" from="-E24" to="E11" via="-E23" begin="0" end="7200" probability="0.000972" type="delivery"/>
-    <flow id="f_187_morning_peak" from="-E24" to="E11" via="-E23" begin="7200" end="10800" probability="0.001528" type="delivery"/>
-    <flow id="f_188_late_morning" from="-E24" to="E11" via="-E23" begin="10800" end="21600" probability="0.000833" type="delivery"/>
-    <flow id="f_189_lunch" from="-E24" to="E11" via="-E23" begin="21600" end="28800" probability="0.000764" type="delivery"/>
-    <flow id="f_190_early_afternoon" from="-E24" to="E11" via="-E23" begin="28800" end="36000" probability="0.000694" type="delivery"/>
-    <flow id="f_191_late_afternoon" from="-E24" to="E11" via="-E23" begin="36000" end="43200" probability="0.002500" type="delivery"/>
-    <flow id="f_192_early_morning" from="-E15" to="E21" via="-E18 E19 E20" begin="0" end="7200" probability="0.000972" type="delivery"/>
-    <flow id="f_193_morning_peak" from="-E15" to="E21" via="-E18 E19 E20" begin="7200" end="10800" probability="0.001528" type="delivery"/>
-    <flow id="f_194_late_morning" from="-E15" to="E21" via="-E18 E19 E20" begin="10800" end="21600" probability="0.000833" type="delivery"/>
-    <flow id="f_195_lunch" from="-E15" to="E21" via="-E18 E19 E20" begin="21600" end="28800" probability="0.000764" type="delivery"/>
-    <flow id="f_196_early_afternoon" from="-E15" to="E21" via="-E18 E19 E20" begin="28800" end="36000" probability="0.000694" type="delivery"/>
-    <flow id="f_197_late_afternoon" from="-E15" to="E21" via="-E18 E19 E20" begin="36000" end="43200" probability="0.002500" type="delivery"/>
+    <!-- Routes from -E11 -->
+    <flow id="f_11_early_morning" begin="0" end="7200" from="-E11" to="E6" vehsPerHour="54" type="car"/>
+    <flow id="f_11_morning_peak" begin="7200" end="10800" from="-E11" to="E6" vehsPerHour="108" type="car"/>
+    <flow id="f_11_late_morning" begin="10800" end="21600" from="-E11" to="E6" vehsPerHour="58" type="car"/>
+    <flow id="f_11_lunch" begin="21600" end="28800" from="-E11" to="E6" vehsPerHour="50" type="car"/>
+    <flow id="f_11_early_afternoon" begin="28800" end="36000" from="-E11" to="E6" vehsPerHour="45" type="car"/>
+    <flow id="f_11_late_afternoon" begin="36000" end="43200" from="-E11" to="E6" vehsPerHour="180" type="car"/>
+    <flow id="f_12_early_morning" begin="0" end="7200" from="-E11" to="E9" vehsPerHour="48" type="car"/>
+    <flow id="f_12_morning_peak" begin="7200" end="10800" from="-E11" to="E9" vehsPerHour="96" type="car"/>
+    <flow id="f_12_late_morning" begin="10800" end="21600" from="-E11" to="E9" vehsPerHour="52" type="car"/>
+    <flow id="f_12_lunch" begin="21600" end="28800" from="-E11" to="E9" vehsPerHour="44" type="car"/>
+    <flow id="f_12_early_afternoon" begin="28800" end="36000" from="-E11" to="E9" vehsPerHour="40" type="car"/>
+    <flow id="f_12_late_afternoon" begin="36000" end="43200" from="-E11" to="E9" vehsPerHour="160" type="car"/>
+    <flow id="f_13_early_morning" begin="0" end="7200" from="-E11" to="E13" vehsPerHour="42" type="car"/>
+    <flow id="f_13_morning_peak" begin="7200" end="10800" from="-E11" to="E13" vehsPerHour="84" type="car"/>
+    <flow id="f_13_late_morning" begin="10800" end="21600" from="-E11" to="E13" vehsPerHour="46" type="car"/>
+    <flow id="f_13_lunch" begin="21600" end="28800" from="-E11" to="E13" vehsPerHour="38" type="car"/>
+    <flow id="f_13_early_afternoon" begin="28800" end="36000" from="-E11" to="E13" vehsPerHour="35" type="car"/>
+    <flow id="f_13_late_afternoon" begin="36000" end="43200" from="-E11" to="E13" vehsPerHour="140" type="car"/>
+    <flow id="f_14_early_morning" begin="0" end="7200" from="-E11" to="E15" vehsPerHour="60" type="car"/>
+    <flow id="f_14_morning_peak" begin="7200" end="10800" from="-E11" to="E15" vehsPerHour="120" type="car"/>
+    <flow id="f_14_late_morning" begin="10800" end="21600" from="-E11" to="E15" vehsPerHour="65" type="car"/>
+    <flow id="f_14_lunch" begin="21600" end="28800" from="-E11" to="E15" vehsPerHour="55" type="car"/>
+    <flow id="f_14_early_afternoon" begin="28800" end="36000" from="-E11" to="E15" vehsPerHour="50" type="car"/>
+    <flow id="f_14_late_afternoon" begin="36000" end="43200" from="-E11" to="E15" vehsPerHour="200" type="car"/>
+    <flow id="f_15_early_morning" begin="0" end="7200" from="-E11" to="E24" vehsPerHour="90" type="car"/>
+    <flow id="f_15_morning_peak" begin="7200" end="10800" from="-E11" to="E24" vehsPerHour="180" type="car"/>
+    <flow id="f_15_late_morning" begin="10800" end="21600" from="-E11" to="E24" vehsPerHour="98" type="car"/>
+    <flow id="f_15_lunch" begin="21600" end="28800" from="-E11" to="E24" vehsPerHour="82" type="car"/>
+    <flow id="f_15_early_afternoon" begin="28800" end="36000" from="-E11" to="E24" vehsPerHour="75" type="car"/>
+    <flow id="f_15_late_afternoon" begin="36000" end="43200" from="-E11" to="E24" vehsPerHour="300" type="car"/>
 
-    <!-- BUS Routes -->
-    <flow id="f_198_early_morning" from="-E15" to="E24" via="E4 -E5 E16" begin="0" end="7200" probability="0.000444" type="bus"/>
-    <flow id="f_199_morning_peak" from="-E15" to="E24" via="E4 -E5 E16" begin="7200" end="10800" probability="0.000444" type="bus"/>
-    <flow id="f_200_late_morning" from="-E15" to="E24" via="E4 -E5 E16" begin="10800" end="21600" probability="0.000444" type="bus"/>
-    <flow id="f_201_lunch" from="-E15" to="E24" via="E4 -E5 E16" begin="21600" end="28800" probability="0.000444" type="bus"/>
-    <flow id="f_202_early_afternoon" from="-E15" to="E24" via="E4 -E5 E16" begin="28800" end="36000" probability="0.000444" type="bus"/>
-    <flow id="f_203_late_afternoon" from="-E15" to="E24" via="E4 -E5 E16" begin="36000" end="43200" probability="0.000444" type="bus"/>
-    <flow id="f_204_early_morning" from="-E24" to="E15" via="-E16 E5 -E4" begin="0" end="7200" probability="0.000444" type="bus"/>
-    <flow id="f_205_morning_peak" from="-E24" to="E15" via="-E16 E5 -E4" begin="7200" end="10800" probability="0.000444" type="bus"/>
-    <flow id="f_206_late_morning" from="-E24" to="E15" via="-E16 E5 -E4" begin="10800" end="21600" probability="0.000444" type="bus"/>
-    <flow id="f_207_lunch" from="-E24" to="E15" via="-E16 E5 -E4" begin="21600" end="28800" probability="0.000444" type="bus"/>
-    <flow id="f_208_early_afternoon" from="-E24" to="E15" via="-E16 E5 -E4" begin="28800" end="36000" probability="0.000444" type="bus"/>
-    <flow id="f_209_late_afternoon" from="-E24" to="E15" via="-E16 E5 -E4" begin="36000" end="43200" probability="0.000444" type="bus"/>
-    <flow id="f_210_early_morning" from="-E21" to="E15" via="-E20 -E19 E18" begin="0" end="7200" probability="0.000444" type="bus"/>
-    <flow id="f_211_morning_peak" from="-E21" to="E15" via="-E20 -E19 E18" begin="7200" end="10800" probability="0.000444" type="bus"/>
-    <flow id="f_212_late_morning" from="-E21" to="E15" via="-E20 -E19 E18" begin="10800" end="21600" probability="0.000444" type="bus"/>
-    <flow id="f_213_lunch" from="-E21" to="E15" via="-E20 -E19 E18" begin="21600" end="28800" probability="0.000444" type="bus"/>
-    <flow id="f_214_early_afternoon" from="-E21" to="E15" via="-E20 -E19 E18" begin="28800" end="36000" probability="0.000444" type="bus"/>
-    <flow id="f_215_late_afternoon" from="-E21" to="E15" via="-E20 -E19 E18" begin="36000" end="43200" probability="0.000444" type="bus"/>
-    <flow id="f_216_early_morning" from="-E15" to="E21" via="-E18 E19 E20" begin="0" end="7200" probability="0.000444" type="bus"/>
-    <flow id="f_217_morning_peak" from="-E15" to="E21" via="-E18 E19 E20" begin="7200" end="10800" probability="0.000444" type="bus"/>
-    <flow id="f_218_late_morning" from="-E15" to="E21" via="-E18 E19 E20" begin="10800" end="21600" probability="0.000444" type="bus"/>
-    <flow id="f_219_lunch" from="-E15" to="E21" via="-E18 E19 E20" begin="21600" end="28800" probability="0.000444" type="bus"/>
-    <flow id="f_220_early_afternoon" from="-E15" to="E21" via="-E18 E19 E20" begin="28800" end="36000" probability="0.000444" type="bus"/>
-    <flow id="f_221_late_afternoon" from="-E15" to="E21" via="-E18 E19 E20" begin="36000" end="43200" probability="0.000444" type="bus"/>
+    <!-- Routes from -E12 -->
+    <flow id="f_16_early_morning" begin="0" end="7200" from="-E12" to="E9" vehsPerHour="48" type="car"/>
+    <flow id="f_16_morning_peak" begin="7200" end="10800" from="-E12" to="E9" vehsPerHour="96" type="car"/>
+    <flow id="f_16_late_morning" begin="10800" end="21600" from="-E12" to="E9" vehsPerHour="52" type="car"/>
+    <flow id="f_16_lunch" begin="21600" end="28800" from="-E12" to="E9" vehsPerHour="44" type="car"/>
+    <flow id="f_16_early_afternoon" begin="28800" end="36000" from="-E12" to="E9" vehsPerHour="40" type="car"/>
+    <flow id="f_16_late_afternoon" begin="36000" end="43200" from="-E12" to="E9" vehsPerHour="160" type="car"/>
+    <flow id="f_17_early_morning" begin="0" end="7200" from="-E12" to="E6" vehsPerHour="54" type="car"/>
+    <flow id="f_17_morning_peak" begin="7200" end="10800" from="-E12" to="E6" vehsPerHour="108" type="car"/>
+    <flow id="f_17_late_morning" begin="10800" end="21600" from="-E12" to="E6" vehsPerHour="58" type="car"/>
+    <flow id="f_17_lunch" begin="21600" end="28800" from="-E12" to="E6" vehsPerHour="50" type="car"/>
+    <flow id="f_17_early_afternoon" begin="28800" end="36000" from="-E12" to="E6" vehsPerHour="45" type="car"/>
+    <flow id="f_17_late_afternoon" begin="36000" end="43200" from="-E12" to="E6" vehsPerHour="180" type="car"/>
+    <flow id="f_18_early_morning" begin="0" end="7200" from="-E12" to="E15" vehsPerHour="60" type="car"/>
+    <flow id="f_18_morning_peak" begin="7200" end="10800" from="-E12" to="E15" vehsPerHour="120" type="car"/>
+    <flow id="f_18_late_morning" begin="10800" end="21600" from="-E12" to="E15" vehsPerHour="65" type="car"/>
+    <flow id="f_18_lunch" begin="21600" end="28800" from="-E12" to="E15" vehsPerHour="55" type="car"/>
+    <flow id="f_18_early_afternoon" begin="28800" end="36000" from="-E12" to="E15" vehsPerHour="50" type="car"/>
+    <flow id="f_18_late_afternoon" begin="36000" end="43200" from="-E12" to="E15" vehsPerHour="200" type="car"/>
+    <flow id="f_19_early_morning" begin="0" end="7200" from="-E12" to="E24" vehsPerHour="66" type="car"/>
+    <flow id="f_19_morning_peak" begin="7200" end="10800" from="-E12" to="E24" vehsPerHour="132" type="car"/>
+    <flow id="f_19_late_morning" begin="10800" end="21600" from="-E12" to="E24" vehsPerHour="72" type="car"/>
+    <flow id="f_19_lunch" begin="21600" end="28800" from="-E12" to="E24" vehsPerHour="61" type="car"/>
+    <flow id="f_19_early_afternoon" begin="28800" end="36000" from="-E12" to="E24" vehsPerHour="55" type="car"/>
+    <flow id="f_19_late_afternoon" begin="36000" end="43200" from="-E12" to="E24" vehsPerHour="220" type="car"/>
+
+    <!-- Routes from -E13 -->
+    <flow id="f_20_early_morning" begin="0" end="7200" from="-E13" to="E24" vehsPerHour="72" type="car"/>
+    <flow id="f_20_morning_peak" begin="7200" end="10800" from="-E13" to="E24" vehsPerHour="144" type="car"/>
+    <flow id="f_20_late_morning" begin="10800" end="21600" from="-E13" to="E24" vehsPerHour="78" type="car"/>
+    <flow id="f_20_lunch" begin="21600" end="28800" from="-E13" to="E24" vehsPerHour="66" type="car"/>
+    <flow id="f_20_early_afternoon" begin="28800" end="36000" from="-E13" to="E24" vehsPerHour="60" type="car"/>
+    <flow id="f_20_late_afternoon" begin="36000" end="43200" from="-E13" to="E24" vehsPerHour="240" type="car"/>
+    <flow id="f_21_early_morning" begin="0" end="7200" from="-E13" to="E6" vehsPerHour="60" type="car"/>
+    <flow id="f_21_morning_peak" begin="7200" end="10800" from="-E13" to="E6" vehsPerHour="120" type="car"/>
+    <flow id="f_21_late_morning" begin="10800" end="21600" from="-E13" to="E6" vehsPerHour="65" type="car"/>
+    <flow id="f_21_lunch" begin="21600" end="28800" from="-E13" to="E6" vehsPerHour="55" type="car"/>
+    <flow id="f_21_early_afternoon" begin="28800" end="36000" from="-E13" to="E6" vehsPerHour="50" type="car"/>
+    <flow id="f_21_late_afternoon" begin="36000" end="43200" from="-E13" to="E6" vehsPerHour="200" type="car"/>
+    <flow id="f_22_early_morning" begin="0" end="7200" from="-E13" to="E15" vehsPerHour="66" type="car"/>
+    <flow id="f_22_morning_peak" begin="7200" end="10800" from="-E13" to="E15" vehsPerHour="132" type="car"/>
+    <flow id="f_22_late_morning" begin="10800" end="21600" from="-E13" to="E15" vehsPerHour="72" type="car"/>
+    <flow id="f_22_lunch" begin="21600" end="28800" from="-E13" to="E15" vehsPerHour="61" type="car"/>
+    <flow id="f_22_early_afternoon" begin="28800" end="36000" from="-E13" to="E15" vehsPerHour="55" type="car"/>
+    <flow id="f_22_late_afternoon" begin="36000" end="43200" from="-E13" to="E15" vehsPerHour="220" type="car"/>
+    <flow id="f_23_early_morning" begin="0" end="7200" from="-E13" to="E10" vehsPerHour="54" type="car"/>
+    <flow id="f_23_morning_peak" begin="7200" end="10800" from="-E13" to="E10" vehsPerHour="108" type="car"/>
+    <flow id="f_23_late_morning" begin="10800" end="21600" from="-E13" to="E10" vehsPerHour="58" type="car"/>
+    <flow id="f_23_lunch" begin="21600" end="28800" from="-E13" to="E10" vehsPerHour="50" type="car"/>
+    <flow id="f_23_early_afternoon" begin="28800" end="36000" from="-E13" to="E10" vehsPerHour="45" type="car"/>
+    <flow id="f_23_late_afternoon" begin="36000" end="43200" from="-E13" to="E10" vehsPerHour="180" type="car"/>
+
+    <!-- Routes from -E21 -->
+    <flow id="f_24_early_morning" begin="0" end="7200" from="-E21" to="E6" vehsPerHour="60" type="car"/>
+    <flow id="f_24_morning_peak" begin="7200" end="10800" from="-E21" to="E6" vehsPerHour="120" type="car"/>
+    <flow id="f_24_late_morning" begin="10800" end="21600" from="-E21" to="E6" vehsPerHour="65" type="car"/>
+    <flow id="f_24_lunch" begin="21600" end="28800" from="-E21" to="E6" vehsPerHour="55" type="car"/>
+    <flow id="f_24_early_afternoon" begin="28800" end="36000" from="-E21" to="E6" vehsPerHour="50" type="car"/>
+    <flow id="f_24_late_afternoon" begin="36000" end="43200" from="-E21" to="E6" vehsPerHour="200" type="car"/>
+    <flow id="f_25_early_morning" begin="0" end="7200" from="-E21" to="E15" vehsPerHour="108" type="car"/>
+    <flow id="f_25_morning_peak" begin="7200" end="10800" from="-E21" to="E15" vehsPerHour="216" type="car"/>
+    <flow id="f_25_late_morning" begin="10800" end="21600" from="-E21" to="E15" vehsPerHour="117" type="car"/>
+    <flow id="f_25_lunch" begin="21600" end="28800" from="-E21" to="E15" vehsPerHour="99" type="car"/>
+    <flow id="f_25_early_afternoon" begin="28800" end="36000" from="-E21" to="E15" vehsPerHour="90" type="car"/>
+    <flow id="f_25_late_afternoon" begin="36000" end="43200" from="-E21" to="E15" vehsPerHour="360" type="car"/>
+    <flow id="f_26_early_morning" begin="0" end="7200" from="-E21" to="E11" vehsPerHour="54" type="car"/>
+    <flow id="f_26_morning_peak" begin="7200" end="10800" from="-E21" to="E11" vehsPerHour="108" type="car"/>
+    <flow id="f_26_late_morning" begin="10800" end="21600" from="-E21" to="E11" vehsPerHour="58" type="car"/>
+    <flow id="f_26_lunch" begin="21600" end="28800" from="-E21" to="E11" vehsPerHour="50" type="car"/>
+    <flow id="f_26_early_afternoon" begin="28800" end="36000" from="-E21" to="E11" vehsPerHour="45" type="car"/>
+    <flow id="f_26_late_afternoon" begin="36000" end="43200" from="-E21" to="E11" vehsPerHour="180" type="car"/>
+    <flow id="f_27_early_morning" begin="0" end="7200" from="-E21" to="E12" vehsPerHour="48" type="car"/>
+    <flow id="f_27_morning_peak" begin="7200" end="10800" from="-E21" to="E12" vehsPerHour="96" type="car"/>
+    <flow id="f_27_late_morning" begin="10800" end="21600" from="-E21" to="E12" vehsPerHour="52" type="car"/>
+    <flow id="f_27_lunch" begin="21600" end="28800" from="-E21" to="E12" vehsPerHour="44" type="car"/>
+    <flow id="f_27_early_afternoon" begin="28800" end="36000" from="-E21" to="E12" vehsPerHour="40" type="car"/>
+    <flow id="f_27_late_afternoon" begin="36000" end="43200" from="-E21" to="E12" vehsPerHour="160" type="car"/>
+
+    <!-- Routes from -E24 -->
+    <flow id="f_28_early_morning" begin="0" end="7200" from="-E24" to="E11" vehsPerHour="60" type="car"/>
+    <flow id="f_28_morning_peak" begin="7200" end="10800" from="-E24" to="E11" vehsPerHour="120" type="car"/>
+    <flow id="f_28_late_morning" begin="10800" end="21600" from="-E24" to="E11" vehsPerHour="65" type="car"/>
+    <flow id="f_28_lunch" begin="21600" end="28800" from="-E24" to="E11" vehsPerHour="55" type="car"/>
+    <flow id="f_28_early_afternoon" begin="28800" end="36000" from="-E24" to="E11" vehsPerHour="50" type="car"/>
+    <flow id="f_28_late_afternoon" begin="36000" end="43200" from="-E24" to="E11" vehsPerHour="200" type="car"/>
+    <flow id="f_29_early_morning" begin="0" end="7200" from="-E24" to="E15" vehsPerHour="108" type="car"/>
+    <flow id="f_29_morning_peak" begin="7200" end="10800" from="-E24" to="E15" vehsPerHour="216" type="car"/>
+    <flow id="f_29_late_morning" begin="10800" end="21600" from="-E24" to="E15" vehsPerHour="117" type="car"/>
+    <flow id="f_29_lunch" begin="21600" end="28800" from="-E24" to="E15" vehsPerHour="99" type="car"/>
+    <flow id="f_29_early_afternoon" begin="28800" end="36000" from="-E24" to="E15" vehsPerHour="90" type="car"/>
+    <flow id="f_29_late_afternoon" begin="36000" end="43200" from="-E24" to="E15" vehsPerHour="360" type="car"/>
+    <flow id="f_30_early_morning" begin="0" end="7200" from="-E24" to="E13" vehsPerHour="54" type="car"/>
+    <flow id="f_30_morning_peak" begin="7200" end="10800" from="-E24" to="E13" vehsPerHour="108" type="car"/>
+    <flow id="f_30_late_morning" begin="10800" end="21600" from="-E24" to="E13" vehsPerHour="58" type="car"/>
+    <flow id="f_30_lunch" begin="21600" end="28800" from="-E24" to="E13" vehsPerHour="50" type="car"/>
+    <flow id="f_30_early_afternoon" begin="28800" end="36000" from="-E24" to="E13" vehsPerHour="45" type="car"/>
+    <flow id="f_30_late_afternoon" begin="36000" end="43200" from="-E24" to="E13" vehsPerHour="180" type="car"/>
+    <flow id="f_31_early_morning" begin="0" end="7200" from="-E24" to="E6" vehsPerHour="60" type="car"/>
+    <flow id="f_31_morning_peak" begin="7200" end="10800" from="-E24" to="E6" vehsPerHour="120" type="car"/>
+    <flow id="f_31_late_morning" begin="10800" end="21600" from="-E24" to="E6" vehsPerHour="65" type="car"/>
+    <flow id="f_31_lunch" begin="21600" end="28800" from="-E24" to="E6" vehsPerHour="55" type="car"/>
+    <flow id="f_31_early_afternoon" begin="28800" end="36000" from="-E24" to="E6" vehsPerHour="50" type="car"/>
+    <flow id="f_31_late_afternoon" begin="36000" end="43200" from="-E24" to="E6" vehsPerHour="200" type="car"/>
+
+    <!-- Routes from -E6 -->
+    <flow id="f_32_early_morning" begin="0" end="7200" from="-E6" to="E24" vehsPerHour="90" type="car"/>
+    <flow id="f_32_morning_peak" begin="7200" end="10800" from="-E6" to="E24" vehsPerHour="180" type="car"/>
+    <flow id="f_32_late_morning" begin="10800" end="21600" from="-E6" to="E24" vehsPerHour="98" type="car"/>
+    <flow id="f_32_lunch" begin="21600" end="28800" from="-E6" to="E24" vehsPerHour="82" type="car"/>
+    <flow id="f_32_early_afternoon" begin="28800" end="36000" from="-E6" to="E24" vehsPerHour="75" type="car"/>
+    <flow id="f_32_late_afternoon" begin="36000" end="43200" from="-E6" to="E24" vehsPerHour="300" type="car"/>
+    <flow id="f_33_early_morning" begin="0" end="7200" from="-E6" to="E9" vehsPerHour="48" type="car"/>
+    <flow id="f_33_morning_peak" begin="7200" end="10800" from="-E6" to="E9" vehsPerHour="96" type="car"/>
+    <flow id="f_33_late_morning" begin="10800" end="21600" from="-E6" to="E9" vehsPerHour="52" type="car"/>
+    <flow id="f_33_lunch" begin="21600" end="28800" from="-E6" to="E9" vehsPerHour="44" type="car"/>
+    <flow id="f_33_early_afternoon" begin="28800" end="36000" from="-E6" to="E9" vehsPerHour="40" type="car"/>
+    <flow id="f_33_late_afternoon" begin="36000" end="43200" from="-E6" to="E9" vehsPerHour="160" type="car"/>
+    <flow id="f_34_early_morning" begin="0" end="7200" from="-E6" to="E21" vehsPerHour="84" type="car"/>
+    <flow id="f_34_morning_peak" begin="7200" end="10800" from="-E6" to="E21" vehsPerHour="168" type="car"/>
+    <flow id="f_34_late_morning" begin="10800" end="21600" from="-E6" to="E21" vehsPerHour="91" type="car"/>
+    <flow id="f_34_lunch" begin="21600" end="28800" from="-E6" to="E21" vehsPerHour="77" type="car"/>
+    <flow id="f_34_early_afternoon" begin="28800" end="36000" from="-E6" to="E21" vehsPerHour="70" type="car"/>
+    <flow id="f_34_late_afternoon" begin="36000" end="43200" from="-E6" to="E21" vehsPerHour="280" type="car"/>
+    <flow id="f_35_early_morning" begin="0" end="7200" from="-E6" to="E13" vehsPerHour="54" type="car"/>
+    <flow id="f_35_morning_peak" begin="7200" end="10800" from="-E6" to="E13" vehsPerHour="108" type="car"/>
+    <flow id="f_35_late_morning" begin="10800" end="21600" from="-E6" to="E13" vehsPerHour="58" type="car"/>
+    <flow id="f_35_lunch" begin="21600" end="28800" from="-E6" to="E13" vehsPerHour="50" type="car"/>
+    <flow id="f_35_early_afternoon" begin="28800" end="36000" from="-E6" to="E13" vehsPerHour="45" type="car"/>
+    <flow id="f_35_late_afternoon" begin="36000" end="43200" from="-E6" to="E13" vehsPerHour="180" type="car"/>
+    <flow id="f_36_early_morning" begin="0" end="7200" from="-E6" to="E12" vehsPerHour="48" type="car"/>
+    <flow id="f_36_morning_peak" begin="7200" end="10800" from="-E6" to="E12" vehsPerHour="96" type="car"/>
+    <flow id="f_36_late_morning" begin="10800" end="21600" from="-E6" to="E12" vehsPerHour="52" type="car"/>
+    <flow id="f_36_lunch" begin="21600" end="28800" from="-E6" to="E12" vehsPerHour="44" type="car"/>
+    <flow id="f_36_early_afternoon" begin="28800" end="36000" from="-E6" to="E12" vehsPerHour="40" type="car"/>
+    <flow id="f_36_late_afternoon" begin="36000" end="43200" from="-E6" to="E12" vehsPerHour="160" type="car"/>
+    <flow id="f_37_early_morning" begin="0" end="7200" from="-E6" to="E11" vehsPerHour="54" type="car"/>
+    <flow id="f_37_morning_peak" begin="7200" end="10800" from="-E6" to="E11" vehsPerHour="108" type="car"/>
+    <flow id="f_37_late_morning" begin="10800" end="21600" from="-E6" to="E11" vehsPerHour="58" type="car"/>
+    <flow id="f_37_lunch" begin="21600" end="28800" from="-E6" to="E11" vehsPerHour="50" type="car"/>
+    <flow id="f_37_early_afternoon" begin="28800" end="36000" from="-E6" to="E11" vehsPerHour="45" type="car"/>
+    <flow id="f_37_late_afternoon" begin="36000" end="43200" from="-E6" to="E11" vehsPerHour="180" type="car"/>
+    <flow id="f_38_early_morning" begin="0" end="7200" from="-E6" to="E15" vehsPerHour="96" type="car"/>
+    <flow id="f_38_morning_peak" begin="7200" end="10800" from="-E6" to="E15" vehsPerHour="192" type="car"/>
+    <flow id="f_38_late_morning" begin="10800" end="21600" from="-E6" to="E15" vehsPerHour="104" type="car"/>
+    <flow id="f_38_lunch" begin="21600" end="28800" from="-E6" to="E15" vehsPerHour="88" type="car"/>
+    <flow id="f_38_early_afternoon" begin="28800" end="36000" from="-E6" to="E15" vehsPerHour="80" type="car"/>
+    <flow id="f_38_late_afternoon" begin="36000" end="43200" from="-E6" to="E15" vehsPerHour="320" type="car"/>
 
 </routes>

@@ -222,7 +222,8 @@ def train_12h_episode(config, agent, env, episode: int, ppo_epochs: int = None):
             if episode_steps - last_checkpoint_step >= checkpoint_interval:
                 sim_hour = 6 + (episode_steps // 3600)  # Convert to actual hour
                 checkpoint_name = f"checkpoint_12h_ep{episode}_hour{sim_hour}"
-                agent.save_checkpoint(checkpoint_name, episode, episode_reward)
+                checkpoint_path = str(SCRIPT_DIR / config.MODEL_DIR / checkpoint_name)
+                agent.save_checkpoint(checkpoint_path)
                 print(f"  [Checkpoint saved: {checkpoint_name}]")
                 last_checkpoint_step = episode_steps
             
@@ -419,7 +420,8 @@ def train_12h(
         
         # Save checkpoint after each episode
         checkpoint_name = f"checkpoint_12h_{scenario}_ep{episode}"
-        agent.save_checkpoint(checkpoint_name, episode, episode_reward)
+        checkpoint_path = str(SCRIPT_DIR / config.MODEL_DIR / checkpoint_name)
+        agent.save_checkpoint(checkpoint_path)
         print(f"\n[Checkpoint saved: {checkpoint_name}]")
         
         # Decay epsilon
@@ -441,7 +443,8 @@ def train_12h(
     
     # Save final model
     final_name = f"mappo_12h_{scenario}_final_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-    agent.save_checkpoint(final_name, start_episode + episodes - 1, all_rewards[-1])
+    final_path = str(SCRIPT_DIR / config.MODEL_DIR / final_name)
+    agent.save_checkpoint(final_path)
     print(f"Final model saved: {final_name}")
 
 

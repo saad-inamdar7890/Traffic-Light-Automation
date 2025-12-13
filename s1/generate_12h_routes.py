@@ -3,37 +3,27 @@
 Generate 12-Hour Realistic Traffic Route Files
 ==============================================
 
-Creates comprehensive 12-hour traffic scenarios (6am-6pm) capturing key patterns:
-- Early Morning (6am-8am): Building toward rush hour
-- Morning Rush (8am-9am): Peak morning rush
-- Late Morning (9am-12pm): Moderate, post-rush
-- Lunch (12pm-2pm): Lunch traffic, steady
-- Early Afternoon (2pm-4pm): Moderate, steady
-- Late Afternoon (4pm-6pm): Building toward evening rush
+Uses the proper validated routes from original.rou.xml with time-varying flow rates.
+All 39 routes are validated to have proper paths (no U-turns, no single-edge routes).
 
-Output: k1_routes_12h_{scenario}.rou.xml files
-
-Scenarios:
-- weekday: Standard workday pattern with strong rush hours
-- weekend: Relaxed pattern, late morning peak
-- friday: Stronger afternoon traffic, pre-evening rush
-- event: Major event causing afternoon surge
+12-hour scenario (6am-6pm) with 6 time periods:
+- Early Morning (6-8am): Building toward rush hour
+- Morning Peak (8-9am): Rush hour
+- Late Morning (9am-12pm): Post-rush moderate
+- Lunch (12-2pm): Steady traffic
+- Early Afternoon (2-4pm): Quiet period  
+- Late Afternoon (4-6pm): Evening rush hour (2x traffic)
 
 Usage:
-    python generate_12h_routes.py                      # Generate all scenarios
-    python generate_12h_routes.py --scenario weekday   # Generate specific scenario
-    python generate_12h_routes.py --validate           # Validate routes with SUMO
+    python generate_12h_routes.py --scenario weekday
+    python generate_12h_routes.py --scenario all --validate
 """
 
 import argparse
-import os
 import subprocess
-import shutil
 from pathlib import Path
-from datetime import datetime
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-NETWORK_FILE = SCRIPT_DIR / 'k1.net.xml'
 OUTPUT_DIR = SCRIPT_DIR
 
 # =============================================================================
@@ -42,200 +32,161 @@ OUTPUT_DIR = SCRIPT_DIR
 
 TIME_PERIODS = [
     # (start_sec, end_sec, name, description)
-    (0,     7200,  'early_morning',  '6am-8am: Building toward rush hour'),
-    (7200,  10800, 'morning_peak',   '8am-9am: Peak morning rush'),
-    (10800, 21600, 'late_morning',   '9am-12pm: Moderate, post-rush'),
-    (21600, 28800, 'lunch',          '12pm-2pm: Lunch traffic, steady'),
-    (28800, 36000, 'early_afternoon','2pm-4pm: Moderate, steady'),
-    (36000, 43200, 'late_afternoon', '4pm-6pm: Building toward evening'),
+    (0,     7200,  'early_morning',  '6am-8am'),
+    (7200,  10800, 'morning_peak',   '8am-9am'),
+    (10800, 21600, 'late_morning',   '9am-12pm'),
+    (21600, 28800, 'lunch',          '12pm-2pm'),
+    (28800, 36000, 'early_afternoon','2pm-4pm'),
+    (36000, 43200, 'late_afternoon', '4pm-6pm'),
 ]
+
+# =============================================================================
+# VALIDATED ROUTES FROM original.rou.xml
+# These are proper routes with no U-turns or single-edge paths
+# Format: (id, from_edge, to_edge, base_veh_per_hour)
+# =============================================================================
+
+ROUTES = [
+    # From -E9 (5 routes)
+    ('f_0', '-E9', 'E13', 100),
+    ('f_1', '-E9', 'E6', 100),
+    ('f_2', '-E9', 'E24', 120),
+    ('f_3', '-E9', 'E10', 80),
+    ('f_4', '-E9', 'E21', 90),
+    
+    # From -E10 (5 routes)
+    ('f_5', '-E10', 'E6', 100),
+    ('f_6', '-E10', 'E21', 150),
+    ('f_7', '-E10', 'E15', 180),
+    ('f_8', '-E10', 'E24', 120),
+    ('f_9', '-E10', 'E13', 80),
+    ('f_10', '-E10', 'E15', 180),  # Major corridor
+    
+    # From -E11 (5 routes)
+    ('f_11', '-E11', 'E6', 90),
+    ('f_12', '-E11', 'E9', 80),
+    ('f_13', '-E11', 'E13', 70),
+    ('f_14', '-E11', 'E15', 100),
+    ('f_15', '-E11', 'E24', 150),
+    
+    # From -E12 (4 routes)
+    ('f_16', '-E12', 'E9', 80),
+    ('f_17', '-E12', 'E6', 90),
+    ('f_18', '-E12', 'E15', 100),
+    ('f_19', '-E12', 'E24', 110),
+    
+    # From -E13 (4 routes)
+    ('f_20', '-E13', 'E24', 120),
+    ('f_21', '-E13', 'E6', 100),
+    ('f_22', '-E13', 'E15', 110),
+    ('f_23', '-E13', 'E10', 90),
+    
+    # From -E21 (4 routes)
+    ('f_24', '-E21', 'E6', 100),
+    ('f_25', '-E21', 'E15', 180),  # Major corridor
+    ('f_26', '-E21', 'E11', 90),
+    ('f_27', '-E21', 'E12', 80),
+    
+    # From -E24 (4 routes)
+    ('f_28', '-E24', 'E11', 100),
+    ('f_29', '-E24', 'E15', 180),  # Major corridor
+    ('f_30', '-E24', 'E13', 90),
+    ('f_31', '-E24', 'E6', 100),
+    
+    # From -E6 (7 routes)
+    ('f_32', '-E6', 'E24', 150),
+    ('f_33', '-E6', 'E9', 80),
+    ('f_34', '-E6', 'E21', 140),
+    ('f_35', '-E6', 'E13', 90),
+    ('f_36', '-E6', 'E12', 80),
+    ('f_37', '-E6', 'E11', 90),
+    ('f_38', '-E6', 'E15', 160),  # Major corridor
+]
+
+# Total: 39 routes (matching original.rou.xml)
 
 # =============================================================================
 # SCENARIO MULTIPLIERS
-# Each list has 6 values corresponding to the 6 time periods
-# Base rate: ~100 veh/hour for major routes, ~60 for medium, ~30 for minor
+# Each list has 6 values for the 6 time periods
+# [early_morning, morning_peak, late_morning, lunch, early_afternoon, late_afternoon]
 # =============================================================================
 
 SCENARIO_MULTIPLIERS = {
-    # Standard weekday: Strong morning peak and evening rush hour
-    'weekday': {
-        'major':  [0.80, 1.20, 0.65, 0.60, 0.55, 2.00],  # Late afternoon = 2x rush hour
-        'medium': [0.70, 1.10, 0.60, 0.55, 0.50, 1.80],
-        'minor':  [0.50, 0.80, 0.45, 0.40, 0.40, 1.40],
-    },
+    # Standard weekday: Strong morning peak and evening rush hour (2x)
+    'weekday': [0.60, 1.20, 0.65, 0.55, 0.50, 2.00],
+    
     # Weekend: Later morning peak, more leisure traffic
-    'weekend': {
-        'major':  [0.40, 0.55, 0.80, 0.85, 0.80, 0.75],
-        'medium': [0.35, 0.50, 0.75, 0.80, 0.75, 0.70],
-        'minor':  [0.30, 0.40, 0.60, 0.65, 0.60, 0.55],
-    },
-    # Friday: Normal morning, building afternoon
-    'friday': {
-        'major':  [0.80, 1.20, 0.65, 0.60, 0.70, 0.95],
-        'medium': [0.70, 1.10, 0.60, 0.55, 0.65, 0.90],
-        'minor':  [0.50, 0.80, 0.45, 0.40, 0.55, 0.75],
-    },
-    # Event day: Afternoon buildup, heavy late afternoon
-    'event': {
-        'major':  [0.75, 1.10, 0.70, 0.90, 1.20, 1.50],
-        'medium': [0.65, 1.00, 0.65, 0.85, 1.10, 1.40],
-        'minor':  [0.45, 0.75, 0.50, 0.70, 0.90, 1.20],
-    },
-}
-
-# =============================================================================
-# ROUTE DEFINITIONS (Same as 24h version)
-# =============================================================================
-
-# Major routes: Main corridors with highest traffic
-MAJOR_ROUTES = [
-    ('-E15', 'E24', 'E4 -E5 E16', 'passenger'),
-    ('-E15', 'E21', '-E18 E19 E20', 'passenger'),
-    ('-E15', 'E10', '-E18 -E17', 'passenger'),
-    ('-E24', 'E15', '-E16 E5 -E4', 'passenger'),
-    ('-E21', 'E15', '-E20 -E19 E18', 'passenger'),
-    ('-E10', 'E15', 'E17 E18', 'passenger'),
-    ('-E11', 'E24', '', 'passenger'),
-    ('-E24', 'E11', '-E23', 'passenger'),
-    ('-E9', 'E24', '', 'passenger'),
-    ('-E12', 'E21', '', 'passenger'),
-]
-
-# Medium routes: Secondary corridors
-MEDIUM_ROUTES = [
-    ('-E11', 'E21', '', 'passenger'),
-    ('-E12', 'E15', '', 'passenger'),
-    ('-E13', 'E9', '', 'passenger'),
-    ('-E13', 'E15', '', 'passenger'),
-    ('-E24', 'E12', '-E23', 'passenger'),
-    ('-E24', 'E15', '', 'passenger'),
-    ('-E21', 'E15', '', 'passenger'),
-    ('-E21', 'E10', '', 'passenger'),
-    ('-E21', 'E11', '-E20 -E19 E18 -E17', 'passenger'),
-    ('-E10', 'E21', 'E17 E18 E19 E20', 'passenger'),
-]
-
-# Minor routes: Local streets
-MINOR_ROUTES = [
-    ('-E9', 'E15', '', 'passenger'),
-    ('-E9', 'E21', '', 'passenger'),
-    ('-E9', 'E12', '', 'passenger'),
-    ('-E11', 'E12', '', 'passenger'),
-    ('-E13', 'E21', '', 'passenger'),
-    ('-E13', 'E24', '', 'passenger'),
-    ('-E12', 'E9', '', 'passenger'),
-    ('-E12', 'E24', '', 'passenger'),
-]
-
-# Commercial/delivery routes
-COMMERCIAL_ROUTES = [
-    ('-E15', 'E24', 'E4 -E5 E16', 'truck'),
-    ('-E24', 'E15', '-E16 E5 -E4', 'truck'),
-    ('-E11', 'E24', '', 'delivery'),
-    ('-E24', 'E11', '-E23', 'delivery'),
-    ('-E15', 'E21', '-E18 E19 E20', 'delivery'),
-]
-
-# Bus routes
-BUS_ROUTES = [
-    ('-E15', 'E24', 'E4 -E5 E16', 'bus'),
-    ('-E24', 'E15', '-E16 E5 -E4', 'bus'),
-    ('-E21', 'E15', '-E20 -E19 E18', 'bus'),
-    ('-E15', 'E21', '-E18 E19 E20', 'bus'),
-]
-
-# Base rates for each category (vehicles per hour)
-BASE_RATES = {
-    'major': 200,
-    'medium': 120,
-    'minor': 60,
-    'commercial': 25,
-    'bus': 8,
+    'weekend': [0.40, 0.55, 0.80, 0.85, 0.75, 1.20],
+    
+    # Friday: Normal morning, heavy afternoon buildup
+    'friday': [0.65, 1.20, 0.65, 0.60, 0.80, 2.20],
+    
+    # Event day: Heavy afternoon and evening
+    'event': [0.60, 1.10, 0.70, 1.00, 1.50, 2.50],
 }
 
 
-def generate_flows(scenario_name: str) -> str:
-    """Generate flow definitions for a 12-hour scenario."""
+def generate_route_file(scenario_name: str) -> str:
+    """Generate route file XML content for a 12-hour scenario."""
     if scenario_name not in SCENARIO_MULTIPLIERS:
         raise ValueError(f"Unknown scenario: {scenario_name}")
     
     multipliers = SCENARIO_MULTIPLIERS[scenario_name]
-    lines = []
     
-    # XML header
+    lines = []
     lines.append('<?xml version="1.0" encoding="UTF-8"?>')
+    lines.append('')
+    lines.append(f'<!-- 12-Hour {scenario_name.title()} Traffic Scenario (6am-6pm) -->')
+    lines.append('<!-- Generated from validated routes in original.rou.xml -->')
+    lines.append('<!-- 39 routes x 6 time periods = 234 flows -->')
+    lines.append('')
     lines.append('<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">')
     lines.append('')
     
-    # Vehicle types
-    lines.append('    <!-- Vehicle Types -->')
-    lines.append('    <vType id="passenger" accel="2.6" decel="4.5" sigma="0.5" length="5" maxSpeed="50" guiShape="passenger"/>')
-    lines.append('    <vType id="truck" accel="1.3" decel="4.0" sigma="0.5" length="12" maxSpeed="36" guiShape="truck"/>')
-    lines.append('    <vType id="bus" accel="1.2" decel="4.0" sigma="0.3" length="12" maxSpeed="25" guiShape="bus"/>')
-    lines.append('    <vType id="delivery" accel="2.0" decel="4.0" sigma="0.5" length="7" maxSpeed="40" guiShape="delivery"/>')
+    # Vehicle type (single type for simplicity)
+    lines.append('    <!-- Vehicle Type -->')
+    lines.append('    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" maxSpeed="50"/>')
     lines.append('')
     
-    flow_id = 0
+    # Generate flows for each route and time period
+    lines.append('    <!-- Traffic Flows (39 routes x 6 periods) -->')
+    lines.append('')
     
-    # Generate flows for each route category
-    route_categories = [
-        ('major', MAJOR_ROUTES),
-        ('medium', MEDIUM_ROUTES),
-        ('minor', MINOR_ROUTES),
-        ('commercial', COMMERCIAL_ROUTES),
-        ('bus', BUS_ROUTES),
-    ]
+    flow_count = 0
+    current_origin = None
     
-    for category, routes in route_categories:
-        lines.append(f'    <!-- {category.upper()} Routes -->')
-        base_rate = BASE_RATES[category]
+    for flow_id, from_edge, to_edge, base_rate in ROUTES:
+        # Add comment for new origin
+        if from_edge != current_origin:
+            if current_origin is not None:
+                lines.append('')
+            lines.append(f'    <!-- Routes from {from_edge} -->')
+            current_origin = from_edge
         
-        # Get multipliers for this category
-        if category in ['commercial', 'bus']:
-            cat_multipliers = multipliers.get('medium', [0.5] * 6)
-            if category == 'bus':
-                cat_multipliers = [0.8] * 6  # Bus is more consistent
-        else:
-            cat_multipliers = multipliers[category]
-        
-        for route_from, route_to, route_via, vtype in routes:
-            for period_idx, (start, end, period_name, _) in enumerate(TIME_PERIODS):
-                mult = cat_multipliers[period_idx]
-                rate = base_rate * mult / len(routes)
-                
-                if rate < 1:
-                    rate = 1
-                
-                # Convert to per-hour probability
-                veh_per_sec = rate / 3600.0
-                period_duration = end - start
-                
-                flow_attrs = [
-                    f'id="f_{flow_id}_{period_name}"',
-                    f'from="{route_from}"',
-                    f'to="{route_to}"',
-                    f'begin="{start}"',
-                    f'end="{end}"',
-                    f'probability="{veh_per_sec:.6f}"',
-                    f'type="{vtype}"',
-                ]
-                
-                if route_via:
-                    flow_attrs.insert(3, f'via="{route_via}"')
-                
-                lines.append(f'    <flow {" ".join(flow_attrs)}/>')
-                flow_id += 1
-        
-        lines.append('')
+        for period_idx, (start, end, period_name, desc) in enumerate(TIME_PERIODS):
+            mult = multipliers[period_idx]
+            veh_per_hour = max(1, base_rate * mult)  # Minimum 1 veh/hr
+            
+            unique_flow_id = f"{flow_id}_{period_name}"
+            
+            lines.append(f'    <flow id="{unique_flow_id}" '
+                        f'begin="{start}" end="{end}" '
+                        f'from="{from_edge}" to="{to_edge}" '
+                        f'vehsPerHour="{veh_per_hour:.0f}" type="car"/>')
+            flow_count += 1
     
+    lines.append('')
     lines.append('</routes>')
     
-    return '\n'.join(lines)
+    return '\n'.join(lines), flow_count
 
 
 def generate_sumocfg(scenario_name: str) -> str:
     """Generate SUMO configuration file for 12-hour scenario."""
     return f'''<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 12-Hour {scenario_name.title()} Traffic Configuration (6am-6pm) -->
+
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
     <input>
         <net-file value="k1.net.xml"/>
@@ -260,12 +211,7 @@ def generate_sumocfg(scenario_name: str) -> str:
 
 def validate_routes(scenario_name: str) -> bool:
     """Validate routes using SUMO."""
-    route_file = OUTPUT_DIR / f'k1_routes_12h_{scenario_name}.rou.xml'
     config_file = OUTPUT_DIR / f'k1_12h_{scenario_name}.sumocfg'
-    
-    if not route_file.exists():
-        print(f"Error: Route file not found: {route_file}")
-        return False
     
     try:
         result = subprocess.run(
@@ -275,24 +221,43 @@ def validate_routes(scenario_name: str) -> bool:
             timeout=60
         )
         if result.returncode == 0:
-            print(f"✓ Routes validated successfully: {scenario_name}")
+            print(f"  ✓ Routes validated successfully")
             return True
         else:
-            print(f"✗ Validation failed for {scenario_name}:")
-            print(result.stderr)
+            print(f"  ✗ Validation failed:")
+            print(result.stderr[:500])
             return False
     except subprocess.TimeoutExpired:
-        print(f"✗ Validation timed out for {scenario_name}")
+        print(f"  ✗ Validation timed out")
         return False
     except FileNotFoundError:
-        print("Warning: SUMO not found. Skipping validation.")
+        print("  Warning: SUMO not found. Skipping validation.")
         return True
+
+
+def print_traffic_summary(scenario_name: str):
+    """Print a summary of traffic rates for each period."""
+    multipliers = SCENARIO_MULTIPLIERS[scenario_name]
+    
+    # Calculate total base rate
+    total_base = sum(r[3] for r in ROUTES)
+    
+    print(f"\n  Traffic Summary:")
+    print(f"  {'Period':<20} {'Time':<10} {'Mult':>6} {'Total veh/hr':>12}")
+    print(f"  {'-'*50}")
+    
+    for period_idx, (start, end, period_name, desc) in enumerate(TIME_PERIODS):
+        mult = multipliers[period_idx]
+        total_rate = total_base * mult
+        print(f"  {period_name:<20} {desc:<10} {mult:>5.2f}x {total_rate:>12.0f}")
+    
+    print(f"\n  Base total: {total_base} veh/hr across {len(ROUTES)} routes")
 
 
 def main():
     parser = argparse.ArgumentParser(description='Generate 12-hour traffic route files')
     parser.add_argument('--scenario', choices=['weekday', 'weekend', 'friday', 'event', 'all'],
-                        default='all', help='Scenario to generate')
+                        default='weekday', help='Scenario to generate')
     parser.add_argument('--validate', action='store_true', help='Validate generated routes')
     parser.add_argument('--output-dir', type=str, default=None, help='Output directory')
     
@@ -306,22 +271,26 @@ def main():
     scenarios = ['weekday', 'weekend', 'friday', 'event'] if args.scenario == 'all' else [args.scenario]
     
     print("=" * 60)
-    print("12-Hour Traffic Route Generator (6am-6pm)")
+    print("12-Hour Traffic Route Generator")
+    print("Using validated routes from original.rou.xml")
     print("=" * 60)
     print(f"Output directory: {OUTPUT_DIR}")
-    print(f"Network file: {NETWORK_FILE}")
+    print(f"Total routes: {len(ROUTES)}")
+    print(f"Time periods: {len(TIME_PERIODS)}")
     print(f"Scenarios: {', '.join(scenarios)}")
-    print()
     
     for scenario in scenarios:
-        print(f"\nGenerating {scenario} scenario...")
+        print(f"\n{'='*60}")
+        print(f"Generating {scenario} scenario...")
+        print(f"{'='*60}")
         
         # Generate route file
-        route_xml = generate_flows(scenario)
+        route_xml, flow_count = generate_route_file(scenario)
         route_file = OUTPUT_DIR / f'k1_routes_12h_{scenario}.rou.xml'
         with open(route_file, 'w') as f:
             f.write(route_xml)
         print(f"  ✓ Created: {route_file.name}")
+        print(f"  ✓ Generated {flow_count} flows ({len(ROUTES)} routes x {len(TIME_PERIODS)} periods)")
         
         # Generate config file
         config_xml = generate_sumocfg(scenario)
@@ -330,20 +299,19 @@ def main():
             f.write(config_xml)
         print(f"  ✓ Created: {config_file.name}")
         
-        # Count flows
-        flow_count = route_xml.count('<flow ')
-        print(f"  ✓ Generated {flow_count} flows across 6 time periods")
+        # Print traffic summary
+        print_traffic_summary(scenario)
         
         # Validate if requested
         if args.validate:
             validate_routes(scenario)
     
-    print("\n" + "=" * 60)
+    print(f"\n{'='*60}")
     print("Route generation complete!")
     print("=" * 60)
     print("\nTo use in training:")
     print("  python train_12h_scenario.py --scenario weekday")
-    print("\nTo validate routes:")
+    print("\nTo validate routes manually:")
     print("  sumo -c k1_12h_weekday.sumocfg --start --quit-on-end --end 100")
 
 

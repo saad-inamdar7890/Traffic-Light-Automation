@@ -189,14 +189,12 @@ def run_mappo_simulation(checkpoint_path: str, config_file: str, max_steps: int 
     # Load checkpoint
     config = MAPPOConfig()
     config.STEPS_PER_EPISODE = max_steps
+    config.SUMO_CONFIG = config_file
+    config.USE_REALISTIC_24H_TRAFFIC = False
     
-    env = K1Environment(
-        sumocfg_file=config_file,
-        use_gui=False,
-        max_steps=max_steps
-    )
+    env = K1Environment(config)
     
-    agent = MAPPOAgent(config, env.local_state_dim, env.global_state_dim)
+    agent = MAPPOAgent(config)
     
     # Handle zip files
     actual_path = checkpoint_path

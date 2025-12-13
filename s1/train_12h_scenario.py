@@ -428,11 +428,7 @@ def train_12h(
         
         # Re-initialize environment for next episode
         if episode < start_episode + episodes - 1:
-            env = K1Environment(
-                sumocfg_file=str(config_file),
-                use_gui=False,
-                max_steps=config.STEPS_PER_EPISODE
-            )
+            env = K1Environment(config)
     
     # Final summary
     print(f"\n{'='*70}")

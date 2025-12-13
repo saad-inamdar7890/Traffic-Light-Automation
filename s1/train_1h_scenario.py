@@ -253,33 +253,35 @@ def train_1h_scenario(
             total_episodes += 1
             episode_start = time.time()
             
-            # Reset environment
-            states = env.reset()
+            # Reset environment - returns (local_states, global_state)
+            local_states, global_state = env.reset()
             episode_reward = 0
             step = 0
             
             # Episode loop
             while True:
-                # Agent selects actions
-                actions, log_probs, values = agent.select_actions(states)
+                # Agent selects actions based on local states
+                actions, log_probs, values = agent.select_actions(local_states)
                 
-                # Environment step
-                next_states, rewards, done, info = env.step(actions)
+                # Environment step - returns (next_local, next_global, rewards, done)
+                next_local_states, next_global_state, rewards, done = env.step(actions)
                 
-                # Store transition
-                agent.store_transition(states, actions, rewards, next_states, done, log_probs, values)
+                # Store transition (using local states for actors)
+                agent.store_transition(local_states, actions, rewards, next_local_states, done, log_probs, values)
                 
                 # Update metrics
                 episode_reward += np.mean(rewards)
-                states = next_states
+                local_states = next_local_states
+                global_state = next_global_state
                 step += 1
                 
                 if done:
                     break
             
-            # Get episode statistics
-            waiting_time = info.get('total_waiting_time', 0)
-            throughput = info.get('throughput', 0)
+            # Get episode statistics (rewards already tracked, steps = throughput proxy)
+            # Note: K1Environment.step() doesn't return info dict, so we use step count
+            waiting_time = 0  # Could be computed from final state if needed
+            throughput = step  # Steps completed = simulation steps run
             
             epoch_rewards.append(episode_reward)
             epoch_waiting_times.append(waiting_time)

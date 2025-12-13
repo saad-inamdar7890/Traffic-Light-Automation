@@ -258,9 +258,10 @@ def train_1h_scenario(
             episode_reward = 0
             step = 0
             update_count = 0
+            max_steps = SCENARIO_CONFIG['max_steps']  # 3600 for 1-hour
             
             # Episode loop
-            while True:
+            while step < max_steps:
                 # Agent selects actions based on local states
                 actions, log_probs, entropies = agent.select_actions(local_states)
                 
@@ -276,7 +277,7 @@ def train_1h_scenario(
                     update_count += 1
                     # Print progress every 10 updates
                     if update_count % 10 == 0:
-                        print(f"    Step {step}, Updates: {update_count}, Reward so far: {episode_reward:.2f}")
+                        print(f"    Step {step}/{max_steps}, Updates: {update_count}, Reward so far: {episode_reward:.2f}")
                 
                 # Update metrics
                 episode_reward += np.mean(rewards)
@@ -284,6 +285,7 @@ def train_1h_scenario(
                 global_state = next_global_state
                 step += 1
                 
+                # Also break if SUMO says done (all vehicles left)
                 if done:
                     break
             

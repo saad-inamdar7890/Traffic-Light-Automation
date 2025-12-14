@@ -192,12 +192,9 @@ def train_6h_original(
                 agent.config.PPO_EPOCHS = config.PPO_EPOCHS
                 print(f"  Forced UPDATE_FREQUENCY={config.UPDATE_FREQUENCY}, PPO_EPOCHS={config.PPO_EPOCHS}")
                 
-                train_state_file = resume_path / 'train_state.pkl'
-                if train_state_file.exists():
-                    with open(train_state_file, 'rb') as f:
-                        train_state = pickle.load(f)
-                    start_epoch = train_state.get('episode_count', 0) // episodes_per_epoch
-                    print(f"  Continuing from epoch: {start_epoch}")
+                # Note: We always start fresh epochs when resuming
+                # The checkpoint contains the trained weights, we just add more training
+                print(f"  Model weights loaded, starting fresh epoch count")
             except Exception as e:
                 print(f"Warning: Could not load checkpoint: {e}")
                 start_epoch = 0

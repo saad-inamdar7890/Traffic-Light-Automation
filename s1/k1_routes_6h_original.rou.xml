@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 6-Hour Evaluation Scenario with Original Routes -->
+<!-- All 39 validated routes from original.rou.xml -->
+<!-- For fair comparison: Fixed-Time vs MAPPO -->
+<!-- Duration: 6 hours (21600 seconds) -->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+    <!-- Vehicle Type -->
+    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" maxSpeed="50"/>
+
+    <!-- Traffic Flows (39 routes x 6 periods = 234 flows) -->
+    <!-- SORTED BY BEGIN TIME for SUMO compatibility -->
+    <!-- Early Morning (0-3600s) -->
+    <flow id="f_0_early_morning" type="car" begin="0" end="3600" from="-E9" to="E13" vehsPerHour="60"/>
+    <flow id="f_10_early_morning" type="car" begin="0" end="3600" from="-E10" to="E15" vehsPerHour="108"/>
+    <flow id="f_11_early_morning" type="car" begin="0" end="3600" from="-E11" to="E6" vehsPerHour="54"/>
+    <flow id="f_12_early_morning" type="car" begin="0" end="3600" from="-E11" to="E9" vehsPerHour="48"/>
+    <flow id="f_13_early_morning" type="car" begin="0" end="3600" from="-E11" to="E13" vehsPerHour="42"/>
+    <flow id="f_14_early_morning" type="car" begin="0" end="3600" from="-E11" to="E15" vehsPerHour="60"/>
+    <flow id="f_15_early_morning" type="car" begin="0" end="3600" from="-E11" to="E24" vehsPerHour="90"/>
+    <flow id="f_16_early_morning" type="car" begin="0" end="3600" from="-E12" to="E9" vehsPerHour="48"/>
+    <flow id="f_17_early_morning" type="car" begin="0" end="3600" from="-E12" to="E6" vehsPerHour="54"/>
+    <flow id="f_18_early_morning" type="car" begin="0" end="3600" from="-E12" to="E15" vehsPerHour="60"/>
+    <flow id="f_19_early_morning" type="car" begin="0" end="3600" from="-E12" to="E24" vehsPerHour="66"/>
+    <flow id="f_1_early_morning" type="car" begin="0" end="3600" from="-E9" to="E6" vehsPerHour="60"/>
+    <flow id="f_20_early_morning" type="car" begin="0" end="3600" from="-E13" to="E24" vehsPerHour="72"/>
+    <flow id="f_21_early_morning" type="car" begin="0" end="3600" from="-E13" to="E6" vehsPerHour="60"/>
+    <flow id="f_22_early_morning" type="car" begin="0" end="3600" from="-E13" to="E15" vehsPerHour="66"/>
+    <flow id="f_23_early_morning" type="car" begin="0" end="3600" from="-E13" to="E10" vehsPerHour="54"/>
+    <flow id="f_24_early_morning" type="car" begin="0" end="3600" from="-E21" to="E6" vehsPerHour="60"/>
+    <flow id="f_25_early_morning" type="car" begin="0" end="3600" from="-E21" to="E15" vehsPerHour="108"/>
+    <flow id="f_26_early_morning" type="car" begin="0" end="3600" from="-E21" to="E11" vehsPerHour="54"/>
+    <flow id="f_27_early_morning" type="car" begin="0" end="3600" from="-E21" to="E12" vehsPerHour="48"/>
+    <flow id="f_28_early_morning" type="car" begin="0" end="3600" from="-E24" to="E11" vehsPerHour="60"/>
+    <flow id="f_29_early_morning" type="car" begin="0" end="3600" from="-E24" to="E15" vehsPerHour="108"/>
+    <flow id="f_2_early_morning" type="car" begin="0" end="3600" from="-E9" to="E24" vehsPerHour="72"/>
+    <flow id="f_30_early_morning" type="car" begin="0" end="3600" from="-E24" to="E13" vehsPerHour="54"/>
+    <flow id="f_31_early_morning" type="car" begin="0" end="3600" from="-E24" to="E6" vehsPerHour="60"/>
+    <flow id="f_32_early_morning" type="car" begin="0" end="3600" from="-E6" to="E24" vehsPerHour="90"/>
+    <flow id="f_33_early_morning" type="car" begin="0" end="3600" from="-E6" to="E9" vehsPerHour="48"/>
+    <flow id="f_34_early_morning" type="car" begin="0" end="3600" from="-E6" to="E21" vehsPerHour="84"/>
+    <flow id="f_35_early_morning" type="car" begin="0" end="3600" from="-E6" to="E13" vehsPerHour="54"/>
+    <flow id="f_36_early_morning" type="car" begin="0" end="3600" from="-E6" to="E12" vehsPerHour="48"/>
+    <flow id="f_37_early_morning" type="car" begin="0" end="3600" from="-E6" to="E11" vehsPerHour="54"/>
+    <flow id="f_38_early_morning" type="car" begin="0" end="3600" from="-E6" to="E15" vehsPerHour="96"/>
+    <flow id="f_3_early_morning" type="car" begin="0" end="3600" from="-E9" to="E10" vehsPerHour="48"/>
+    <flow id="f_4_early_morning" type="car" begin="0" end="3600" from="-E9" to="E21" vehsPerHour="54"/>
+    <flow id="f_5_early_morning" type="car" begin="0" end="3600" from="-E10" to="E6" vehsPerHour="60"/>
+    <flow id="f_6_early_morning" type="car" begin="0" end="3600" from="-E10" to="E21" vehsPerHour="90"/>
+    <flow id="f_7_early_morning" type="car" begin="0" end="3600" from="-E10" to="E15" vehsPerHour="108"/>
+    <flow id="f_8_early_morning" type="car" begin="0" end="3600" from="-E10" to="E24" vehsPerHour="72"/>
+    <flow id="f_9_early_morning" type="car" begin="0" end="3600" from="-E10" to="E13" vehsPerHour="48"/>
+
+    <!-- Morning Peak (3600-7200s) -->
+    <flow id="f_0_morning_peak" type="car" begin="3600" end="7200" from="-E9" to="E13" vehsPerHour="120"/>
+    <flow id="f_10_morning_peak" type="car" begin="3600" end="7200" from="-E10" to="E15" vehsPerHour="216"/>
+    <flow id="f_11_morning_peak" type="car" begin="3600" end="7200" from="-E11" to="E6" vehsPerHour="108"/>
+    <flow id="f_12_morning_peak" type="car" begin="3600" end="7200" from="-E11" to="E9" vehsPerHour="96"/>
+    <flow id="f_13_morning_peak" type="car" begin="3600" end="7200" from="-E11" to="E13" vehsPerHour="84"/>
+    <flow id="f_14_morning_peak" type="car" begin="3600" end="7200" from="-E11" to="E15" vehsPerHour="120"/>
+    <flow id="f_15_morning_peak" type="car" begin="3600" end="7200" from="-E11" to="E24" vehsPerHour="180"/>
+    <flow id="f_16_morning_peak" type="car" begin="3600" end="7200" from="-E12" to="E9" vehsPerHour="96"/>
+    <flow id="f_17_morning_peak" type="car" begin="3600" end="7200" from="-E12" to="E6" vehsPerHour="108"/>
+    <flow id="f_18_morning_peak" type="car" begin="3600" end="7200" from="-E12" to="E15" vehsPerHour="120"/>
+    <flow id="f_19_morning_peak" type="car" begin="3600" end="7200" from="-E12" to="E24" vehsPerHour="132"/>
+    <flow id="f_1_morning_peak" type="car" begin="3600" end="7200" from="-E9" to="E6" vehsPerHour="120"/>
+    <flow id="f_20_morning_peak" type="car" begin="3600" end="7200" from="-E13" to="E24" vehsPerHour="144"/>
+    <flow id="f_21_morning_peak" type="car" begin="3600" end="7200" from="-E13" to="E6" vehsPerHour="120"/>
+    <flow id="f_22_morning_peak" type="car" begin="3600" end="7200" from="-E13" to="E15" vehsPerHour="132"/>
+    <flow id="f_23_morning_peak" type="car" begin="3600" end="7200" from="-E13" to="E10" vehsPerHour="108"/>
+    <flow id="f_24_morning_peak" type="car" begin="3600" end="7200" from="-E21" to="E6" vehsPerHour="120"/>
+    <flow id="f_25_morning_peak" type="car" begin="3600" end="7200" from="-E21" to="E15" vehsPerHour="216"/>
+    <flow id="f_26_morning_peak" type="car" begin="3600" end="7200" from="-E21" to="E11" vehsPerHour="108"/>
+    <flow id="f_27_morning_peak" type="car" begin="3600" end="7200" from="-E21" to="E12" vehsPerHour="96"/>
+    <flow id="f_28_morning_peak" type="car" begin="3600" end="7200" from="-E24" to="E11" vehsPerHour="120"/>
+    <flow id="f_29_morning_peak" type="car" begin="3600" end="7200" from="-E24" to="E15" vehsPerHour="216"/>
+    <flow id="f_2_morning_peak" type="car" begin="3600" end="7200" from="-E9" to="E24" vehsPerHour="144"/>
+    <flow id="f_30_morning_peak" type="car" begin="3600" end="7200" from="-E24" to="E13" vehsPerHour="108"/>
+    <flow id="f_31_morning_peak" type="car" begin="3600" end="7200" from="-E24" to="E6" vehsPerHour="120"/>
+    <flow id="f_32_morning_peak" type="car" begin="3600" end="7200" from="-E6" to="E24" vehsPerHour="180"/>
+    <flow id="f_33_morning_peak" type="car" begin="3600" end="7200" from="-E6" to="E9" vehsPerHour="96"/>
+    <flow id="f_34_morning_peak" type="car" begin="3600" end="7200" from="-E6" to="E21" vehsPerHour="168"/>
+    <flow id="f_35_morning_peak" type="car" begin="3600" end="7200" from="-E6" to="E13" vehsPerHour="108"/>
+    <flow id="f_36_morning_peak" type="car" begin="3600" end="7200" from="-E6" to="E12" vehsPerHour="96"/>
+    <flow id="f_37_morning_peak" type="car" begin="3600" end="7200" from="-E6" to="E11" vehsPerHour="108"/>
+    <flow id="f_38_morning_peak" type="car" begin="3600" end="7200" from="-E6" to="E15" vehsPerHour="192"/>
+    <flow id="f_3_morning_peak" type="car" begin="3600" end="7200" from="-E9" to="E10" vehsPerHour="96"/>
+    <flow id="f_4_morning_peak" type="car" begin="3600" end="7200" from="-E9" to="E21" vehsPerHour="108"/>
+    <flow id="f_5_morning_peak" type="car" begin="3600" end="7200" from="-E10" to="E6" vehsPerHour="120"/>
+    <flow id="f_6_morning_peak" type="car" begin="3600" end="7200" from="-E10" to="E21" vehsPerHour="180"/>
+    <flow id="f_7_morning_peak" type="car" begin="3600" end="7200" from="-E10" to="E15" vehsPerHour="216"/>
+    <flow id="f_8_morning_peak" type="car" begin="3600" end="7200" from="-E10" to="E24" vehsPerHour="144"/>
+    <flow id="f_9_morning_peak" type="car" begin="3600" end="7200" from="-E10" to="E13" vehsPerHour="96"/>
+
+    <!-- Midday (7200-10800s) -->
+    <flow id="f_0_midday" type="car" begin="7200" end="10800" from="-E9" to="E13" vehsPerHour="80"/>
+    <flow id="f_10_midday" type="car" begin="7200" end="10800" from="-E10" to="E15" vehsPerHour="144"/>
+    <flow id="f_11_midday" type="car" begin="7200" end="10800" from="-E11" to="E6" vehsPerHour="72"/>
+    <flow id="f_12_midday" type="car" begin="7200" end="10800" from="-E11" to="E9" vehsPerHour="64"/>
+    <flow id="f_13_midday" type="car" begin="7200" end="10800" from="-E11" to="E13" vehsPerHour="56"/>
+    <flow id="f_14_midday" type="car" begin="7200" end="10800" from="-E11" to="E15" vehsPerHour="80"/>
+    <flow id="f_15_midday" type="car" begin="7200" end="10800" from="-E11" to="E24" vehsPerHour="120"/>
+    <flow id="f_16_midday" type="car" begin="7200" end="10800" from="-E12" to="E9" vehsPerHour="64"/>
+    <flow id="f_17_midday" type="car" begin="7200" end="10800" from="-E12" to="E6" vehsPerHour="72"/>
+    <flow id="f_18_midday" type="car" begin="7200" end="10800" from="-E12" to="E15" vehsPerHour="80"/>
+    <flow id="f_19_midday" type="car" begin="7200" end="10800" from="-E12" to="E24" vehsPerHour="88"/>
+    <flow id="f_1_midday" type="car" begin="7200" end="10800" from="-E9" to="E6" vehsPerHour="80"/>
+    <flow id="f_20_midday" type="car" begin="7200" end="10800" from="-E13" to="E24" vehsPerHour="96"/>
+    <flow id="f_21_midday" type="car" begin="7200" end="10800" from="-E13" to="E6" vehsPerHour="80"/>
+    <flow id="f_22_midday" type="car" begin="7200" end="10800" from="-E13" to="E15" vehsPerHour="88"/>
+    <flow id="f_23_midday" type="car" begin="7200" end="10800" from="-E13" to="E10" vehsPerHour="72"/>
+    <flow id="f_24_midday" type="car" begin="7200" end="10800" from="-E21" to="E6" vehsPerHour="80"/>
+    <flow id="f_25_midday" type="car" begin="7200" end="10800" from="-E21" to="E15" vehsPerHour="144"/>
+    <flow id="f_26_midday" type="car" begin="7200" end="10800" from="-E21" to="E11" vehsPerHour="72"/>
+    <flow id="f_27_midday" type="car" begin="7200" end="10800" from="-E21" to="E12" vehsPerHour="64"/>
+    <flow id="f_28_midday" type="car" begin="7200" end="10800" from="-E24" to="E11" vehsPerHour="80"/>
+    <flow id="f_29_midday" type="car" begin="7200" end="10800" from="-E24" to="E15" vehsPerHour="144"/>
+    <flow id="f_2_midday" type="car" begin="7200" end="10800" from="-E9" to="E24" vehsPerHour="96"/>
+    <flow id="f_30_midday" type="car" begin="7200" end="10800" from="-E24" to="E13" vehsPerHour="72"/>
+    <flow id="f_31_midday" type="car" begin="7200" end="10800" from="-E24" to="E6" vehsPerHour="80"/>
+    <flow id="f_32_midday" type="car" begin="7200" end="10800" from="-E6" to="E24" vehsPerHour="120"/>
+    <flow id="f_33_midday" type="car" begin="7200" end="10800" from="-E6" to="E9" vehsPerHour="64"/>
+    <flow id="f_34_midday" type="car" begin="7200" end="10800" from="-E6" to="E21" vehsPerHour="112"/>
+    <flow id="f_35_midday" type="car" begin="7200" end="10800" from="-E6" to="E13" vehsPerHour="72"/>
+    <flow id="f_36_midday" type="car" begin="7200" end="10800" from="-E6" to="E12" vehsPerHour="64"/>
+    <flow id="f_37_midday" type="car" begin="7200" end="10800" from="-E6" to="E11" vehsPerHour="72"/>
+    <flow id="f_38_midday" type="car" begin="7200" end="10800" from="-E6" to="E15" vehsPerHour="128"/>
+    <flow id="f_3_midday" type="car" begin="7200" end="10800" from="-E9" to="E10" vehsPerHour="64"/>
+    <flow id="f_4_midday" type="car" begin="7200" end="10800" from="-E9" to="E21" vehsPerHour="72"/>
+    <flow id="f_5_midday" type="car" begin="7200" end="10800" from="-E10" to="E6" vehsPerHour="80"/>
+    <flow id="f_6_midday" type="car" begin="7200" end="10800" from="-E10" to="E21" vehsPerHour="120"/>
+    <flow id="f_7_midday" type="car" begin="7200" end="10800" from="-E10" to="E15" vehsPerHour="144"/>
+    <flow id="f_8_midday" type="car" begin="7200" end="10800" from="-E10" to="E24" vehsPerHour="96"/>
+    <flow id="f_9_midday" type="car" begin="7200" end="10800" from="-E10" to="E13" vehsPerHour="64"/>
+
+    <!-- Afternoon (10800-14400s) -->
+    <flow id="f_0_afternoon" type="car" begin="10800" end="14400" from="-E9" to="E13" vehsPerHour="65"/>
+    <flow id="f_10_afternoon" type="car" begin="10800" end="14400" from="-E10" to="E15" vehsPerHour="117"/>
+    <flow id="f_11_afternoon" type="car" begin="10800" end="14400" from="-E11" to="E6" vehsPerHour="58"/>
+    <flow id="f_12_afternoon" type="car" begin="10800" end="14400" from="-E11" to="E9" vehsPerHour="52"/>
+    <flow id="f_13_afternoon" type="car" begin="10800" end="14400" from="-E11" to="E13" vehsPerHour="45"/>
+    <flow id="f_14_afternoon" type="car" begin="10800" end="14400" from="-E11" to="E15" vehsPerHour="65"/>
+    <flow id="f_15_afternoon" type="car" begin="10800" end="14400" from="-E11" to="E24" vehsPerHour="97"/>
+    <flow id="f_16_afternoon" type="car" begin="10800" end="14400" from="-E12" to="E9" vehsPerHour="52"/>
+    <flow id="f_17_afternoon" type="car" begin="10800" end="14400" from="-E12" to="E6" vehsPerHour="58"/>
+    <flow id="f_18_afternoon" type="car" begin="10800" end="14400" from="-E12" to="E15" vehsPerHour="65"/>
+    <flow id="f_19_afternoon" type="car" begin="10800" end="14400" from="-E12" to="E24" vehsPerHour="71"/>
+    <flow id="f_1_afternoon" type="car" begin="10800" end="14400" from="-E9" to="E6" vehsPerHour="65"/>
+    <flow id="f_20_afternoon" type="car" begin="10800" end="14400" from="-E13" to="E24" vehsPerHour="78"/>
+    <flow id="f_21_afternoon" type="car" begin="10800" end="14400" from="-E13" to="E6" vehsPerHour="65"/>
+    <flow id="f_22_afternoon" type="car" begin="10800" end="14400" from="-E13" to="E15" vehsPerHour="71"/>
+    <flow id="f_23_afternoon" type="car" begin="10800" end="14400" from="-E13" to="E10" vehsPerHour="58"/>
+    <flow id="f_24_afternoon" type="car" begin="10800" end="14400" from="-E21" to="E6" vehsPerHour="65"/>
+    <flow id="f_25_afternoon" type="car" begin="10800" end="14400" from="-E21" to="E15" vehsPerHour="117"/>
+    <flow id="f_26_afternoon" type="car" begin="10800" end="14400" from="-E21" to="E11" vehsPerHour="58"/>
+    <flow id="f_27_afternoon" type="car" begin="10800" end="14400" from="-E21" to="E12" vehsPerHour="52"/>
+    <flow id="f_28_afternoon" type="car" begin="10800" end="14400" from="-E24" to="E11" vehsPerHour="65"/>
+    <flow id="f_29_afternoon" type="car" begin="10800" end="14400" from="-E24" to="E15" vehsPerHour="117"/>
+    <flow id="f_2_afternoon" type="car" begin="10800" end="14400" from="-E9" to="E24" vehsPerHour="78"/>
+    <flow id="f_30_afternoon" type="car" begin="10800" end="14400" from="-E24" to="E13" vehsPerHour="58"/>
+    <flow id="f_31_afternoon" type="car" begin="10800" end="14400" from="-E24" to="E6" vehsPerHour="65"/>
+    <flow id="f_32_afternoon" type="car" begin="10800" end="14400" from="-E6" to="E24" vehsPerHour="97"/>
+    <flow id="f_33_afternoon" type="car" begin="10800" end="14400" from="-E6" to="E9" vehsPerHour="52"/>
+    <flow id="f_34_afternoon" type="car" begin="10800" end="14400" from="-E6" to="E21" vehsPerHour="91"/>
+    <flow id="f_35_afternoon" type="car" begin="10800" end="14400" from="-E6" to="E13" vehsPerHour="58"/>
+    <flow id="f_36_afternoon" type="car" begin="10800" end="14400" from="-E6" to="E12" vehsPerHour="52"/>
+    <flow id="f_37_afternoon" type="car" begin="10800" end="14400" from="-E6" to="E11" vehsPerHour="58"/>
+    <flow id="f_38_afternoon" type="car" begin="10800" end="14400" from="-E6" to="E15" vehsPerHour="104"/>
+    <flow id="f_3_afternoon" type="car" begin="10800" end="14400" from="-E9" to="E10" vehsPerHour="52"/>
+    <flow id="f_4_afternoon" type="car" begin="10800" end="14400" from="-E9" to="E21" vehsPerHour="58"/>
+    <flow id="f_5_afternoon" type="car" begin="10800" end="14400" from="-E10" to="E6" vehsPerHour="65"/>
+    <flow id="f_6_afternoon" type="car" begin="10800" end="14400" from="-E10" to="E21" vehsPerHour="97"/>
+    <flow id="f_7_afternoon" type="car" begin="10800" end="14400" from="-E10" to="E15" vehsPerHour="117"/>
+    <flow id="f_8_afternoon" type="car" begin="10800" end="14400" from="-E10" to="E24" vehsPerHour="78"/>
+    <flow id="f_9_afternoon" type="car" begin="10800" end="14400" from="-E10" to="E13" vehsPerHour="52"/>
+
+    <!-- Evening Peak (14400-18000s) -->
+    <flow id="f_0_evening_peak" type="car" begin="14400" end="18000" from="-E9" to="E13" vehsPerHour="150"/>
+    <flow id="f_10_evening_peak" type="car" begin="14400" end="18000" from="-E10" to="E15" vehsPerHour="270"/>
+    <flow id="f_11_evening_peak" type="car" begin="14400" end="18000" from="-E11" to="E6" vehsPerHour="135"/>
+    <flow id="f_12_evening_peak" type="car" begin="14400" end="18000" from="-E11" to="E9" vehsPerHour="120"/>
+    <flow id="f_13_evening_peak" type="car" begin="14400" end="18000" from="-E11" to="E13" vehsPerHour="105"/>
+    <flow id="f_14_evening_peak" type="car" begin="14400" end="18000" from="-E11" to="E15" vehsPerHour="150"/>
+    <flow id="f_15_evening_peak" type="car" begin="14400" end="18000" from="-E11" to="E24" vehsPerHour="225"/>
+    <flow id="f_16_evening_peak" type="car" begin="14400" end="18000" from="-E12" to="E9" vehsPerHour="120"/>
+    <flow id="f_17_evening_peak" type="car" begin="14400" end="18000" from="-E12" to="E6" vehsPerHour="135"/>
+    <flow id="f_18_evening_peak" type="car" begin="14400" end="18000" from="-E12" to="E15" vehsPerHour="150"/>
+    <flow id="f_19_evening_peak" type="car" begin="14400" end="18000" from="-E12" to="E24" vehsPerHour="165"/>
+    <flow id="f_1_evening_peak" type="car" begin="14400" end="18000" from="-E9" to="E6" vehsPerHour="150"/>
+    <flow id="f_20_evening_peak" type="car" begin="14400" end="18000" from="-E13" to="E24" vehsPerHour="180"/>
+    <flow id="f_21_evening_peak" type="car" begin="14400" end="18000" from="-E13" to="E6" vehsPerHour="150"/>
+    <flow id="f_22_evening_peak" type="car" begin="14400" end="18000" from="-E13" to="E15" vehsPerHour="165"/>
+    <flow id="f_23_evening_peak" type="car" begin="14400" end="18000" from="-E13" to="E10" vehsPerHour="135"/>
+    <flow id="f_24_evening_peak" type="car" begin="14400" end="18000" from="-E21" to="E6" vehsPerHour="150"/>
+    <flow id="f_25_evening_peak" type="car" begin="14400" end="18000" from="-E21" to="E15" vehsPerHour="270"/>
+    <flow id="f_26_evening_peak" type="car" begin="14400" end="18000" from="-E21" to="E11" vehsPerHour="135"/>
+    <flow id="f_27_evening_peak" type="car" begin="14400" end="18000" from="-E21" to="E12" vehsPerHour="120"/>
+    <flow id="f_28_evening_peak" type="car" begin="14400" end="18000" from="-E24" to="E11" vehsPerHour="150"/>
+    <flow id="f_29_evening_peak" type="car" begin="14400" end="18000" from="-E24" to="E15" vehsPerHour="270"/>
+    <flow id="f_2_evening_peak" type="car" begin="14400" end="18000" from="-E9" to="E24" vehsPerHour="180"/>
+    <flow id="f_30_evening_peak" type="car" begin="14400" end="18000" from="-E24" to="E13" vehsPerHour="135"/>
+    <flow id="f_31_evening_peak" type="car" begin="14400" end="18000" from="-E24" to="E6" vehsPerHour="150"/>
+    <flow id="f_32_evening_peak" type="car" begin="14400" end="18000" from="-E6" to="E24" vehsPerHour="225"/>
+    <flow id="f_33_evening_peak" type="car" begin="14400" end="18000" from="-E6" to="E9" vehsPerHour="120"/>
+    <flow id="f_34_evening_peak" type="car" begin="14400" end="18000" from="-E6" to="E21" vehsPerHour="210"/>
+    <flow id="f_35_evening_peak" type="car" begin="14400" end="18000" from="-E6" to="E13" vehsPerHour="135"/>
+    <flow id="f_36_evening_peak" type="car" begin="14400" end="18000" from="-E6" to="E12" vehsPerHour="120"/>
+    <flow id="f_37_evening_peak" type="car" begin="14400" end="18000" from="-E6" to="E11" vehsPerHour="135"/>
+    <flow id="f_38_evening_peak" type="car" begin="14400" end="18000" from="-E6" to="E15" vehsPerHour="240"/>
+    <flow id="f_3_evening_peak" type="car" begin="14400" end="18000" from="-E9" to="E10" vehsPerHour="120"/>
+    <flow id="f_4_evening_peak" type="car" begin="14400" end="18000" from="-E9" to="E21" vehsPerHour="135"/>
+    <flow id="f_5_evening_peak" type="car" begin="14400" end="18000" from="-E10" to="E6" vehsPerHour="150"/>
+    <flow id="f_6_evening_peak" type="car" begin="14400" end="18000" from="-E10" to="E21" vehsPerHour="225"/>
+    <flow id="f_7_evening_peak" type="car" begin="14400" end="18000" from="-E10" to="E15" vehsPerHour="270"/>
+    <flow id="f_8_evening_peak" type="car" begin="14400" end="18000" from="-E10" to="E24" vehsPerHour="180"/>
+    <flow id="f_9_evening_peak" type="car" begin="14400" end="18000" from="-E10" to="E13" vehsPerHour="120"/>
+
+    <!-- Night (18000-21600s) -->
+    <flow id="f_0_night" type="car" begin="18000" end="21600" from="-E9" to="E13" vehsPerHour="40"/>
+    <flow id="f_10_night" type="car" begin="18000" end="21600" from="-E10" to="E15" vehsPerHour="72"/>
+    <flow id="f_11_night" type="car" begin="18000" end="21600" from="-E11" to="E6" vehsPerHour="36"/>
+    <flow id="f_12_night" type="car" begin="18000" end="21600" from="-E11" to="E9" vehsPerHour="32"/>
+    <flow id="f_13_night" type="car" begin="18000" end="21600" from="-E11" to="E13" vehsPerHour="28"/>
+    <flow id="f_14_night" type="car" begin="18000" end="21600" from="-E11" to="E15" vehsPerHour="40"/>
+    <flow id="f_15_night" type="car" begin="18000" end="21600" from="-E11" to="E24" vehsPerHour="60"/>
+    <flow id="f_16_night" type="car" begin="18000" end="21600" from="-E12" to="E9" vehsPerHour="32"/>
+    <flow id="f_17_night" type="car" begin="18000" end="21600" from="-E12" to="E6" vehsPerHour="36"/>
+    <flow id="f_18_night" type="car" begin="18000" end="21600" from="-E12" to="E15" vehsPerHour="40"/>
+    <flow id="f_19_night" type="car" begin="18000" end="21600" from="-E12" to="E24" vehsPerHour="44"/>
+    <flow id="f_1_night" type="car" begin="18000" end="21600" from="-E9" to="E6" vehsPerHour="40"/>
+    <flow id="f_20_night" type="car" begin="18000" end="21600" from="-E13" to="E24" vehsPerHour="48"/>
+    <flow id="f_21_night" type="car" begin="18000" end="21600" from="-E13" to="E6" vehsPerHour="40"/>
+    <flow id="f_22_night" type="car" begin="18000" end="21600" from="-E13" to="E15" vehsPerHour="44"/>
+    <flow id="f_23_night" type="car" begin="18000" end="21600" from="-E13" to="E10" vehsPerHour="36"/>
+    <flow id="f_24_night" type="car" begin="18000" end="21600" from="-E21" to="E6" vehsPerHour="40"/>
+    <flow id="f_25_night" type="car" begin="18000" end="21600" from="-E21" to="E15" vehsPerHour="72"/>
+    <flow id="f_26_night" type="car" begin="18000" end="21600" from="-E21" to="E11" vehsPerHour="36"/>
+    <flow id="f_27_night" type="car" begin="18000" end="21600" from="-E21" to="E12" vehsPerHour="32"/>
+    <flow id="f_28_night" type="car" begin="18000" end="21600" from="-E24" to="E11" vehsPerHour="40"/>
+    <flow id="f_29_night" type="car" begin="18000" end="21600" from="-E24" to="E15" vehsPerHour="72"/>
+    <flow id="f_2_night" type="car" begin="18000" end="21600" from="-E9" to="E24" vehsPerHour="48"/>
+    <flow id="f_30_night" type="car" begin="18000" end="21600" from="-E24" to="E13" vehsPerHour="36"/>
+    <flow id="f_31_night" type="car" begin="18000" end="21600" from="-E24" to="E6" vehsPerHour="40"/>
+    <flow id="f_32_night" type="car" begin="18000" end="21600" from="-E6" to="E24" vehsPerHour="60"/>
+    <flow id="f_33_night" type="car" begin="18000" end="21600" from="-E6" to="E9" vehsPerHour="32"/>
+    <flow id="f_34_night" type="car" begin="18000" end="21600" from="-E6" to="E21" vehsPerHour="56"/>
+    <flow id="f_35_night" type="car" begin="18000" end="21600" from="-E6" to="E13" vehsPerHour="36"/>
+    <flow id="f_36_night" type="car" begin="18000" end="21600" from="-E6" to="E12" vehsPerHour="32"/>
+    <flow id="f_37_night" type="car" begin="18000" end="21600" from="-E6" to="E11" vehsPerHour="36"/>
+    <flow id="f_38_night" type="car" begin="18000" end="21600" from="-E6" to="E15" vehsPerHour="64"/>
+    <flow id="f_3_night" type="car" begin="18000" end="21600" from="-E9" to="E10" vehsPerHour="32"/>
+    <flow id="f_4_night" type="car" begin="18000" end="21600" from="-E9" to="E21" vehsPerHour="36"/>
+    <flow id="f_5_night" type="car" begin="18000" end="21600" from="-E10" to="E6" vehsPerHour="40"/>
+    <flow id="f_6_night" type="car" begin="18000" end="21600" from="-E10" to="E21" vehsPerHour="60"/>
+    <flow id="f_7_night" type="car" begin="18000" end="21600" from="-E10" to="E15" vehsPerHour="72"/>
+    <flow id="f_8_night" type="car" begin="18000" end="21600" from="-E10" to="E24" vehsPerHour="48"/>
+    <flow id="f_9_night" type="car" begin="18000" end="21600" from="-E10" to="E13" vehsPerHour="32"/>
+
+</routes>

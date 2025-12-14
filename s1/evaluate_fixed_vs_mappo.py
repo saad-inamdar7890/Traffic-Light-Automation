@@ -61,6 +61,7 @@ SCENARIOS = {
     'event': 'k1_6h_event.sumocfg',
     '3h': 'k1_3h_varying.sumocfg',
     'realistic': 'k1_6h_evaluation.sumocfg',  # Uses validated 24h_realistic routes
+    'original': 'k1_6h_original.sumocfg',     # Uses ALL 39 original routes (fair comparison)
     # 24-hour scenarios
     '24h_weekday': 'k1_24h_weekday.sumocfg',
     '24h_weekend': 'k1_24h_weekend.sumocfg',
@@ -568,6 +569,94 @@ def plot_comparison(fixed_metrics, mappo_metrics, output_dir):
     plt.savefig(summary_path, dpi=150)
     plt.close()
     print(f"Saved summary chart to: {summary_path}")
+    
+    # =========================================================================
+    # NEW: Vehicle Count by Time Period Graph
+    # =========================================================================
+    fig, axes = plt.subplots(2, 1, figsize=(14, 10))
+    fig.suptitle('Vehicle Count Over Time (Traffic Flow Analysis)', fontsize=14, fontweight='bold')
+    
+    # Time periods for 6-hour scenario (in seconds)
+    time_periods = [
+        (0, 3600, 'Early Morning\n(0-1h)'),
+        (3600, 7200, 'Morning Peak\n(1-2h)'),
+        (7200, 10800, 'Midday\n(2-3h)'),
+        (10800, 14400, 'Afternoon\n(3-4h)'),
+        (14400, 18000, 'Evening Peak\n(4-5h)'),
+        (18000, 21600, 'Night\n(5-6h)'),
+    ]
+    
+    # Plot 1: Vehicle count over time (line plot)
+    ax = axes[0]
+    ax.plot(fixed_steps[:min_len], fixed_metrics['total_vehicles'][:min_len], 
+            label='Fixed-Time', color='red', alpha=0.7, linewidth=1.5)
+    ax.plot(mappo_steps[:min_len], mappo_metrics['total_vehicles'][:min_len], 
+            label='MAPPO', color='blue', alpha=0.7, linewidth=1.5)
+    
+    # Add vertical lines for time periods
+    for start, end, label in time_periods:
+        if start > 0:
+            ax.axvline(x=start, color='gray', linestyle='--', alpha=0.5)
+    
+    ax.set_xlabel('Simulation Step (seconds)')
+    ax.set_ylabel('Vehicles in Network')
+    ax.set_title('Active Vehicles Over Time with Time Period Markers')
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+    
+    # Plot 2: Average vehicles per time period (bar chart)
+    ax = axes[1]
+    
+    period_names = []
+    fixed_period_avg = []
+    mappo_period_avg = []
+    
+    for start, end, label in time_periods:
+        period_names.append(label)
+        
+        # Calculate average vehicles in this period
+        fixed_period_vehicles = [fixed_metrics['total_vehicles'][i] 
+                                 for i in range(min(len(fixed_metrics['step']), min_len))
+                                 if start <= fixed_metrics['step'][i] < end]
+        mappo_period_vehicles = [mappo_metrics['total_vehicles'][i]
+                                 for i in range(min(len(mappo_metrics['step']), min_len))
+                                 if start <= mappo_metrics['step'][i] < end]
+        
+        fixed_period_avg.append(np.mean(fixed_period_vehicles) if fixed_period_vehicles else 0)
+        mappo_period_avg.append(np.mean(mappo_period_vehicles) if mappo_period_vehicles else 0)
+    
+    x = np.arange(len(period_names))
+    width = 0.35
+    
+    bars1 = ax.bar(x - width/2, fixed_period_avg, width, label='Fixed-Time', color='red', alpha=0.7)
+    bars2 = ax.bar(x + width/2, mappo_period_avg, width, label='MAPPO', color='blue', alpha=0.7)
+    
+    ax.set_ylabel('Average Vehicles in Network')
+    ax.set_title('Average Vehicle Count by Time Period')
+    ax.set_xticks(x)
+    ax.set_xticklabels(period_names, fontsize=9)
+    ax.legend()
+    ax.grid(True, alpha=0.3, axis='y')
+    
+    # Add value labels on bars
+    for bar in bars1:
+        height = bar.get_height()
+        ax.annotate(f'{height:.0f}',
+                    xy=(bar.get_x() + bar.get_width() / 2, height),
+                    xytext=(0, 3), textcoords="offset points",
+                    ha='center', va='bottom', fontsize=8)
+    for bar in bars2:
+        height = bar.get_height()
+        ax.annotate(f'{height:.0f}',
+                    xy=(bar.get_x() + bar.get_width() / 2, height),
+                    xytext=(0, 3), textcoords="offset points",
+                    ha='center', va='bottom', fontsize=8)
+    
+    plt.tight_layout()
+    vehicle_count_path = output_dir / 'vehicle_count_by_period.png'
+    plt.savefig(vehicle_count_path, dpi=150)
+    plt.close()
+    print(f"Saved vehicle count graph to: {vehicle_count_path}")
 
 
 def save_results(fixed_metrics, mappo_metrics, output_dir, args):
@@ -682,10 +771,10 @@ Examples:
     parser.add_argument(
         '--scenario', '-s',
         type=str,
-        default='realistic',
-        choices=['weekday', 'weekend', 'event', '3h', 'realistic', 
+        default='original',
+        choices=['weekday', 'weekend', 'event', '3h', 'realistic', 'original',
                  '24h_weekday', '24h_weekend', '24h_friday', '24h_event'],
-        help='Traffic scenario to evaluate (default: realistic - uses validated routes)'
+        help='Traffic scenario to evaluate (default: original - uses all 39 original routes)'
     )
     parser.add_argument(
         '--duration', '-d',
